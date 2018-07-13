@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "O!FMS-V0", "O!FMS-V0\O!FMS-V0.vbproj", "{8615D921-1477-446F-B737-E0386EB54ED4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{785B3DB0-F0C7-4004-AA17-83D35CFA5CED}"
+	ProjectSection(SolutionItems) = preProject
+		FMS_SplashScreen.vb = FMS_SplashScreen.vb
+		..\..\..\..\Downloads\AdvancedHMIv399x\AdvancedHMIDrivers\Modbus\ModbusTCPCom.vb = ..\..\..\..\Downloads\AdvancedHMIv399x\AdvancedHMIDrivers\Modbus\ModbusTCPCom.vb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Communication", "Communication", "{CF4825F0-3CE6-4291-BC33-AB483F7B37E8}"
+	ProjectSection(SolutionItems) = preProject
+		DSReceiver.vb = DSReceiver.vb
+		DSSender.vb = DSSender.vb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{4D572B06-A4E7-4193-9272-62BDAC2B1BDD}"
+	ProjectSection(SolutionItems) = preProject
+		RandomString.vb = RandomString.vb
+		Scoring.vb = Scoring.vb
+		Seesaw.vb = Seesaw.vb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OFMS", "OFMS", "{DBEED3EA-A5EF-4766-8702-3D6A2334F57A}"
+	ProjectSection(SolutionItems) = preProject
+		FieldAndRobots.vb = FieldAndRobots.vb
+		full_UI_Tester.vb = full_UI_Tester.vb
+		GovernThread.vb = GovernThread.vb
+		Main.vb = Main.vb
+		Team.vb = Team.vb
+		tester.vb = tester.vb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PLC_Aux", "PLC_Aux", "{1F8B72BC-FED3-4D31-BFD7-3AE346062148}"
+	ProjectSection(SolutionItems) = preProject
+		O!FMS-V0\PLC_Receiver.vb = O!FMS-V0\PLC_Receiver.vb
+		PLC_Sender.vb = PLC_Sender.vb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "splashscreen", "splashscreen", "{BD0CF5D4-5AB8-448A-BE34-5A578B857D6E}"
+	ProjectSection(SolutionItems) = preProject
+		FMS_SplashScreen.vb = FMS_SplashScreen.vb
+		LogoPanel.form = LogoPanel.form
+		LogoPanel.vb = LogoPanel.vb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{CC4A38D0-B89E-4BBF-87D5-8B370549346D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Led", "Led", "{5D1733C8-12E1-42AC-A67B-71BAA2A573DC}"
+	ProjectSection(SolutionItems) = preProject
+		Colors.vb = Colors.vb
+		Controller.vb = Controller.vb
+		Modes.vb = Modes.vb
+		Strip.vb = Strip.vb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C27088F4-FB33-4E59-8EDF-A2C707833D1A}"
+	ProjectSection(SolutionItems) = preProject
+		O!FMS-V0\bin\EasyModbus.dll = O!FMS-V0\bin\EasyModbus.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8615D921-1477-446F-B737-E0386EB54ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8615D921-1477-446F-B737-E0386EB54ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8615D921-1477-446F-B737-E0386EB54ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8615D921-1477-446F-B737-E0386EB54ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CF4825F0-3CE6-4291-BC33-AB483F7B37E8} = {785B3DB0-F0C7-4004-AA17-83D35CFA5CED}
+		{4D572B06-A4E7-4193-9272-62BDAC2B1BDD} = {785B3DB0-F0C7-4004-AA17-83D35CFA5CED}
+		{DBEED3EA-A5EF-4766-8702-3D6A2334F57A} = {785B3DB0-F0C7-4004-AA17-83D35CFA5CED}
+		{1F8B72BC-FED3-4D31-BFD7-3AE346062148} = {785B3DB0-F0C7-4004-AA17-83D35CFA5CED}
+		{BD0CF5D4-5AB8-448A-BE34-5A578B857D6E} = {785B3DB0-F0C7-4004-AA17-83D35CFA5CED}
+		{CC4A38D0-B89E-4BBF-87D5-8B370549346D} = {785B3DB0-F0C7-4004-AA17-83D35CFA5CED}
+		{5D1733C8-12E1-42AC-A67B-71BAA2A573DC} = {4D572B06-A4E7-4193-9272-62BDAC2B1BDD}
+	EndGlobalSection
+EndGlobal
