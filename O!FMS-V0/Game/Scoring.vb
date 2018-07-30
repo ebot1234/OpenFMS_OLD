@@ -1,8 +1,8 @@
 ﻿Imports Microsoft.VisualBasic
 
-Imports O_FMS_V0.Main
-Imports O_FMS_V0.PLC_Receiver
-Imports O_FMS_V0.PLC_Sender
+'Imports O_FMS_V0.Main
+'Imports O_FMS_V0.PLC_Receiver
+'Imports O_FMS_V0.PLC_Sender
 Public Class Scoring
 
     Private Shared _instance As Scoring

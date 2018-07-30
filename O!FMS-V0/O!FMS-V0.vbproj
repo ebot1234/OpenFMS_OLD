@@ -46,16 +46,59 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutomatedSolutions.ASComm, Version=3.9.0.0, Culture=neutral, PublicKeyToken=67272fe3f372ded3" />
+    <Reference Include="bcParser.NET, Version=4.0.0.0, Culture=neutral, PublicKeyToken=336782ab629d24d0" />
+    <Reference Include="Interop.OPCAutomation">
+      <HintPath>bin\Interop.OPCAutomation.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Kepware.ClientAce.DA_Junction">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Kepware Technologies\ClientAce\V4.0\Kepware.ClientAce.DA_Junction.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Modbus, Version=1.11.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Modbus.Extensions, Version=1.11.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="myOPC">
+      <HintPath>bin\myOPC.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+    <Reference Include="OAS_DriverLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="OpcComnCtrls, Version=2.0.1.0, Culture=neutral, PublicKeyToken=78aea80f6827b5ab, processorArchitecture=x86" />
+    <Reference Include="OPCControls, Version=2.0.0.3, Culture=neutral, PublicKeyToken=09c594780a8fc3e6, processorArchitecture=MSIL" />
+    <Reference Include="OPCGauge, Version=2.0.0.2, Culture=neutral, PublicKeyToken=294a67dea8c56f3d, processorArchitecture=MSIL" />
+    <Reference Include="OPCSystems, Version=2.0.0.3, Culture=neutral, PublicKeyToken=3596d6f7c11b8a4b, processorArchitecture=MSIL" />
+    <Reference Include="OPCSystemsBrowseComputers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=65c8fec4b6d471be, processorArchitecture=MSIL" />
+    <Reference Include="OPCSystemsDataConnector, Version=3.5.0.0, Culture=neutral, PublicKeyToken=09c594780a8fc3e6, processorArchitecture=MSIL" />
+    <Reference Include="OPCSystemsInterface, Version=2.0.0.1, Culture=neutral, PublicKeyToken=7b0f3b64ec225157, processorArchitecture=MSIL" />
+    <Reference Include="OPCSystemsService, Version=10.0.0.69, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Opto22.Controller, Version=1.0.4.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
+    <Reference Include="Polenter.SharpSerializer, Version=2.20.0.0, Culture=neutral, PublicKeyToken=8f4f20011571ee5f" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Twilio.Api, Version=3.4.1.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="UnifiedAutomation.UaBase, Version=2.0.0.0, Culture=neutral, PublicKeyToken=90c158e6f23d82c1, processorArchitecture=MSIL" />
+    <Reference Include="UnifiedAutomation.UaClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=90c158e6f23d82c1, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -77,21 +120,16 @@
     <Compile Include="AudianceDisplay.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Communication\DSReceiver.vb" />
-    <Compile Include="Communication\DSSender.vb" />
-    <Compile Include="Communication\OverrideAttribute.vb" />
-    <Compile Include="Communication\OverrideAttribute1.vb" />
-    <Compile Include="OFMS\FieldAndRobots.vb" />
+    <Compile Include="Communication\testcomm.vb" />
+    <Compile Include="OFMS\Team_Networks.vb" />
     <Compile Include="Other\CRC.vb" />
+    <Compile Include="Communication\PLC_Comms_Server.vb" />
     <Compile Include="splashscreen\FMS_SplashScreen.vb" />
-    <Compile Include="OFMS\full_UI_Tester.vb" />
     <Compile Include="Game\Led\Colors.vb" />
     <Compile Include="Game\Led\Controller.vb" />
     <Compile Include="Game\Led\Modes.vb" />
     <Compile Include="Game\Led\Strip.vb" />
-    <Compile Include="OFMS\GovernThread.vb" />
     <Compile Include="splashscreen\LogoPanel.vb" />
-    <Compile Include="OFMS\Main.vb" />
     <Compile Include="OFMS-MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -114,13 +152,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Communication\PLC_Receiver.vb" />
-    <Compile Include="Communication\PLC_Sender.vb" />
     <Compile Include="Game\RandomString.vb" />
     <Compile Include="Game\Scoring.vb" />
     <Compile Include="Game\Seesaw.vb" />
-    <Compile Include="OFMS\Team.vb" />
-    <Compile Include="OFMS\tester.vb" />
     <Compile Include="UI\Msg.vb" />
     <Compile Include="_O_FMSDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -190,7 +224,91 @@
     <Content Include="OFMS\Sounds\FOGHORN.wav" />
     <Content Include="OFMS\Sounds\MATCH_WARMUP.wav" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="AxOPCWareAX">
+      <Guid>{64A4C595-E13B-416E-A782-5D3011F34878}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="OPCAutomation">
+      <Guid>{28E68F91-4A23-46C7-6EB2-5F264D510700}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="OPCWareAX">
+      <Guid>{64A4C595-E13B-416E-A782-5D3011F34878}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="TagDETAILSSERVERLib">
+      <Guid>{10C57569-0157-4F68-AC7F-44AE68FE0472}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="TagManagementPane">
+      <Guid>{7537FDDB-BCB5-4DAC-8F0B-8E20F6477CDB}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="TAGMODULELib">
+      <Guid>{D1A91C5D-BB08-4DE4-A296-DFF9968381C5}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="TAGVIEWLib">
+      <Guid>{DEA6D2CF-C8DF-49EF-84F8-487951BDBC30}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="XtraTimer">
+      <Guid>{9E674A81-6C2D-4397-A7FF-B8DC463EC8A7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

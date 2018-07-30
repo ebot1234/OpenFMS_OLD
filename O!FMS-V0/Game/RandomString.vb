@@ -5,20 +5,21 @@
 Public Class RandomString
 
     Private Shared random As Random = New Random
-
-    Public Shared Sub main(ByVal args() As String)
+    Public Shared gamedataUse
+    Public Shared Sub game_data_main(ByVal args() As String)
         Dim gameData As List(Of String) = Nothing
+
         'List of the Scale and Switch Vaules
-        gameData.add("LLL")
-        gameData.add("RRR")
-        gameData.add("LRL")
-        gameData.add("RLR")
+        gameData.Add("LLL")
+        gameData.Add("RRR")
+        gameData.Add("LRL")
+        gameData.Add("RLR")
         Dim i As Integer = 0
         Do While (i < 1)
             RandomString.getRandomItem(gameData)
             i = (i + 1)
         Loop
-
+        gamedataUse = gameData
     End Sub
 
     'Incharge of getting the random item from the list of vaules

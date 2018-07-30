@@ -172,6 +172,8 @@ Partial Class Form1
         Me._O_FMSDataSet1 = New O_FMS_V0._O_FMSDataSet1()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Ctime = New System.Windows.Forms.Label()
+        Me.OpcSystems1 = New OPCSystemsService.OPCSystems()
+        Me.ClientAceDA_Junction1 = New Kepware.ClientAce.DA_Junction.ClientAceDA_Junction()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -180,6 +182,7 @@ Partial Class Form1
         Me.Panel2.SuspendLayout()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._O_FMSDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientAceDA_Junction1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PLCTimer
@@ -1452,6 +1455,24 @@ Partial Class Form1
         Me.Ctime.Size = New System.Drawing.Size(0, 20)
         Me.Ctime.TabIndex = 24
         '
+        'OpcSystems1
+        '
+        Me.OpcSystems1.CanPauseAndContinue = True
+        Me.OpcSystems1.CanShutdown = True
+        Me.OpcSystems1.ExitCode = 0
+        Me.OpcSystems1.ServiceName = "OPCSystems"
+        '
+        'ClientAceDA_Junction1
+        '
+        Me.ClientAceDA_Junction1.AutoAddedServers = New String(-1) {}
+        Me.ClientAceDA_Junction1.BackColorError = System.Drawing.Color.Red
+        Me.ClientAceDA_Junction1.BackColorQualityBad = System.Drawing.Color.Red
+        Me.ClientAceDA_Junction1.ClientAceConfiguration = "Click here to open configuration"
+        Me.ClientAceDA_Junction1.Config = Nothing
+        Me.ClientAceDA_Junction1.DefaultUpdateRate = 1000
+        Me.ClientAceDA_Junction1.Parent = Nothing
+        Me.ClientAceDA_Junction1.ShowTimestampInTooltip = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1485,6 +1506,7 @@ Partial Class Form1
         Me.Panel2.PerformLayout()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._O_FMSDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientAceDA_Junction1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1638,5 +1660,7 @@ Partial Class Form1
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Ctime As System.Windows.Forms.Label
+    Friend WithEvents OpcSystems1 As OPCSystemsService.OPCSystems
+    Private WithEvents ClientAceDA_Junction1 As Kepware.ClientAce.DA_Junction.ClientAceDA_Junction
 
 End Class
