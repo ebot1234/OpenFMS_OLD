@@ -22,7 +22,7 @@ We recommend to use the Linksys 1900ACS* Access Point and a Cisco 3500 series L3
 
 Field Lighting:
 
-We will be using a DMX controller* and DMX controlled led pixels* for our Field like FIRST's setup.
+We will be using one Advantek PixelLight 16 Pixel Controller. The led pixels will be the INVOLT 16.4ft WS2812B led strip.
 
 
 
@@ -32,6 +32,7 @@ We will be releasing a version of this software every year around Augest or Sept
 
 
 
-*The Hardware list will be avalible on request and the same with the PLC program.
+*The Hardware list will be avalible on request and the same with the PLC program. 
+For additonal Info and setup please visit the WIKI page.
 
 -OFMS Dev Team
