@@ -1,219 +1,188 @@
-﻿Imports Microsoft.VisualBasic
-
-
-Imports O_FMS_V0.RandomString
-
+﻿
+Imports System.Net.Sockets
+Imports System.Net
+Imports Game.Led.Modes
+Imports Game.Led.Strip
+Imports Game.RandomString
 Public Class Controller
+    Public port As Integer = 5568
+    Public sourceName As String = "OpenFMS"
+    Public packetTimeOutSec As Integer = 1
+    Public numPixels As Integer = 150
+    Public pixelDataOffset As Integer = 126
+    Public nearStripUniverse As Integer = 1
+    Public farStripUniverse As Integer = 2
+    Public nearStrip As New Strip
+    Public farStrip As New Strip
+    Public Conn As New UdpClient(port)
+    Public packet() As Byte
+    Public b() As Byte
+    'ip address of the pixel controller
+    Public address As String = "10.0.0.12"
 
-    'IP address for the Rasberry Pi on the Field for the LEDs
-    Private Led_IP As String = "10.0.0.20"
-
-    Private LedAddr As Net.IPAddress
-
-    Private Shared DMX_DATA_POSITION As Integer = 126
-
-    Private Led
-
-    Private len
-
-    Private nearStripUniverse As Integer = 1
-
-    Private farStripUniverse As Integer = 2
-
-    Private packetTimeOut As Integer = 1
-
-    Private numPixels As Integer = 150
-
-    Private pixelDataOffset As Integer = 126
-
-    ' String componentId = "O!FMS";
-    Private nearStrip
-
-    Private farStrip
-
-    Public Shared gameData As RandomString
-
-    Private pointIndices() As Integer
-
-    Private Sub LEDS()
+    Public Function LedConnect(controller As Controller)
         Try
-            Console.Out.Write("Made New Socket for the Leds")
-            'Me.Led = New DatagramSocket
-        Catch e As Net.Sockets.SocketException
-            Console.Out.Write("PLC Error 1!")
-            'e.printStackTrace()
+            controller.Conn.Connect(address, port)
+            Console.WriteLine("Led Connection worked")
+
+        Catch e As Exception
+            Console.WriteLine("Led Connection Failed")
         End Try
+    End Function
 
-        Try
-            Console.Out.Write("Made new address for the Leds...")
-            'Me.LedAddr = Net.IPAddress.(Me.Led_IP)
-        Catch ex As IO.IOException
-            Console.Out.Write("Led Error 2!")
-            'ex.printStackTrace()
-        End Try
+    Public Function setMode(controller As Controller, nearMode As Mode, farMode As Mode)
+        If nearMode = controller.nearStrip.currentMode Then
+            controller.nearStrip.currentMode = nearMode
+            controller.nearStrip.counter = 0
+        End If
 
-    End Sub
+        If farMode = controller.farStrip.currentMode Then
+            controller.farStrip.currentMode = farMode
+            controller.farStrip.counter = 0
+        End If
+        Return 0
+    End Function
 
-    'Public Sub setMode(ByVal , As nearMode, ByVal , As farMode, ByVal Unknown As Mode)
-    '    Me.nearStrip.currentMode = nearMode
-    '    Me.nearStrip.counter = 0
-    '    Me.farStrip.currentMode = farMode
-    '    Me.farStrip.counter = 0
-    'End Sub
+    Public Function getCurrentMode(Mode As Modes, controller As Controller, strip As Strip)
+        If controller.nearStrip.currentMode Is controller.farStrip.currentMode Then
+            Return controller.nearStrip.currentMode
+        Else
+            Return Mode.offMode
 
-    '    Public Sub getCurrentMode(ByVal Unknown As Modes)
-    '        If (Me.nearStrip.currentMode = Me.farStrip.currentMode) Then
-    '            Me.setMode(nearMode, farMode, Mode) = Me.nearStrip.currentMode
-    '        Else
-    '            Modes.offMode()
-    '        End If
+        End If
+    End Function
 
-    '    End Sub
+    Public Function setSidedness(controller As Controller, nearIsRed As Boolean)
+        controller.nearStrip.isRed = nearIsRed = True
+        controller.farStrip.isRed = nearIsRed = False
+        Return 0
+    End Function
 
-    '    Private isRed As Boolean
+    Public Function update(controller As Controller)
+        controller.nearStrip.updatePixels()
+        controller.farStrip.updatePixels()
 
-    '    Public Sub setSidedness()
-    '        If gameData.equals("LLL") Then
-    '            Me.nearStrip.isRed = nearIsRed
-    '            Me.farStrip.isRed = farIsRed
-    '        End If
+        If (controller.packet.Length = 0) Then
+            controller.packet = createBlankPacket(numPixels)
+        End If
 
-    '        If gameData.equals("LRL") Then
-    '            Me.nearStrip.isRed = nearIsRed
-    '            Me.farStrip.isRed = farIsRed
-    '        End If
+        If controller.nearStrip.shouldSendPacket() Then
+            controller.nearStrip.populatePacketPixels(controller.packet(pixelDataOffset))
+            controller.packet.sendPacket(nearStripUniverse)
+        End If
 
-    '        If gameData.equals("RLR") Then
-    '            Me.nearStrip.isRed = nearIsRed
-    '            Me.farStrip.isRed = farIsRed
-    '        End If
+        If controller.farStrip.shouldSendPacket() Then
+            controller.farStrip.populatePacketPixels(controller.packet(pixelDataOffset))
+            controller.packet.sendPacket(farStripUniverse)
+        End If
+        Return 0
+    End Function
 
-    '        If gameData.equals("RRR") Then
-    '            Me.nearStrip.isRed = nearIsRed
-    '            Me.farStrip.isRed = farIsRed
-    '        End If
+    Public Function pointIndices() As Controller
+        Return Nothing
+    End Function
 
-    '    End Sub
+    Public Function createBlankPacket() As Byte
+        Dim size = 126 + 3 * numPixels
+        packet(size) = size
 
-    '    Public Sub updateLeds()
-    '        Me.nearStrip.updatePixels()
-    '        Me.farStrip.updatePixels()
-    '        Me.len = createBlankPacket
-    '    End Sub
+        packet(0) = &H0
+        packet(1) = &H10
+
+        packet(2) = &H0
+        packet(3) = &H0
+
+        packet(4) = &H41
+        packet(5) = &H53
+        packet(6) = &H43
+        packet(7) = &H2D
+        packet(8) = &H45
+        packet(9) = &H31
+        packet(10) = &H2E
+        packet(11) = &H31
+        packet(12) = &H37
+        packet(13) = &H0
+        packet(14) = &H0
+        packet(15) = &H0
+
+        Dim rootPduLength = size - 16
+        packet(16) = &H70 Or rootPduLength >> 8
+        packet(17) = rootPduLength & &HFF
+
+        packet(18) = &H0
+        packet(19) = &H0
+        packet(20) = &H0
+        packet(21) = &H4
+
+        'source name'
+        packet(22) = "O"
+        packet(23) = "p"
+        packet(24) = "e"
+        packet(25) = "n"
+        packet(26) = "F"
+        packet(27) = "M"
+        packet(28) = "S"
+
+
+        Dim framingPduLength = size - 16
+        packet(38) = &H70 Or framingPduLength >> 8
+        packet(39) = framingPduLength & &HFF
+
+        packet(40) = &H0
+        packet(41) = &H0
+        packet(42) = &H0
+        packet(43) = &H2
+
+        packet(44) = "O"
+        packet(45) = "p"
+        packet(46) = "e"
+        packet(47) = "n"
+        packet(48) = "F"
+        packet(49) = "M"
+        packet(50) = "S"
+
+        packet(108) = 100
+
+        packet(109) = &H0
+        packet(110) = &H0
+
+        packet(111) = &H0
+
+        packet(112) = &H0
+
+        packet(113) = &H0
+        packet(114) = &H0
+
+        Dim dmpPduLength = size - 115
+        packet(115) = &H70 Or dmpPduLength >> 8
+        packet(116) = dmpPduLength & &HFF
+
+        packet(117) = &H2
+
+        packet(118) = &HA1
+
+        packet(119) = &H0
+        packet(120) = &H0
+
+        packet(121) = &H0
+        packet(122) = &H1
+
+        Dim count = 1 + 3 * numPixels
+        packet(123) = count >> 8
+        packet(124) = count & &HFF
+
+        packet(125) = 0
+
+        Return 0
+    End Function
+
+    Public Function sendPacket(controller As Controller, dmxUniverse As Integer)
+        controller.packet(111) = controller.packet(111) + 1
+        controller.packet(113) = dmxUniverse >> 8
+        controller.packet(114) = dmxUniverse & &HFF
+
+        Conn.Send(controller.packet, packet.Length)
+
+        Return 0
+    End Function
 End Class
-'If farStrip.shouldSendPacket Then
-'    farStrip.populatePacketPixels(packet(pixelDataOffset:= pixelDataOffset:))
-'    Controller.sendPacket(farStripUniverse)
-'End If
-
-'UnknownUnknown
-
-'Public Function pointIndices() As Controller
-'    Return Nothing
-'End Function
-
-'Public Sub createBlankPacket(ByVal universeNumber As Integer, ByVal pointIndices() As Integer)
-'    MyBase.equals((DMX_DATA_POSITION _
-'                    + (pointIndices.length * 3)))
-'    Me.pointIndices = pointIndices
-'    Dim data() As Byte = New Byte(((126 + (3 * numPixels))) - 1) {}
-'    Dim flagLength As Integer
-'    ' Preamble size
-'    data(0) = CType(0, Byte)
-'    data(1) = CType(16, Byte)
-'    ' Post-amble size
-'    data(0) = CType(0, Byte)
-'    data(1) = CType(16, Byte)
-'    ' ACN Packet Identifier
-'    data(4) = CType(65, Byte)
-'    data(5) = CType(83, Byte)
-'    data(6) = CType(67, Byte)
-'    data(7) = CType(45, Byte)
-'    data(8) = CType(69, Byte)
-'    data(9) = CType(49, Byte)
-'    data(10) = CType(46, Byte)
-'    data(11) = CType(49, Byte)
-'    data(12) = CType(55, Byte)
-'    data(13) = CType(0, Byte)
-'    data(14) = CType(0, Byte)
-'    data(15) = CType(0, Byte)
-'    ' Flags and length
-'    flagLength = (28672 _
-'                Or ((data.length - 16) _
-'                And 268435455))
-'    data(16) = CType(((flagLength + 8) _
-'                And 255), Byte)
-'    data(17) = CType((flagLength And 255), Byte)
-'    ' RLP 1.31 Protocol PDU Identifier
-'    data(18) = CType(0, Byte)
-'    data(19) = CType(0, Byte)
-'    data(20) = CType(0, Byte)
-'    data(21) = CType(4, Byte)
-'    ' Sender's CID
-'    Dim i As Integer = 22
-'    Do While (i < 38)
-'        data(i) = CType(i, Byte)
-'        i = (i + 1)
-'    Loop
-
-'    ' Flags and length
-'    flagLength = (28672 _
-'                Or ((data.length - 38) _
-'                And 268435455))
-'    data(38) = CType(((flagLength + 8) _
-'                And 255), Byte)
-'    data(39) = CType((flagLength And 255), Byte)
-'    ' DMP Protocol PDU Identifier
-'    data(40) = CType(0, Byte)
-'    data(41) = CType(0, Byte)
-'    data(42) = CType(0, Byte)
-'    data(43) = CType(2, Byte)
-'    ' Source name
-'    data(44) = Microsoft.VisualBasic.ChrW(79)
-'    data(45) = Microsoft.VisualBasic.ChrW(33)
-'    data(46) = Microsoft.VisualBasic.ChrW(70)
-'    data(47) = Microsoft.VisualBasic.ChrW(77)
-'    data(48) = Microsoft.VisualBasic.ChrW(83)
-'    Dim i As Integer = 48
-'    Do While (i < 108)
-'        data(i) = 0
-'        i = (i + 1)
-'    Loop
-
-'    ' Priority
-'    data(108) = 100
-'    ' Reserved
-'    data(109) = 0
-'    data(110) = 0
-'    ' Sequence Number
-'    data(111) = 0
-'    ' Options
-'    data(112) = 0
-'    ' Universe number
-'    ' 113-114 are done in setUniverseNumber()
-'    ' Flags and length
-'    flagLength = (28672 _
-'                Or ((data.length - 115) _
-'                And 268435455))
-'    data(115) = CType(((flagLength + 8) _
-'                And 255), Byte)
-'    data(116) = CType((flagLength And 255), Byte)
-'    ' DMP Set Property Message PDU
-'    data(116) = CType(2, Byte)
-'    ' Address Type & Data Type
-'    data(117) = CType(161, Byte)
-'    ' First Property Address
-'    data(119) = 0
-'    data(120) = 0
-'    ' Address Increment
-'    data(121) = 0
-'    data(122) = 1
-'    ' Property value count
-'    Dim numProperties As Integer = (1 _
-'                + (Me.pointIndices.length * 3))
-'    data(123) = CType(((numProperties + 8) _
-'                And 255), Byte)
-'    data(124) = CType((numProperties And 255), Byte)
-'    ' DMX Start 
-'    data(125) = 0
-'End Sub
