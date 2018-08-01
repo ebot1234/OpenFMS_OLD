@@ -2,62 +2,62 @@
 
 Public Class Modes
 
-    Private Mode As String
+    Public Mode As String
 
-    Private offMode As String = Me.Mode
+    Public offMode As String
 
-    Private RedMode As String = Me.Mode
+    Public RedMode As String
 
-    Private GreenMode As String = Me.Mode
+    Public GreenMode As String
 
-    Private BlueMode As String = Me.Mode
+    Public BlueMode As String
 
-    Private WhiteMode As String = Me.Mode
+    Public WhiteMode As String
 
-    Private ChaseMode As String = Me.Mode
+    Public ChaseMode As String
 
-    Private WarmupMode As String = Me.Mode
+    Public WarmupMode As String
 
-    Private Warmup2Mode As String = Me.Mode
+    Public Warmup2Mode As String
 
-    Private Warmup3Mode As String = Me.Mode
+    Private Warmup3Mode As String
 
-    Private Warmup4Mode As String = Me.Mode
+    Public Warmup4Mode As String
 
-    Private OwnedMode As String = Me.Mode
+    Public OwnedMode As String
 
-    Private NotOwnedMode As String = Me.Mode
+    Public NotOwnedMode As String
 
-    Private ForceMode As String = Me.Mode
+    Public ForceMode As String
 
-    Private BoostMode As String = Me.Mode
+    Public BoostMode As String
 
-    Private RandomMode As String = Me.Mode
+    Public RandomMode As String
 
-    Private FadeMode As String = Me.Mode
+    Public FadeMode As String
 
-    Private GradientMode As String = Me.Mode
+    Public GradientMode As String
 
-    Private BlinkMode As String = Me.Mode
+    Public BlinkMode As String
 
-    Public Sub modeNames()
-        Me.offMode = "Off"
-        Me.RedMode = "Red"
-        Me.GreenMode = "Green"
-        Me.BlueMode = "Blue"
-        Me.WhiteMode = "White"
-        Me.ChaseMode = "Chase"
-        Me.WarmupMode = "Warmup"
-        Me.Warmup2Mode = "Warmup Purple"
-        Me.Warmup3Mode = "Warmup Sneaky"
-        Me.Warmup4Mode = "Warmup Gradient"
-        Me.OwnedMode = "Owned"
-        Me.NotOwnedMode = "Not Owned"
-        Me.ForceMode = "Force"
-        Me.BoostMode = "Boost"
-        Me.RandomMode = "Random"
-        Me.FadeMode = "Fade"
-        Me.GradientMode = "Gradient"
-        Me.BlinkMode = "Blink"
+    Public Sub ModeNames()
+        offMode = "Off"
+        RedMode = "Red"
+        GreenMode = "Green"
+        BlueMode = "Blue"
+        WhiteMode = "White"
+        ChaseMode = "Chase"
+        WarmupMode = "Warmup"
+        Warmup2Mode = "Warmup Purple"
+        Warmup3Mode = "Warmup Sneaky"
+        Warmup4Mode = "Warmup Gradient"
+        OwnedMode = "Owned"
+        NotOwnedMode = "Not Owned"
+        ForceMode = "Force"
+        BoostMode = "Boost"
+        RandomMode = "Random"
+        FadeMode = "Fade"
+        GradientMode = "Gradient"
+        BlinkMode = "Blink"
     End Sub
 End Class

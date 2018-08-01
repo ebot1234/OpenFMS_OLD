@@ -3,8 +3,71 @@ Imports System.Net.Sockets
 Imports System
 Imports System.Collections
 Imports System.Security.Cryptography
+Imports myOPC
+Imports OPCAutomation
+
+
 
 Public Class PLC_Comms_Server
+
+    
+
+    'Estops bidirectional communications
+    Public Shared PLC_Estop_Red1
+    Public Shared PLC_Estop_Red2
+    Public Shared PLC_Estop_Red3
+    Public Shared PLC_Estop_Blue1
+    Public Shared PLC_Estop_Blue2
+    Public Shared PLC_Estop_Blue3
+    Public Shared PLC_Estop_Field
+
+    'Driver Station Linked (Pulled from DS)
+    Public Shared DS_Linked_Red1
+    Public Shared DS_Linked_Red2
+    Public Shared DS_Linked_Red3
+    Public Shared DS_Linked_Blue1
+    Public Shared DS_Linked_Blue2
+    Public Shared DS_Linked_Blue3
+
+    'Robot Linked (Pulled from DS)
+    Public Shared Robot_Linked_Red1
+    Public Shared Robot_Linked_Red2
+    Public Shared Robot_Linked_Red3
+    Public Shared Robot_Linked_Blue1
+    Public Shared Robot_Linked_Blue2
+    Public Shared Robot_Linked_Blue3
+
+    'Robot Voltages (Pulled from DS)
+    Public Shared Robot_Voltage_Red1
+    Public Shared Robot_Voltage_Red2
+    Public Shared Robot_Voltage_Red3
+    Public Shared Robot_Voltage_Blue1
+    Public Shared Robot_Voltage_Blue2
+    Public Shared Robot_Voltage_Blue3
+
+    'Data Pulled from PLC
+    Public Shared PLC_RedScore
+    Public Shared PLC_BlueScore
+    Public Shared PLC_Used_Boost_Red
+    Public Shared PLC_Used_Force_Red
+    Public Shared PLC_Used_Lev_Red
+    Public Shared PLC_Used_Boost_Blue
+    Public Shared PLC_Used_Force_Blue
+    Public Shared PLC_Used_Lev_Blue
+    Public Shared PLC_Match_Timer
+    Public Shared PLC_Match_Mode
+
+    'Data Sent from FMS Software to PLC
+    Public Shared Game_Data
+    Public Shared Match_Start
+    Public Shared Match_Stop
+    Public Shared PLC_Reset
+
+
+
+
+
+
 
     Public Sub New(ByVal addressFamily As AddressFamily, ByVal socketType As SocketType, ByVal protocolType As ProtocolType)
 
@@ -29,7 +92,7 @@ Public Class PLC_Comms_Server
         Dim plcSocket = Nothing
 
         Try
-            plcSocket = New Socket(bindAddress.AddressFamily, SocketType.Dgram, ProtocolType.Udp)
+            plcSocket = New Socket(bindAddress.AddressFamily, socketType.Dgram, protocolType.Udp)
             plcSocket.Bind(bindEndPoint)
         Catch err As SocketException
             If (Not plcSocket Is Nothing) Then
@@ -48,7 +111,7 @@ Public Class PLC_Comms_Server
             resolvedServer = Dns.GetHostEntry("PLC Connection")
             For Each addr In resolvedServer.AddressList
                 serverEndPoint = New IPEndPoint(addr, 5000)
-                tcpSocket = New Socket(addr.AddressFamily, SocketType.Stream, ProtocolType.Tcp)
+                tcpSocket = New Socket(addr.AddressFamily, socketType.Stream, protocolType.Tcp)
                 Try
                     tcpSocket.Connect(serverEndPoint)
 
@@ -81,7 +144,7 @@ ContinueLoop:
         Dim udpSocket As Socket
         Dim message() As Byte = System.Text.Encoding.ASCII.GetBytes("Hello World")
 
-        udpSocket = New Socket(destAddress.AddressFamily, SocketType.Dgram, ProtocolType.Udp)
+        udpSocket = New Socket(destAddress.AddressFamily, socketType.Dgram, protocolType.Udp)
 
         Try
             udpSocket.SendTo(message, destEndPoint)
@@ -94,7 +157,7 @@ ContinueLoop:
         Dim castSenderEndPoint As EndPoint = CType(senderEndPoint, EndPoint)
         Dim rc As Integer
 
-        udpSocket = New Socket(bindAddress.AddressFamily, SocketType.Dgram, ProtocolType.Udp)
+        udpSocket = New Socket(bindAddress.AddressFamily, socketType.Dgram, protocolType.Udp)
         Try
             udpSocket.Bind(bindEndPoint)
             udpSocket.ReceiveFrom(receiveBuffer, castSenderEndPoint)
@@ -153,37 +216,37 @@ ContinueLoop:
     Dim BLUE_SWITCH_SENSOR1 As Byte = "BSS1"
     Dim NeitherAlliance As Byte = "NA"
 
-    Private Shared RED As Integer = FieldAndRobots.RED
-    Private Shared BLUE As Integer = FieldAndRobots.BLUE
-    Private Shared ONE As Integer = FieldAndRobots.ONE
-    Private Shared TWO As Integer = FieldAndRobots.TWO
-    Private Shared THREE As Integer = FieldAndRobots.THREE
-    Private Shared matchTime As String = "0010"
+    'Private Shared RED As Integer = FieldAndRobots.RED
+    'Private Shared BLUE As Integer = FieldAndRobots.BLUE
+    'Private Shared ONE As Integer = FieldAndRobots.ONE
+    'Private Shared TWO As Integer = FieldAndRobots.TWO
+    'Private Shared THREE As Integer = FieldAndRobots.THREE
+    'Private Shared matchTime As String = "0010"
 
     'Build the Packets to send to the PLC'
 
-    Private Function buildTimeModePacket(ByVal clientSocket As Socket) As Byte
-        Dim data() As Byte = New Byte((9) - 1) {}
-        Dim i As Integer = 0
-        Do While (i < 9)
-            data(i) = BYTE_ZERO
-            i = (i + 1)
-        Loop
-        If (Not (GovernThread.getInstance) Is Nothing) Then
-            matchTime = Me.checkAndFixNum(GovernThread.getInstance.get_PLC_Time, 4)
-        Else
+    'Private Function buildTimeModePacket(ByVal clientSocket As Socket) As Byte
+    '    Dim data() As Byte = New Byte((9) - 1) {}
+    '    Dim i As Integer = 0
+    '    Do While (i < 9)
+    '        data(i) = BYTE_ZERO
+    '        i = (i + 1)
+    '    Loop
+    '    If (Not (GovernThread.getInstance) Is Nothing) Then
+    '        matchTime = Me.checkAndFixNum(GovernThread.getInstance.get_PLC_Time, 4)
+    '    Else
 
-        End If
+    '    End If
 
-        Console.WriteLine("matchTime", matchTime)
-        data(0) = TIME_MODE
-        data(1) = matchTime.Substring(0, 1)
-        data(2) = matchTime.Substring(1, 2)
-        data(3) = matchTime.Substring(2, 3)
-        data(4) = matchTime.Substring(3, 4)
+    '    Console.WriteLine("matchTime", matchTime)
+    '    data(0) = TIME_MODE
+    '    data(1) = matchTime.Substring(0, 1)
+    '    data(2) = matchTime.Substring(1, 2)
+    '    data(3) = matchTime.Substring(2, 3)
+    '    data(4) = matchTime.Substring(3, 4)
 
-        Return data(9)
-    End Function
+    '    Return data(9)
+    'End Function
 
     Private Function checkAndFixNum(ByVal initTime As String, ByVal length As Integer) As String
         If (initTime.Length < length) Then
