@@ -26,20 +26,20 @@ Public Class Strip
     Public dimBlue As Colors
 
 
-    Function updatePixels(strip As Strip)
+    Function updatePixels(strip As Strip, colors As Colors)
         Select Case (strip.currentMode)
             Case RedMode
-                updateSingleColorModeRed()
+                updateSingleColorModeRed(strip)
             Case GreenMode
-                strip.updateSingleColorModeGreen()
+                strip.updateSingleColorModeGreen(strip)
             Case BlueMode
-                strip.updateSingleColorModeBlue
+                strip.updateSingleColorModeBlue(strip)
             Case WhiteMode
-                strip.updateSingleColorModeWhite
+                strip.updateSingleColorModeWhite(strip)
             Case PurpleMode
-                strip.updateSingleColorModePurple
+                strip.updateSingleColorModePurple(strip)
             Case ChaseMode
-                strip.updateChaseMode()
+                strip.updateChaseMode(strip, colors)
             Case WarmupMode
                 strip.updateWarmupMode()
             Case Warmup2Mode
@@ -67,7 +67,7 @@ Public Class Strip
             Case BlinkMode
                 strip.updateBlinkMode()
             Case offMode
-                strip.updateOffMode()
+                strip.updateOffMode(strip)
         End Select
         strip.counter = counter + 1
         Return strip
@@ -142,7 +142,7 @@ Public Class Strip
         Return 2 * numPixels / 3
     End Function
 
-    Public Function updateOffMode(strip As Strip, color As Colors)
+    Public Function updateOffMode(strip As Strip)
         Dim i As Integer = 0
         If i < numPixels Then
             i = i + 1
@@ -150,18 +150,42 @@ Public Class Strip
         End If
         Return 0
     End Function
-    Public Function updateSingleColorModeRed(strip As Strip, color As Colors)
-        Return color.red
+    Public Function updateSingleColorModeRed(strip As Strip)
+        Dim i As Integer
+        If i < numPixels Then
+            i = i + 1
+            strip.pixels(i) = red
+        End If
+        Return 0
     End Function
-    Public Function updateSingleColorModeBlue(strip As Strip, color As Colors)
-        Return color.blue
+    Public Function updateSingleColorModeBlue(strip As Strip)
+        Dim i As Integer
+        If i < numPixels Then
+            i = i + 1
+            strip.pixels(i) = blue
+        End If
+        Return 0
     End Function
 
-    Public Function updateSingleColorModeGreen(strip As Strip, color As Colors)
-        Return color.green
+    Public Function updateSingleColorModeGreen(strip As Strip)
+        Dim i As Integer
+        If i < numPixels Then
+            i = i + 1
+            strip.pixels(i) = green
+        End If
+        Return 0
     End Function
-    Public Function updateSingleColorMode(strip As Strip, color As Colors)
-        Dim i As Integer = 0
+
+    Public Function updateSingleColorModeWhite(strip As Strip)
+        Dim i As Integer
+        If i < numPixels Then
+            i = i + 1
+            strip.pixels(i) = white
+        End If
+        Return 0
+    End Function
+    Public Function updateSingleColorModePurple(strip As Strip)
+        Dim i As Integer
         If i < numPixels Then
             i = i + 1
             strip.pixels(i) = red
