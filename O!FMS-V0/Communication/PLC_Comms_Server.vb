@@ -1,4 +1,4 @@
-﻿﻿Imports System.Net
+﻿Imports System.Net
 Imports System.Net.Sockets
 Imports System
 Imports System.Collections
@@ -22,7 +22,7 @@ Public Class PLC_Comms_Server
     Public Shared PLC_Estop_Blue3
     Public Shared PLC_Estop_Field
 
-    'Driver Station Linked (Pulled from DS)
+    'Driver Station Linked (Pulled from DS & Sent to PLC)
     Public Shared DS_Linked_Red1
     Public Shared DS_Linked_Red2
     Public Shared DS_Linked_Red3
@@ -30,7 +30,7 @@ Public Class PLC_Comms_Server
     Public Shared DS_Linked_Blue2
     Public Shared DS_Linked_Blue3
 
-    'Robot Linked (Pulled from DS)
+    'Robot Linked (Pulled from DS & Sent to PLC)
     Public Shared Robot_Linked_Red1
     Public Shared Robot_Linked_Red2
     Public Shared Robot_Linked_Red3
@@ -63,14 +63,26 @@ Public Class PLC_Comms_Server
     Public Shared PLC_RedScaleOwned
     Public Shared PLC_BlueSWOwned
     Public Shared PLC_RedSWOwned
+
+
     'Data Sent from FMS Software to PLC
     Public Shared Game_Data
     Public Shared PLC_Game_Data
     Public Shared Match_Start
     Public Shared Match_Stop
     Public Shared PLC_Reset
+    Public Shared Red1Ready
+    Public Shared Red2Ready
+    Public Shared Red3Ready
+    Public Shared Blue1Ready
+    Public Shared Blue2Ready
+    Public Shared Blue3Ready
+
 
     'Alliance Station Lights
+
+    Public Shared Alliance_Light_Test
+    Public Shared Scoring_Light_Test
 
     'RED Alliance
     Public Shared StnRed1Red
@@ -96,6 +108,10 @@ Public Class PLC_Comms_Server
     Public Shared FieldBlue
     Public Shared FieldRed
     Public Shared FieldAmber
+
+
+    'Teams
+    Public Shared RedT1, RedT2, RedT3, BlueT1, BlueT2, BlueT3
 
 
     Public Shared Sub Modbus_Main(ByVal args() As String)
@@ -174,8 +190,107 @@ Public Class PLC_Comms_Server
             modbusClient.WriteSingleCoil(15, True)
         End If
 
-        modbusClient.WriteSingleRegister(4, True)
 
+        'Alliance Light Test
+        If Alliance_Light_Test = True Then
+
+            'StnRed1Red
+            modbusClient.WriteSingleCoil(16, True)
+            'StnRed2Red
+            modbusClient.WriteSingleCoil(17, True)
+            'StnRed3Red
+            modbusClient.WriteSingleCoil(18, True)
+            'StnRed1Amb
+            modbusClient.WriteSingleCoil(19, True)
+            'StnRed2Amb
+            modbusClient.WriteSingleCoil(20, True)
+            'StnRed3Amb
+            modbusClient.WriteSingleCoil(21, True)
+            'StnBlue1Blue
+            modbusClient.WriteSingleCoil(22, True)
+            'StnBlue2Blue
+            modbusClient.WriteSingleCoil(23, True)
+            'StnBlue3Blue
+            modbusClient.WriteSingleCoil(24, True)
+            'StnBlue1Amb
+            modbusClient.WriteSingleCoil(25, True)
+            'StnBlue2Amb
+            modbusClient.WriteSingleCoil(26, True)
+            'StnBlue3Amb
+            modbusClient.WriteSingleCoil(27, True)
+
+        End If
+
+        If Scoring_Light_Test = True Then
+
+            'FieldGreen
+            modbusClient.WriteSingleCoil(28, True)
+            'FieldBlue
+            modbusClient.WriteSingleCoil(29, True)
+            'FieldRed
+            modbusClient.WriteSingleCoil(30, True)
+            'FieldAmber
+            modbusClient.WriteSingleCoil(31, True)
+
+        End If
+
+        If DS_Linked_Red1 = True & Robot_Linked_Red1 = True Then
+            Red1Ready = True
+        End If
+
+
+        If DS_Linked_Red2 = True & Robot_Linked_Red2 = True Then
+            Red2Ready = True
+        End If
+
+        If DS_Linked_Red3 = True & Robot_Linked_Red3 = True Then
+            Red3Ready = True
+        End If
+
+        If DS_Linked_Blue1 = True & Robot_Linked_Blue1 = True Then
+            Blue1Ready = True
+        End If
+
+        If DS_Linked_Blue2 = True & Robot_Linked_Blue2 = True Then
+            Blue2Ready = True
+        End If
+
+        If DS_Linked_Blue3 = True & Robot_Linked_Blue3 = True Then
+            Blue3Ready = True
+        End If
+
+        If Red1Ready Then
+            modbusClient.WriteSingleCoil(32, True)
+        Else : modbusClient.WriteSingleCoil(32, False)
+        End If
+
+        If Red2Ready Then
+            modbusClient.WriteSingleCoil(33, True)
+        Else : modbusClient.WriteSingleCoil(33, False)
+        End If
+
+        If Red3Ready Then
+            modbusClient.WriteSingleCoil(34, True)
+        Else : modbusClient.WriteSingleCoil(34, False)
+        End If
+
+        If Blue1Ready Then
+            modbusClient.WriteSingleCoil(35, True)
+        Else : modbusClient.WriteSingleCoil(35, False)
+        End If
+
+        If Blue2Ready Then
+            modbusClient.WriteSingleCoil(36, True)
+        Else : modbusClient.WriteSingleCoil(36, False)
+        End If
+
+        If Blue3Ready Then
+            modbusClient.WriteSingleCoil(37, True)
+        Else : modbusClient.WriteSingleCoil(37, False)
+        End If
+
+        modbusClient.WriteSingleRegister(4, True)
+        'GameData to PLC
 
         'modbusClient.WriteMultipleCoils(16, New Boolean() {True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True})
         'Write Coils starting with Address 16
