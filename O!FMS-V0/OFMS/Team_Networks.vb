@@ -1,14 +1,14 @@
-﻿Imports O_FMS_V0.Form1
+﻿Imports O_FMS_V0.Main_Panel
 Imports O_FMS_V0.PLC_Comms_Server
 
 Public Class Team_Networks
     Public Sub Main()
-        Dim Red1 As String = Form1.RedTeam1.Text
-        Dim red2 As String = Form1.RedTeam2.Text
-        Dim red3 As String = Form1.RedTeam3.Text
-        Dim blue1 As String = Form1.BlueTeam1.Text
-        Dim blue2 As String = Form1.BlueTeam2.Text
-        Dim blue3 As String = Form1.BlueTeam3.Text
+        Dim Red1 As String = Main_Panel.RedTeam1.Text
+        Dim red2 As String = Main_Panel.RedTeam2.Text
+        Dim red3 As String = Main_Panel.RedTeam3.Text
+        Dim blue1 As String = Main_Panel.BlueTeam1.Text
+        Dim blue2 As String = Main_Panel.BlueTeam2.Text
+        Dim blue3 As String = Main_Panel.BlueTeam3.Text
 
         Dim red1length As Integer = Red1.Length
         Dim red2length As Integer = red2.Length
@@ -99,7 +99,7 @@ Public Class Team_Networks
         Dim Blue2Network As String = ("10." & Blue2_TE & "." & Blue2_AM & ".")
         Dim Blue3Network As String = ("10." & Blue3_TE & "." & Blue3_AM & ".")
 
-        Dim ds = 1
+        Dim ds = 5
         Dim robot = 2
         If My.Computer.Network.Ping(Red1Network & ds, 1000) Then
             DS_Linked_Red1 = True

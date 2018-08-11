@@ -40,7 +40,7 @@ Public Class Modes
 
     Public BlinkMode As String
 
-    Public Sub ModeNames()
+    Public Sub Modes()
         offMode = "Off"
         RedMode = "Red"
         GreenMode = "Green"

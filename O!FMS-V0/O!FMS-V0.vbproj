@@ -48,6 +48,10 @@
   <ItemGroup>
     <Reference Include="AutomatedSolutions.ASComm, Version=3.9.0.0, Culture=neutral, PublicKeyToken=67272fe3f372ded3" />
     <Reference Include="bcParser.NET, Version=4.0.0.0, Culture=neutral, PublicKeyToken=336782ab629d24d0" />
+    <Reference Include="EasyModbus, Version=4.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyModbusTCP.5.0.0\lib\EasyModbus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Interop.OPCAutomation">
       <HintPath>bin\Interop.OPCAutomation.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -78,6 +82,10 @@
     <Reference Include="Opto22.Controller, Version=1.0.4.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
     <Reference Include="Polenter.SharpSerializer, Version=2.20.0.0, Culture=neutral, PublicKeyToken=8f4f20011571ee5f" />
+    <Reference Include="Renci.SshNet, Version=2013.4.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2013.4.7\lib\net40\Renci.SshNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
@@ -120,16 +128,19 @@
     <Compile Include="AudianceDisplay.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Communication\DriverStations.vb" />
     <Compile Include="Communication\testcomm.vb" />
-    <Compile Include="OFMS\Team_Networks.vb" />
-    <Compile Include="Other\CRC.vb" />
-    <Compile Include="Communication\PLC_Comms_Server.vb" />
-    <Compile Include="splashscreen\FMS_SplashScreen.vb" />
-    <Compile Include="Game\Led\Colors.vb" />
     <Compile Include="Game\Led\Controller.vb" />
     <Compile Include="Game\Led\Modes.vb" />
     <Compile Include="Game\Led\Strip.vb" />
-    <Compile Include="splashscreen\LogoPanel.vb" />
+    <Compile Include="Game\Timing.vb" />
+    <Compile Include="OFMS\AccessPoint.vb" />
+    <Compile Include="OFMS\Field.vb" />
+    <Compile Include="OFMS\Match.vb" />
+    <Compile Include="OFMS\Team_Networks.vb" />
+    <Compile Include="Other\CRC.vb" />
+    <Compile Include="Communication\PLC_Comms_Server.vb" />
+    <Compile Include="Game\Led\Colors.vb" />
     <Compile Include="OFMS-MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -153,9 +164,18 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Game\RandomString.vb" />
-    <Compile Include="Game\Scoring.vb" />
-    <Compile Include="Game\Seesaw.vb" />
-    <Compile Include="UI\Msg.vb" />
+    <Compile Include="Startup_Screen.Designer.vb">
+      <DependentUpon>Startup_Screen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Startup_Screen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities.Designer.vb">
+      <DependentUpon>Utilities.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="_O_FMSDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -180,9 +200,14 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Startup_Screen.resx">
+      <DependentUpon>Startup_Screen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities.resx">
+      <DependentUpon>Utilities.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="splashscreen\LogoPanel.form" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -193,6 +218,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="_O_FMSDataSet.xsc">
       <DependentUpon>_O_FMSDataSet.xsd</DependentUpon>
     </None>
@@ -223,6 +249,9 @@
     <Content Include="OFMS\Sounds\ENDMATCH.wav" />
     <Content Include="OFMS\Sounds\FOGHORN.wav" />
     <Content Include="OFMS\Sounds\MATCH_WARMUP.wav" />
+    <None Include="Resources\adc_logo_241x209.png" />
+    <None Include="Resources\FIRST logo.jpg" />
+    <None Include="Resources\ofms logo.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxOPCWareAX">
@@ -308,6 +337,11 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="OFMS\Images\" />
+    <Folder Include="splashscreen\" />
+    <Folder Include="UI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

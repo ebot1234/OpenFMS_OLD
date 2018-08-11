@@ -1,9 +1,11 @@
-﻿Imports O_FMS_V0.Colors
-Imports O_FMS_V0.Modes
+﻿Imports O_FMS_V0.Modes
+Imports Microsoft.VisualBasic
 Imports O_FMS_V0.Controller
-Imports O_FMS_V0
+
+
 
 Public Class Strip
+
     Public currentMode As Modes
     Public isRed As Boolean
     Public pixels As Byte() = numPixels
@@ -24,55 +26,22 @@ Public Class Strip
     Public purpleBlue As Colors
     Public dimRed As Colors
     Public dimBlue As Colors
+    Public RedMode As Modes
+    Public pixelData(0) As Byte
 
-
-    Function updatePixels(strip As Strip, colors As Colors)
-        Select Case (strip.currentMode)
-            Case RedMode
-                updateSingleColorModeRed(strip)
-            Case GreenMode
-                strip.updateSingleColorModeGreen(strip)
-            Case BlueMode
-                strip.updateSingleColorModeBlue(strip)
-            Case WhiteMode
-                strip.updateSingleColorModeWhite(strip)
-            Case PurpleMode
-                strip.updateSingleColorModePurple(strip)
-            Case ChaseMode
-                strip.updateChaseMode(strip, colors)
-            Case WarmupMode
-                strip.updateWarmupMode()
-            Case Warmup2Mode
-                strip.updateWarmup2Mode()
-            Case Warmup3Mode
-                strip.updateWarmup3Mode()
-            Case Warmup4Mode
-                strip.updateWarmup4Mode()
-            Case OwnedMode
-                strip.updateOwnedMode()
-            Case NotOwnedMode
-                strip.updateNotOwnedMode()
-            Case ForceMode
-                strip.updateForceMode()
-            Case BoostMode
-                strip.updateBoostMode()
-            Case RandomMode
-                strip.updateRandomMode()
-            Case FadeRedBlueMode
-                strip.updateFadeRedBlueMode()
-            Case FadeSingleMode
-                strip.updateFadeSingleMode()
-            Case GradientMode
-                strip.updateGradientMode()
-            Case BlinkMode
-                strip.updateBlinkMode()
-            Case offMode
-                strip.updateOffMode(strip)
-        End Select
-        strip.counter = counter + 1
-        Return strip
+    Public Function updateRandomMode(strip As Strip, color As Colors)
+        Dim colors(0) As Byte
+        Randomize()
+        Dim i As Integer = 0
+        If strip.counter = 10 Or 0 Then
+            Return 0
+        End If
+        If i < numPixels Then
+            i = i + 1
+            strip.pixels(i) = Rnd(Int(black))
+        End If
+        Return 0
     End Function
-
 
 
     Public Function shouldSendPacket(strip As Strip)
@@ -86,16 +55,16 @@ Public Class Strip
         Return 0
     End Function
 
-    Public Function populatePacketPixels(strip As Strip, pixelData As Byte())
+    Public Function populatePacketPixels(strip As Strip)
 
-        Dim pixel
+        Dim pixel(0) As Byte
         Dim i As Integer = 0
-        For i = 0 & pixel Is strip.pixels
-                Next
-        pixelData(3 * i) = pixel(0)
-        pixelData(3 * i + 1) = pixel(1)
-        pixelData(3 * i + 2) = pixel(2)
+        If pixel Is pixelData Then
 
+            pixelData(3 * i) = pixel(0)
+            pixelData(3 * i + 1) = pixel(1)
+            pixelData(3 * i + 2) = pixel(2)
+        End If
         strip.oldPixels = strip.pixels
         Return 0
     End Function
@@ -188,10 +157,7 @@ Public Class Strip
         Dim i As Integer
         If i < numPixels Then
             i = i + 1
-            strip.pixels(i) = red
-            strip.pixels(i) = green
-            strip.pixels(i) = blue
-            strip.pixels(i) = white
+
             strip.pixels(i) = purple
         End If
         Return 0
@@ -208,24 +174,259 @@ Public Class Strip
     End Function
 
     Public Function updateWarmupMode(strip As Strip)
-        Dim endCounter As Integer = 250
-
+        Dim endcounter As Integer = 250
         If strip.counter = 0 Then
-            Dim i = 0
+            Dim i As Integer = 0
             If i < numPixels Then
                 strip.pixels(i) = white
                 i = i + 1
+            ElseIf strip.counter <= numPixels Then
+                Dim numLitPixels = numPixels / 2 * strip.counter / endcounter
+                Dim colors As Byte()
+                colors = strip.getColor(strip)
+                Dim e As Integer = 0
+                If e < numPixels Then
+                    i = i + 1
+                    strip.pixels(e) = colors(strip.getColor(strip))
+                Else : strip.counter = endcounter
+                End If
             End If
-        ElseIf strip.counter <= endCounter Then
-            Dim numLitPixels = numPixels / 2 * strip.counter / endCounter
-            Dim colors As Byte
+        End If
+        Return 0
+    End Function
+    Public Function updateWarmup2Mode(strip As Strip)
+        Dim startCounter = 100
+        Dim endCounter = 250
+
+        If strip.counter < startCounter Then
             Dim i As Integer = 0
             If i < numPixels Then
                 i = i + 1
-                strip.pixels(i) = 
+                strip.pixels(i) = purple
+            ElseIf strip.counter <= endCounter Then
+                i = i + 1
+                strip.pixels(i) = getFadeColor(purple, strip.getColor(strip), strip.counter - startCounter, endCounter - startCounter)
+            Else : strip.counter = endCounter
             End If
+        End If
+        Return 0
+    End Function
 
+    Public Function updateWarmup3Mode(strip As Strip)
+        Dim startCounter = 50
+        Dim middleCounter = 225
+        Dim endCounter = 250
+
+        If strip.counter < startCounter Then
+            Dim i As Integer = 0
+            If i < numPixels Then
+                i = i + 1
+                strip.pixels(i) = purple
+            ElseIf strip.counter < middleCounter Then
+
+                If i < numPixels Then
+                    i = i + 1
+                    strip.pixels(i) = getFadeColor(purple, strip.getMidColor(strip), strip.counter - startCounter,
+                middleCounter - startCounter)
+                End If
+            ElseIf strip.counter <= endCounter Then
+                If i < numPixels Then
+                    i = i + 1
+                    strip.pixels(i) = getFadeColor(strip.getMidColor(strip), strip.getColor(strip), strip.counter - middleCounter,
+                endCounter - middleCounter)
+                End If
+            Else : strip.counter = endCounter
+            End If
+        End If
+        Return 0
+    End Function
+
+    Public Function updateWarmup4Mode(strip As Strip)
+        Dim middleCounter = 100
+        Dim i = 0
+        If i < numPixels Then
+            i = i + 1
+            strip.pixels(numPixels - i - 1) = getGradientColor(i + strip.counter + strip.getGradientStartOffset(strip), numPixels / 2)
+        End If
+        If strip.counter >= middleCounter Then
+            If i < numPixels Then
+                i = i + 1
+                If i < strip.counter - middleCounter Then
+                    strip.pixels(i) = strip.getColor(strip)
+                End If
+            End If
+        End If
+        Return 0
+    End Function
+
+    Public Function updateOwnedRedMode(strip As Strip, color As Colors)
+        Dim i As Integer
+        If i < numPixels Then
+            i = i + 1
+
+            strip.pixels(i) = red
+            strip.pixels(i) = dimBlue
+        End If
+        Return 0
+    End Function
+
+    Public Function updateOwnedBlueMode(strip As Strip, color As Colors)
+        Dim i As Integer
+        If i < numPixels Then
+            i = i + 1
+
+            strip.pixels(i) = blue
+            strip.pixels(i) = dimRed
+        End If
+        Return 0
+    End Function
+
+
+    Public Function updateNotOwnedMode(strip As Strip)
+        Dim i As Integer = 0
+        If i < numPixels Then
+            i = i + 1
+            strip.pixels(i) = black
+        End If
+        Return 0
+    End Function
+
+    Public Function updateForceMode(strip As Strip)
+        Dim speedDivisor = 30
+        Dim pixelSpacing = 7
+        Dim i = 0
+
+        If strip.counter = speedDivisor = 0 Then
+            Return 0
+        End If
+        If i < numPixels Then
+            i = i + 1
+
+            Select Case (i + strip.counter / speedDivisor) = pixelSpacing
+                Case 2
+                    Return 0
+                Case 4
+                    strip.pixels(i) = strip.getColor(strip)
+                Case 3
+                    strip.pixels(i) = strip.getDimOppositeColor(strip)
+                Case 0
+                    strip.pixels(i) = black
+            End Select
+        End If
+        Return 0
+    End Function
+
+    Public Function updateBoostMode(strip As Strip)
+        Dim speedDivisor = 4
+        Dim pixelSpacing = 4
+        Dim i = 0
+
+        If strip.counter = speedDivisor = 0 Then
+            Return 0
+        End If
+        If i < numPixels Then
+            i = i + 1
+            If i = pixelSpacing = strip.counter / speedDivisor = pixelSpacing Then
+                strip.pixels(i) = strip.getColor(strip)
+            Else
+                strip.pixels(i) = black
+            End If
+        End If
+        Return 0
+    End Function
+
+
+    Public Function updateFadeRedBlueMode(strip As Strip)
+        Dim fadeCycles = 40
+        Dim holdCycles = 10
+        Dim i = 0
+
+        If strip.counter = 4 * holdCycles + 4 * fadeCycles Then
+            strip.counter = 0
+        End If
+
+        If i < numPixels Then
+            i = i + 1
+            If strip.counter < holdCycles Then
+                strip.pixels(i) = black
+            ElseIf strip.counter < holdCycles + fadeCycles Then
+                strip.pixels(i) = getFadeColor(black, red, strip.counter - holdCycles, fadeCycles)
+            ElseIf strip.counter < 2 * holdCycles + fadeCycles Then
+                strip.pixels(i) = red
+            ElseIf strip.counter < 2 * holdCycles + 2 * fadeCycles Then
+                strip.pixels(i) = getFadeColor(red, black, strip.counter - 2 * holdCycles - fadeCycles, fadeCycles)
+            ElseIf strip.counter < 3 * holdCycles + 2 * fadeCycles Then
+                strip.pixels(i) = black
+            ElseIf strip.counter < 3 * holdCycles + 3 * fadeCycles Then
+                strip.pixels(i) = getFadeColor(black, blue, strip.counter - 3 * holdCycles - 2 * fadeCycles, fadeCycles)
+            ElseIf strip.counter < 4 * holdCycles + 3 * fadeCycles Then
+                strip.pixels(i) = blue
+            ElseIf strip.counter < 4 * holdCycles + 4 * fadeCycles Then
+                strip.pixels(i) = getFadeColor(blue, black, strip.counter - 4 * holdCycles - 3 * fadeCycles, fadeCycles)
+            End If
+        End If
+        Return 0
+    End Function
+
+    Public Function updateFadeSingleMode(strip As Strip)
+        Dim offCycles = 50
+        Dim fadeCycles = 100
+        Dim i = 0
+
+        If strip.counter = offCycles + 2 * fadeCycles Then
+            strip.counter = 0
+        End If
+
+        If i < numPixels Then
+            i = i + 1
+            If strip.counter < offCycles Then
+                strip.pixels(i) = black
+            ElseIf strip.counter < offCycles + fadeCycles Then
+                strip.pixels(i) = getFadeColor(black, strip.getColor(strip), strip.counter - offCycles, fadeCycles)
+            ElseIf strip.counter < offCycles + 2 * fadeCycles Then
+                strip.pixels(i) = getFadeColor(strip.getColor(strip), black, strip.counter - offCycles - fadeCycles, fadeCycles)
+            End If
+        End If
+        Return 0
+    End Function
+
+    Public Function updateBlinkMode(strip As Strip)
+        Dim divisor = 10
+        Dim i = 0
+        If i < numPixels Then
+            i = i + 1
+            If strip.counter = divisor < divisor / 10 Then
+                strip.pixels(i) = white
+            Else : strip.pixels(i) = black
+            End If
+        End If
+        Return 0
+    End Function
+
+    Public Function getFadeColor(fromColor As Colors, toColor As Colors, numerator As Integer, demominator As Integer)
+        Dim colors(0) As Byte
+        Dim i As Integer = 0
+        Dim from = colors(fromColor)
+        'to'
+        Dim B = colors(toColor)
+        Dim fadeColor(0) As Byte
+
+        If i < 3 Then
+            i = i + 1
+            fadeColor(i) = Int(from) + numerator * Int(B) - Int(from) / demominator
+        End If
+        Return fadeColor
+    End Function
+
+
+    Public Function getGradientColor(strip As Strip, offset As Integer)
+        offset = numPixels
+        If 3 * offset < numPixels Then
+            Return getFadeColor(red, green, 3 * offset, numPixels)
+        ElseIf 3 * offset < 2 * numPixels Then
+            Return getFadeColor(green, blue, 3 * offset - numPixels, numPixels)
+        Else
+            Return getFadeColor(blue, red, 3 * offset - 2 * numPixels, numPixels)
         End If
     End Function
 End Class
-

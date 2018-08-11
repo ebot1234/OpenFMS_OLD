@@ -6,11 +6,13 @@ Imports System.Math
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.RandomString
 Imports O_FMS_V0.Team_Networks
+Imports O_FMS_V0.testcomm
+Imports O_FMS_V0.DriverStations
 
 
 
 
-Public Class Form1
+Public Class Main_Panel
 
 
 
@@ -21,11 +23,12 @@ Public Class Form1
         Timer1.Interval = 1000 '1 seconds
         Timer1.Enabled = True
         'Timer1.AutoReset = True
+        
         Me.FMSMasterTableAdapter.Fill(Me._O_FMSDataSet.FMSMaster)
 
     End Sub
 
-    
+
 
     Private Sub BindingSource1_CurrentChanged(sender As Object, e As EventArgs)
 
@@ -62,12 +65,20 @@ Public Class Form1
             BlueTeam3.Text = table.Rows(0)(2).ToString()
 
 
+
             MessageBox.Show("Data Loaded")
         Else
             MessageBox.Show("Not Loaded")
         End If
         game_data_main(gamedataUse)
         ScaleSwitch.Text = gamedataUse
+        RedT1 = RedTeam1.Text
+        RedT2 = RedTeam2.Text
+        RedT3 = RedTeam3.Text
+        BlueT1 = BlueTeam1.Text
+        BlueT1 = BlueTeam2.Text
+        BlueT1 = BlueTeam3.Text
+
 
     End Sub
 
@@ -82,7 +93,7 @@ Public Class Form1
 
     End Sub
     Private WithEvents Timer1 As New System.Windows.Forms.Timer
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles  Timer1.Tick
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
         Ctime.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         PLCTimer.Text = PLC_Match_Timer
@@ -306,7 +317,7 @@ Public Class Form1
         End If
     End Sub
 
-    
+
     Private Sub AxOPCWareGroup1_ItemUpdate(sender As Object, e As AxOPCWareAX.__OPCWareGroup_ItemUpdateEvent)
 
     End Sub

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class Main_Panel
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -1473,7 +1473,7 @@ Partial Class Form1
         Me.ClientAceDA_Junction1.Parent = Nothing
         Me.ClientAceDA_Junction1.ShowTimestampInTooltip = False
         '
-        'Form1
+        'Main_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -1494,8 +1494,8 @@ Partial Class Form1
         Me.Controls.Add(Me.MatchNum)
         Me.Controls.Add(Me.PLCTimer)
         Me.Controls.Add(Me.Panel1)
-        Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Name = "Main_Panel"
+        Me.Text = "Main_Panel"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1515,7 +1515,6 @@ Partial Class Form1
     Friend WithEvents MatchNum As System.Windows.Forms.TextBox
     Friend WithEvents Save_btn As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents RedTeam1 As System.Windows.Forms.Label
     Friend WithEvents REDForce As System.Windows.Forms.Label
     Friend WithEvents RedTeam3 As System.Windows.Forms.Label
     Friend WithEvents RedTeam2 As System.Windows.Forms.Label
@@ -1662,5 +1661,6 @@ Partial Class Form1
     Friend WithEvents Ctime As System.Windows.Forms.Label
     Friend WithEvents OpcSystems1 As OPCSystemsService.OPCSystems
     Private WithEvents ClientAceDA_Junction1 As Kepware.ClientAce.DA_Junction.ClientAceDA_Junction
+    Friend WithEvents RedTeam1 As System.Windows.Forms.Label
 
 End Class
