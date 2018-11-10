@@ -3,15 +3,14 @@ Imports System.Net.Sockets
 Imports System
 Imports System.Collections
 Imports System.Security.Cryptography
-'Imports myOPC
-'Imports OPCAutomation
 Imports EasyModbus
+Imports O_FMS_V0.RandomString
 
 
 
 Public Class PLC_Comms_Server
 
-    
+
 
     'Estops bidirectional communications
     Public Shared PLC_Estop_Red1
@@ -50,6 +49,24 @@ Public Class PLC_Comms_Server
     Public Shared PLC_RedScore
     Public Shared PLC_BlueScore
     Public Shared PLC_Used_Boost_Red
+    Public Shared PLC_Blue_Boost_1_Cube
+    Public Shared PLC_Blue_Boost_2_Cube
+    Public Shared PLC_Blue_Boost_3_Cube
+    Public Shared PLC_Blue_Force_1_Cube
+    Public Shared PLC_Blue_Force_2_Cube
+    Public Shared PLC_Blue_Force_3_Cube
+    Public Shared PLC_Blue_Lev_1_Cube
+    Public Shared PLC_Blue_Lev_2_Cube
+    Public Shared PLC_Blue_Lev_3_Cube
+    Public Shared PLC_Red_Boost_1_Cube
+    Public Shared PLC_Red_Boost_2_Cube
+    Public Shared PLC_Red_Boost_3_Cube
+    Public Shared PLC_Red_Force_1_Cube
+    Public Shared PLC_Red_Force_2_Cube
+    Public Shared PLC_Red_Force_3_Cube
+    Public Shared PLC_Red_Lev_1_Cube
+    Public Shared PLC_Red_Lev_2_Cube
+    Public Shared PLC_Red_Lev_3_Cube
     Public Shared PLC_Used_Force_Red
     Public Shared PLC_Used_Lev_Red
     Public Shared PLC_Used_Boost_Blue
@@ -63,6 +80,10 @@ Public Class PLC_Comms_Server
     Public Shared PLC_RedScaleOwned
     Public Shared PLC_BlueSWOwned
     Public Shared PLC_RedSWOwned
+    Public Shared PLC_RedSWBOwned
+    Public Shared PLC_BlueSWROwned
+    Public Shared PLC_Field_Reset
+    Public Shared PLC_Field_Volunteers
 
 
     'Data Sent from FMS Software to PLC
@@ -70,6 +91,7 @@ Public Class PLC_Comms_Server
     Public Shared PLC_Game_Data
     Public Shared Match_Start
     Public Shared Match_Stop
+    Public Shared Match_PreStart
     Public Shared PLC_Reset
     Public Shared Red1Ready
     Public Shared Red2Ready
@@ -120,8 +142,8 @@ Public Class PLC_Comms_Server
         modbusClient.Connect()
         'Connect to Server
 
-        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 50)
-        'Read 50 Coils from Server, starting with address 0
+        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 66)
+        'Read 66 Coils from Server, starting with address 0
 
         Dim readHoldingRegisters() As Integer = modbusClient.ReadHoldingRegisters(0, 20)
         'Read 20 Holding Registers from Server, starting with Address 0
@@ -153,6 +175,33 @@ Public Class PLC_Comms_Server
             PLC_BlueSWOwned = readCoils(41)
             PLC_RedSWOwned = readCoils(42)
             PLC_RedScaleOwned = readCoils(43)
+            PLC_BlueSWROwned = readCoils(45)
+            PLC_RedSWBOwned = readCoils(46)
+
+            PLC_Field_Reset = readCoils(47)
+            PLC_Field_Volunteers = readCoils(48)
+
+            'Blue powerup levels'
+            PLC_Blue_Boost_1_Cube = readCoils(49)
+            PLC_Blue_Boost_2_Cube = readCoils(50)
+            PLC_Blue_Boost_3_Cube = readCoils(51)
+            PLC_Blue_Force_1_Cube = readCoils(52)
+            PLC_Blue_Force_2_Cube = readCoils(53)
+            PLC_Blue_Force_3_Cube = readCoils(54)
+            PLC_Blue_Lev_1_Cube = readCoils(55)
+            PLC_Blue_Lev_2_Cube = readCoils(56)
+            PLC_Blue_Lev_3_Cube = readCoils(57)
+
+            'Red powerup levels'
+            PLC_Red_Boost_1_Cube = readCoils(58)
+            PLC_Red_Boost_2_Cube = readCoils(59)
+            PLC_Red_Boost_3_Cube = readCoils(60)
+            PLC_Red_Force_1_Cube = readCoils(61)
+            PLC_Red_Force_2_Cube = readCoils(62)
+            PLC_Red_Force_3_Cube = readCoils(63)
+            PLC_Red_Lev_1_Cube = readCoils(64)
+            PLC_Red_Lev_2_Cube = readCoils(65)
+            PLC_Red_Lev_3_Cube = readCoils(66)
 
 
 
@@ -189,6 +238,7 @@ Public Class PLC_Comms_Server
         If PLC_Reset = True Then
             modbusClient.WriteSingleCoil(15, True)
         End If
+
 
 
         'Alliance Light Test
@@ -233,6 +283,7 @@ Public Class PLC_Comms_Server
             modbusClient.WriteSingleCoil(31, True)
 
         End If
+
 
         If DS_Linked_Red1 = True & Robot_Linked_Red1 = True Then
             Red1Ready = True
@@ -289,8 +340,17 @@ Public Class PLC_Comms_Server
         Else : modbusClient.WriteSingleCoil(37, False)
         End If
 
-        modbusClient.WriteSingleRegister(4, True)
         'GameData to PLC
+        modbusClient.WriteSingleRegister(4, GamedataUse)
+
+
+        'Teams To PLC
+        modbusClient.WriteSingleRegister(7, RedT1)
+        modbusClient.WriteSingleRegister(8, RedT2)
+        modbusClient.WriteSingleRegister(9, RedT3)
+        modbusClient.WriteSingleRegister(10, BlueT1)
+        modbusClient.WriteSingleRegister(11, BlueT2)
+        modbusClient.WriteSingleRegister(12, BlueT3)
 
         'modbusClient.WriteMultipleCoils(16, New Boolean() {True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True})
         'Write Coils starting with Address 16
