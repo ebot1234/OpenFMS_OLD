@@ -22,13 +22,14 @@ We recommend to use the Linksys 1900ACS* Access Point and a Cisco 3500 series L3
 
 Field Lighting:
 
-We will be using one Advantek PixelLight 16 Pixel Controller. The led pixels will be the INVOLT 16.4ft WS2812B led strip.
+For 2018 the field lighing will be controlled by 3 arduinos and WS2812B led pixel strips. The arduino program can be used on any arduino 
+but we are using the Arduino Uno Rev 3.
 
 
 
 Release Info:
 
-We will be releasing a version of this software every year around Augest or September to support the year to year elements and scoring changes.
+We will be releasing a version of this software every year to fit the new FRC game along with new technology updates. 
 
 
 
