@@ -1,8 +1,6 @@
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.RandomString
-Imports O_FMS_V0.ArduinoIps
-Imports O_FMS_V0.AudienceDisplayComms
-
+Imports O_FMS_V0.Team_Networks
 Imports System.Net
 
 Public Class Field
@@ -24,6 +22,15 @@ Public Class Field
     Public Shared EndgameTime As Integer = 30
     Public Shared GameTime As Integer = 0
 
+    Public Shared Sub ConnectDriverStations()
+        CreateConnections()
+        Red1DS.Connect(IPAddress.Parse(Red1Network))
+        Red2DS.Connect(IPAddress.Parse(Red2Network))
+        Red3DS.Connect(IPAddress.Parse(Red3Network))
+        Blue1DS.Connect(IPAddress.Parse(Blue1Network))
+        Blue2DS.Connect(IPAddress.Parse(Blue2Network))
+        Blue3DS.Connect(IPAddress.Parse(Blue3Network))
+    End Sub
     Public Shared Sub ConnectLeds()
         ' ScaleLeds.ConnectArduino(ScaleNetwork)
         ' BlueSwitchLeds.ConnectArduino(BlueSwitchNetwork)
@@ -133,6 +140,8 @@ Public Class Field
         Select Case (mode)
             Case "PreMatch"
                 PLC_Reset = True
+                ConnectDriverStations()
+                pingDSConnections()
                 SendDS(Auto:=True, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
                 Match_PreStart = True

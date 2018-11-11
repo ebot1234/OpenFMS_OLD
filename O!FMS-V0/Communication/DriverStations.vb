@@ -15,8 +15,7 @@ Public Class DriverStations
     Public Estop As Boolean = False
     Public DsConn As New UdpClient
 
-    Public Sub Connect(IP As String)
-        DsConn = New UdpClient(DSUdpReceivePort)
+    Public Sub Connect(IP As IPAddress)
         DsConn.Connect(IP, DSUdpReceivePort)
     End Sub
 

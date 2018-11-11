@@ -15,16 +15,6 @@ Imports O_FMS_V0.AudianceDisplay
 
 
 Public Class Main_Panel
-    Public field As Field
-    Dim DriverStations As DriverStations
-    Dim modes As Modes
-    Dim controller As Controller
-    Dim color As Colors
-    Dim colors As Colors
-    Dim strip As Strip
-    Dim match As Match
-
-
 
     Dim connection As New SqlConnection("data source=ELLEN\SQLEXPRESS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -33,9 +23,6 @@ Public Class Main_Panel
         Timer1.Enabled = True
         'Timer1.AutoReset = True
         BackColor = System.Drawing.Color.Yellow
-
-        ' ConnectLeds()
-
         ' Me.FMSMasterTableAdapter.Fill(Me._O_FMSDataSet.FMSMaster)
         Call CenterToScreen()
         Me.FormBorderStyle = Windows.Forms.BorderStyle.Fixed3D
