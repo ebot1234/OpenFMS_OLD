@@ -140,8 +140,8 @@ Public Class Field
         Select Case (mode)
             Case "PreMatch"
                 PLC_Reset = True
-                ConnectDriverStations()
-                pingDSConnections()
+                'ConnectDriverStations()
+                'pingDSConnections()
                 SendDS(Auto:=True, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
                 Match_PreStart = True
