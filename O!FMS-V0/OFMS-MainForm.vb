@@ -9,6 +9,7 @@ Imports O_FMS_V0.Team_Networks
 Imports O_FMS_V0.DriverStations
 Imports System.Drawing
 Imports O_FMS_V0.Field
+Imports O_FMS_V0.AudianceDisplay
 
 
 
@@ -84,16 +85,16 @@ Public Class Main_Panel
             BlueTeam3.Text = table.Rows(0)(5).ToString()
             Blue3Sur.Text = table.Rows(0)(6).ToString()
 
-            'updates the audience display'
-            '  AudianceDisplay.BlueTeam1.Text = table.Rows(0)(1).ToString
-            '  AudianceDisplay.BlueTeam2.Text = table.Rows(0)(3).ToString
-            '  AudianceDisplay.BlueTeam3.Text = table.Rows(0)(5).ToString
-            '  AudianceDisplay.RedTeam1.Text = table.Rows(0)(7).ToString
-            '  AudianceDisplay.Redteam2.Text = table.Rows(0)(9).ToString
-            '  AudianceDisplay.RedTeam3.Text = table.Rows(0)(11).ToString
-            'AudianceDisplay.Matchlbl.Text = table.Rows(0)(13).ToString
-            ' AudianceDisplay.MatchNumb.Text = table.Rows(0)(0).ToString
+            'updates the audience display with team numbers'
+            AudianceDisplay.RedTeam1.Text = table.Rows(0)(7).ToString
+            AudianceDisplay.RedTeam2lbl.Text = table.Rows(0)(9).ToString
+            AudianceDisplay.RedTeam3.Text = table.Rows(0)(12).ToString
+            AudianceDisplay.BlueTeam1lbl.Text = table.Rows(0)(1).ToString
+            AudianceDisplay.BlueTeam2.Text = table.Rows(0)(3).ToString
+            AudianceDisplay.BlueTeam3.Text = table.Rows(0)(5).ToString
 
+            'Updates the audience display with match number'
+            AudianceDisplay.MatchNumb.Text = MatchNum.Text
             MessageBox.Show("Data Loaded")
         Else
             MessageBox.Show("Not Loaded")
@@ -116,9 +117,6 @@ Public Class Main_Panel
         End If
     End Sub
 
-    Private Sub Ctime_Click(sender As Object, e As EventArgs) Handles Ctime.Click
-
-    End Sub
     Private WithEvents Timer1 As New System.Windows.Forms.Timer
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
@@ -248,8 +246,6 @@ Public Class Main_Panel
             BlueScore.Text = (BPLC_Score.Text + BlueAllianceHang.Text - BluePen.Text)
         Else : BlueScore = BPLC_Score
         End If
-        'Updates the audience display'
-        '  AudianceDisplay.GameTimer.Text = matchTimerLbl.Text
 
         'Match Mode
         If PLC_Match_Timer = 0 Then
@@ -265,6 +261,10 @@ Public Class Main_Panel
             PLC_Match_Mode = 120
 
         End If
+        'Updates the audience display with time and scores'
+        AudianceDisplay.Timerlbl.Text = matchTimerLbl.Text
+        AudianceDisplay.RedScoreLbl.Text = RedScore.Text
+        AudianceDisplay.BlueScoreLbl.Text = BlueScore.Text
 
     End Sub
 

@@ -193,6 +193,8 @@ Partial Class Main_Panel
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -220,6 +222,7 @@ Partial Class Main_Panel
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.MediumTurquoise
+        Me.Panel1.Controls.Add(Me.Label21)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.RedAllianceHang)
         Me.Panel1.Controls.Add(Me.Red3Sur)
@@ -368,9 +371,9 @@ Partial Class Main_Panel
         Me.RedScore.AutoSize = True
         Me.RedScore.Location = New System.Drawing.Point(246, 228)
         Me.RedScore.Name = "RedScore"
-        Me.RedScore.Size = New System.Drawing.Size(83, 13)
+        Me.RedScore.Size = New System.Drawing.Size(13, 13)
         Me.RedScore.TabIndex = 18
-        Me.RedScore.Text = "Red Final Score"
+        Me.RedScore.Text = "0"
         '
         'RedPen
         '
@@ -1066,6 +1069,7 @@ Partial Class Main_Panel
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.MediumTurquoise
+        Me.Panel2.Controls.Add(Me.Label22)
         Me.Panel2.Controls.Add(Me.BlueAllianceHang)
         Me.Panel2.Controls.Add(Me.Label20)
         Me.Panel2.Controls.Add(Me.Blue3Sur)
@@ -1226,9 +1230,9 @@ Partial Class Main_Panel
         Me.BlueScore.AutoSize = True
         Me.BlueScore.Location = New System.Drawing.Point(246, 228)
         Me.BlueScore.Name = "BlueScore"
-        Me.BlueScore.Size = New System.Drawing.Size(84, 13)
+        Me.BlueScore.Size = New System.Drawing.Size(13, 13)
         Me.BlueScore.TabIndex = 18
-        Me.BlueScore.Text = "Blue Final Score"
+        Me.BlueScore.Text = "0"
         '
         'BluePen
         '
@@ -1652,6 +1656,24 @@ Partial Class Main_Panel
         Me.Button4.Text = "Pre-Match"
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(179, 228)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(61, 13)
+        Me.Label21.TabIndex = 32
+        Me.Label21.Text = "Red Score:"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(178, 228)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(62, 13)
+        Me.Label22.TabIndex = 35
+        Me.Label22.Text = "Blue Score:"
+        '
         'Main_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1865,4 +1887,6 @@ Partial Class Main_Panel
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label22 As Label
 End Class

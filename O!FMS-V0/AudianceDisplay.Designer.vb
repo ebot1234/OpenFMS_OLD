@@ -91,11 +91,12 @@ Partial Class AudianceDisplay
         Me.Timerlbl.AutoSize = True
         Me.Timerlbl.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.Timerlbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Timerlbl.Location = New System.Drawing.Point(675, 590)
+        Me.Timerlbl.Location = New System.Drawing.Point(658, 589)
         Me.Timerlbl.Name = "Timerlbl"
         Me.Timerlbl.Size = New System.Drawing.Size(68, 73)
         Me.Timerlbl.TabIndex = 5
         Me.Timerlbl.Text = "0"
+        Me.Timerlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BlueTeam1lbl
         '
