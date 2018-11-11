@@ -1,63 +1,38 @@
-﻿Imports Microsoft.VisualBasic
+﻿
 
 Public Class Modes
 
-    Public Mode As String
+    Public Shared mode As Integer = 0
+    Public Shared offMode = mode + 1
 
-    Public offMode As String
+    Public Shared RedMode = mode + 2
 
-    Public RedMode As String
+    Public Shared GreenMode = mode + 3
 
-    Public GreenMode As String
+    Public Shared BlueMode = mode + 4
 
-    Public BlueMode As String
+    Public Shared WhiteMode = mode + 6
 
-    Public WhiteMode As String
+    Public Shared WarmupMode = mode + 5
 
-    Public ChaseMode As String
+    Public Shared PurpleMode = mode + 7
 
-    Public WarmupMode As String
+    Public Shared OwnedMode = mode + 8
 
-    Public Warmup2Mode As String
+    Public Shared NotOwnedMode = mode + 9
 
-    Private Warmup3Mode As String
+    Public Shared ForceMode = mode + 10
 
-    Public Warmup4Mode As String
+    Public Shared BoostMode = mode + 11
 
-    Public OwnedMode As String
+    Public Shared RandomMode As Modes
 
-    Public NotOwnedMode As String
+    Public Shared FadeMode As Modes
 
-    Public ForceMode As String
+    Public Shared GradientMode As Modes
 
-    Public BoostMode As String
+    Public Shared BlinkMode As Modes
 
-    Public RandomMode As String
 
-    Public FadeMode As String
 
-    Public GradientMode As String
-
-    Public BlinkMode As String
-
-    Public Sub Modes()
-        offMode = "Off"
-        RedMode = "Red"
-        GreenMode = "Green"
-        BlueMode = "Blue"
-        WhiteMode = "White"
-        ChaseMode = "Chase"
-        WarmupMode = "Warmup"
-        Warmup2Mode = "Warmup Purple"
-        Warmup3Mode = "Warmup Sneaky"
-        Warmup4Mode = "Warmup Gradient"
-        OwnedMode = "Owned"
-        NotOwnedMode = "Not Owned"
-        ForceMode = "Force"
-        BoostMode = "Boost"
-        RandomMode = "Random"
-        FadeMode = "Fade"
-        GradientMode = "Gradient"
-        BlinkMode = "Blink"
-    End Sub
 End Class

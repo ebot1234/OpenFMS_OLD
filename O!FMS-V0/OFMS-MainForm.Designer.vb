@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Main_Panel
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,19 @@ Partial Class Main_Panel
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.PLCTimer = New System.Windows.Forms.TextBox()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main_Panel))
         Me.MatchNum = New System.Windows.Forms.TextBox()
         Me.Save_btn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.RedAllianceHang = New System.Windows.Forms.TextBox()
+        Me.Red3Sur = New System.Windows.Forms.Label()
+        Me.Red2Sur = New System.Windows.Forms.Label()
+        Me.Red1Sur = New System.Windows.Forms.Label()
+        Me.PWRTimerLbl = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -63,7 +69,6 @@ Partial Class Main_Panel
         Me.R1Estop = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.R1Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.R1DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.MatchDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -125,9 +130,15 @@ Partial Class Main_Panel
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me._O_FMSDataSet = New O_FMS_V0._O_FMSDataSet()
         Me.MatchLoad_Btn = New System.Windows.Forms.Button()
-        Me.StartMatch = New System.Windows.Forms.Button()
-        Me.AbortMatch = New System.Windows.Forms.Button()
+        Me.StartMatch_btn = New System.Windows.Forms.Button()
+        Me.AbortMatch_btn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.BlueAllianceHang = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Blue3Sur = New System.Windows.Forms.Label()
+        Me.Blue2Sur = New System.Windows.Forms.Label()
+        Me.Blue1Sur = New System.Windows.Forms.Label()
+        Me.PowerUpTimerBluelbl = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -167,30 +178,30 @@ Partial Class Main_Panel
         Me.B1DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.FMSMasterTableAdapter = New O_FMS_V0._O_FMSDataSetTableAdapters.FMSMasterTableAdapter()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ScaleSwitch = New System.Windows.Forms.TextBox()
-        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me._O_FMSDataSet1 = New O_FMS_V0._O_FMSDataSet1()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Ctime = New System.Windows.Forms.Label()
-        Me.OpcSystems1 = New OPCSystemsService.OPCSystems()
-        Me.ClientAceDA_Junction1 = New Kepware.ClientAce.DA_Junction.ClientAceDA_Junction()
+        Me.Pre_Start_btn = New System.Windows.Forms.Button()
+        Me.matchTimerLbl = New System.Windows.Forms.Label()
+        Me.MatchMessages = New System.Windows.Forms.Label()
+        Me.ScaleSwitch = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.WarmUpTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.AutoTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.PauseTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.TeleTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.EndGameTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._O_FMSDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me._O_FMSDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ClientAceDA_Junction1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'PLCTimer
-        '
-        Me.PLCTimer.Location = New System.Drawing.Point(409, 76)
-        Me.PLCTimer.Name = "PLCTimer"
-        Me.PLCTimer.Size = New System.Drawing.Size(100, 20)
-        Me.PLCTimer.TabIndex = 8
         '
         'MatchNum
         '
@@ -210,7 +221,14 @@ Partial Class Main_Panel
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.BackColor = System.Drawing.Color.MediumTurquoise
+        Me.Panel1.Controls.Add(Me.Label21)
+        Me.Panel1.Controls.Add(Me.Label9)
+        Me.Panel1.Controls.Add(Me.RedAllianceHang)
+        Me.Panel1.Controls.Add(Me.Red3Sur)
+        Me.Panel1.Controls.Add(Me.Red2Sur)
+        Me.Panel1.Controls.Add(Me.Red1Sur)
+        Me.Panel1.Controls.Add(Me.PWRTimerLbl)
         Me.Panel1.Controls.Add(Me.Label16)
         Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.Label6)
@@ -235,15 +253,69 @@ Partial Class Main_Panel
         Me.Panel1.Controls.Add(Me.RedTeam2)
         Me.Panel1.Controls.Add(Me.RedTeam1)
         Me.Panel1.Controls.Add(Me.ShapeContainer1)
+        Me.Panel1.ForeColor = System.Drawing.Color.Black
         Me.Panel1.Location = New System.Drawing.Point(24, 57)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(336, 257)
         Me.Panel1.TabIndex = 11
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(167, 205)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(70, 13)
+        Me.Label9.TabIndex = 31
+        Me.Label9.Text = "Red Hanging"
+        '
+        'RedAllianceHang
+        '
+        Me.RedAllianceHang.Location = New System.Drawing.Point(247, 198)
+        Me.RedAllianceHang.Name = "RedAllianceHang"
+        Me.RedAllianceHang.Size = New System.Drawing.Size(44, 20)
+        Me.RedAllianceHang.TabIndex = 30
+        '
+        'Red3Sur
+        '
+        Me.Red3Sur.AutoSize = True
+        Me.Red3Sur.Location = New System.Drawing.Point(288, 72)
+        Me.Red3Sur.Name = "Red3Sur"
+        Me.Red3Sur.Size = New System.Drawing.Size(14, 13)
+        Me.Red3Sur.TabIndex = 29
+        Me.Red3Sur.Text = "S"
+        '
+        'Red2Sur
+        '
+        Me.Red2Sur.AutoSize = True
+        Me.Red2Sur.Location = New System.Drawing.Point(288, 45)
+        Me.Red2Sur.Name = "Red2Sur"
+        Me.Red2Sur.Size = New System.Drawing.Size(14, 13)
+        Me.Red2Sur.TabIndex = 28
+        Me.Red2Sur.Text = "S"
+        '
+        'Red1Sur
+        '
+        Me.Red1Sur.AutoSize = True
+        Me.Red1Sur.Location = New System.Drawing.Point(288, 20)
+        Me.Red1Sur.Name = "Red1Sur"
+        Me.Red1Sur.Size = New System.Drawing.Size(14, 13)
+        Me.Red1Sur.TabIndex = 27
+        Me.Red1Sur.Text = "S"
+        '
+        'PWRTimerLbl
+        '
+        Me.PWRTimerLbl.AutoSize = True
+        Me.PWRTimerLbl.Location = New System.Drawing.Point(17, 179)
+        Me.PWRTimerLbl.Name = "PWRTimerLbl"
+        Me.PWRTimerLbl.Size = New System.Drawing.Size(80, 13)
+        Me.PWRTimerLbl.TabIndex = 26
+        Me.PWRTimerLbl.Text = "Power Up Time"
+        '
         'Label16
         '
         Me.Label16.AutoSize = True
         Me.Label16.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label16.ForeColor = System.Drawing.Color.Transparent
         Me.Label16.Location = New System.Drawing.Point(255, -1)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(41, 13)
@@ -254,6 +326,7 @@ Partial Class Main_Panel
         '
         Me.Label15.AutoSize = True
         Me.Label15.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label15.ForeColor = System.Drawing.Color.Transparent
         Me.Label15.Location = New System.Drawing.Point(226, -1)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(23, 13)
@@ -277,6 +350,7 @@ Partial Class Main_Panel
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Transparent
         Me.Label5.Location = New System.Drawing.Point(165, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(35, 13)
@@ -295,11 +369,11 @@ Partial Class Main_Panel
         'RedScore
         '
         Me.RedScore.AutoSize = True
-        Me.RedScore.Location = New System.Drawing.Point(246, 205)
+        Me.RedScore.Location = New System.Drawing.Point(246, 228)
         Me.RedScore.Name = "RedScore"
-        Me.RedScore.Size = New System.Drawing.Size(83, 13)
+        Me.RedScore.Size = New System.Drawing.Size(13, 13)
         Me.RedScore.TabIndex = 18
-        Me.RedScore.Text = "Red Final Score"
+        Me.RedScore.Text = "0"
         '
         'RedPen
         '
@@ -599,15 +673,6 @@ Partial Class Main_Panel
         Me.R1DS.Location = New System.Drawing.Point(140, 14)
         Me.R1DS.Name = "R1DS"
         Me.R1DS.Size = New System.Drawing.Size(18, 17)
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(434, 57)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(41, 13)
-        Me.Label9.TabIndex = 13
-        Me.Label9.Text = "TIMER"
         '
         'Label10
         '
@@ -983,27 +1048,34 @@ Partial Class Main_Panel
         Me.MatchLoad_Btn.Text = "Load Match"
         Me.MatchLoad_Btn.UseVisualStyleBackColor = True
         '
-        'StartMatch
+        'StartMatch_btn
         '
-        Me.StartMatch.Location = New System.Drawing.Point(423, 102)
-        Me.StartMatch.Name = "StartMatch"
-        Me.StartMatch.Size = New System.Drawing.Size(75, 23)
-        Me.StartMatch.TabIndex = 17
-        Me.StartMatch.Text = "Start Match"
-        Me.StartMatch.UseVisualStyleBackColor = True
+        Me.StartMatch_btn.Location = New System.Drawing.Point(423, 143)
+        Me.StartMatch_btn.Name = "StartMatch_btn"
+        Me.StartMatch_btn.Size = New System.Drawing.Size(75, 23)
+        Me.StartMatch_btn.TabIndex = 17
+        Me.StartMatch_btn.Text = "Start Match"
+        Me.StartMatch_btn.UseVisualStyleBackColor = True
         '
-        'AbortMatch
+        'AbortMatch_btn
         '
-        Me.AbortMatch.Location = New System.Drawing.Point(423, 172)
-        Me.AbortMatch.Name = "AbortMatch"
-        Me.AbortMatch.Size = New System.Drawing.Size(75, 23)
-        Me.AbortMatch.TabIndex = 18
-        Me.AbortMatch.Text = "Abort Match"
-        Me.AbortMatch.UseVisualStyleBackColor = True
+        Me.AbortMatch_btn.Location = New System.Drawing.Point(423, 172)
+        Me.AbortMatch_btn.Name = "AbortMatch_btn"
+        Me.AbortMatch_btn.Size = New System.Drawing.Size(75, 23)
+        Me.AbortMatch_btn.TabIndex = 18
+        Me.AbortMatch_btn.Text = "Abort Match"
+        Me.AbortMatch_btn.UseVisualStyleBackColor = True
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.Blue
+        Me.Panel2.BackColor = System.Drawing.Color.MediumTurquoise
+        Me.Panel2.Controls.Add(Me.Label22)
+        Me.Panel2.Controls.Add(Me.BlueAllianceHang)
+        Me.Panel2.Controls.Add(Me.Label20)
+        Me.Panel2.Controls.Add(Me.Blue3Sur)
+        Me.Panel2.Controls.Add(Me.Blue2Sur)
+        Me.Panel2.Controls.Add(Me.Blue1Sur)
+        Me.Panel2.Controls.Add(Me.PowerUpTimerBluelbl)
         Me.Panel2.Controls.Add(Me.Label17)
         Me.Panel2.Controls.Add(Me.Label18)
         Me.Panel2.Controls.Add(Me.Label7)
@@ -1034,10 +1106,63 @@ Partial Class Main_Panel
         Me.Panel2.Size = New System.Drawing.Size(346, 257)
         Me.Panel2.TabIndex = 20
         '
+        'BlueAllianceHang
+        '
+        Me.BlueAllianceHang.Location = New System.Drawing.Point(247, 198)
+        Me.BlueAllianceHang.Name = "BlueAllianceHang"
+        Me.BlueAllianceHang.Size = New System.Drawing.Size(44, 20)
+        Me.BlueAllianceHang.TabIndex = 34
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(176, 205)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(71, 13)
+        Me.Label20.TabIndex = 33
+        Me.Label20.Text = "Blue Hanging"
+        '
+        'Blue3Sur
+        '
+        Me.Blue3Sur.AutoSize = True
+        Me.Blue3Sur.Location = New System.Drawing.Point(290, 71)
+        Me.Blue3Sur.Name = "Blue3Sur"
+        Me.Blue3Sur.Size = New System.Drawing.Size(14, 13)
+        Me.Blue3Sur.TabIndex = 32
+        Me.Blue3Sur.Text = "S"
+        '
+        'Blue2Sur
+        '
+        Me.Blue2Sur.AutoSize = True
+        Me.Blue2Sur.Location = New System.Drawing.Point(290, 45)
+        Me.Blue2Sur.Name = "Blue2Sur"
+        Me.Blue2Sur.Size = New System.Drawing.Size(14, 13)
+        Me.Blue2Sur.TabIndex = 31
+        Me.Blue2Sur.Text = "S"
+        '
+        'Blue1Sur
+        '
+        Me.Blue1Sur.AutoSize = True
+        Me.Blue1Sur.Location = New System.Drawing.Point(290, 19)
+        Me.Blue1Sur.Name = "Blue1Sur"
+        Me.Blue1Sur.Size = New System.Drawing.Size(14, 13)
+        Me.Blue1Sur.TabIndex = 30
+        Me.Blue1Sur.Text = "S"
+        '
+        'PowerUpTimerBluelbl
+        '
+        Me.PowerUpTimerBluelbl.AutoSize = True
+        Me.PowerUpTimerBluelbl.Location = New System.Drawing.Point(32, 179)
+        Me.PowerUpTimerBluelbl.Name = "PowerUpTimerBluelbl"
+        Me.PowerUpTimerBluelbl.Size = New System.Drawing.Size(80, 13)
+        Me.PowerUpTimerBluelbl.TabIndex = 28
+        Me.PowerUpTimerBluelbl.Text = "Power Up Time"
+        '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label17.ForeColor = System.Drawing.Color.Transparent
         Me.Label17.Location = New System.Drawing.Point(263, -1)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(41, 13)
@@ -1048,6 +1173,7 @@ Partial Class Main_Panel
         '
         Me.Label18.AutoSize = True
         Me.Label18.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label18.ForeColor = System.Drawing.Color.Transparent
         Me.Label18.Location = New System.Drawing.Point(234, -1)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(23, 13)
@@ -1071,6 +1197,7 @@ Partial Class Main_Panel
         Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.Transparent
         Me.Label13.Location = New System.Drawing.Point(165, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(35, 13)
@@ -1094,18 +1221,18 @@ Partial Class Main_Panel
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(176, 179)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(65, 13)
+        Me.Label2.Size = New System.Drawing.Size(66, 13)
         Me.Label2.TabIndex = 19
-        Me.Label2.Text = "Red Penalty"
+        Me.Label2.Text = "Blue Penalty"
         '
         'BlueScore
         '
         Me.BlueScore.AutoSize = True
-        Me.BlueScore.Location = New System.Drawing.Point(246, 205)
+        Me.BlueScore.Location = New System.Drawing.Point(246, 228)
         Me.BlueScore.Name = "BlueScore"
-        Me.BlueScore.Size = New System.Drawing.Size(84, 13)
+        Me.BlueScore.Size = New System.Drawing.Size(13, 13)
         Me.BlueScore.TabIndex = 18
-        Me.BlueScore.Text = "Blue Final Score"
+        Me.BlueScore.Text = "0"
         '
         'BluePen
         '
@@ -1413,28 +1540,11 @@ Partial Class Main_Panel
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(393, 262)
+        Me.Label3.Location = New System.Drawing.Point(406, 217)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(116, 13)
         Me.Label3.TabIndex = 21
         Me.Label3.Text = "Scale/Switch Positions"
-        '
-        'ScaleSwitch
-        '
-        Me.ScaleSwitch.Location = New System.Drawing.Point(437, 278)
-        Me.ScaleSwitch.Name = "ScaleSwitch"
-        Me.ScaleSwitch.Size = New System.Drawing.Size(53, 20)
-        Me.ScaleSwitch.TabIndex = 22
-        '
-        'BindingSource2
-        '
-        Me.BindingSource2.DataSource = Me._O_FMSDataSet1
-        Me.BindingSource2.Position = 0
-        '
-        '_O_FMSDataSet1
-        '
-        Me._O_FMSDataSet1.DataSetName = "_O_FMSDataSet1"
-        Me._O_FMSDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label4
         '
@@ -1455,45 +1565,143 @@ Partial Class Main_Panel
         Me.Ctime.Size = New System.Drawing.Size(0, 20)
         Me.Ctime.TabIndex = 24
         '
-        'OpcSystems1
+        'Pre_Start_btn
         '
-        Me.OpcSystems1.CanPauseAndContinue = True
-        Me.OpcSystems1.CanShutdown = True
-        Me.OpcSystems1.ExitCode = 0
-        Me.OpcSystems1.ServiceName = "OPCSystems"
+        Me.Pre_Start_btn.Location = New System.Drawing.Point(423, 114)
+        Me.Pre_Start_btn.Name = "Pre_Start_btn"
+        Me.Pre_Start_btn.Size = New System.Drawing.Size(75, 23)
+        Me.Pre_Start_btn.TabIndex = 25
+        Me.Pre_Start_btn.Text = "Pre-Start"
+        Me.Pre_Start_btn.UseVisualStyleBackColor = True
         '
-        'ClientAceDA_Junction1
+        'matchTimerLbl
         '
-        Me.ClientAceDA_Junction1.AutoAddedServers = New String(-1) {}
-        Me.ClientAceDA_Junction1.BackColorError = System.Drawing.Color.Red
-        Me.ClientAceDA_Junction1.BackColorQualityBad = System.Drawing.Color.Red
-        Me.ClientAceDA_Junction1.ClientAceConfiguration = "Click here to open configuration"
-        Me.ClientAceDA_Junction1.Config = Nothing
-        Me.ClientAceDA_Junction1.DefaultUpdateRate = 1000
-        Me.ClientAceDA_Junction1.Parent = Nothing
-        Me.ClientAceDA_Junction1.ShowTimestampInTooltip = False
+        Me.matchTimerLbl.AutoSize = True
+        Me.matchTimerLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.matchTimerLbl.Location = New System.Drawing.Point(447, 75)
+        Me.matchTimerLbl.Name = "matchTimerLbl"
+        Me.matchTimerLbl.Size = New System.Drawing.Size(25, 25)
+        Me.matchTimerLbl.TabIndex = 26
+        Me.matchTimerLbl.Text = "0"
+        Me.matchTimerLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'MatchMessages
+        '
+        Me.MatchMessages.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MatchMessages.Location = New System.Drawing.Point(392, 19)
+        Me.MatchMessages.Name = "MatchMessages"
+        Me.MatchMessages.Size = New System.Drawing.Size(139, 20)
+        Me.MatchMessages.TabIndex = 27
+        Me.MatchMessages.Text = "Match Not Started"
+        Me.MatchMessages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ScaleSwitch
+        '
+        Me.ScaleSwitch.Location = New System.Drawing.Point(427, 236)
+        Me.ScaleSwitch.Name = "ScaleSwitch"
+        Me.ScaleSwitch.Size = New System.Drawing.Size(71, 13)
+        Me.ScaleSwitch.TabIndex = 28
+        Me.ScaleSwitch.Text = "Scale/Switch"
+        Me.ScaleSwitch.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Label19
+        '
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(439, 56)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(43, 16)
+        Me.Label19.TabIndex = 29
+        Me.Label19.Text = "Timer"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'WarmUpTimer
+        '
+        '
+        'AutoTimer
+        '
+        '
+        'PauseTimer
+        '
+        '
+        'TeleTimer
+        '
+        '
+        'EndGameTimer
+        '
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(1013, 93)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 31
+        Me.Button2.Text = "Match Play"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(1126, 92)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 32
+        Me.Button3.Text = "Final Score"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(915, 92)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 33
+        Me.Button4.Text = "Pre-Match"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(179, 228)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(61, 13)
+        Me.Label21.TabIndex = 32
+        Me.Label21.Text = "Red Score:"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(178, 228)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(62, 13)
+        Me.Label22.TabIndex = 35
+        Me.Label22.Text = "Blue Score:"
         '
         'Main_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ClientSize = New System.Drawing.Size(1023, 565)
+        Me.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.ClientSize = New System.Drawing.Size(1213, 565)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.ScaleSwitch)
+        Me.Controls.Add(Me.MatchMessages)
+        Me.Controls.Add(Me.matchTimerLbl)
+        Me.Controls.Add(Me.Pre_Start_btn)
         Me.Controls.Add(Me.Ctime)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.ScaleSwitch)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.AbortMatch)
-        Me.Controls.Add(Me.StartMatch)
+        Me.Controls.Add(Me.AbortMatch_btn)
+        Me.Controls.Add(Me.StartMatch_btn)
         Me.Controls.Add(Me.MatchLoad_Btn)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Save_btn)
         Me.Controls.Add(Me.MatchNum)
-        Me.Controls.Add(Me.PLCTimer)
         Me.Controls.Add(Me.Panel1)
+        Me.ForeColor = System.Drawing.Color.Black
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Main_Panel"
         Me.Text = "Main_Panel"
         Me.Panel1.ResumeLayout(False)
@@ -1504,48 +1712,30 @@ Partial Class Main_Panel
         CType(Me._O_FMSDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me._O_FMSDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ClientAceDA_Junction1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents PLCTimer As System.Windows.Forms.TextBox
     Friend WithEvents MatchNum As System.Windows.Forms.TextBox
     Friend WithEvents Save_btn As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents REDForce As System.Windows.Forms.Label
     Friend WithEvents RedTeam3 As System.Windows.Forms.Label
     Friend WithEvents RedTeam2 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents MatchLoad_Btn As System.Windows.Forms.Button
-    Friend WithEvents StartMatch As System.Windows.Forms.Button
-    Friend WithEvents AbortMatch As System.Windows.Forms.Button
+    Friend WithEvents StartMatch_btn As System.Windows.Forms.Button
+    Friend WithEvents AbortMatch_btn As System.Windows.Forms.Button
     Friend WithEvents RBypass1 As System.Windows.Forms.CheckBox
     Friend WithEvents RDQ1 As System.Windows.Forms.CheckBox
-    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents R1Estop As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents R1Robot As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents R1DS As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents RedLevitate As System.Windows.Forms.Label
     Friend WithEvents REDBoost As System.Windows.Forms.Label
-    Friend WithEvents RLev As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents RBoost As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents RForce As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents _O_FMSDataSet As O_FMS_V0._O_FMSDataSet
     Friend WithEvents RedVolt3 As System.Windows.Forms.Label
     Friend WithEvents RedVolt2 As System.Windows.Forms.Label
     Friend WithEvents RedVolt1 As System.Windows.Forms.Label
-    Friend WithEvents R3Estop As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents R3Robot As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents R3DS As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents R2Estop As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents R2Robot As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents R2DS As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents RedScore As System.Windows.Forms.Label
     Friend WithEvents RedPen As System.Windows.Forms.TextBox
@@ -1574,19 +1764,6 @@ Partial Class Main_Panel
     Friend WithEvents BlueTeam3 As System.Windows.Forms.Label
     Friend WithEvents BlueTeam2 As System.Windows.Forms.Label
     Friend WithEvents BlueTeam1 As System.Windows.Forms.Label
-    Friend WithEvents ShapeContainer2 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents B3Estop As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents B3Robot As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents B3DS As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents B2Estop As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents B2Robot As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents B2DS As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents BLev As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents BBoost As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents BForce As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents B1Estop As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents B1Robot As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents B1DS As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents FMSMasterBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents FMSMasterTableAdapter As O_FMS_V0._O_FMSDataSetTableAdapters.FMSMasterTableAdapter
     Friend WithEvents MatchDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1645,9 +1822,6 @@ Partial Class Main_Panel
     Friend WithEvents RedBoostDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents SwitchScaleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents ScaleSwitch As System.Windows.Forms.TextBox
-    Friend WithEvents BindingSource2 As System.Windows.Forms.BindingSource
-    Friend WithEvents _O_FMSDataSet1 As O_FMS_V0._O_FMSDataSet1
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
@@ -1659,8 +1833,60 @@ Partial Class Main_Panel
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Ctime As System.Windows.Forms.Label
-    Friend WithEvents OpcSystems1 As OPCSystemsService.OPCSystems
-    Private WithEvents ClientAceDA_Junction1 As Kepware.ClientAce.DA_Junction.ClientAceDA_Junction
+    ' Friend WithEvents OpcSystems1 As OPCSystemsService.OPCSystems
+    ' Private WithEvents ClientAceDA_Junction1 As Kepware.ClientAce.DA_Junction.ClientAceDA_Junction
     Friend WithEvents RedTeam1 As System.Windows.Forms.Label
-
+    Private WithEvents ShapeContainer1 As PowerPacks.ShapeContainer
+    Private WithEvents R1Estop As PowerPacks.RectangleShape
+    Private WithEvents R1Robot As PowerPacks.RectangleShape
+    Private WithEvents R1DS As PowerPacks.RectangleShape
+    Private WithEvents RLev As PowerPacks.RectangleShape
+    Private WithEvents RBoost As PowerPacks.RectangleShape
+    Private WithEvents RForce As PowerPacks.RectangleShape
+    Private WithEvents R3Estop As PowerPacks.RectangleShape
+    Private WithEvents R3Robot As PowerPacks.RectangleShape
+    Private WithEvents R3DS As PowerPacks.RectangleShape
+    Private WithEvents R2Estop As PowerPacks.RectangleShape
+    Private WithEvents R2Robot As PowerPacks.RectangleShape
+    Private WithEvents R2DS As PowerPacks.RectangleShape
+    Private WithEvents ShapeContainer2 As PowerPacks.ShapeContainer
+    Private WithEvents B3Estop As PowerPacks.RectangleShape
+    Private WithEvents B3Robot As PowerPacks.RectangleShape
+    Private WithEvents B3DS As PowerPacks.RectangleShape
+    Private WithEvents B2Estop As PowerPacks.RectangleShape
+    Private WithEvents B2Robot As PowerPacks.RectangleShape
+    Private WithEvents B2DS As PowerPacks.RectangleShape
+    Private WithEvents BLev As PowerPacks.RectangleShape
+    Private WithEvents BBoost As PowerPacks.RectangleShape
+    Private WithEvents BForce As PowerPacks.RectangleShape
+    Private WithEvents B1Estop As PowerPacks.RectangleShape
+    Private WithEvents B1Robot As PowerPacks.RectangleShape
+    Private WithEvents B1DS As PowerPacks.RectangleShape
+    Friend WithEvents Pre_Start_btn As Button
+    Friend WithEvents matchTimerLbl As Label
+    Friend WithEvents MatchMessages As Label
+    Friend WithEvents ScaleSwitch As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents PWRTimerLbl As Label
+    Friend WithEvents PowerUpTimerBluelbl As Label
+    Friend WithEvents Red1Sur As System.Windows.Forms.Label
+    Friend WithEvents Red3Sur As System.Windows.Forms.Label
+    Friend WithEvents Red2Sur As System.Windows.Forms.Label
+    Friend WithEvents Blue3Sur As System.Windows.Forms.Label
+    Friend WithEvents Blue2Sur As System.Windows.Forms.Label
+    Friend WithEvents Blue1Sur As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents RedAllianceHang As System.Windows.Forms.TextBox
+    Friend WithEvents BlueAllianceHang As System.Windows.Forms.TextBox
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Public WithEvents WarmUpTimer As Timer
+    Friend WithEvents AutoTimer As Timer
+    Friend WithEvents PauseTimer As Timer
+    Friend WithEvents TeleTimer As Timer
+    Friend WithEvents EndGameTimer As Timer
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label22 As Label
 End Class

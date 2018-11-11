@@ -27,7 +27,7 @@ Partial Class Startup_Screen
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -72,21 +72,21 @@ Partial Class Startup_Screen
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(33, 125)
+        Me.Button3.Location = New System.Drawing.Point(33, 193)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(128, 50)
         Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Main && Audiance"
+        Me.Button3.Text = "Full Program"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'Button4
+        'Button5
         '
-        Me.Button4.Location = New System.Drawing.Point(748, 33)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 6
-        Me.Button4.Text = "EIP"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button5.Location = New System.Drawing.Point(33, 125)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(128, 62)
+        Me.Button5.TabIndex = 7
+        Me.Button5.Text = "Match Generation Panel Only"
+        Me.Button5.UseVisualStyleBackColor = True
         '
         'Startup_Screen
         '
@@ -96,7 +96,7 @@ Partial Class Startup_Screen
         Me.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.ofms_logo
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(833, 525)
-        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -115,5 +115,5 @@ Partial Class Startup_Screen
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Button5 As Button
 End Class

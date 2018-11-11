@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class AudianceDisplay
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,188 +20,221 @@ Partial Class AudianceDisplay
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AudianceDisplay))
+        Me.MatchNumb = New System.Windows.Forms.Label()
         Me.RedTeam1 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Redteam2 = New System.Windows.Forms.Label()
+        Me.RedTeam2lbl = New System.Windows.Forms.Label()
         Me.RedTeam3 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Timerlbl = New System.Windows.Forms.Label()
+        Me.BlueTeam1lbl = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BlueTeam3 = New System.Windows.Forms.Label()
         Me.BlueTeam2 = New System.Windows.Forms.Label()
-        Me.BlueTeam1 = New System.Windows.Forms.Label()
-        Me.RedScore = New System.Windows.Forms.Label()
-        Me.BlueScore = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel1.SuspendLayout()
+        Me.FirstLogo = New System.Windows.Forms.PictureBox()
+        Me.RedScoreLbl = New System.Windows.Forms.Label()
+        Me.BlueScoreLbl = New System.Windows.Forms.Label()
+        Me.RedScorePanel = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        CType(Me.FirstLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.RedScorePanel.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'MatchNumb
+        '
+        Me.MatchNumb.AutoSize = True
+        Me.MatchNumb.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.MatchNumb.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MatchNumb.Location = New System.Drawing.Point(3, 525)
+        Me.MatchNumb.Name = "MatchNumb"
+        Me.MatchNumb.Size = New System.Drawing.Size(184, 31)
+        Me.MatchNumb.TabIndex = 1
+        Me.MatchNumb.Text = "MatchNumber"
         '
         'RedTeam1
         '
         Me.RedTeam1.AutoSize = True
-        Me.RedTeam1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RedTeam1.ForeColor = System.Drawing.Color.White
-        Me.RedTeam1.Location = New System.Drawing.Point(3, 0)
+        Me.RedTeam1.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.RedTeam1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RedTeam1.Location = New System.Drawing.Point(3, 570)
         Me.RedTeam1.Name = "RedTeam1"
-        Me.RedTeam1.Size = New System.Drawing.Size(59, 24)
-        Me.RedTeam1.TabIndex = 0
-        Me.RedTeam1.Text = "Red1"
+        Me.RedTeam1.Size = New System.Drawing.Size(148, 31)
+        Me.RedTeam1.TabIndex = 2
+        Me.RedTeam1.Text = "RedTeam1"
         '
-        'Panel1
+        'RedTeam2lbl
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Red
-        Me.Panel1.Controls.Add(Me.RedScore)
-        Me.Panel1.Controls.Add(Me.RedTeam3)
-        Me.Panel1.Controls.Add(Me.Redteam2)
-        Me.Panel1.Controls.Add(Me.RedTeam1)
-        Me.Panel1.Location = New System.Drawing.Point(1, 380)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(326, 100)
-        Me.Panel1.TabIndex = 1
-        '
-        'Redteam2
-        '
-        Me.Redteam2.AutoSize = True
-        Me.Redteam2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Redteam2.ForeColor = System.Drawing.Color.White
-        Me.Redteam2.Location = New System.Drawing.Point(3, 30)
-        Me.Redteam2.Name = "Redteam2"
-        Me.Redteam2.Size = New System.Drawing.Size(59, 24)
-        Me.Redteam2.TabIndex = 1
-        Me.Redteam2.Text = "Red2"
+        Me.RedTeam2lbl.AutoSize = True
+        Me.RedTeam2lbl.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.RedTeam2lbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RedTeam2lbl.Location = New System.Drawing.Point(3, 600)
+        Me.RedTeam2lbl.Name = "RedTeam2lbl"
+        Me.RedTeam2lbl.Size = New System.Drawing.Size(148, 31)
+        Me.RedTeam2lbl.TabIndex = 3
+        Me.RedTeam2lbl.Text = "RedTeam2"
         '
         'RedTeam3
         '
         Me.RedTeam3.AutoSize = True
-        Me.RedTeam3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RedTeam3.ForeColor = System.Drawing.Color.White
-        Me.RedTeam3.Location = New System.Drawing.Point(3, 60)
+        Me.RedTeam3.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.RedTeam3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RedTeam3.Location = New System.Drawing.Point(3, 631)
         Me.RedTeam3.Name = "RedTeam3"
-        Me.RedTeam3.Size = New System.Drawing.Size(59, 24)
-        Me.RedTeam3.TabIndex = 2
-        Me.RedTeam3.Text = "Red3"
+        Me.RedTeam3.Size = New System.Drawing.Size(148, 31)
+        Me.RedTeam3.TabIndex = 4
+        Me.RedTeam3.Text = "RedTeam3"
         '
-        'Panel2
+        'Timerlbl
         '
-        Me.Panel2.BackColor = System.Drawing.Color.Blue
-        Me.Panel2.Controls.Add(Me.BlueScore)
-        Me.Panel2.Controls.Add(Me.BlueTeam3)
-        Me.Panel2.Controls.Add(Me.BlueTeam2)
-        Me.Panel2.Controls.Add(Me.BlueTeam1)
-        Me.Panel2.Location = New System.Drawing.Point(482, 380)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(432, 100)
-        Me.Panel2.TabIndex = 3
+        Me.Timerlbl.AutoSize = True
+        Me.Timerlbl.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.Timerlbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Timerlbl.Location = New System.Drawing.Point(658, 589)
+        Me.Timerlbl.Name = "Timerlbl"
+        Me.Timerlbl.Size = New System.Drawing.Size(68, 73)
+        Me.Timerlbl.TabIndex = 5
+        Me.Timerlbl.Text = "0"
+        Me.Timerlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'BlueTeam1lbl
+        '
+        Me.BlueTeam1lbl.AutoSize = True
+        Me.BlueTeam1lbl.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.BlueTeam1lbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BlueTeam1lbl.Location = New System.Drawing.Point(1212, 570)
+        Me.BlueTeam1lbl.Name = "BlueTeam1lbl"
+        Me.BlueTeam1lbl.Size = New System.Drawing.Size(152, 31)
+        Me.BlueTeam1lbl.TabIndex = 6
+        Me.BlueTeam1lbl.Text = "BlueTeam1"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.Lime
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1364, 515)
+        Me.Panel1.TabIndex = 7
         '
         'BlueTeam3
         '
         Me.BlueTeam3.AutoSize = True
-        Me.BlueTeam3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BlueTeam3.ForeColor = System.Drawing.Color.White
-        Me.BlueTeam3.Location = New System.Drawing.Point(369, 60)
+        Me.BlueTeam3.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.BlueTeam3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BlueTeam3.Location = New System.Drawing.Point(1212, 632)
         Me.BlueTeam3.Name = "BlueTeam3"
-        Me.BlueTeam3.Size = New System.Drawing.Size(63, 24)
-        Me.BlueTeam3.TabIndex = 2
-        Me.BlueTeam3.Text = "Blue3"
+        Me.BlueTeam3.Size = New System.Drawing.Size(152, 31)
+        Me.BlueTeam3.TabIndex = 8
+        Me.BlueTeam3.Text = "BlueTeam3"
         '
         'BlueTeam2
         '
         Me.BlueTeam2.AutoSize = True
-        Me.BlueTeam2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BlueTeam2.ForeColor = System.Drawing.Color.White
-        Me.BlueTeam2.Location = New System.Drawing.Point(369, 30)
+        Me.BlueTeam2.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.BlueTeam2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BlueTeam2.Location = New System.Drawing.Point(1212, 601)
         Me.BlueTeam2.Name = "BlueTeam2"
-        Me.BlueTeam2.Size = New System.Drawing.Size(63, 24)
-        Me.BlueTeam2.TabIndex = 1
-        Me.BlueTeam2.Text = "Blue2"
+        Me.BlueTeam2.Size = New System.Drawing.Size(152, 31)
+        Me.BlueTeam2.TabIndex = 9
+        Me.BlueTeam2.Text = "BlueTeam2"
         '
-        'BlueTeam1
+        'FirstLogo
         '
-        Me.BlueTeam1.AutoSize = True
-        Me.BlueTeam1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BlueTeam1.ForeColor = System.Drawing.Color.White
-        Me.BlueTeam1.Location = New System.Drawing.Point(369, 0)
-        Me.BlueTeam1.Name = "BlueTeam1"
-        Me.BlueTeam1.Size = New System.Drawing.Size(63, 24)
-        Me.BlueTeam1.TabIndex = 0
-        Me.BlueTeam1.Text = "Blue1"
+        Me.FirstLogo.BackColor = System.Drawing.Color.Transparent
+        Me.FirstLogo.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.FIRST_Horz_RGB
+        Me.FirstLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.FirstLogo.InitialImage = CType(resources.GetObject("FirstLogo.InitialImage"), System.Drawing.Image)
+        Me.FirstLogo.Location = New System.Drawing.Point(1156, 518)
+        Me.FirstLogo.Name = "FirstLogo"
+        Me.FirstLogo.Size = New System.Drawing.Size(218, 44)
+        Me.FirstLogo.TabIndex = 10
+        Me.FirstLogo.TabStop = False
         '
-        'RedScore
+        'RedScoreLbl
         '
-        Me.RedScore.AutoSize = True
-        Me.RedScore.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RedScore.ForeColor = System.Drawing.Color.White
-        Me.RedScore.Location = New System.Drawing.Point(195, 30)
-        Me.RedScore.Name = "RedScore"
-        Me.RedScore.Size = New System.Drawing.Size(131, 46)
-        Me.RedScore.TabIndex = 3
-        Me.RedScore.Text = "Score"
+        Me.RedScoreLbl.AutoSize = True
+        Me.RedScoreLbl.BackColor = System.Drawing.Color.Red
+        Me.RedScoreLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RedScoreLbl.Location = New System.Drawing.Point(51, 35)
+        Me.RedScoreLbl.Name = "RedScoreLbl"
+        Me.RedScoreLbl.Size = New System.Drawing.Size(68, 73)
+        Me.RedScoreLbl.TabIndex = 11
+        Me.RedScoreLbl.Text = "0"
         '
-        'BlueScore
+        'BlueScoreLbl
         '
-        Me.BlueScore.AutoSize = True
-        Me.BlueScore.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BlueScore.ForeColor = System.Drawing.Color.White
-        Me.BlueScore.Location = New System.Drawing.Point(3, 30)
-        Me.BlueScore.Name = "BlueScore"
-        Me.BlueScore.Size = New System.Drawing.Size(131, 46)
-        Me.BlueScore.TabIndex = 4
-        Me.BlueScore.Text = "Score"
+        Me.BlueScoreLbl.AutoSize = True
+        Me.BlueScoreLbl.BackColor = System.Drawing.Color.Blue
+        Me.BlueScoreLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BlueScoreLbl.Location = New System.Drawing.Point(51, 34)
+        Me.BlueScoreLbl.Name = "BlueScoreLbl"
+        Me.BlueScoreLbl.Size = New System.Drawing.Size(68, 73)
+        Me.BlueScoreLbl.TabIndex = 12
+        Me.BlueScoreLbl.Text = "0"
         '
-        'Label9
+        'RedScorePanel
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(27, 30)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(126, 46)
-        Me.Label9.TabIndex = 4
-        Me.Label9.Text = "Timer"
+        Me.RedScorePanel.BackColor = System.Drawing.Color.Red
+        Me.RedScorePanel.Controls.Add(Me.RedScoreLbl)
+        Me.RedScorePanel.Location = New System.Drawing.Point(448, 564)
+        Me.RedScorePanel.Name = "RedScorePanel"
+        Me.RedScorePanel.Size = New System.Drawing.Size(160, 139)
+        Me.RedScorePanel.TabIndex = 13
         '
-        'Panel3
+        'Panel2
         '
-        Me.Panel3.BackColor = System.Drawing.Color.Black
-        Me.Panel3.Controls.Add(Me.Label9)
-        Me.Panel3.Location = New System.Drawing.Point(323, 380)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(165, 100)
-        Me.Panel3.TabIndex = 5
+        Me.Panel2.BackColor = System.Drawing.Color.Blue
+        Me.Panel2.Controls.Add(Me.BlueScoreLbl)
+        Me.Panel2.Location = New System.Drawing.Point(815, 564)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(160, 139)
+        Me.Panel2.TabIndex = 13
         '
         'AudianceDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Lime
-        Me.ClientSize = New System.Drawing.Size(915, 481)
-        Me.Controls.Add(Me.Panel3)
+        Me.BackColor = System.Drawing.Color.White
+        Me.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.ScoreBoard
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1364, 695)
         Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.RedScorePanel)
+        Me.Controls.Add(Me.FirstLogo)
+        Me.Controls.Add(Me.BlueTeam3)
+        Me.Controls.Add(Me.BlueTeam2)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.BlueTeam1lbl)
+        Me.Controls.Add(Me.Timerlbl)
+        Me.Controls.Add(Me.RedTeam3)
+        Me.Controls.Add(Me.RedTeam2lbl)
+        Me.Controls.Add(Me.RedTeam1)
+        Me.Controls.Add(Me.MatchNumb)
         Me.Name = "AudianceDisplay"
+        Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Text = "AudianceDisplay"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        CType(Me.FirstLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.RedScorePanel.ResumeLayout(False)
+        Me.RedScorePanel.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents RedTeam1 As System.Windows.Forms.Label
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents RedScore As System.Windows.Forms.Label
-    Friend WithEvents RedTeam3 As System.Windows.Forms.Label
-    Friend WithEvents Redteam2 As System.Windows.Forms.Label
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents BlueScore As System.Windows.Forms.Label
-    Friend WithEvents BlueTeam3 As System.Windows.Forms.Label
-    Friend WithEvents BlueTeam2 As System.Windows.Forms.Label
-    Friend WithEvents BlueTeam1 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents MatchNumb As Label
+    Friend WithEvents RedTeam1 As Label
+    Friend WithEvents RedTeam2lbl As Label
+    Friend WithEvents RedTeam3 As Label
+    Friend WithEvents Timerlbl As Label
+    Friend WithEvents BlueTeam1lbl As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents BlueTeam3 As Label
+    Friend WithEvents BlueTeam2 As Label
+    Friend WithEvents FirstLogo As PictureBox
+    Friend WithEvents RedScoreLbl As Label
+    Friend WithEvents BlueScoreLbl As Label
+    Friend WithEvents RedScorePanel As Panel
+    Friend WithEvents Panel2 As Panel
 End Class

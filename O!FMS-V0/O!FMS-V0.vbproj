@@ -45,43 +45,23 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ofms logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutomatedSolutions.ASComm, Version=3.9.0.0, Culture=neutral, PublicKeyToken=67272fe3f372ded3" />
-    <Reference Include="bcParser.NET, Version=4.0.0.0, Culture=neutral, PublicKeyToken=336782ab629d24d0" />
     <Reference Include="EasyModbus, Version=4.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EasyModbusTCP.5.0.0\lib\EasyModbus.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Interop.OPCAutomation">
-      <HintPath>bin\Interop.OPCAutomation.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
     </Reference>
-    <Reference Include="Kepware.ClientAce.DA_Junction">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Kepware Technologies\ClientAce\V4.0\Kepware.ClientAce.DA_Junction.dll</HintPath>
+    <Reference Include="Rebex.Common, Version=2.5.6874.0, Culture=neutral, PublicKeyToken=1c4638788972655d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rebex.Common.2.5.6874\lib\net40\Rebex.Common.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821" />
-    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.Smo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Modbus, Version=1.11.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Modbus.Extensions, Version=1.11.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Reference Include="myOPC">
-      <HintPath>bin\myOPC.dll</HintPath>
+    <Reference Include="Rebex.Networking, Version=3.5.6874.0, Culture=neutral, PublicKeyToken=1c4638788972655d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rebex.Networking.3.5.6874\lib\net40\Rebex.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
-    <Reference Include="OAS_DriverLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Reference Include="OpcComnCtrls, Version=2.0.1.0, Culture=neutral, PublicKeyToken=78aea80f6827b5ab, processorArchitecture=x86" />
-    <Reference Include="OPCControls, Version=2.0.0.3, Culture=neutral, PublicKeyToken=09c594780a8fc3e6, processorArchitecture=MSIL" />
-    <Reference Include="OPCGauge, Version=2.0.0.2, Culture=neutral, PublicKeyToken=294a67dea8c56f3d, processorArchitecture=MSIL" />
-    <Reference Include="OPCSystems, Version=2.0.0.3, Culture=neutral, PublicKeyToken=3596d6f7c11b8a4b, processorArchitecture=MSIL" />
-    <Reference Include="OPCSystemsBrowseComputers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=65c8fec4b6d471be, processorArchitecture=MSIL" />
-    <Reference Include="OPCSystemsDataConnector, Version=3.5.0.0, Culture=neutral, PublicKeyToken=09c594780a8fc3e6, processorArchitecture=MSIL" />
-    <Reference Include="OPCSystemsInterface, Version=2.0.0.1, Culture=neutral, PublicKeyToken=7b0f3b64ec225157, processorArchitecture=MSIL" />
-    <Reference Include="OPCSystemsService, Version=10.0.0.69, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Opto22.Controller, Version=1.0.4.0, Culture=neutral, PublicKeyToken=null" />
-    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
-    <Reference Include="Polenter.SharpSerializer, Version=2.20.0.0, Culture=neutral, PublicKeyToken=8f4f20011571ee5f" />
     <Reference Include="Renci.SshNet, Version=2013.4.7.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2013.4.7\lib\net40\Renci.SshNet.dll</HintPath>
       <Private>True</Private>
@@ -104,9 +84,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Twilio.Api, Version=3.4.1.0, Culture=neutral, PublicKeyToken=null" />
-    <Reference Include="UnifiedAutomation.UaBase, Version=2.0.0.0, Culture=neutral, PublicKeyToken=90c158e6f23d82c1, processorArchitecture=MSIL" />
-    <Reference Include="UnifiedAutomation.UaClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=90c158e6f23d82c1, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -129,15 +106,26 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Communication\DriverStations.vb" />
-    <Compile Include="Communication\testcomm.vb" />
+    <Compile Include="Game\Arduino_Leds\ArduinoIps.vb" />
+    <Compile Include="Game\Arduino_Leds\ArduinoLedController.vb" />
     <Compile Include="Game\Led\Controller.vb" />
     <Compile Include="Game\Led\Modes.vb" />
     <Compile Include="Game\Led\Strip.vb" />
     <Compile Include="Game\Timing.vb" />
-    <Compile Include="OFMS\AccessPoint.vb" />
-    <Compile Include="OFMS\Field.vb" />
-    <Compile Include="OFMS\Match.vb" />
-    <Compile Include="OFMS\Team_Networks.vb" />
+    <Compile Include="Game\Vault Leds\Vault_Controller.vb" />
+    <Compile Include="Game\Vault Leds\Vault_Modes.vb" />
+    <Compile Include="Match_Generator.Designer.vb">
+      <DependentUpon>Match_Generator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Match_Generator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OFMS\Displays\AudienceDisplayComms.vb" />
+    <Compile Include="OFMS\Field\AccessPoint.vb" />
+    <Compile Include="OFMS\Field\Field.vb" />
+    <Compile Include="OFMS\Field\Match.vb" />
+    <Compile Include="OFMS\Field\Team_Networks.vb" />
+    <Compile Include="OFMS\Schedule_Generator.vb" />
     <Compile Include="Other\CRC.vb" />
     <Compile Include="Communication\PLC_Comms_Server.vb" />
     <Compile Include="Game\Led\Colors.vb" />
@@ -164,6 +152,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Game\RandomString.vb" />
+    <Compile Include="PLC_Tester.Designer.vb">
+      <DependentUpon>PLC_Tester.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PLC_Tester.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Startup_Screen.Designer.vb">
       <DependentUpon>Startup_Screen.vb</DependentUpon>
     </Compile>
@@ -191,14 +185,20 @@
     <EmbeddedResource Include="AudianceDisplay.resx">
       <DependentUpon>AudianceDisplay.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Match_Generator.resx">
+      <DependentUpon>Match_Generator.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OFMS-MainForm.resx">
       <DependentUpon>OFMS-MainForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <Generator>PublicVbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PLC_Tester.resx">
+      <DependentUpon>PLC_Tester.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Startup_Screen.resx">
       <DependentUpon>Startup_Screen.vb</DependentUpon>
@@ -212,12 +212,14 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Schedule_Generator.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="OFMS\Field\access_point.cfg" />
     <None Include="packages.config" />
     <None Include="_O_FMSDataSet.xsc">
       <DependentUpon>_O_FMSDataSet.xsd</DependentUpon>
@@ -243,94 +245,32 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="OFMS\Sounds\3BELLS.wav" />
-    <Content Include="OFMS\Sounds\CHARGE.wav" />
-    <Content Include="OFMS\Sounds\ENDGAME.wav" />
-    <Content Include="OFMS\Sounds\ENDMATCH.wav" />
-    <Content Include="OFMS\Sounds\FOGHORN.wav" />
-    <Content Include="OFMS\Sounds\MATCH_WARMUP.wav" />
+    <Content Include="ofms logo.ico" />
+    <Content Include="OFMS\Field\APTemplate.txt" />
+    <Content Include="OFMS\Sounds\fog-blast.wav" />
+    <None Include="Resources\ScoreBoard.png" />
+    <None Include="Resources\FIRST_Horz_RGB.gif" />
+    <None Include="Resources\First_logo_vetical.bmp" />
+    <EmbeddedResource Include="OFMS\Sounds\match_abort.mp3" />
+    <EmbeddedResource Include="OFMS\Sounds\match_boost.wav" />
+    <EmbeddedResource Include="OFMS\Sounds\match_end.wav" />
+    <EmbeddedResource Include="OFMS\Sounds\match_endgame.wav" />
+    <EmbeddedResource Include="OFMS\Sounds\match_force.wav" />
+    <EmbeddedResource Include="OFMS\Sounds\match_levitate.wav" />
+    <EmbeddedResource Include="OFMS\Sounds\match_resume.wav" />
+    <EmbeddedResource Include="OFMS\Sounds\match_start.wav" />
+    <EmbeddedResource Include="OFMS\Sounds\match_warmup.wav" />
     <None Include="Resources\adc_logo_241x209.png" />
     <None Include="Resources\FIRST logo.jpg" />
     <None Include="Resources\ofms logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="AxOPCWareAX">
-      <Guid>{64A4C595-E13B-416E-A782-5D3011F34878}</Guid>
-      <VersionMajor>3</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="OPCAutomation">
-      <Guid>{28E68F91-4A23-46C7-6EB2-5F264D510700}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="OPCWareAX">
-      <Guid>{64A4C595-E13B-416E-A782-5D3011F34878}</Guid>
-      <VersionMajor>3</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="stdole">
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="TagDETAILSSERVERLib">
-      <Guid>{10C57569-0157-4F68-AC7F-44AE68FE0472}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="TagManagementPane">
-      <Guid>{7537FDDB-BCB5-4DAC-8F0B-8E20F6477CDB}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="TAGMODULELib">
-      <Guid>{D1A91C5D-BB08-4DE4-A296-DFF9968381C5}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="TAGVIEWLib">
-      <Guid>{DEA6D2CF-C8DF-49EF-84F8-487951BDBC30}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="XtraTimer">
-      <Guid>{9E674A81-6C2D-4397-A7FF-B8DC463EC8A7}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>

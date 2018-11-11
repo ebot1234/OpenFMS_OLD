@@ -118,39 +118,58 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="FMSMasterBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>468, 17</value>
-  </metadata>
-  <metadata name="FMSMasterBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>468, 17</value>
+    <value>285, 16</value>
   </metadata>
   <metadata name="BindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>194, 17</value>
-  </metadata>
-  <metadata name="BindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>194, 17</value>
+    <value>2, 14</value>
   </metadata>
   <metadata name="_O_FMSDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>331, 17</value>
-  </metadata>
-  <metadata name="_O_FMSDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>331, 17</value>
+    <value>122, 16</value>
   </metadata>
   <metadata name="FMSMasterTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>660, 17</value>
+    <value>612, 16</value>
   </metadata>
-  <metadata name="BindingSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
+  <metadata name="WarmUpTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>798, 16</value>
   </metadata>
-  <metadata name="_O_FMSDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>154, 56</value>
+  <metadata name="AutoTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 55</value>
   </metadata>
-  <metadata name="_O_FMSDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>154, 56</value>
+  <metadata name="PauseTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>231, 55</value>
   </metadata>
-  <metadata name="OpcSystems1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>298, 56</value>
+  <metadata name="TeleTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>126, 55</value>
+  </metadata>
+  <metadata name="EndGameTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>477, 16</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>34</value>
+    <value>70</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABMLAAATCwAAAAAAAAAA
+        AAAAAAAAAAAAABwWxAAcFsQAHBbEJBwWxHkcFsTBHBbE3xwWxOAcFsTHHBbEgxwWxC0cFsQCHBbEAAAA
+        AAAAAAAAAAAAABwWxAAcFsQGHBbEXxwWxNUcFsT9HBbE/xwWxP8cFsT/HBbE/xwWxP4cFsTeHBbEcBwW
+        xAscFsQAAAAAABwWxAAcFsQFHBbEeBwWxPUcFsT/HBbE2xwWxJQcFsRnHBbEZRwWxI0cFsTTHBbE/hwW
+        xPocFsSNHBbEChwWxAAcFsQAHBbEVRwWxPIcFsT9HBbEoRwWxCUcFsQBHBbEABwWxAAcFsQAHBbEHBwW
+        xJEcFsT5HBbE+RwWxGscFsQAHBbEFxwWxMYcFsT/HBbEqBwWxBAcFsQAAAAAAAAAAAAAAAAAAAAAABcR
+        xwAVD8kIHBbEkxwWxP8cFsTXHBbEJxwWxFccFsT3HBbE7xwWxEovHJcAcC4CCG8uBA5vLgQWby0DE3E3
+        ERWAgIAbiYp6HTMvtSwcFsTaHBbE/hwWxHQcFsSWHBbE/xwWxN4cFsStDRLmD3EvADJvLgRvby4En28u
+        A4lwMwyagH59loCAgMyAgICCHBbEmxwWxP8cFsSxHBbErhwWxP8cFsSyHBbEzBoVyYBNJFNmby4EuG8u
+        BK1vLgSdby4Es351b2KAgIC/goJ/tyMdv4EcFsT/HBbEzBwWxKscFsT/HBbEpxwWxMMbFsawOB6Cam8u
+        BcJvLgSwby4Erm8tAsB9cmqogIGB04OEfmcgGsGCHBbE/xwWxMkcFsSIHBbE/xwWxMMcFsSTHBbFyyMY
+        tZxsLQyscC8EzHAvBcJvLQK+fGpfc4CBgch9fYJ+JyG9vhsVxP8cFsSjHBbERBwWxO8cFsT0HBbEWBwW
+        xBwbFsYacjAAEDwqn3A3Ka6FcTQTGntpXAeRknUZOTWwTx0Xw+0cFsT4HBbEXxwWxAscFsSsHBbE/xwW
+        xMscFsQoHBbEACcTlgBCL5tvPSqbjnFjswIjHMEAGBLHHBsVxbkcFsT/HBbEwBwWxBYcFsQAHBbENRwW
+        xN4cFsT/HBbEzhwWxFMACv8GcS8DgXAvA6EwG5MIHBbERhwWxMEcFsT/HBbE6hwWxEgcFsQAHBbEABwW
+        xAAcFsRLHBbE3RwWxP8cFsT2GRXLVnEvAIdxLwCpHhe/TBwWxPAcFsT/HBbE5xwWxF4cFsQBHBbEAAAA
+        AAAcFsQAHBbEABwWxDEcFsSnHBbE6xkVyl9xLwCHcS8AqR4Xv1YcFsTrHBbEshwWxD4cFsQBHBbEAAAA
+        AAAAAAAAAAAAABwWxAAcFsQAHBbEChwWxDUSE9sScC4CaHAuA4EjGLQTHBbEOBwWxA0cFsQAHBbEAAAA
+        AAAAAAAA8AcAAMADAACAAQAAgcEAAAfgAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGIAAAgAEAAMAB
+        AADgAwAA8A8AAA==
+</value>
+  </data>
 </root>
