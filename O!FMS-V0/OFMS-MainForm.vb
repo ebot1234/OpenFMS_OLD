@@ -1,15 +1,8 @@
-﻿Imports System.Data
-Imports System.Data.SqlClient
-Imports System.Net.Sockets
-Imports System.Timers
-Imports System.Math
+﻿Imports System.Data.SqlClient
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.RandomString
-Imports O_FMS_V0.Team_Networks
-Imports O_FMS_V0.DriverStations
-Imports System.Drawing
 Imports O_FMS_V0.Field
-Imports O_FMS_V0.AudianceDisplay
+
 
 
 
@@ -339,14 +332,12 @@ Public Class Main_Panel
         matchTimerLbl.Text = WarmUpTime
         WarmUpTimer.Enabled = False
         MatchMessages.Text = "Field Pre-Started"
-
     End Sub
 
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
         updateField("StartMatch")
         WarmUpTimer.Start()
-        HandlePLC()
-        HandleLeds()
+
     End Sub
 
     Private Sub WarmUpTimer_Tick(sender As Object, e As EventArgs) Handles WarmUpTimer.Tick
@@ -354,8 +345,8 @@ Public Class Main_Panel
         matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
         MatchMessages.Text = "Warm-Up"
         ScaleSwitch.Text = gamedatause
-        HandlePLC()
-        HandleLeds()
+
+
 
         If matchTimerLbl.Text = 0 Then
             updateField("Auto")
@@ -371,8 +362,7 @@ Public Class Main_Panel
         AutoTimer.Interval = 1000
         matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
         MatchMessages.Text = "Auto"
-        HandlePLC()
-        HandleLeds()
+
 
         If matchTimerLbl.Text = 0 Then
             updateField("Pause")
@@ -388,8 +378,7 @@ Public Class Main_Panel
         TeleTimer.Interval = 1000
         matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
         MatchMessages.Text = "Tele-Operated"
-        HandlePLC()
-        HandleLeds()
+
 
         If matchTimerLbl.Text = 30 Then
             updateField("EndGame")
@@ -406,8 +395,7 @@ Public Class Main_Panel
         PauseTimer.Interval = 1000
         matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
         MatchMessages.Text = "Pause"
-        HandlePLC()
-        HandleLeds()
+
 
         If matchTimerLbl.Text = 0 Then
             updateField("Tele")
@@ -463,19 +451,24 @@ Public Class Main_Panel
         PLC_Estop_Blue2 = False
         PLC_Estop_Blue3 = False
     End Sub
-    'PreMatch'
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+
+    Private Sub ConnectPLCBtn_Click(sender As Object, e As EventArgs) Handles ConnectPLCBtn.Click
+        ConnectPLC()
+    End Sub
+
+    Private Sub ConnectLedsBtn_Click(sender As Object, e As EventArgs) Handles ConnectLedsBtn.Click
+        ConnectLeds()
+    End Sub
+
+    Private Sub PreMatchBtn_Click(sender As Object, e As EventArgs) Handles PreMatchBtn.Click
 
     End Sub
-    'Match Play'
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
-
-
+    Private Sub MatchPlay_Click(sender As Object, e As EventArgs) Handles MatchPlay.Click
 
     End Sub
-    'Final Score'
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+    Private Sub FinalScoreBtn_Click(sender As Object, e As EventArgs) Handles FinalScoreBtn.Click
 
     End Sub
 End Class

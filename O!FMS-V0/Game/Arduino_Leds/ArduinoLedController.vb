@@ -5,12 +5,12 @@ Imports System.Text
 'For 2018 this controls the Switches and Scale leds'
 
 Public Class ArduinoLedController
-    Public Shared ArduinoConn As New UdpClient
+    Public Shared ArduinoConn As UdpClient
     Public Shared ArduinoPort As Int32 = 5555
-    Public Shared message As String
-    Public Shared ip As IPAddress
+    Public Shared message As String = String.Empty
+    Public Shared ip As String = String.Empty
 
-    Public Sub ConnectArduino(ip)
+    Public Sub Connect(ip)
         ArduinoConn = New UdpClient()
         ArduinoConn.Connect(ip, ArduinoPort)
     End Sub
@@ -20,6 +20,8 @@ Public Class ArduinoLedController
         ArduinoConn.Send(sendByte, sendByte.Length)
     End Sub
 
+    Public Sub DestroyConnection()
+        ArduinoConn.Close()
 
-
+    End Sub
 End Class

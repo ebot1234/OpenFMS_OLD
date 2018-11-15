@@ -135,13 +135,17 @@ Public Class PLC_Comms_Server
     'Teams
     Public Shared RedT1, RedT2, RedT3, BlueT1, BlueT2, BlueT3
 
+    Public Shared modbusClient As ModbusClient = New ModbusClient("10.0.0.7", 502)
+
+    Public Shared Sub ConnectPLC()
+        modbusClient.Connect()
+    End Sub
+
+    Public Shared Sub DisconnectPLC()
+        modbusClient.Disconnect()
+    End Sub
 
     Public Shared Sub Modbus_Main(ByVal args() As String)
-        Dim modbusClient As ModbusClient = New ModbusClient("10.0.0.7", 502)
-        'Ip-Address and Port of Modbus-TCP-Server
-        modbusClient.Connect()
-        'Connect to Server
-
         Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 66)
         'Read 66 Coils from Server, starting with address 0
 

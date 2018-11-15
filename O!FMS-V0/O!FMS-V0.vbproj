@@ -106,7 +106,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Communication\DriverStations.vb" />
-    <Compile Include="Game\Arduino_Leds\ArduinoIps.vb" />
     <Compile Include="Game\Arduino_Leds\ArduinoLedController.vb" />
     <Compile Include="Game\Led\Controller.vb" />
     <Compile Include="Game\Led\Modes.vb" />
