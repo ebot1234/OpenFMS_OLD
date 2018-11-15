@@ -37,6 +37,7 @@ Partial Class AudianceDisplay
         Me.BlueScoreLbl = New System.Windows.Forms.Label()
         Me.RedScorePanel = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.FirstLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RedScorePanel.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -44,14 +45,14 @@ Partial Class AudianceDisplay
         '
         'MatchNumb
         '
-        Me.MatchNumb.AutoSize = True
         Me.MatchNumb.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.MatchNumb.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MatchNumb.Location = New System.Drawing.Point(3, 525)
+        Me.MatchNumb.Location = New System.Drawing.Point(619, 525)
         Me.MatchNumb.Name = "MatchNumb"
         Me.MatchNumb.Size = New System.Drawing.Size(184, 31)
         Me.MatchNumb.TabIndex = 1
         Me.MatchNumb.Text = "MatchNumber"
+        Me.MatchNumb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'RedTeam1
         '
@@ -100,14 +101,14 @@ Partial Class AudianceDisplay
         '
         'BlueTeam1lbl
         '
-        Me.BlueTeam1lbl.AutoSize = True
         Me.BlueTeam1lbl.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.BlueTeam1lbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BlueTeam1lbl.Location = New System.Drawing.Point(1212, 570)
+        Me.BlueTeam1lbl.Location = New System.Drawing.Point(1216, 570)
         Me.BlueTeam1lbl.Name = "BlueTeam1lbl"
         Me.BlueTeam1lbl.Size = New System.Drawing.Size(152, 31)
         Me.BlueTeam1lbl.TabIndex = 6
         Me.BlueTeam1lbl.Text = "BlueTeam1"
+        Me.BlueTeam1lbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Panel1
         '
@@ -119,25 +120,25 @@ Partial Class AudianceDisplay
         '
         'BlueTeam3
         '
-        Me.BlueTeam3.AutoSize = True
         Me.BlueTeam3.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.BlueTeam3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BlueTeam3.Location = New System.Drawing.Point(1212, 632)
+        Me.BlueTeam3.Location = New System.Drawing.Point(1217, 632)
         Me.BlueTeam3.Name = "BlueTeam3"
         Me.BlueTeam3.Size = New System.Drawing.Size(152, 31)
         Me.BlueTeam3.TabIndex = 8
         Me.BlueTeam3.Text = "BlueTeam3"
+        Me.BlueTeam3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'BlueTeam2
         '
-        Me.BlueTeam2.AutoSize = True
         Me.BlueTeam2.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.BlueTeam2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BlueTeam2.Location = New System.Drawing.Point(1212, 601)
+        Me.BlueTeam2.Location = New System.Drawing.Point(1217, 601)
         Me.BlueTeam2.Name = "BlueTeam2"
         Me.BlueTeam2.Size = New System.Drawing.Size(152, 31)
         Me.BlueTeam2.TabIndex = 9
         Me.BlueTeam2.Text = "BlueTeam2"
+        Me.BlueTeam2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'FirstLogo
         '
@@ -191,6 +192,17 @@ Partial Class AudianceDisplay
         Me.Panel2.Size = New System.Drawing.Size(160, 139)
         Me.Panel2.TabIndex = 13
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(994, 525)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(156, 31)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Match Type"
+        '
         'AudianceDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -199,6 +211,7 @@ Partial Class AudianceDisplay
         Me.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.ScoreBoard
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1364, 695)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.RedScorePanel)
         Me.Controls.Add(Me.FirstLogo)
@@ -237,4 +250,5 @@ Partial Class AudianceDisplay
     Friend WithEvents BlueScoreLbl As Label
     Friend WithEvents RedScorePanel As Panel
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label1 As Label
 End Class

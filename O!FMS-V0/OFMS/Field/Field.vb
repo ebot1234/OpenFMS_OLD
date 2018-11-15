@@ -23,7 +23,6 @@ Public Class Field
     Public Shared GameTime As Integer = 0
 
     Public Shared Sub ConnectDriverStations()
-        CreateConnections()
         Red1DS.Connect(IPAddress.Parse(Red1Network))
         Red2DS.Connect(IPAddress.Parse(Red2Network))
         Red3DS.Connect(IPAddress.Parse(Red3Network))

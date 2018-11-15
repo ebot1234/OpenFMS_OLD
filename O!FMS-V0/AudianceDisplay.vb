@@ -5,5 +5,7 @@ Public Class AudianceDisplay
         Call CenterToScreen()
         Me.FormBorderStyle = Windows.Forms.BorderStyle.FixedSingle
         Me.WindowState = FormWindowState.Maximized
+        RedScoreLbl.Text = 0
+        BlueScoreLbl.Text = 0
     End Sub
 End Class

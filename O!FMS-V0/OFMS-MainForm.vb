@@ -9,7 +9,7 @@ Imports O_FMS_V0.Field
 
 Public Class Main_Panel
 
-    Dim connection As New SqlConnection("data source=ELLEN\SQLEXPRESS; Initial Catalog=O!FMS; Integrated Security = true")
+    Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
         Timer1.Interval = 1000 '1 seconds
@@ -68,13 +68,16 @@ Public Class Main_Panel
             'updates the audience display with team numbers'
             AudianceDisplay.RedTeam1.Text = table.Rows(0)(7).ToString
             AudianceDisplay.RedTeam2lbl.Text = table.Rows(0)(9).ToString
-            AudianceDisplay.RedTeam3.Text = table.Rows(0)(12).ToString
+            AudianceDisplay.RedTeam3.Text = table.Rows(0)(11).ToString
             AudianceDisplay.BlueTeam1lbl.Text = table.Rows(0)(1).ToString
             AudianceDisplay.BlueTeam2.Text = table.Rows(0)(3).ToString
             AudianceDisplay.BlueTeam3.Text = table.Rows(0)(5).ToString
 
             'Updates the audience display with match number'
             AudianceDisplay.MatchNumb.Text = MatchNum.Text
+
+            'Updates the audience display with match type
+            AudianceDisplay.Label1.Text = table.Rows(0)(13).ToString
             MessageBox.Show("Data Loaded")
         Else
             MessageBox.Show("Not Loaded")
