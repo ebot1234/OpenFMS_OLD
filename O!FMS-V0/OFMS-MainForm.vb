@@ -9,6 +9,11 @@ Imports O_FMS_V0.Field
 
 Public Class Main_Panel
 
+    Public ledThread As Threading.Thread
+    Public plcThread As Threading.Thread
+    Public matchThread As Threading.Thread
+    Public preMatchThread As Threading.Thread = New Threading.Thread(AddressOf HandlePreMatch)
+
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
@@ -330,8 +335,8 @@ Public Class Main_Panel
     End Sub
 
     Private Sub Pre_Start_btn_Click(sender As Object, e As EventArgs) Handles Pre_Start_btn.Click
-        updateField("PreMatch")
-        NotEstopped()
+        preMatchThread.Start()
+
         matchTimerLbl.Text = WarmUpTime
         WarmUpTimer.Enabled = False
         MatchMessages.Text = "Field Pre-Started"
@@ -341,6 +346,10 @@ Public Class Main_Panel
         updateField("StartMatch")
         WarmUpTimer.Start()
 
+    End Sub
+
+    Public Sub HandlePreMatch()
+        updateField(MatchEnums.PreMatch)
     End Sub
 
     Private Sub WarmUpTimer_Tick(sender As Object, e As EventArgs) Handles WarmUpTimer.Tick
@@ -455,6 +464,7 @@ Public Class Main_Panel
         PLC_Estop_Blue3 = False
     End Sub
 
+    'FTA Group Buttons'
     Private Sub ConnectPLCBtn_Click(sender As Object, e As EventArgs) Handles ConnectPLCBtn.Click
         ConnectPLC()
     End Sub
@@ -463,6 +473,7 @@ Public Class Main_Panel
         ConnectLeds()
     End Sub
 
+    'Display Box Buttons'
     Private Sub PreMatchBtn_Click(sender As Object, e As EventArgs) Handles PreMatchBtn.Click
 
     End Sub

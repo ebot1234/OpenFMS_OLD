@@ -21,6 +21,17 @@ Public Class Field
     Public Shared TeleTime As Integer = 135
     Public Shared EndgameTime As Integer = 30
     Public Shared GameTime As Integer = 0
+    Public Enum MatchEnums
+        PreMatch
+        WarmUp
+        Auto
+        Pause
+        TeleOp
+        EndGame
+        PostMatch
+        AbortMatch
+    End Enum
+
 
     Public Shared Sub ConnectDriverStations()
         Red1DS.Connect(IPAddress.Parse(Red1Network))
@@ -154,9 +165,9 @@ Public Class Field
         Return 0
     End Function
 
-    Public Shared Sub updateField(mode As String)
-        Select Case (mode)
-            Case "PreMatch"
+    Public Shared Sub updateField(MatchEnums As MatchEnums)
+        Select Case (MatchEnums)
+            Case MatchEnums.PreMatch
                 PLC_Reset = True
                 'ConnectDriverStations()
                 'pingDSConnections()
@@ -164,30 +175,30 @@ Public Class Field
                 My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
                 Match_PreStart = True
                 SendDS(Auto:=True, Enabled:=False)
-            Case "StartMatch"
+            Case MatchEnums.WarmUp
                 SendDS(Auto:=True, Enabled:=False)
                 GameDataGen()
                 Match_Start = True
                 My.Computer.Audio.Play(My.Resources.match_warmup, AudioPlayMode.Background)
-            Case "Auto"
+            Case MatchEnums.Auto
                 SendDS(Auto:=True, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_start, AudioPlayMode.Background)
- 
-            Case "Pause"
+
+            Case MatchEnums.Pause
                 My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
-            Case "Tele"
+            Case MatchEnums.TeleOp
                 My.Computer.Audio.Play(My.Resources.match_resume, AudioPlayMode.Background)
-            Case "EndGame"
+            Case MatchEnums.EndGame
                 My.Computer.Audio.Play(My.Resources.match_endgame, AudioPlayMode.Background)
-            Case "PostMatch"
+            Case MatchEnums.PostMatch
                 My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
                 Match_Stop = True
-            Case "AbortMatch"
+            Case MatchEnums.AbortMatch
                 SendDS(Auto:=False, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
                 Match_Stop = True
             Case Else
-                mode = "PreMatch"
+                MatchEnums = MatchEnums.PreMatch
         End Select
     End Sub
 End Class
