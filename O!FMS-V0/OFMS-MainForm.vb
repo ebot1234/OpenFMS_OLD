@@ -8,6 +8,7 @@ Imports O_FMS_V0.Field
 
 
 Public Class Main_Panel
+    Dim _stopThread As Threading.ManualResetEvent
     Dim PreMatchThread As New Threading.Thread(AddressOf HandlePreMatch)
     Dim PLCThread As New Threading.Thread(AddressOf HandlePLC)
 
@@ -332,6 +333,8 @@ Public Class Main_Panel
     End Sub
 
     Private Sub Pre_Start_btn_Click(sender As Object, e As EventArgs) Handles Pre_Start_btn.Click
+        PLCThread = New Threading.Thread(AddressOf HandlePLC)
+        PreMatchThread = New Threading.Thread(AddressOf HandlePreMatch)
         PreMatchThread.Start()
         matchTimerLbl.Text = WarmUpTime
         WarmUpTimer.Enabled = False
@@ -339,7 +342,7 @@ Public Class Main_Panel
     End Sub
 
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
-        PreMatchThread.Sleep(15 + 14 + 135 + 3 + 30)
+        PreMatchThread.Abort()
         updateField(MatchEnums.WarmUp)
         WarmUpTimer.Start()
         PLCThread.Start()
@@ -438,6 +441,7 @@ Public Class Main_Panel
     Private Sub AbortMatch_btn_Click(sender As Object, e As EventArgs) Handles AbortMatch_btn.Click
         updateField(MatchEnums.AbortMatch)
         Aborted()
+        ResetPLC()
         matchTimerLbl.Text = 0
         WarmUpTimer.Stop()
         AutoTimer.Stop()
