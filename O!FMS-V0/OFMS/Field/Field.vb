@@ -171,8 +171,6 @@ Public Class Field
                 PLC_Reset = True
                 'ConnectDriverStations()
                 'pingDSConnections()
-
-                My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
                 Match_PreStart = True
                 SendDS(Auto:=True, Enabled:=False)
             Case MatchEnums.WarmUp

@@ -359,13 +359,6 @@ Public Class PLC_Comms_Server
         'modbusClient.WriteMultipleCoils(16, New Boolean() {True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True})
         'Write Coils starting with Address 16
 
-
-
-
-        modbusClient.Disconnect()
-        'Disconnect from Server
-        Console.Write("Press any key to continue . . . ")
-        Console.ReadKey(True)
     End Sub
 
 

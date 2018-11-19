@@ -8,11 +8,8 @@ Imports O_FMS_V0.Field
 
 
 Public Class Main_Panel
+    Dim PreMatchThread As New Threading.Thread(AddressOf HandlePreMatch)
 
-    Public ledThread As Threading.Thread
-    Public plcThread As Threading.Thread
-    Public matchThread As Threading.Thread
-    Public preMatchThread As Threading.Thread = New Threading.Thread(AddressOf HandlePreMatch)
 
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -335,21 +332,24 @@ Public Class Main_Panel
     End Sub
 
     Private Sub Pre_Start_btn_Click(sender As Object, e As EventArgs) Handles Pre_Start_btn.Click
-        preMatchThread.Start()
-
+        PreMatchThread.Start()
         matchTimerLbl.Text = WarmUpTime
         WarmUpTimer.Enabled = False
         MatchMessages.Text = "Field Pre-Started"
     End Sub
 
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
-        updateField("StartMatch")
+        updateField(MatchEnums.WarmUp)
         WarmUpTimer.Start()
-
     End Sub
 
     Public Sub HandlePreMatch()
-        updateField(MatchEnums.PreMatch)
+        My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
+        Do While (True)
+            updateField(MatchEnums.PreMatch)
+            NotEstopped()
+            System.Threading.Thread.Sleep(1000)
+        Loop
     End Sub
 
     Private Sub WarmUpTimer_Tick(sender As Object, e As EventArgs) Handles WarmUpTimer.Tick
@@ -361,7 +361,7 @@ Public Class Main_Panel
 
 
         If matchTimerLbl.Text = 0 Then
-            updateField("Auto")
+            updateField(MatchEnums.Auto)
             matchTimerLbl.Text = AutoTime
             WarmUpTimer.Stop()
             AutoTimer.Enabled = True
@@ -377,7 +377,7 @@ Public Class Main_Panel
 
 
         If matchTimerLbl.Text = 0 Then
-            updateField("Pause")
+            updateField(MatchEnums.Pause)
             matchTimerLbl.Text = PauseTime
             AutoTimer.Stop()
             PauseTimer.Enabled = True
@@ -393,7 +393,7 @@ Public Class Main_Panel
 
 
         If matchTimerLbl.Text = 30 Then
-            updateField("EndGame")
+            updateField(MatchEnums.EndGame)
 
             matchTimerLbl.Text = EndgameTime
             TeleTimer.Stop()
@@ -410,7 +410,7 @@ Public Class Main_Panel
 
 
         If matchTimerLbl.Text = 0 Then
-            updateField("Tele")
+            updateField(MatchEnums.TeleOp)
             matchTimerLbl.Text = TeleTime
             PauseTimer.Stop()
             TeleTimer.Enabled = True
@@ -426,7 +426,7 @@ Public Class Main_Panel
 
 
         If matchTimerLbl.Text = 0 Then
-            updateField("PostMatch")
+            updateField(MatchEnums.PostMatch)
             EndGameTimer.Stop()
             ScaleSwitch.Text = ""
             NotEstopped()
@@ -434,7 +434,7 @@ Public Class Main_Panel
     End Sub
 
     Private Sub AbortMatch_btn_Click(sender As Object, e As EventArgs) Handles AbortMatch_btn.Click
-        updateField("AbortMatch")
+        updateField(MatchEnums.AbortMatch)
         Aborted()
         matchTimerLbl.Text = 0
         WarmUpTimer.Stop()
