@@ -197,6 +197,9 @@ Partial Class Main_Panel
         Me.PreMatchBtn = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.LedPatternTestBtn = New System.Windows.Forms.Button()
+        Me.DSLightTestBtn = New System.Windows.Forms.Button()
+        Me.ScoringTableLightTestBtn = New System.Windows.Forms.Button()
         Me.ConnectLedsBtn = New System.Windows.Forms.Button()
         Me.ConnectPLCBtn = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
@@ -1655,27 +1658,27 @@ Partial Class Main_Panel
         '
         'MatchPlay
         '
-        Me.MatchPlay.Location = New System.Drawing.Point(114, 25)
+        Me.MatchPlay.Location = New System.Drawing.Point(91, 24)
         Me.MatchPlay.Name = "MatchPlay"
-        Me.MatchPlay.Size = New System.Drawing.Size(75, 23)
+        Me.MatchPlay.Size = New System.Drawing.Size(75, 34)
         Me.MatchPlay.TabIndex = 31
         Me.MatchPlay.Text = "Match Play"
         Me.MatchPlay.UseVisualStyleBackColor = True
         '
         'FinalScoreBtn
         '
-        Me.FinalScoreBtn.Location = New System.Drawing.Point(206, 25)
+        Me.FinalScoreBtn.Location = New System.Drawing.Point(182, 24)
         Me.FinalScoreBtn.Name = "FinalScoreBtn"
-        Me.FinalScoreBtn.Size = New System.Drawing.Size(75, 23)
+        Me.FinalScoreBtn.Size = New System.Drawing.Size(85, 36)
         Me.FinalScoreBtn.TabIndex = 32
         Me.FinalScoreBtn.Text = "Final Score"
         Me.FinalScoreBtn.UseVisualStyleBackColor = True
         '
         'PreMatchBtn
         '
-        Me.PreMatchBtn.Location = New System.Drawing.Point(21, 25)
+        Me.PreMatchBtn.Location = New System.Drawing.Point(6, 23)
         Me.PreMatchBtn.Name = "PreMatchBtn"
-        Me.PreMatchBtn.Size = New System.Drawing.Size(75, 23)
+        Me.PreMatchBtn.Size = New System.Drawing.Size(75, 36)
         Me.PreMatchBtn.TabIndex = 33
         Me.PreMatchBtn.Text = "Pre-Match"
         Me.PreMatchBtn.UseVisualStyleBackColor = True
@@ -1688,7 +1691,7 @@ Partial Class Main_Panel
         Me.GroupBox1.Controls.Add(Me.MatchPlay)
         Me.GroupBox1.Location = New System.Drawing.Point(920, 56)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(281, 81)
+        Me.GroupBox1.Size = New System.Drawing.Size(281, 99)
         Me.GroupBox1.TabIndex = 34
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Video Switcher"
@@ -1696,29 +1699,59 @@ Partial Class Main_Panel
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.GroupBox2.Controls.Add(Me.LedPatternTestBtn)
+        Me.GroupBox2.Controls.Add(Me.DSLightTestBtn)
+        Me.GroupBox2.Controls.Add(Me.ScoringTableLightTestBtn)
         Me.GroupBox2.Controls.Add(Me.ConnectLedsBtn)
         Me.GroupBox2.Controls.Add(Me.ConnectPLCBtn)
         Me.GroupBox2.Location = New System.Drawing.Point(920, 172)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(281, 100)
+        Me.GroupBox2.Size = New System.Drawing.Size(281, 169)
         Me.GroupBox2.TabIndex = 35
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "FTA's Only"
         '
+        'LedPatternTestBtn
+        '
+        Me.LedPatternTestBtn.Location = New System.Drawing.Point(158, 64)
+        Me.LedPatternTestBtn.Name = "LedPatternTestBtn"
+        Me.LedPatternTestBtn.Size = New System.Drawing.Size(117, 39)
+        Me.LedPatternTestBtn.TabIndex = 4
+        Me.LedPatternTestBtn.Text = "Light Pattern Test"
+        Me.LedPatternTestBtn.UseVisualStyleBackColor = True
+        '
+        'DSLightTestBtn
+        '
+        Me.DSLightTestBtn.Location = New System.Drawing.Point(21, 64)
+        Me.DSLightTestBtn.Name = "DSLightTestBtn"
+        Me.DSLightTestBtn.Size = New System.Drawing.Size(119, 39)
+        Me.DSLightTestBtn.TabIndex = 3
+        Me.DSLightTestBtn.Text = "DS Light Test"
+        Me.DSLightTestBtn.UseVisualStyleBackColor = True
+        '
+        'ScoringTableLightTestBtn
+        '
+        Me.ScoringTableLightTestBtn.Location = New System.Drawing.Point(91, 113)
+        Me.ScoringTableLightTestBtn.Name = "ScoringTableLightTestBtn"
+        Me.ScoringTableLightTestBtn.Size = New System.Drawing.Size(119, 39)
+        Me.ScoringTableLightTestBtn.TabIndex = 2
+        Me.ScoringTableLightTestBtn.Text = "Scoring Table Light Test"
+        Me.ScoringTableLightTestBtn.UseVisualStyleBackColor = True
+        '
         'ConnectLedsBtn
         '
-        Me.ConnectLedsBtn.Location = New System.Drawing.Point(158, 30)
+        Me.ConnectLedsBtn.Location = New System.Drawing.Point(158, 22)
         Me.ConnectLedsBtn.Name = "ConnectLedsBtn"
-        Me.ConnectLedsBtn.Size = New System.Drawing.Size(117, 23)
+        Me.ConnectLedsBtn.Size = New System.Drawing.Size(117, 36)
         Me.ConnectLedsBtn.TabIndex = 1
         Me.ConnectLedsBtn.Text = "Connect Leds"
         Me.ConnectLedsBtn.UseVisualStyleBackColor = True
         '
         'ConnectPLCBtn
         '
-        Me.ConnectPLCBtn.Location = New System.Drawing.Point(21, 30)
+        Me.ConnectPLCBtn.Location = New System.Drawing.Point(21, 22)
         Me.ConnectPLCBtn.Name = "ConnectPLCBtn"
-        Me.ConnectPLCBtn.Size = New System.Drawing.Size(119, 23)
+        Me.ConnectPLCBtn.Size = New System.Drawing.Size(119, 36)
         Me.ConnectPLCBtn.TabIndex = 0
         Me.ConnectPLCBtn.Text = "Connect PLC"
         Me.ConnectPLCBtn.UseVisualStyleBackColor = True
@@ -1728,7 +1761,7 @@ Partial Class Main_Panel
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ClientSize = New System.Drawing.Size(1213, 565)
+        Me.ClientSize = New System.Drawing.Size(1235, 565)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label19)
@@ -1943,4 +1976,7 @@ Partial Class Main_Panel
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents ConnectLedsBtn As Button
     Friend WithEvents ConnectPLCBtn As Button
+    Friend WithEvents LedPatternTestBtn As Button
+    Friend WithEvents DSLightTestBtn As Button
+    Friend WithEvents ScoringTableLightTestBtn As Button
 End Class

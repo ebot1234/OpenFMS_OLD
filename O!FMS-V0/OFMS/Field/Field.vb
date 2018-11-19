@@ -73,33 +73,6 @@ Public Class Field
         End If
     End Sub
 
-    Public Shared Sub HandlePLC()
-        If PLC_Estop_Red1 = True Then
-            Red1DS.Estop = True
-        End If
-
-        If PLC_Estop_Red2 = True Then
-            Red2DS.Estop = True
-        End If
-
-        If PLC_Estop_Red3 = True Then
-            Red3DS.Estop = True
-        End If
-
-        If PLC_Estop_Blue1 = True Then
-            Blue1DS.Estop = True
-        End If
-
-        If PLC_Estop_Blue2 = True Then
-            Blue2DS.Estop = True
-        End If
-
-        If PLC_Estop_Blue3 = True Then
-            Blue3DS.Estop = True
-        End If
-
-
-    End Sub
 
     Public Shared Function SendDS(Auto As Boolean, Enabled As Boolean)
         If Auto = True Then

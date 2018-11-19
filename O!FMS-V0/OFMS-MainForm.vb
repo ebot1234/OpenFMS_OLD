@@ -9,7 +9,7 @@ Imports O_FMS_V0.Field
 
 Public Class Main_Panel
     Dim PreMatchThread As New Threading.Thread(AddressOf HandlePreMatch)
-
+    Dim PLCThread As New Threading.Thread(AddressOf HandlePLC)
 
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -339,16 +339,18 @@ Public Class Main_Panel
     End Sub
 
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
+        PreMatchThread.Sleep(15 + 14 + 135 + 3 + 30)
         updateField(MatchEnums.WarmUp)
         WarmUpTimer.Start()
+        PLCThread.Start()
     End Sub
 
     Public Sub HandlePreMatch()
         My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
         Do While (True)
             updateField(MatchEnums.PreMatch)
-            NotEstopped()
-            System.Threading.Thread.Sleep(1000)
+            ResetPLC()
+            System.Threading.Thread.Sleep(100)
         Loop
     End Sub
 
@@ -429,7 +431,7 @@ Public Class Main_Panel
             updateField(MatchEnums.PostMatch)
             EndGameTimer.Stop()
             ScaleSwitch.Text = ""
-            NotEstopped()
+            ResetPLC()
         End If
     End Sub
 
@@ -444,8 +446,39 @@ Public Class Main_Panel
         EndGameTimer.Stop()
         MatchMessages.Text = "Match Aborted"
         ScaleSwitch.Text = ""
+        PLCThread.Abort()
+        PreMatchThread.Abort()
     End Sub
 
+    Public Shared Sub HandlePLC()
+        Do While (True)
+            If PLC_Estop_Red1 = True Then
+                Red1DS.Estop = True
+            End If
+
+            If PLC_Estop_Red2 = True Then
+                Red2DS.Estop = True
+            End If
+
+            If PLC_Estop_Red3 = True Then
+                Red3DS.Estop = True
+            End If
+
+            If PLC_Estop_Blue1 = True Then
+                Blue1DS.Estop = True
+            End If
+
+            If PLC_Estop_Blue2 = True Then
+                Blue2DS.Estop = True
+            End If
+
+            If PLC_Estop_Blue3 = True Then
+                Blue3DS.Estop = True
+            End If
+        Loop
+
+
+    End Sub
     Public Sub Aborted()
         PLC_Estop_Red1 = True
         PLC_Estop_Red2 = True
@@ -455,18 +488,36 @@ Public Class Main_Panel
         PLC_Estop_Blue3 = True
     End Sub
 
-    Public Sub NotEstopped()
+    Public Sub ResetPLC()
         PLC_Estop_Red1 = False
         PLC_Estop_Red2 = False
         PLC_Estop_Red3 = False
         PLC_Estop_Blue1 = False
         PLC_Estop_Blue2 = False
         PLC_Estop_Blue3 = False
+        PLC_Used_Force_Red = False
+        PLC_Used_Lev_Blue = False
+        PLC_Used_Lev_Red = False
+        PLC_Used_Force_Blue = False
+        PLC_Used_Boost_Blue = False
+        PLC_Used_Boost_Red = False
     End Sub
 
     'FTA Group Buttons'
     Private Sub ConnectPLCBtn_Click(sender As Object, e As EventArgs) Handles ConnectPLCBtn.Click
         ConnectPLC()
+    End Sub
+
+    Private Sub DSLightTestBtn_Click(sender As Object, e As EventArgs) Handles DSLightTestBtn.Click
+        Alliance_Light_Test = True
+    End Sub
+
+    Private Sub ScoringTableLightTestBtn_Click(sender As Object, e As EventArgs) Handles ScoringTableLightTestBtn.Click
+        Scoring_Light_Test = True
+    End Sub
+
+    Private Sub LedPatternTestBtn_Click(sender As Object, e As EventArgs) Handles LedPatternTestBtn.Click
+        'Add testing for led patterns 2018'
     End Sub
 
     Private Sub ConnectLedsBtn_Click(sender As Object, e As EventArgs) Handles ConnectLedsBtn.Click
@@ -485,4 +536,5 @@ Public Class Main_Panel
     Private Sub FinalScoreBtn_Click(sender As Object, e As EventArgs) Handles FinalScoreBtn.Click
 
     End Sub
+
 End Class
