@@ -142,10 +142,12 @@ Public Class Field
         Select Case (MatchEnums)
             Case MatchEnums.PreMatch
                 PLC_Reset = True
+                Match_PreStart = True
+
                 'ConnectDriverStations()
                 'pingDSConnections()
-                Match_PreStart = True
                 SendDS(Auto:=True, Enabled:=False)
+
             Case MatchEnums.WarmUp
                 SendDS(Auto:=True, Enabled:=False)
                 GameDataGen()
