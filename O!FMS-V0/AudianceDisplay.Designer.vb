@@ -38,9 +38,13 @@ Partial Class AudianceDisplay
         Me.RedScorePanel = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Pre_StartPanel = New System.Windows.Forms.Panel()
+        Me.Red1Lbl = New System.Windows.Forms.Label()
+        Me.Panel1.SuspendLayout()
         CType(Me.FirstLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RedScorePanel.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.Pre_StartPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'MatchNumb
@@ -113,6 +117,7 @@ Partial Class AudianceDisplay
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Lime
+        Me.Panel1.Controls.Add(Me.Pre_StartPanel)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1364, 515)
@@ -203,6 +208,25 @@ Partial Class AudianceDisplay
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Match Type"
         '
+        'Pre_StartPanel
+        '
+        Me.Pre_StartPanel.BackColor = System.Drawing.Color.White
+        Me.Pre_StartPanel.Controls.Add(Me.Red1Lbl)
+        Me.Pre_StartPanel.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Pre_StartPanel.Location = New System.Drawing.Point(0, 0)
+        Me.Pre_StartPanel.Name = "Pre_StartPanel"
+        Me.Pre_StartPanel.Size = New System.Drawing.Size(1369, 515)
+        Me.Pre_StartPanel.TabIndex = 0
+        '
+        'Red1Lbl
+        '
+        Me.Red1Lbl.AutoSize = True
+        Me.Red1Lbl.Location = New System.Drawing.Point(50, 107)
+        Me.Red1Lbl.Name = "Red1Lbl"
+        Me.Red1Lbl.Size = New System.Drawing.Size(95, 38)
+        Me.Red1Lbl.TabIndex = 0
+        Me.Red1Lbl.Text = "Red1"
+        '
         'AudianceDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -210,7 +234,7 @@ Partial Class AudianceDisplay
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.ScoreBoard
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1364, 695)
+        Me.ClientSize = New System.Drawing.Size(1370, 705)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.RedScorePanel)
@@ -227,11 +251,14 @@ Partial Class AudianceDisplay
         Me.Name = "AudianceDisplay"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Text = "AudianceDisplay"
+        Me.Panel1.ResumeLayout(False)
         CType(Me.FirstLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RedScorePanel.ResumeLayout(False)
         Me.RedScorePanel.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.Pre_StartPanel.ResumeLayout(False)
+        Me.Pre_StartPanel.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -251,4 +278,6 @@ Partial Class AudianceDisplay
     Friend WithEvents RedScorePanel As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label1 As Label
+    Friend WithEvents Pre_StartPanel As Panel
+    Friend WithEvents Red1Lbl As Label
 End Class
