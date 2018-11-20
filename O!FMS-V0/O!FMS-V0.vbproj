@@ -116,7 +116,6 @@
     <Compile Include="Match_Generator.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OFMS\Displays\AudienceDisplayComms.vb" />
     <Compile Include="OFMS\Field\AccessPoint.vb" />
     <Compile Include="OFMS\Field\Field.vb" />
     <Compile Include="OFMS\Field\Match.vb" />
