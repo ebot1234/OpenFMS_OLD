@@ -2,6 +2,7 @@
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.RandomString
 Imports O_FMS_V0.Field
+Imports O_FMS_V0.Lighting
 
 
 
@@ -11,7 +12,7 @@ Public Class Main_Panel
 
     Dim PreMatchThread As New Threading.Thread(AddressOf HandlePreMatch)
     Dim PLCThread As New Threading.Thread(AddressOf HandlePLC)
-    Dim LEDThread As New Threading.Thread(AddressOf HandleLeds)
+    Dim LEDThread As New Threading.Thread(AddressOf HandlePLC)
 
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -440,23 +441,28 @@ Public Class Main_Panel
     End Sub
 
     Private Sub AbortMatch_btn_Click(sender As Object, e As EventArgs) Handles AbortMatch_btn.Click
-        updateField(MatchEnums.AbortMatch)
-        Aborted()
-        ResetPLC()
-        matchTimerLbl.Text = 0
-        WarmUpTimer.Stop()
-        AutoTimer.Stop()
-        PauseTimer.Stop()
-        TeleTimer.Stop()
-        EndGameTimer.Stop()
+        HandleAbortedMatch()
         MatchMessages.Text = "Match Aborted"
-        ScaleSwitch.Text = ""
-        PLCThread.Abort()
-        PreMatchThread.Abort()
+        matchTimerLbl.Text = 0
     End Sub
 
-    Public Shared Sub HandlePLC()
+
+    Public Sub HandlePLC()
+        Dim RB As Integer = 0
+        Dim RF As Integer = 0
+        Dim RL As Integer = 0
+        Dim BB As Integer = 0
+        Dim BF As Integer = 0
+        Dim BL As Integer = 0
+        Dim i As Integer = 0
+
         Do While (True)
+
+            If PLC_Estop_Field = True Then
+                HandleAbortedMatch()
+
+            End If
+
             If PLC_Estop_Red1 = True Then
                 Red1DS.Estop = True
             End If
@@ -480,20 +486,73 @@ Public Class Main_Panel
             If PLC_Estop_Blue3 = True Then
                 Blue3DS.Estop = True
             End If
+
+            'Blue Boost'
+            If PLC_Used_Boost_Blue = True And BB < 1 Then
+                My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
+                BB = BB + 1
+            End If
+
+            'Blue Force'
+            If PLC_Used_Force_Blue = True And BF < 1 Then
+                My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
+                BF = BF + 1
+            End If
+
+            'Blue Lev'
+            If PLC_Used_Lev_Blue = True And BL < 1 Then
+                My.Computer.Audio.Play(My.Resources.match_levitate, AudioPlayMode.Background)
+                BL = BL + 1
+            End If
+
+            'Red Boost'
+            If PLC_Used_Boost_Red = True And RB < 1 Then
+                My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
+                RB = RB + 1
+            End If
+
+            'Red Force'
+            If PLC_Used_Force_Red = True And RF < 1 Then
+                My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
+                RF = RF + 1
+            End If
+
+            'Red Lev'
+            If PLC_Used_Lev_Red = True And RL < 1 Then
+                My.Computer.Audio.Play(My.Resources.match_levitate, AudioPlayMode.Background)
+                RL = RL + 1
+            End If
+
+
         Loop
 
 
     End Sub
-    Public Sub Aborted()
+
+
+    Public Sub HandleAbortedMatch()
+        Dim i As Integer = 0
         PLC_Estop_Red1 = True
         PLC_Estop_Red2 = True
         PLC_Estop_Red3 = True
         PLC_Estop_Blue1 = True
         PLC_Estop_Blue2 = True
         PLC_Estop_Blue3 = True
+        updateField(MatchEnums.AbortMatch)
+        Me.WarmUpTimer.Stop()
+        Me.AutoTimer.Stop()
+        Me.PauseTimer.Stop()
+        Me.TeleTimer.Stop()
+        Me.EndGameTimer.Stop()
+        If i < 1 Then
+            My.Computer.Audio.Play(My.Resources.fog_blast, AudioPlayMode.Background)
+        End If
+        PreMatchThread.Abort()
+        PLCThread.Abort()
     End Sub
 
     Public Sub ResetPLC()
+        PLC_Estop_Field = False
         PLC_Estop_Red1 = False
         PLC_Estop_Red2 = False
         PLC_Estop_Red3 = False
@@ -522,7 +581,7 @@ Public Class Main_Panel
     End Sub
 
     Private Sub LedPatternTestBtn_Click(sender As Object, e As EventArgs) Handles LedPatternTestBtn.Click
-        'Add testing for led patterns 2018'
+        SetMode(LightingModes.Test)
     End Sub
 
     Private Sub ConnectLedsBtn_Click(sender As Object, e As EventArgs) Handles ConnectLedsBtn.Click

@@ -3,9 +3,9 @@ Imports System.Text
 'This class is for interating with the led controllers for the 2018 FRC game FIRST POWERUP'
 
 Public Class Lighting
-    Public LightingPacket(32) As Byte
-    Public ControllerConnection As New UdpClient
-    Public Port As Integer = 5555
+    Public Shared LightingPacket(32) As Byte
+    Public Shared ControllerConnection As New UdpClient
+    Public Shared Port As Integer = 5555
     Public Enum LightingModes
         Red
         Blue
@@ -24,7 +24,7 @@ Public Class Lighting
         End If
     End Sub
     'sets the mode of the leds'
-    Public Sub SetMode(LightingModes)
+    Public Shared Sub SetMode(LightingModes)
         Select Case (LightingModes)
             Case LightingModes.Red
                 SendPacket("Red")
@@ -46,7 +46,7 @@ Public Class Lighting
 
     End Sub
     'Sends the udp packet containing the mode string to the led controller'
-    Public Sub SendPacket(mode As String)
+    Public Shared Sub SendPacket(mode As String)
         If ControllerConnection Is Nothing Then
             'Do Nothing'
         Else

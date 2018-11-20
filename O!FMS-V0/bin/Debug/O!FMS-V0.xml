@@ -42,11 +42,6 @@ O!FMS-V0
   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
 </summary>
 </member>
-<member name="P:O_FMS_V0.My.Resources.Resources.match_abort">
-<summary>
-  Looks up a localized resource of type System.Byte[].
-</summary>
-</member>
 <member name="P:O_FMS_V0.My.Resources.Resources.match_boost">
 <summary>
   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.

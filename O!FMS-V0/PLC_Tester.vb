@@ -47,4 +47,12 @@ Public Class PLC_Tester
     Private Sub RadioButton12_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton12.CheckedChanged
         PLC_Used_Lev_Blue = True
     End Sub
+
+    Private Sub PLC_Tester_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        PLC_Estop_Field = True
+    End Sub
+
+    Private Sub FieldEstopbtn_CheckedChanged(sender As Object, e As EventArgs) Handles FieldEstopbtn.CheckedChanged
+        PLC_Estop_Field = True
+    End Sub
 End Class

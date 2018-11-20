@@ -246,7 +246,6 @@
     <None Include="Resources\ScoreBoard.png" />
     <None Include="Resources\FIRST_Horz_RGB.gif" />
     <None Include="Resources\First_logo_vetical.bmp" />
-    <EmbeddedResource Include="OFMS\Sounds\match_abort.mp3" />
     <EmbeddedResource Include="OFMS\Sounds\match_boost.wav" />
     <EmbeddedResource Include="OFMS\Sounds\match_end.wav" />
     <EmbeddedResource Include="OFMS\Sounds\match_endgame.wav" />

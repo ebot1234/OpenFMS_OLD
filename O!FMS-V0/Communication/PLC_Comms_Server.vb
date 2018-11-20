@@ -1,9 +1,4 @@
-﻿Imports System.Net
-Imports System.Net.Sockets
-Imports System
-Imports System.Collections
-Imports System.Security.Cryptography
-Imports EasyModbus
+﻿Imports EasyModbus
 Imports O_FMS_V0.RandomString
 
 
@@ -138,7 +133,11 @@ Public Class PLC_Comms_Server
     Public Shared modbusClient As ModbusClient = New ModbusClient("10.0.0.7", 502)
 
     Public Shared Sub ConnectPLC()
-        modbusClient.Connect()
+        Try
+            modbusClient.Connect()
+        Catch e As Exception
+            MessageBox.Show("PLC Not Connected")
+        End Try
     End Sub
 
     Public Shared Sub DisconnectPLC()

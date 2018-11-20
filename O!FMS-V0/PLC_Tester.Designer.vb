@@ -35,6 +35,7 @@ Partial Class PLC_Tester
         Me.RadioButton11 = New System.Windows.Forms.RadioButton()
         Me.RadioButton12 = New System.Windows.Forms.RadioButton()
         Me.RadioButton13 = New System.Windows.Forms.RadioButton()
+        Me.FieldEstopbtn = New System.Windows.Forms.RadioButton()
         Me.SuspendLayout()
         '
         'RadioButton1
@@ -180,11 +181,23 @@ Partial Class PLC_Tester
         Me.RadioButton13.Text = "Nothing"
         Me.RadioButton13.UseVisualStyleBackColor = True
         '
+        'FieldEstopbtn
+        '
+        Me.FieldEstopbtn.AutoSize = True
+        Me.FieldEstopbtn.Location = New System.Drawing.Point(343, 130)
+        Me.FieldEstopbtn.Name = "FieldEstopbtn"
+        Me.FieldEstopbtn.Size = New System.Drawing.Size(77, 17)
+        Me.FieldEstopbtn.TabIndex = 13
+        Me.FieldEstopbtn.TabStop = True
+        Me.FieldEstopbtn.Text = "Field Estop"
+        Me.FieldEstopbtn.UseVisualStyleBackColor = True
+        '
         'PLC_Tester
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.FieldEstopbtn)
         Me.Controls.Add(Me.RadioButton13)
         Me.Controls.Add(Me.RadioButton12)
         Me.Controls.Add(Me.RadioButton11)
@@ -218,4 +231,5 @@ Partial Class PLC_Tester
     Friend WithEvents RadioButton11 As RadioButton
     Friend WithEvents RadioButton12 As RadioButton
     Friend WithEvents RadioButton13 As RadioButton
+    Friend WithEvents FieldEstopbtn As RadioButton
 End Class

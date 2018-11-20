@@ -1,26 +1,32 @@
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.RandomString
 Imports O_FMS_V0.Team_Networks
+Imports O_FMS_V0.Lighting
 Imports System.Net
 
 Public Class Field
+    'PLC Field Types'
     Public Shared FieldReset As Boolean
     Public Shared Volunteers As Boolean
+    'Driver Station instances'
     Public Shared Red1DS As New DriverStations
     Public Shared Red2DS As New DriverStations
     Public Shared Red3DS As New DriverStations
     Public Shared Blue1DS As New DriverStations
     Public Shared Blue2DS As New DriverStations
     Public Shared Blue3DS As New DriverStations
+    'Led Controllers'
     Public Shared ScaleLeds As New Lighting
     Public Shared RedSwitchLeds As New Lighting
     Public Shared BlueSwitchLeds As New Lighting
+    '2018 timing'
     Public Shared WarmUpTime As Integer = 4
     Public Shared AutoTime As Integer = 15
     Public Shared PauseTime As Integer = 3
     Public Shared TeleTime As Integer = 135
     Public Shared EndgameTime As Integer = 30
     Public Shared GameTime As Integer = 0
+    'Match Type enums'
     Public Enum MatchEnums
         PreMatch
         WarmUp
@@ -42,20 +48,16 @@ Public Class Field
         Blue3DS.Connect(IPAddress.Parse(Blue3Network))
     End Sub
     Public Shared Sub ConnectLeds()
+        Try
+            RedSwitchLeds.ConnectController("10.0.0.23")
+            BlueSwitchLeds.ConnectController("10.0.0.24")
+            ScaleLeds.ConnectController("10.0.0.25")
+        Catch ex As Exception
+            MessageBox.Show("Led Controllers Not Connected, Tell FTA before continuing")
+        End Try
 
     End Sub
 
-    Public Shared Sub DisconnectLeds()
-
-
-    End Sub
-    Public Shared Sub HandleLeds()
-        If gamedatause = "LLL" Then
-            ' ScaleLeds.SendPackets("LLL")
-            ' BlueSwitchLeds.SendPackets("LLL")
-            ' RedSwitchLeds.SendPackets("LLL")
-        End If
-    End Sub
 
 
     Public Shared Function SendDS(Auto As Boolean, Enabled As Boolean)
@@ -152,7 +154,6 @@ Public Class Field
                 Match_Stop = True
             Case MatchEnums.AbortMatch
                 SendDS(Auto:=False, Enabled:=False)
-                My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
                 Match_Stop = True
             Case Else
                 MatchEnums = MatchEnums.PreMatch
