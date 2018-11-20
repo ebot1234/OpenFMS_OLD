@@ -8,9 +8,10 @@ Imports O_FMS_V0.Field
 
 
 Public Class Main_Panel
-    Dim _stopThread As Threading.ManualResetEvent
+
     Dim PreMatchThread As New Threading.Thread(AddressOf HandlePreMatch)
     Dim PLCThread As New Threading.Thread(AddressOf HandlePLC)
+    Dim LEDThread As New Threading.Thread(AddressOf HandleLeds)
 
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load

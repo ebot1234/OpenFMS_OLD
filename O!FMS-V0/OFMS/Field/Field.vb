@@ -42,27 +42,11 @@ Public Class Field
         Blue3DS.Connect(IPAddress.Parse(Blue3Network))
     End Sub
     Public Shared Sub ConnectLeds()
-        ScaleLeds.Connect("10.0.0.30")
-        RedSwitchLeds.Connect("10.0.0.31")
-        BlueSwitchLeds.Connect("10.0.0.32")
 
-        If ScaleLeds Is Nothing Then
-            ScaleLeds.DestroyConnection()
-        End If
-
-        If RedSwitchLeds Is Nothing Then
-            RedSwitchLeds.DestroyConnection()
-        End If
-
-        If BlueSwitchLeds Is Nothing Then
-            BlueSwitchLeds.DestroyConnection()
-        End If
     End Sub
 
     Public Shared Sub DisconnectLeds()
-        ScaleLeds.DestroyConnection()
-        RedSwitchLeds.DestroyConnection()
-        BlueSwitchLeds.DestroyConnection()
+
 
     End Sub
     Public Shared Sub HandleLeds()
