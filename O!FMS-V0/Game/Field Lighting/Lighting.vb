@@ -1,27 +1,57 @@
 ﻿Imports System.Net.Sockets
-Imports System.Net
 Imports System.Text
-'This class is for sending strings to an Arduino for controlling the leds on the field'
-'For 2018 this controls the Switches and Scale leds'
+'This class is for interating with the led controllers for the 2018 FRC game FIRST POWERUP'
 
-Public Class ArduinoLedController
-    Public Shared ArduinoConn As UdpClient
-    Public Shared ArduinoPort As Int32 = 5555
-    Public Shared message As String = String.Empty
-    Public Shared ip As String = String.Empty
-
-    Public Sub Connect(ip)
-        ArduinoConn = New UdpClient()
-        ArduinoConn.Connect(ip, ArduinoPort)
+Public Class Lighting
+    Public LightingPacket(32) As Byte
+    Public ControllerConnection As New UdpClient
+    Public Port As Integer = 5555
+    Public Enum LightingModes
+        Red
+        Blue
+        Warmup1
+        Warmup2
+        Awards
+        Test
+        Off
+    End Enum
+    'Connects to the controller'
+    Public Sub ConnectController(ip As String)
+        If ControllerConnection Is Nothing Then
+            ControllerConnection.Connect(ip, Port)
+        Else
+            ControllerConnection.Close()
+        End If
     End Sub
+    'sets the mode of the leds'
+    Public Sub SetMode(LightingModes)
+        Select Case (LightingModes)
+            Case LightingModes.Red
+                SendPacket("Red")
+            Case LightingModes.Blue
+                SendPacket("Blue")
+            Case LightingModes.Warmup1
+                SendPacket("Warmup1")
+            Case LightingModes.Warmup2
+                SendPacket("Warmup2")
+            Case LightingModes.Awards
+                SendPacket("Awards")
+            Case LightingModes.Test
+                SendPacket("Test")
+            Case LightingModes.Off
+                SendPacket("Off")
+            Case Else
+                LightingModes.Off
+        End Select
 
-    Public Sub SendPackets(message As String)
-        Dim sendByte As Byte() = Encoding.ASCII.GetBytes(message)
-        ArduinoConn.Send(sendByte, sendByte.Length)
     End Sub
-
-    Public Sub DestroyConnection()
-        ArduinoConn.Close()
-
+    'Sends the udp packet containing the mode string to the led controller'
+    Public Sub SendPacket(mode As String)
+        If ControllerConnection Is Nothing Then
+            'Do Nothing'
+        Else
+            LightingPacket = Encoding.ASCII.GetBytes(mode)
+            ControllerConnection.Send(LightingPacket, Port)
+        End If
     End Sub
 End Class

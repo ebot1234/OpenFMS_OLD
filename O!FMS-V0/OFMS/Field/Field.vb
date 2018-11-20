@@ -12,9 +12,9 @@ Public Class Field
     Public Shared Blue1DS As New DriverStations
     Public Shared Blue2DS As New DriverStations
     Public Shared Blue3DS As New DriverStations
-    Public Shared ScaleLeds As New ArduinoLedController
-    Public Shared RedSwitchLeds As New ArduinoLedController
-    Public Shared BlueSwitchLeds As New ArduinoLedController
+    Public Shared ScaleLeds As New Lighting
+    Public Shared RedSwitchLeds As New Lighting
+    Public Shared BlueSwitchLeds As New Lighting
     Public Shared WarmUpTime As Integer = 4
     Public Shared AutoTime As Integer = 15
     Public Shared PauseTime As Integer = 3
