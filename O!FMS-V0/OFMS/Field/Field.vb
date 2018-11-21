@@ -65,13 +65,78 @@ Public Class Field
         Dim BF As Integer = 0
         Dim BL As Integer = 0
 
-        If PLC_Field_Reset = True Then
-            SetMode()
-        End If
+        Do While (True)
+            'Teams enter field'
+            If PLC_Field_Reset = True Then
+                SetMode(LightingModes.Green)
+            End If
+            'Field Reset'
+            If PLC_Field_Volunteers = True Then
+                SetMode(LightingModes.Purple)
+            End If
+            'Power Ups'
+            If PLC_Used_Boost_Blue = True And BB < 1 Then
+                SetMode(LightingModes.Blue_Boost)
+                BB = BB + 1
+            End If
 
-        If PLC_Field_Volunteers = True Then
+            If PLC_Used_Boost_Red = True And RB < 1 Then
+                SetMode(LightingModes.Red_Boost)
+                RB = RB + 1
+            End If
 
-        End If
+            If PLC_Used_Force_Blue = True And BF < 1 Then
+                SetMode(LightingModes.Blue_Force)
+                BF = BF + 1
+            End If
+
+            If PLC_Used_Force_Red = True And RF < 1 Then
+                SetMode(LightingModes.Red_Force)
+                RF = RF + 1
+            End If
+
+            If PLC_Used_Lev_Blue = True And BL < 1 Then
+                SetMode(LightingModes.Blue_Levitate)
+                BL = BL + 1
+            End If
+
+            If PLC_Used_Lev_Red = True And RL < 1 Then
+                SetMode(LightingModes.Red_Levitate)
+                RL = RL + 1
+            End If
+            'Sends game string'
+            If Match_Start = True Then
+                SendPacket(gamedatause)
+            End If
+
+            'Blue Switch Ownership'
+            If PLC_BlueSWOwned = True Then
+                SetMode(LightingModes.Blue_Owned_BSwitch)
+            ElseIf PLC_BlueSWROwned = True Then
+                SetMode(LightingModes.Red_Owned_BSwitch)
+            Else
+                SetMode(LightingModes.Red_NotOwned_BSwitch)
+                SetMode(LightingModes.Blue_NotOwned_BSwitch)
+            End If
+
+            'Red Switch Ownership'
+            If PLC_RedSWOwned = True Then
+                SetMode(LightingModes.Red_Owned_RSwitch)
+            ElseIf PLC_RedSWBOwned = True Then
+                SetMode(LightingModes.Blue_Owned_RSwitch)
+            Else
+                SetMode(LightingModes.Blue_NotOwned_RSwitch)
+                SetMode(LightingModes.Red_NotOwned_RSwitch)
+            End If
+
+            'Scale Ownership'
+            If PLC_RedScaleOwned = True Then
+                SetMode(LightingModes.Red_Owned_Scale)
+            ElseIf PLC_BlueScaleOwned = True Then
+                SetMode(LightingModes.Blue_Owned_Scale)
+            End If
+        Loop
+
     End Sub
 
 
