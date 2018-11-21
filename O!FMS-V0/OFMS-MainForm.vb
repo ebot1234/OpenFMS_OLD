@@ -12,7 +12,7 @@ Public Class Main_Panel
 
     Dim PreMatchThread As New Threading.Thread(AddressOf HandlePreMatch)
     Dim PLCThread As New Threading.Thread(AddressOf HandlePLC)
-    Dim LEDThread As New Threading.Thread(AddressOf HandlePLC)
+    Dim LEDThread As New Threading.Thread(AddressOf handleLeds)
 
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load

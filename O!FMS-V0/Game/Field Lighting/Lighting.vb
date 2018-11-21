@@ -1,19 +1,40 @@
 ﻿Imports System.Net.Sockets
 Imports System.Text
+Imports O_FMS_V0.RandomString
 'This class is for interating with the led controllers for the 2018 FRC game FIRST POWERUP'
 
 Public Class Lighting
     Public Shared LightingPacket(32) As Byte
     Public Shared ControllerConnection As New UdpClient
     Public Shared Port As Integer = 5555
+    Public Shared GameData = gamedatause
     Public Enum LightingModes
+
+        Green
+        Purple
         Red
         Blue
-        Warmup1
-        Warmup2
         Awards
         Test
         Off
+        Red_Owned_RSwitch
+        Blue_Owned_RSwitch
+        Red_NotOwned_RSwitch
+        Blue_NotOwned_RSwitch
+        Red_Owned_BSwitch
+        Blue_Owned_BSwitch
+        Red_NotOwned_BSwitch
+        Blue_NotOwned_BSwitch
+        Red_Owned_Scale
+        Blue_Owned_Scale
+        Red_NotOwned_Scale
+        Blue_NotOwned_Scale
+        Red_Force
+        Red_Boost
+        Red_Levitate
+        Blue_Force
+        Blue_Boost
+        Blue_Levitate
     End Enum
     'Connects to the controller'
     Public Sub ConnectController(ip As String)
@@ -26,14 +47,38 @@ Public Class Lighting
     'sets the mode of the leds'
     Public Shared Sub SetMode(LightingModes)
         Select Case (LightingModes)
+            Case LightingModes.Red_Owned_RSwitch
+            Case LightingModes.Blue_Owned_RSwitch
+            Case LightingModes.Red_NotOwned_RSwitch
+            Case LightingModes.Blue_NotOwned_RSwitch
+            Case LightingModes.Red_Owned_BSwitch
+            Case LightingModes.Blue_Owned_BSwitch
+            Case LightingModes.Red_NotOwned_BSwitch
+            Case LightingModes.Blue_NotOwned_BSwitch
+            Case LightingModes.Red_Owned_Scale
+            Case LightingModes.Blue_Owned_Scale
+            Case LightingModes.Red_NotOwned_Scale
+            Case LightingModes.Blue_Not_Owned_Scale
+            Case LightingModes.Blue_Force
+                SendPacket("Blue_Force")
+            Case LightingModes.Blue_Boost
+                SendPacket("Blue_Boost")
+            Case LightingModes.Blue_Levitate
+                SendPacket("Blue_Levitate")
+            Case LightingModes.Red_Levitate
+                SendPacket("Red_Levitate")
+            Case LightingModes.Red_Force
+                SendPacket("Red_Force")
+            Case LightingModes.Red_Boost
+                SendPacket("Red_Boost")
+            Case LightingModes.Purple
+                SendPacket("Purple")
+            Case LightingModes.Green
+                SendPacket("Green")
             Case LightingModes.Red
                 SendPacket("Red")
             Case LightingModes.Blue
                 SendPacket("Blue")
-            Case LightingModes.Warmup1
-                SendPacket("Warmup1")
-            Case LightingModes.Warmup2
-                SendPacket("Warmup2")
             Case LightingModes.Awards
                 SendPacket("Awards")
             Case LightingModes.Test

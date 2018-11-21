@@ -57,7 +57,22 @@ Public Class Field
         End Try
 
     End Sub
+    Public Shared Sub handleLeds()
+        Dim RB As Integer = 0
+        Dim RF As Integer = 0
+        Dim RL As Integer = 0
+        Dim BB As Integer = 0
+        Dim BF As Integer = 0
+        Dim BL As Integer = 0
 
+        If PLC_Field_Reset = True Then
+            SetMode()
+        End If
+
+        If PLC_Field_Volunteers = True Then
+
+        End If
+    End Sub
 
 
     Public Shared Function SendDS(Auto As Boolean, Enabled As Boolean)
