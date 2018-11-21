@@ -160,4 +160,13 @@
   <data name="ScoreBoard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ScoreBoard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Pre_Match_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pre-Match_Image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FirstPowerUpLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FirstPowerUpLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FinalScore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FinalScore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

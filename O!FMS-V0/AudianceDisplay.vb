@@ -7,5 +7,7 @@ Public Class AudianceDisplay
         Me.WindowState = FormWindowState.Maximized
         RedScoreLbl.Text = 0
         BlueScoreLbl.Text = 0
+        PrestartCover.Hide()
+        PreStartPanel.Hide()
     End Sub
 End Class

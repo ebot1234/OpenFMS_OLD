@@ -590,15 +590,27 @@ Public Class Main_Panel
 
     'Display Box Buttons'
     Private Sub PreMatchBtn_Click(sender As Object, e As EventArgs) Handles PreMatchBtn.Click
-
+        AudianceDisplay.PrestartCover.Show()
+        AudianceDisplay.PreStartPanel.Show()
+        AudianceDisplay.FinalScoreBox.Hide()
+        AudianceDisplay.Winner.Hide()
+        AudianceDisplay.WinningAlliance.Hide()
     End Sub
 
     Private Sub MatchPlay_Click(sender As Object, e As EventArgs) Handles MatchPlay.Click
-
+        AudianceDisplay.PrestartCover.Hide()
+        AudianceDisplay.PreStartPanel.Hide()
+        AudianceDisplay.FinalScoreBox.Hide()
+        AudianceDisplay.Winner.Hide()
+        AudianceDisplay.WinningAlliance.Hide()
     End Sub
 
     Private Sub FinalScoreBtn_Click(sender As Object, e As EventArgs) Handles FinalScoreBtn.Click
-
+        AudianceDisplay.PrestartCover.Show()
+        AudianceDisplay.PreStartPanel.Show()
+        AudianceDisplay.FinalScoreBox.Show()
+        AudianceDisplay.Winner.Show()
+        AudianceDisplay.WinningAlliance.Show()
     End Sub
 
 End Class

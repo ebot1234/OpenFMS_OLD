@@ -27,12 +27,22 @@ O!FMS-V0
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:O_FMS_V0.My.Resources.Resources.FinalScore">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:O_FMS_V0.My.Resources.Resources.FIRST_Horz_RGB">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:O_FMS_V0.My.Resources.Resources.FIRST_logo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:O_FMS_V0.My.Resources.Resources.FirstPowerUpLogo">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -83,6 +93,11 @@ O!FMS-V0
 </summary>
 </member>
 <member name="P:O_FMS_V0.My.Resources.Resources.ofms_logo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:O_FMS_V0.My.Resources.Resources.Pre_Match_Image">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

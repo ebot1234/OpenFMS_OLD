@@ -242,6 +242,9 @@
     <Content Include="ofms logo.ico" />
     <Content Include="OFMS\Field\APTemplate.txt" />
     <Content Include="OFMS\Sounds\fog-blast.wav" />
+    <None Include="Resources\FinalScore.png" />
+    <None Include="Resources\FirstPowerUpLogo.png" />
+    <None Include="Resources\Pre-Match_Image.jpg" />
     <None Include="Resources\ScoreBoard.png" />
     <None Include="Resources\FIRST_Horz_RGB.gif" />
     <None Include="Resources\First_logo_vetical.bmp" />
