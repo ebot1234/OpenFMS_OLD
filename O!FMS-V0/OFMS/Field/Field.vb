@@ -48,13 +48,27 @@ Public Class Field
         Blue3DS.Connect(IPAddress.Parse(Blue3Network))
     End Sub
     Public Shared Sub ConnectLeds()
-        Try
-            RedSwitchLeds.ConnectController("10.0.0.23")
-            BlueSwitchLeds.ConnectController("10.0.0.24")
-            ScaleLeds.ConnectController("10.0.0.25")
-        Catch ex As Exception
-            MessageBox.Show("Led Controllers Not Connected, Tell FTA before continuing")
-        End Try
+
+        RedSwitchLeds.ConnectController("10.0.0.23")
+        BlueSwitchLeds.ConnectController("10.0.0.24")
+        ScaleLeds.ConnectController("10.0.0.25")
+
+        'pings the led controllers'
+        If My.Computer.Network.Ping("10.0.0.23", 1000) Then
+            MessageBox.Show("Red Switch Leds Connected")
+        Else
+            MessageBox.Show("Red Switch Leds Not Connected")
+        End If
+        If My.Computer.Network.Ping("10.0.0.24", 1000) Then
+            MessageBox.Show("Blue Switch Leds Connected")
+        Else
+            MessageBox.Show("Blue Switch Leds Not Connected")
+        End If
+        If My.Computer.Network.Ping("10.0.0.25", 1000) Then
+            MessageBox.Show("Scale Leds Not Connected")
+        Else
+            MessageBox.Show("Scale Leds Not Connected")
+        End If
 
     End Sub
     Public Shared Sub handleLeds()
