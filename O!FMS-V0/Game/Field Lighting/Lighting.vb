@@ -48,9 +48,13 @@ Public Class Lighting
     Public Shared Sub SetMode(LightingModes)
         Select Case (LightingModes)
             Case LightingModes.Red_Owned_RSwitch
+                SendPacket("Red_Owned")
             Case LightingModes.Blue_Owned_RSwitch
+                SendPacket("Blue_Owned")
             Case LightingModes.Red_NotOwned_RSwitch
+                SendPacket("Red_Not_Owned")
             Case LightingModes.Blue_NotOwned_RSwitch
+                SendPacket("Blue_Not_Owned")
             Case LightingModes.Red_Owned_BSwitch
             Case LightingModes.Blue_Owned_BSwitch
             Case LightingModes.Red_NotOwned_BSwitch

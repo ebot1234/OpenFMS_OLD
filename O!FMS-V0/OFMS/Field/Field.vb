@@ -40,12 +40,12 @@ Public Class Field
 
 
     Public Shared Sub ConnectDriverStations()
-        Red1DS.Connect(IPAddress.Parse(Red1Network))
-        Red2DS.Connect(IPAddress.Parse(Red2Network))
-        Red3DS.Connect(IPAddress.Parse(Red3Network))
-        Blue1DS.Connect(IPAddress.Parse(Blue1Network))
-        Blue2DS.Connect(IPAddress.Parse(Blue2Network))
-        Blue3DS.Connect(IPAddress.Parse(Blue3Network))
+        Red1DS.Connect(IPAddress.Parse(""))
+        Red2DS.Connect(IPAddress.Parse(""))
+        Red3DS.Connect(IPAddress.Parse(""))
+        Blue1DS.Connect(IPAddress.Parse(""))
+        Blue2DS.Connect(IPAddress.Parse(""))
+        Blue3DS.Connect(IPAddress.Parse(""))
     End Sub
     Public Shared Sub ConnectLeds()
 
