@@ -40,12 +40,12 @@ Public Class Field
 
 
     Public Shared Sub ConnectDriverStations()
-        Red1DS.Connect(IPAddress.Parse(""))
-        Red2DS.Connect(IPAddress.Parse(""))
-        Red3DS.Connect(IPAddress.Parse(""))
-        Blue1DS.Connect(IPAddress.Parse(""))
-        Blue2DS.Connect(IPAddress.Parse(""))
-        Blue3DS.Connect(IPAddress.Parse(""))
+        Red1DS.Connect(getTeamIPs(Main_Panel.RedTeam1.Text))
+        'Red2DS.Connect(IPAddress.Parse(""))
+        'Red3DS.Connect(IPAddress.Parse(""))
+        'Blue1DS.Connect(IPAddress.Parse(""))
+        'Blue2DS.Connect(IPAddress.Parse(""))
+        'Blue3DS.Connect(IPAddress.Parse(""))
     End Sub
     Public Shared Sub ConnectLeds()
 
@@ -224,7 +224,7 @@ Public Class Field
                 PLC_Reset = True
                 Match_PreStart = True
 
-                'ConnectDriverStations()
+                ConnectDriverStations()
                 'pingDSConnections()
                 SendDS(Auto:=True, Enabled:=False)
 

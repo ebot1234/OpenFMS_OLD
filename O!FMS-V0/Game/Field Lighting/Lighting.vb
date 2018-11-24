@@ -9,7 +9,6 @@ Public Class Lighting
     Public Shared Port As Integer = 5555
     Public Shared GameData = gamedatause
     Public Enum LightingModes
-
         Green
         Purple
         Red
