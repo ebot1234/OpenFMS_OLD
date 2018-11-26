@@ -14,7 +14,7 @@ config wifi-iface
 	option hidden '1'
 	option encryption 'psk2+ccmp'
 	option network 'vlan100'
-	option ssid 'Cheesy Arena'
+	option ssid 'OpenFMS'
 	option key '{{.AdminWpaKey}}'
 	option macaddr '62:38:e0:12:6b:17'
 
