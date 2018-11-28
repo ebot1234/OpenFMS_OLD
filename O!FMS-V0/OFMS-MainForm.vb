@@ -10,7 +10,7 @@ Imports O_FMS_V0.Lighting
 
 Public Class Main_Panel
 
-    Dim PreMatchThread As New Threading.Thread(AddressOf HandlePreMatch)
+    Dim DriverStation As New Threading.Thread(AddressOf HandleDSConnections)
     Dim PLCThread As New Threading.Thread(AddressOf HandlePLC)
     Dim LEDThread As New Threading.Thread(AddressOf handleLeds)
 
@@ -336,27 +336,18 @@ Public Class Main_Panel
 
     Private Sub Pre_Start_btn_Click(sender As Object, e As EventArgs) Handles Pre_Start_btn.Click
         PLCThread = New Threading.Thread(AddressOf HandlePLC)
-        PreMatchThread = New Threading.Thread(AddressOf HandlePreMatch)
-        PreMatchThread.Start()
+        DriverStation = New Threading.Thread(AddressOf HandleDSConnections)
+        DriverStation.Start()
+        PLCThread.Start()
+        updateField(MatchEnums.PreMatch)
         matchTimerLbl.Text = WarmUpTime
         WarmUpTimer.Enabled = False
         MatchMessages.Text = "Field Pre-Started"
     End Sub
 
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
-        PreMatchThread.Abort()
         updateField(MatchEnums.WarmUp)
         WarmUpTimer.Start()
-        PLCThread.Start()
-    End Sub
-
-    Public Sub HandlePreMatch()
-        My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
-        Do While (True)
-            updateField(MatchEnums.PreMatch)
-            ResetPLC()
-            System.Threading.Thread.Sleep(100)
-        Loop
     End Sub
 
     Private Sub WarmUpTimer_Tick(sender As Object, e As EventArgs) Handles WarmUpTimer.Tick
@@ -547,7 +538,7 @@ Public Class Main_Panel
         If i < 1 Then
             My.Computer.Audio.Play(My.Resources.fog_blast, AudioPlayMode.Background)
         End If
-        PreMatchThread.Abort()
+        DriverStation.Abort()
         PLCThread.Abort()
     End Sub
 

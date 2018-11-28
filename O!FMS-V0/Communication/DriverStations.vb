@@ -14,11 +14,12 @@ Public Class DriverStations
     Public Enabled As Boolean = False
     Public Estop As Boolean = False
     Public DsConn As New UdpClient
-    public DSEndpoint as IPEndPoint
+    Public DSEndpoint As IPEndPoint = New IPEndPoint(IPAddress.Any, DSUdpReceivePort)
+    Public BatteryVoltage As Double
+    Public RadioLinked As Boolean
+    Public RobotLinked As Boolean
 
-    Public Sub Connect(IP As IPAddress)
-        DsConn.Connect(IP, DSUdpReceivePort)
-    End Sub
+
 
     Public Sub sendPacketDS()
         Dim packet() As Byte = encodeControlPacket()
@@ -35,18 +36,71 @@ Public Class DriverStations
         End If
 
     End Sub
-    
-    public sub ListenForDSUdp()
-        'Sets the teamId to zero at beginning of each match'
-        dim teamId as integer = 0
-        'Driver Station EndPoint to receive any byte data'
-        DSEndPoint = new DSEndPoint(System.Net.IPAddress.Any, DSUdpReceivePort)
-        'byte for receiving any driver station info'
-        dim DSbytes(50) as byte = DsConn.Receive(DSEndPoint)
-        'Gets the team id from the DSByte structure'
-        teamId = DSBytes(4) << 8 + data(5)
-    end sub
-    
+
+    Public Sub ListenForDSUdp(allianceStation As String)
+        'Team Id for getting team number from DS'
+        Dim teamId As Integer = 0
+        Dim DSBytes As Byte()
+
+        Try
+            'Recieves the data from the DS'
+            DSBytes = DsConn.Receive(DSEndpoint)
+            'Gets the team id from the DSByte structure'
+            teamId = DSBytes(4) << 8 + DSBytes(5)
+            'Checks the team id from the main panel'
+            Dim teamNumber As Integer = Convert.ToInt32(allianceStation)
+            'Gets the Voltage but this is not implemented Yet!'
+            BatteryVoltage = DSBytes(6) + DSBytes(7) / 256
+
+            'Gets the robot if it is linked'
+            If allianceStation = Main_Panel.RedTeam1.Text Then
+                If RobotLinked = DSBytes(3) = &H20 Then
+                    Robot_Linked_Red1 = True
+                End If
+            End If
+
+            If allianceStation = Main_Panel.RedTeam2.Text Then
+                If RobotLinked = DSBytes(3) = &H20 Then
+                    Robot_Linked_Red1 = True
+                End If
+            End If
+
+            If allianceStation = Main_Panel.RedTeam3.Text Then
+                If RobotLinked = DSBytes(3) = &H20 Then
+                    Robot_Linked_Red1 = True
+                End If
+            End If
+
+            If allianceStation = Main_Panel.BlueTeam1.Text Then
+                If RobotLinked = DSBytes(3) = &H20 Then
+                    Robot_Linked_Red1 = True
+                End If
+            End If
+
+            If allianceStation = Main_Panel.BlueTeam2.Text Then
+                If RobotLinked = DSBytes(3) = &H20 Then
+                    Robot_Linked_Red1 = True
+                End If
+            End If
+
+            If allianceStation = Main_Panel.BlueTeam3.Text Then
+                If RobotLinked = DSBytes(3) = &H20 Then
+                    Robot_Linked_Red1 = True
+                End If
+            End If
+
+        Catch e As Exception
+            MessageBox.Show("DS Listener for UDP has problems")
+        End Try
+        If allianceStation = teamId Then
+            'Does nothing, TCP will handle this if this is wrong'
+        Else
+            Threading.Thread.Sleep(500)
+            'Closes if the id doesn't match the main panel'
+            DsConn.Close()
+        End If
+    End Sub
+
     Public Function encodeControlPacket()
         Dim data(22) As Byte
 

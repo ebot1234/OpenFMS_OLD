@@ -47,8 +47,8 @@ Public Class Lighting
             Case LightingModes.Owned_Red
             SendPacket("Red_Owned")
             Case LightingModes.Owned_Blue
-            SendPacket("Blue_Owned)
-            case LightingModes.NotOwned
+                SendPacket("Blue_Owned")
+            Case LightingModes.NotOwned
                 SendPacket("NotOwned")
             Case LightingModes.Blue_Force
                 SendPacket("Blue_Force")

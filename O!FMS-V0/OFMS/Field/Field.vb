@@ -37,15 +37,16 @@ Public Class Field
         PostMatch
         AbortMatch
     End Enum
+    Public Shared Sub HandleDSConnections()
+        'DS listening for driver station connections on UDP'
+        Red1DS.ListenForDSUdp(Main_Panel.RedTeam1.Text)
+        Red2DS.ListenForDSUdp(Main_Panel.RedTeam2.Text)
+        Red3DS.ListenForDSUdp(Main_Panel.RedTeam3.Text)
+        Blue1DS.ListenForDSUdp(Main_Panel.BlueTeam1.Text)
+        Blue2DS.ListenForDSUdp(Main_Panel.BlueTeam2.Text)
+        Blue3DS.ListenForDSUdp(Main_Panel.BlueTeam3.Text)
+        'Add Listener for TCP'
 
-
-    Public Shared Sub ConnectDriverStations()
-        Red1DS.Connect(getTeamIPs(Main_Panel.RedTeam1.Text))
-        'Red2DS.Connect(IPAddress.Parse(""))
-        'Red3DS.Connect(IPAddress.Parse(""))
-        'Blue1DS.Connect(IPAddress.Parse(""))
-        'Blue2DS.Connect(IPAddress.Parse(""))
-        'Blue3DS.Connect(IPAddress.Parse(""))
     End Sub
     Public Shared Sub ConnectLeds()
 
@@ -71,7 +72,7 @@ Public Class Field
         End If
 
     End Sub
-   Public Shared Sub handleLeds()
+    Public Shared Sub handleLeds()
     
 
     End Sub
@@ -143,14 +144,12 @@ Public Class Field
 
     Public Shared Sub updateField(MatchEnums As MatchEnums)
         Select Case (MatchEnums)
+
             Case MatchEnums.PreMatch
+                My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
                 PLC_Reset = True
                 Match_PreStart = True
-
-                ConnectDriverStations()
-                'pingDSConnections()
                 SendDS(Auto:=True, Enabled:=False)
-
             Case MatchEnums.WarmUp
                 SendDS(Auto:=True, Enabled:=False)
                 GameDataGen()
@@ -159,7 +158,6 @@ Public Class Field
             Case MatchEnums.Auto
                 SendDS(Auto:=True, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_start, AudioPlayMode.Background)
-
             Case MatchEnums.Pause
                 My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
             Case MatchEnums.TeleOp
