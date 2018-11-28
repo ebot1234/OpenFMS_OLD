@@ -129,12 +129,22 @@ Public Class DriverStations
         'Alliance Station byte, TODO add map of alliance stations'
         data(5) = 0
         'Match Type info from SQL/Main Panel'
-        'Add that'
 
+        'repeat match number'
         data(9) = 1
+        'Current time since 1900'
+        Dim currentTime = DateAndTime.Now
+        packet(10) = (((currentTime.Millisecond() / 100000) >> 24) & &HFF)
+        packet(11) = (((currentTime.Millisecond() / 100000) >> 16) & &HFF)
+        packet(12) = (((currentTime.Millisecond() / 100000) >> 8) & &HFF)
+        packet(13) = ((currentTime.Millisecond() / 100000) & &HFF)
+        packet(14) = (currentTime.Second)
+        packet(15) = (currentTime.Minute)
+        packet(16) = (currentTime.Hour)
+        packet(17) = (currentTime.Day)
+        packet(18) = (currentTime.Month)
+        packet(19) = (currentTime.Year - 1900)
 
-        'Add curent time'
-        data(10) = 0
         'time is bytes 10-19'
 
         'Match Time for bytes 20 and 21'
