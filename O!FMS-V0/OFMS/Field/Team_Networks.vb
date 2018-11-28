@@ -1,6 +1,4 @@
-﻿
-
-Imports System.Net
+﻿Imports System.Net
 Imports System
 
 Public Class Team_Networks
