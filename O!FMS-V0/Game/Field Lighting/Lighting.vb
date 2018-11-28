@@ -4,10 +4,15 @@ Imports O_FMS_V0.RandomString
 'This class is for interating with the led controllers for the 2018 FRC game FIRST POWERUP'
 
 Public Class Lighting
+    'lighting packet that is going to be sent'
     Public Shared LightingPacket(32) As Byte
+    'UdpClient for the controller'
     Public Shared ControllerConnection As New UdpClient
+    'Port Number for the communication to the controllers'
     Public Shared Port As Integer = 5555
+    'Varible for using the game data for 2018, for warmup'
     Public Shared GameData = gamedatause
+    'Led Types'
     Public Enum LightingModes
         Green
         Purple
@@ -16,18 +21,9 @@ Public Class Lighting
         Awards
         Test
         Off
-        Red_Owned_RSwitch
-        Blue_Owned_RSwitch
-        Red_NotOwned_RSwitch
-        Blue_NotOwned_RSwitch
-        Red_Owned_BSwitch
-        Blue_Owned_BSwitch
-        Red_NotOwned_BSwitch
-        Blue_NotOwned_BSwitch
-        Red_Owned_Scale
-        Blue_Owned_Scale
-        Red_NotOwned_Scale
-        Blue_NotOwned_Scale
+        Owned_Red
+        Owned_Blue
+        NotOwned
         Red_Force
         Red_Boost
         Red_Levitate
@@ -35,6 +31,7 @@ Public Class Lighting
         Blue_Boost
         Blue_Levitate
     End Enum
+    
     'Connects to the controller'
     Public Sub ConnectController(ip As String)
         If ControllerConnection Is Nothing Then
@@ -43,25 +40,16 @@ Public Class Lighting
             ControllerConnection.Close()
         End If
     End Sub
+    
     'sets the mode of the leds'
     Public Shared Sub SetMode(LightingModes)
         Select Case (LightingModes)
-            Case LightingModes.Red_Owned_RSwitch
-                SendPacket("Red_Owned")
-            Case LightingModes.Blue_Owned_RSwitch
-                SendPacket("Blue_Owned")
-            Case LightingModes.Red_NotOwned_RSwitch
-                SendPacket("Red_Not_Owned")
-            Case LightingModes.Blue_NotOwned_RSwitch
-                SendPacket("Blue_Not_Owned")
-            Case LightingModes.Red_Owned_BSwitch
-            Case LightingModes.Blue_Owned_BSwitch
-            Case LightingModes.Red_NotOwned_BSwitch
-            Case LightingModes.Blue_NotOwned_BSwitch
-            Case LightingModes.Red_Owned_Scale
-            Case LightingModes.Blue_Owned_Scale
-            Case LightingModes.Red_NotOwned_Scale
-            Case LightingModes.Blue_Not_Owned_Scale
+            Case LightingModes.Owned_Red
+            SendPacket("Red_Owned")
+            Case LightingModes.Owned_Blue
+            SendPacket("Blue_Owned)
+            case LightingModes.NotOwned
+                SendPacket("NotOwned")
             Case LightingModes.Blue_Force
                 SendPacket("Blue_Force")
             Case LightingModes.Blue_Boost
@@ -93,11 +81,14 @@ Public Class Lighting
         End Select
 
     End Sub
+        
     'Sends the udp packet containing the mode string to the led controller'
     Public Shared Sub SendPacket(mode As String)
         If ControllerConnection Is Nothing Then
             'Do Nothing'
+                messageBox.show("Led Controller not connected, check connections and firewalls")
         Else
+                'Sends the mode to the controller on port 5555'
             LightingPacket = Encoding.ASCII.GetBytes(mode)
             ControllerConnection.Send(LightingPacket, Port)
         End If
