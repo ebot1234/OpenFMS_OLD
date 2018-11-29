@@ -24,6 +24,7 @@ Public Class DriverStations
     Public bufferSize As Integer = 1024
     Public packet(32) As Byte
     Public tcpStream As NetworkStream
+    Public FMS_IP As IPAddress = IPAddress.Parse("10.0.100.5")
 
     Public Sub sendPacketDS()
         Dim packet() As Byte = encodeControlPacket()
@@ -111,17 +112,21 @@ Public Class DriverStations
 
         data(0) = packetCount >> 8 And &HFF
         data(1) = packetCount And &HFF
+
         'Protocol version'
         data(2) = 0
+
         'Robot status byte'
         data(3) = 0
 
         If Auto = True Then
             data(3) = &H2
         End If
+
         If Enabled = True Then
             data(3) = &H4
         End If
+
         If Estop = True Then
             data(3) = &H80
         End If
@@ -129,32 +134,39 @@ Public Class DriverStations
         data(4) = 0
         'Alliance Station byte, TODO add map of alliance stations'
         data(5) = 0
-        'Match Type info from SQL/Main Panel'
+
+        'driver station match type is practice for right now'
+        data(6) = 1
+
+        'Match Number'
+        data(7) = 0
+        data(8) = 1
 
         'repeat match number'
         data(9) = 1
+
         'Current time since 1900'
         Dim currentTime = DateAndTime.Now
         'defines the value of a nanosecond'
         Dim nanoseconds As Integer = (currentTime.Ticks / TimeSpan.TicksPerMillisecond / 10) * 100
-        packet(10) = (((nanoseconds / 1000) >> 24) & &HFF)
-        packet(11) = (((nanoseconds / 1000) >> 16) & &HFF)
-        packet(12) = (((nanoseconds / 1000) >> 8) & &HFF)
-        packet(13) = ((nanoseconds / 1000) & &HFF)
-        packet(14) = (currentTime.Second)
-        packet(15) = (currentTime.Minute)
-        packet(16) = (currentTime.Hour)
-        packet(17) = (currentTime.Day)
-        packet(18) = (currentTime.Month)
-        packet(19) = (currentTime.Year - 1900)
+        data(10) = (((nanoseconds / 1000) >> 24) & &HFF)
+        data(11) = (((nanoseconds / 1000) >> 16) & &HFF)
+        data(12) = (((nanoseconds / 1000) >> 8) & &HFF)
+        data(13) = ((nanoseconds / 1000) & &HFF)
+        data(14) = (currentTime.Second)
+        data(15) = (currentTime.Minute)
+        data(16) = (currentTime.Hour)
+        data(17) = (currentTime.Day)
+        data(18) = (currentTime.Month)
+        data(19) = (currentTime.Year - 1900)
 
         'Time left in the match'
-        packet(20) = (Main_Panel.matchTimerLbl.Text >> 8 & &HFF)
-        packet(21) = (Main_Panel.matchTimerLbl.Text & &HFF)
+        data(20) = (Main_Panel.matchTimerLbl.Text >> 8 & &HFF)
+        data(21) = (Main_Panel.matchTimerLbl.Text & &HFF)
 
         packetCount = packetCount + 1
 
-        Return packet
+        Return data
     End Function
 
     Public Sub ListenForTCPConnections(station As String, DSStation As Integer)
@@ -165,7 +177,7 @@ Public Class DriverStations
         Dim nextReadCount, rc As Integer
         Dim teamNumber As Integer = 0
         'Creates the TCP server'
-        DsTcpServer = New TcpListener(IPAddress.Any, DSTcpPort)
+        DsTcpServer = New TcpListener(FMS_IP, DSTcpPort)
         'Starts the TCP server'
         DsTcpServer.Start()
         'Waiting for TCP client(DS)'
