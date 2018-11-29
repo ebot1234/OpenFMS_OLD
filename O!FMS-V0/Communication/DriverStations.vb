@@ -106,6 +106,7 @@ Public Class DriverStations
     End Sub
 
     Public Function encodeControlPacket()
+        'Using the driver station packet structure from Cheesy Arena'
         Dim data(22) As Byte
 
         data(0) = packetCount >> 8 And &HFF
@@ -134,10 +135,12 @@ Public Class DriverStations
         data(9) = 1
         'Current time since 1900'
         Dim currentTime = DateAndTime.Now
-        packet(10) = (((currentTime.Millisecond() / 100000) >> 24) & &HFF)
-        packet(11) = (((currentTime.Millisecond() / 100000) >> 16) & &HFF)
-        packet(12) = (((currentTime.Millisecond() / 100000) >> 8) & &HFF)
-        packet(13) = ((currentTime.Millisecond() / 100000) & &HFF)
+        'defines the value of a nanosecond'
+        Dim nanoseconds As Integer = (currentTime.Ticks / TimeSpan.TicksPerMillisecond / 10) * 100
+        packet(10) = (((nanoseconds / 1000) >> 24) & &HFF)
+        packet(11) = (((nanoseconds / 1000) >> 16) & &HFF)
+        packet(12) = (((nanoseconds / 1000) >> 8) & &HFF)
+        packet(13) = ((nanoseconds / 1000) & &HFF)
         packet(14) = (currentTime.Second)
         packet(15) = (currentTime.Minute)
         packet(16) = (currentTime.Hour)
@@ -145,12 +148,13 @@ Public Class DriverStations
         packet(18) = (currentTime.Month)
         packet(19) = (currentTime.Year - 1900)
 
-        'time is bytes 10-19'
-
-        'Match Time for bytes 20 and 21'
+        'Time left in the match'
+        packet(20) = (Main_Panel.matchTimerLbl.Text >> 8 & &HFF)
+        packet(21) = (Main_Panel.matchTimerLbl.Text & &HFF)
 
         packetCount = packetCount + 1
-        Return data
+
+        Return packet
     End Function
 
     Public Sub ListenForTCPConnections(station As String, DSStation As Integer)
