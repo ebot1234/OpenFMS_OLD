@@ -433,6 +433,7 @@ Public Class Main_Panel
 
     Private Sub AbortMatch_btn_Click(sender As Object, e As EventArgs) Handles AbortMatch_btn.Click
         HandleAbortedMatch()
+        Field.updateField(MatchEnums.AbortMatch)
         MatchMessages.Text = "Match Aborted"
         matchTimerLbl.Text = 0
     End Sub

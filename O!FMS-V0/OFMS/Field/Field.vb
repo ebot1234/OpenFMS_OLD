@@ -2,6 +2,7 @@ Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.RandomString
 Imports O_FMS_V0.Team_Networks
 Imports O_FMS_V0.Lighting
+Imports System.Threading
 Imports System.Net
 
 Public Class Field
@@ -26,6 +27,8 @@ Public Class Field
     Public Shared TeleTime As Integer = 135
     Public Shared EndgameTime As Integer = 30
     Public Shared GameTime As Integer = 0
+
+    Public Shared fieldStatus
     'Match Type enums'
     Public Enum MatchEnums
         PreMatch
@@ -38,15 +41,13 @@ Public Class Field
         AbortMatch
     End Enum
     Public Shared Sub HandleDSConnections()
-        'DS listening for driver station connections on UDP'
-        Red1DS.ListenForDSUdp(Main_Panel.RedTeam1.Text)
-        Red2DS.ListenForDSUdp(Main_Panel.RedTeam2.Text)
-        Red3DS.ListenForDSUdp(Main_Panel.RedTeam3.Text)
-        Blue1DS.ListenForDSUdp(Main_Panel.BlueTeam1.Text)
-        Blue2DS.ListenForDSUdp(Main_Panel.BlueTeam2.Text)
-        Blue3DS.ListenForDSUdp(Main_Panel.BlueTeam3.Text)
-        'Add Listener for TCP'
-
+        'Starts the TCP connection threads for finding driver stations'
+        Red1DS.RunDSConn()
+        Red2DS.RunDSConn()
+        Red3DS.RunDSConn()
+        Blue1DS.RunDSConn()
+        Blue2DS.RunDSConn()
+        Blue3DS.RunDSConn()
     End Sub
     Public Shared Sub ConnectLeds()
 
@@ -87,12 +88,12 @@ Public Class Field
             Blue2DS.Auto = True
             Blue3DS.Auto = True
 
-            'Red1DS.sendPacketDS()
-            ' Red2DS.sendPacketDS()
-            ' Red3DS.sendPacketDS()
-            ' Blue1DS.sendPacketDS()
-            ' Blue2DS.sendPacketDS()
-            ' Blue3DS.sendPacketDS()
+            ' Red1DS.sendPacketDS(0)
+            ' Red2DS.sendPacketDS(1)
+            ' Red3DS.sendPacketDS(2)
+            ' Blue1DS.sendPacketDS(3)
+            ' Blue2DS.sendPacketDS(4)
+            ' Blue3DS.sendPacketDS(5)
 
         Else
             Red1DS.Auto = False
@@ -102,12 +103,12 @@ Public Class Field
             Blue2DS.Auto = False
             Blue3DS.Auto = False
 
-            ' Red1DS.sendPacketDS()
-            ' Red2DS.sendPacketDS()
-            'Red3DS.sendPacketDS()
-            ' Blue1DS.sendPacketDS()
-            ' Blue2DS.sendPacketDS()
-            'Blue3DS.sendPacketDS()
+            ' Red1DS.sendPacketDS(0)
+            ' Red2DS.sendPacketDS(1)
+            ' Red3DS.sendPacketDS(2)
+            ' Blue1DS.sendPacketDS(3)
+            ' Blue2DS.sendPacketDS(4)
+            ' Blue3DS.sendPacketDS(5)
         End If
 
         If Enabled = True Then
@@ -118,12 +119,12 @@ Public Class Field
             Blue2DS.Enabled = True
             Blue3DS.Enabled = True
 
-            ' Red1DS.sendPacketDS()
-            ' Red2DS.sendPacketDS()
-            ' Red3DS.sendPacketDS()
-            ' Blue1DS.sendPacketDS()
-            'Blue2DS.sendPacketDS()
-            ' Blue3DS.sendPacketDS()
+            ' Red1DS.sendPacketDS(0)
+            ' Red2DS.sendPacketDS(1)
+            ' Red3DS.sendPacketDS(2)
+            ' Blue1DS.sendPacketDS(3)
+            ' Blue2DS.sendPacketDS(4)
+            ' Blue3DS.sendPacketDS(5)
         Else
             Red1DS.Enabled = False
             Red2DS.Enabled = False
@@ -132,12 +133,12 @@ Public Class Field
             Blue2DS.Enabled = False
             Blue3DS.Enabled = False
 
-            ' Red1DS.sendPacketDS()
-            ' Red2DS.sendPacketDS()
-            ' Red3DS.sendPacketDS()
-            'Blue1DS.sendPacketDS()
-            'Blue2DS.sendPacketDS()
-            'Blue3DS.sendPacketDS()
+            ' Red1DS.sendPacketDS(0)
+            ' Red2DS.sendPacketDS(1)
+            ' Red3DS.sendPacketDS(2)
+            ' Blue1DS.sendPacketDS(3)
+            ' Blue2DS.sendPacketDS(4)
+            ' Blue3DS.sendPacketDS(5)
         End If
         Return 0
     End Function
@@ -154,17 +155,22 @@ Public Class Field
                 SendDS(Auto:=True, Enabled:=False)
                 GameDataGen()
                 Match_Start = True
+                SendDS(Auto:=True, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_warmup, AudioPlayMode.Background)
             Case MatchEnums.Auto
                 SendDS(Auto:=True, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_start, AudioPlayMode.Background)
             Case MatchEnums.Pause
+                SendDS(Auto:=False, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
             Case MatchEnums.TeleOp
+                SendDS(Auto:=False, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_resume, AudioPlayMode.Background)
             Case MatchEnums.EndGame
+                SendDS(Auto:=False, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_endgame, AudioPlayMode.Background)
             Case MatchEnums.PostMatch
+                SendDS(Auto:=False, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
                 Match_Stop = True
             Case MatchEnums.AbortMatch
@@ -174,4 +180,6 @@ Public Class Field
                 MatchEnums = MatchEnums.PreMatch
         End Select
     End Sub
+
+
 End Class

@@ -3,6 +3,9 @@ Imports System.Net.Sockets
 Imports System.Net
 Imports System.Text
 Imports O_FMS_V0.PLC_Comms_Server
+Imports O_FMS_V0.RandomString
+Imports System.Threading
+
 
 
 
@@ -14,99 +17,32 @@ Public Class DriverStations
     Public Auto As Boolean = False
     Public Enabled As Boolean = False
     Public Estop As Boolean = False
-    Public DsConn As New UdpClient
-    Public DsTcpClient As TcpClient
-    Public DSEndpoint As IPEndPoint = New IPEndPoint(IPAddress.Any, DSUdpReceivePort)
-    Public BatteryVoltage As Double
-    Public RadioLinked As Boolean
-    Public RobotLinked As Boolean
-    Public bufferSize As Integer = 1024
-    Public packet(32) As Byte
-    Public tcpStream As NetworkStream
-    Public FMS_IP As IPAddress = IPAddress.Parse("10.0.100.5")
-    Public DsTcpServer As TcpListener = New TcpListener(FMS_IP, DSTcpPort)
 
-    Public Sub sendPacketDS()
-        Dim packet() As Byte = encodeControlPacket()
-        If Auto = True Then
-            DsConn.Send(packet, packet.Length)
-        End If
+    Public FMS_IP As String = "10.0.100.5"
 
-        If Estop = True Then
-            DsConn.Send(packet, packet.Length)
-        End If
 
-        If Enabled = True Then
-            DsConn.Send(packet, packet.Length)
-        End If
+    Public DriverStationIP As IPAddress
+    Public tcpClient As TcpClient
+    Public udpClient As UdpClient
+
+    Public Sub RunDSConn()
+        Dim ListenTCP As New Thread(AddressOf ListenToDS)
+        ListenTCP.Start()
+    End Sub
+
+    Public Sub setConnections(dsIp As IPAddress, tcpConnection As TcpClient)
+        DriverStationIP = dsIp
+        tcpClient = tcpConnection
+        udpClient = New UdpClient(dsIp.ToString(), 1121)
+    End Sub
+
+    Public Sub sendPacketDS(allianceStation As Integer)
+        Dim packet = encodeControlPacket(allianceStation)
+        udpClient.Send(packet, packet.Length)
 
     End Sub
 
-    Public Sub ListenForDSUdp(allianceStation As String)
-        'Team Id for getting team number from DS'
-        Dim teamId As Integer = 0
-        Dim DSBytes As Byte()
-
-        Try
-            'Recieves the data from the DS'
-            DSBytes = DsConn.Receive(DSEndpoint)
-            'Gets the team id from the DSByte structure'
-            teamId = DSBytes(4) << 8 + DSBytes(5)
-            'Checks the team id from the main panel'
-            Dim teamNumber As Integer = Convert.ToInt32(allianceStation)
-            'Gets the Voltage but this is not implemented Yet!'
-            BatteryVoltage = DSBytes(6) + DSBytes(7) / 256
-
-            'Gets the robot if it is linked'
-            If allianceStation = Main_Panel.RedTeam1.Text Then
-                If RobotLinked = DSBytes(3) = &H20 Then
-                    Robot_Linked_Red1 = True
-                End If
-            End If
-
-            If allianceStation = Main_Panel.RedTeam2.Text Then
-                If RobotLinked = DSBytes(3) = &H20 Then
-                    Robot_Linked_Red1 = True
-                End If
-            End If
-
-            If allianceStation = Main_Panel.RedTeam3.Text Then
-                If RobotLinked = DSBytes(3) = &H20 Then
-                    Robot_Linked_Red1 = True
-                End If
-            End If
-
-            If allianceStation = Main_Panel.BlueTeam1.Text Then
-                If RobotLinked = DSBytes(3) = &H20 Then
-                    Robot_Linked_Red1 = True
-                End If
-            End If
-
-            If allianceStation = Main_Panel.BlueTeam2.Text Then
-                If RobotLinked = DSBytes(3) = &H20 Then
-                    Robot_Linked_Red1 = True
-                End If
-            End If
-
-            If allianceStation = Main_Panel.BlueTeam3.Text Then
-                If RobotLinked = DSBytes(3) = &H20 Then
-                    Robot_Linked_Red1 = True
-                End If
-            End If
-
-        Catch e As Exception
-            MessageBox.Show("DS Listener for UDP has problems")
-        End Try
-        If allianceStation = teamId Then
-            Debug.WriteLine("Yay the driver station is connected")
-        Else
-            Threading.Thread.Sleep(500)
-            'Closes if the id doesn't match the main panel'
-            DsConn.Close()
-        End If
-    End Sub
-
-    Public Function encodeControlPacket()
+    Public Function encodeControlPacket(allianceStation As Integer)
         'Using the driver station packet structure from Cheesy Arena'
         Dim data(22) As Byte
 
@@ -133,7 +69,7 @@ Public Class DriverStations
         'Unused byte or unknown'
         data(4) = 0
         'Alliance Station byte, TODO add map of alliance stations'
-        data(5) = 0
+        data(5) = allianceStation
 
         'driver station match type is practice for right now'
         data(6) = 1
@@ -169,20 +105,86 @@ Public Class DriverStations
         Return data
     End Function
 
-    Public Sub ListenForTCPConnections()
-        DsTcpClient = DsTcpServer.AcceptTcpClient
+    Public Sub ListenToDS()
+        Dim dsListener As TcpListener = New TcpListener(IPAddress.Parse(FMS_IP), 1750)
 
+        Try
+            dsListener.Start()
+        Catch ex As Exception
+            MessageBox.Show("Ds Connection Thread Failed, Restart Pre-Start")
+        End Try
+
+
+        Dim tcpClient As TcpClient = dsListener.AcceptTcpClient
         Dim buffer(5) As Byte
+        tcpClient.GetStream.Read(buffer, 0, buffer.Length)
 
-        DsTcpClient.GetStream().Read(buffer, 0, buffer.Length)
+        If buffer(0) = 0 & buffer(1) = 3 & buffer(2) = 24 Then
+            tcpClient.Close()
 
-        If (buffer(0) = 0 & buffer(1) = 3 & buffer(2) = 2) Then
+        End If
 
+        Dim teamid_1 As Integer = buffer(3) << 8
+        Dim teamid_2 As Integer = buffer(4)
+        Dim teamId As Integer = teamid_1 And teamid_2
+
+        Dim allianceStation As Integer = -1
+        Dim ip As String = tcpClient.Client.RemoteEndPoint.ToString().Split()(0)
+        Dim dsIp As IPAddress = IPAddress.Parse(ip)
+
+        Dim assignmentPacket(5) As Byte
+        assignmentPacket(0) = 0
+        assignmentPacket(1) = 3
+        assignmentPacket(2) = 25
+        assignmentPacket(3) = allianceStation
+        assignmentPacket(4) = 0
+
+        tcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
+
+    End Sub
+
+    Public Function generateGameString()
+        Dim gameString = Encoding.ASCII.GetBytes(gamedatause)
+        Dim packet(gameString.Length + 4) As Byte
+
+        packet(0) = 0 'size'
+        packet(1) = gameString.Length + 2
+        packet(2) = 28 'type'
+        packet(3) = gameString.Length
+
+        Dim i As Integer = 0
+
+        If i < gameString.Length Then
+            packet(i + 4) = gameString(i)
+            i = i + 1
+        End If
+
+        Return packet
+    End Function
+
+    Public Sub sendGameDataPacket(gameData As String)
+        If tcpClient IsNot Nothing Then
+            Dim packet(generateGameString) As Byte
+            tcpClient.GetStream.Write(packet, 0, packet.Length)
+        End If
+
+    End Sub
+
+    Public Sub Dispose()
+        If udpClient IsNot Nothing Then
+            udpClient.Close()
+        Else
+            'Do nothing since it is nothing'
+        End If
+
+        If tcpClient IsNot Nothing Then
+            tcpClient.Close()
+        Else
+            'Do nothing since it is nothing'
         End If
     End Sub
 
-    Public Sub sendGameDataPacket(gameData As String)
-        packet = Encoding.ASCII.GetBytes(gameData)
-        DsTcpClient.GetStream.Write(packet, 0, packet.Length)
+    Public Sub pingTeam()
+        'Add ping stuff to see if a robot, ds, and team radio's are connected'
     End Sub
 End Class
