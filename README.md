@@ -22,8 +22,7 @@ We recommend to use the Linksys 1900ACS* Access Point and a Cisco 3500 series L3
 
 Field Lighting:
 
-For 2018 the field lighing will be controlled by 3 arduinos and WS2812B led pixel strips. The arduino program can be used on any arduino 
-but we are using the Arduino Uno Rev 3.
+For field lighting info please refer to the Wiki.
 
 
 
