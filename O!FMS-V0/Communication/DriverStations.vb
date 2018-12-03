@@ -15,7 +15,6 @@ Public Class DriverStations
     Public Enabled As Boolean = False
     Public Estop As Boolean = False
     Public DsConn As New UdpClient
-    Public DsTcpServer As TcpListener
     Public DsTcpClient As TcpClient
     Public DSEndpoint As IPEndPoint = New IPEndPoint(IPAddress.Any, DSUdpReceivePort)
     Public BatteryVoltage As Double
@@ -25,6 +24,7 @@ Public Class DriverStations
     Public packet(32) As Byte
     Public tcpStream As NetworkStream
     Public FMS_IP As IPAddress = IPAddress.Parse("10.0.100.5")
+    Public DsTcpServer As TcpListener = New TcpListener(FMS_IP, DSTcpPort)
 
     Public Sub sendPacketDS()
         Dim packet() As Byte = encodeControlPacket()
@@ -169,62 +169,20 @@ Public Class DriverStations
         Return data
     End Function
 
-    Public Sub ListenForTCPConnections(station As String, DSStation As Integer)
-        Dim teamId As Integer = 0
-        Dim receiveBuffer(bufferSize) As Byte
-        Dim recieveByte(5) As Byte
-        Dim bytesToRead As Integer = 0
-        Dim nextReadCount, rc As Integer
-        Dim teamNumber As Integer = 0
-        'Creates the TCP server'
-        DsTcpServer = New TcpListener(FMS_IP, DSTcpPort)
-        'Starts the TCP server'
-        DsTcpServer.Start()
-        'Waiting for TCP client(DS)'
-        DsTcpClient = DsTcpServer.AcceptTcpClient()
-        'Gets the network stream for receiveing and writing data to the DS'
-        tcpStream = DsTcpClient.GetStream
-        recieveByte = BitConverter.GetBytes(bytesToRead)
-        'Reads the size of bytes'
-        tcpStream.Read(recieveByte, 0, recieveByte.Length)
-        bytesToRead = BitConverter.ToInt32(recieveByte, 0)
-        'Receive the data'
-        While (bytesToRead > 0)
-            If (bytesToRead < receiveBuffer.Length) Then
-                nextReadCount = bytesToRead
-            Else
-                nextReadCount = receiveBuffer.Length
-            End If
-            'reads the data'
-            rc = tcpStream.Read(receiveBuffer, 0, nextReadCount)
-            'Team Id over tcp'
-            teamId = recieveByte(3) << +recieveByte(4)
-            teamNumber = Convert.ToInt32(station)
+    Public Sub ListenForTCPConnections()
+        DsTcpClient = DsTcpServer.AcceptTcpClient
 
-            If teamNumber = teamId Then
-                'Do nothing this is good'
-            ElseIf teamNumber <> teamId Then
-                Console.WriteLine("Team is not allowed on the field right now")
-                Threading.Thread.Sleep(1000)
-                DsTcpClient.Close()
-                DsTcpServer.Stop()
-            End If
+        Dim buffer(5) As Byte
 
-            bytesToRead -= rc
-        End While
+        DsTcpClient.GetStream().Read(buffer, 0, buffer.Length)
 
-        Dim assignmentPacket(5) As Byte
-        assignmentPacket(0) = 0
-        assignmentPacket(1) = 3
-        assignmentPacket(2) = 25
-        assignmentPacket(3) = DSStation
-        assignmentPacket(4) = 0
-        tcpStream.Write(assignmentPacket, 0, assignmentPacket.Length)
+        If (buffer(0) = 0 & buffer(1) = 3 & buffer(2) = 2) Then
+
+        End If
     End Sub
 
     Public Sub sendGameDataPacket(gameData As String)
         packet = Encoding.ASCII.GetBytes(gameData)
-
-        tcpStream.Write(packet, 0, packet.Length)
+        DsTcpClient.GetStream.Write(packet, 0, packet.Length)
     End Sub
 End Class
