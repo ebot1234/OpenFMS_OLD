@@ -12,7 +12,7 @@ Public Class Main_Panel
 
     Dim DriverStation As New Threading.Thread(AddressOf HandleDSConnections)
     Dim PLCThread As New Threading.Thread(AddressOf HandlePLC)
-    Dim LEDThread As New Threading.Thread(AddressOf handleLeds)
+    ' Dim LEDThread As New Threading.Thread(AddressOf handleLeds)
 
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -337,6 +337,8 @@ Public Class Main_Panel
     Private Sub Pre_Start_btn_Click(sender As Object, e As EventArgs) Handles Pre_Start_btn.Click
         PLCThread = New Threading.Thread(AddressOf HandlePLC)
         DriverStation = New Threading.Thread(AddressOf HandleDSConnections)
+        '  LEDThread = New Threading.Thread(AddressOf handleLeds)
+        '  LEDThread.Start()
         DriverStation.Start()
         PLCThread.Start()
         updateField(MatchEnums.PreMatch)
@@ -541,6 +543,7 @@ Public Class Main_Panel
         End If
         DriverStation.Abort()
         PLCThread.Abort()
+        '    LEDThread.Abort()
     End Sub
 
     Public Sub ResetPLC()
@@ -573,7 +576,7 @@ Public Class Main_Panel
     End Sub
 
     Private Sub LedPatternTestBtn_Click(sender As Object, e As EventArgs) Handles LedPatternTestBtn.Click
-        SetMode(LightingModes.Test)
+        ' SetMode(LightingModes.Test)
     End Sub
 
     Private Sub ConnectLedsBtn_Click(sender As Object, e As EventArgs) Handles ConnectLedsBtn.Click

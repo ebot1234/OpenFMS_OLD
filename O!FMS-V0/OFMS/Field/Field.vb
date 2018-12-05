@@ -41,40 +41,37 @@ Public Class Field
         AbortMatch
     End Enum
     Public Shared Sub HandleDSConnections()
+
         'Starts the TCP connection threads for finding driver stations'
-        Red1DS.RunDSConn()
-        Red2DS.RunDSConn()
-        Red3DS.RunDSConn()
-        Blue1DS.RunDSConn()
-        Blue2DS.RunDSConn()
-        Blue3DS.RunDSConn()
+        Red1DS.ListenToDS()
+        '  Red1DS.setConnections()
     End Sub
     Public Shared Sub ConnectLeds()
 
         RedSwitchLeds.ConnectController("10.0.0.23")
-        BlueSwitchLeds.ConnectController("10.0.0.24")
-        ScaleLeds.ConnectController("10.0.0.25")
+        ' BlueSwitchLeds.ConnectController("10.0.0.24")
+        ' ScaleLeds.ConnectController("10.0.0.25")
 
         'pings the led controllers'
-        If My.Computer.Network.Ping("10.0.0.23", 1000) Then
-            MessageBox.Show("Red Switch Leds Connected")
-        Else
-            MessageBox.Show("Red Switch Leds Not Connected")
-        End If
-        If My.Computer.Network.Ping("10.0.0.24", 1000) Then
-            MessageBox.Show("Blue Switch Leds Connected")
-        Else
-            MessageBox.Show("Blue Switch Leds Not Connected")
-        End If
-        If My.Computer.Network.Ping("10.0.0.25", 1000) Then
-            MessageBox.Show("Scale Leds Not Connected")
-        Else
-            MessageBox.Show("Scale Leds Not Connected")
-        End If
+        ' If My.Computer.Network.Ping("10.0.0.23", 1000) Then
+        MessageBox.Show("Red Switch Leds Connected")
+        ' Else
+        MessageBox.Show("Red Switch Leds Not Connected")
+        ' End If
+        ' If My.Computer.Network.Ping("10.0.0.24", 1000) Then
+        MessageBox.Show("Blue Switch Leds Connected")
+        ' Else
+        MessageBox.Show("Blue Switch Leds Not Connected")
+        'End If
+        ' If My.Computer.Network.Ping("10.0.0.25", 1000) Then
+        MessageBox.Show("Scale Leds Not Connected")
+        ' Else
+        MessageBox.Show("Scale Leds Not Connected")
+        ' End If
 
     End Sub
     Public Shared Sub handleLeds()
-    
+        ' RedSwitchLeds.SendPacket("BOB")
 
     End Sub
 

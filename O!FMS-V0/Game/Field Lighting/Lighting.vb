@@ -4,14 +4,14 @@ Imports O_FMS_V0.RandomString
 'This class is for interating with the led controllers for the 2018 FRC game FIRST POWERUP'
 
 Public Class Lighting
-    'lighting packet that is going to be sent'
-    Public Shared LightingPacket(32) As Byte
     'UdpClient for the controller'
     Public Shared ControllerConnection As New UdpClient
     'Port Number for the communication to the controllers'
     Public Shared Port As Integer = 5555
     'Varible for using the game data for 2018, for warmup'
     Public Shared GameData = gamedatause
+
+    Public Shared mode As String = "mode"
     'Led Types'
     Public Enum LightingModes
         Green
@@ -31,21 +31,21 @@ Public Class Lighting
         Blue_Boost
         Blue_Levitate
     End Enum
-    
+
     'Connects to the controller'
     Public Sub ConnectController(ip As String)
         If ControllerConnection Is Nothing Then
+            ControllerConnection = New UdpClient(ip, Port)
             ControllerConnection.Connect(ip, Port)
-        Else
-            ControllerConnection.Close()
         End If
+
     End Sub
-    
+
     'sets the mode of the leds'
-    Public Shared Sub SetMode(LightingModes)
+    Public Sub SetMode(LightingModes)
         Select Case (LightingModes)
             Case LightingModes.Owned_Red
-            SendPacket("Red_Owned")
+                SendPacket("Red_Owned")
             Case LightingModes.Owned_Blue
                 SendPacket("Blue_Owned")
             Case LightingModes.NotOwned
@@ -81,16 +81,17 @@ Public Class Lighting
         End Select
 
     End Sub
-        
+
     'Sends the udp packet containing the mode string to the led controller'
-    Public Shared Sub SendPacket(mode As String)
+    Public Sub SendPacket(mode)
         If ControllerConnection Is Nothing Then
             'Do Nothing'
-                messageBox.show("Led Controller not connected, check connections and firewalls")
+            MessageBox.Show("Led Controller not connected, check connections and firewalls")
         Else
-                'Sends the mode to the controller on port 5555'
+            'Sends the mode to the controller on port 5555'
+            Dim LightingPacket(1024) As Byte
             LightingPacket = Encoding.ASCII.GetBytes(mode)
-            ControllerConnection.Send(LightingPacket, Port)
+            ControllerConnection.Send(LightingPacket, LightingPacket.Length)
         End If
     End Sub
 End Class

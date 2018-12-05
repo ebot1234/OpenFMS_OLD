@@ -17,17 +17,83 @@ Public Class DriverStations
     Public Auto As Boolean = False
     Public Enabled As Boolean = False
     Public Estop As Boolean = False
-
+    Public robotIp As IPAddress
+    Public radioIp As IPAddress
+    Public DriverStationIP As IPAddress
     Public FMS_IP As String = "10.0.100.5"
 
+    Public TeamNumber As Integer
 
-    Public DriverStationIP As IPAddress
     Public tcpClient As TcpClient
     Public udpClient As UdpClient
 
-    Public Sub RunDSConn()
-        Dim ListenTCP As New Thread(AddressOf ListenToDS)
-        ListenTCP.Start()
+    Public Sub newDriverStationConnection(teamNumber As String, allianceStationNumber As Integer)
+        If Integer.TryParse(teamNumber, teamNumber) Then
+            Select Case teamNumber.Length
+                Case 1
+                Case 2
+                    robotIp = IPAddress.Parse("10.00." + teamNumber + ".2")
+                Case 3
+                    robotIp = IPAddress.Parse("10.0" + teamNumber(0) + "." + teamNumber(1) + teamNumber(2) + ".2")
+                Case 4
+                    robotIp = IPAddress.Parse("10." + teamNumber.Substring(0, 2) + "." + teamNumber.Substring(2) + ".2")
+                Case Else
+                    robotIp = IPAddress.Parse("10.0.0.2")
+            End Select
+        Else
+            teamNumber = 0
+            robotIp = IPAddress.Parse("10.0.0.2")
+        End If
+        radioIp = IPAddress.Parse(robotIp.ToString().Substring(0, robotIp.ToString().Length - 1) + "1")
+
+        Dim robotPingThread As New Thread(AddressOf robotPing)
+        robotPingThread.Start()
+
+        Dim sendDataThread As New Thread(AddressOf sendPacketDS)
+        sendDataThread.Start()
+    End Sub
+
+    Public Sub robotPing(stationNumber As Integer)
+        Dim timeOut As Integer = 5
+
+        While (True)
+            'Pings the robots radio to see if its connected'
+            If My.Computer.Network.Ping(radioIp.ToString, timeOut) Then
+                If stationNumber = 0 Then
+                    Robot_Linked_Red1 = True
+                ElseIf stationNumber = 1 Then
+                    Robot_Linked_Red2 = True
+                ElseIf stationNumber = 2 Then
+                    Robot_Linked_Red3 = True
+                ElseIf stationNumber = 3 Then
+                    Robot_Linked_Blue1 = True
+                ElseIf stationNumber = 4 Then
+                    Robot_Linked_Blue2 = True
+                ElseIf stationNumber = 5 Then
+                    Robot_Linked_Blue3 = True
+                End If
+            End If
+            'Pings the driver station to check if its connected'
+            If DriverStationIP IsNot Nothing Then
+                If My.Computer.Network.Ping(DriverStationIP.ToString, timeOut) Then
+                    If stationNumber = 0 Then
+                        DS_Linked_Red1 = True
+                    ElseIf stationNumber = 1 Then
+                        DS_Linked_Red2 = True
+                    ElseIf stationNumber = 2 Then
+                        DS_Linked_Red3 = True
+                    ElseIf stationNumber = 3 Then
+                        DS_Linked_Blue1 = True
+                    ElseIf stationNumber = 4 Then
+                        DS_Linked_Blue2 = True
+                    ElseIf stationNumber = 5 Then
+                        DS_Linked_Blue3 = True
+                    End If
+                End If
+            End If
+            'sleeps for 50ms to see if another connection has appeared'
+            Thread.Sleep(50)
+        End While
     End Sub
 
     Public Sub setConnections(dsIp As IPAddress, tcpConnection As TcpClient)
@@ -105,14 +171,12 @@ Public Class DriverStations
         Return data
     End Function
 
-    Public Sub ListenToDS()
-        Dim dsListener As TcpListener = New TcpListener(IPAddress.Parse(FMS_IP), 1750)
+    Public Function ListenToDS()
+        Dim dsListener As TcpListener = New TcpListener(IPAddress.Parse("10.0.100.5"), 1750)
 
-        Try
-            dsListener.Start()
-        Catch ex As Exception
-            MessageBox.Show("Ds Connection Thread Failed, Restart Pre-Start")
-        End Try
+
+        dsListener.Start()
+
 
 
         Dim tcpClient As TcpClient = dsListener.AcceptTcpClient
@@ -140,8 +204,8 @@ Public Class DriverStations
         assignmentPacket(4) = 0
 
         tcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
-
-    End Sub
+        Return dsIp
+    End Function
 
     Public Function generateGameString()
         Dim gameString = Encoding.ASCII.GetBytes(gamedatause)
