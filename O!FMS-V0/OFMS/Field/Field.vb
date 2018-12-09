@@ -41,10 +41,22 @@ Public Class Field
         AbortMatch
     End Enum
     Public Shared Sub HandleDSConnections()
+        'Alliance Station Numbers start at 0 and go to 5'
 
         'Starts the TCP connection threads for finding driver stations'
         Red1DS.ListenToDS()
-        '  Red1DS.setConnections()
+        'Pings and starts control for the driver station'
+        Red1DS.newDriverStationConnection(Main_Panel.RedTeam1.Text, 0)
+    End Sub
+
+    Public Shared Sub DisposeDS()
+        Red1DS.Dispose()
+        Red2DS.Dispose()
+        Red3DS.Dispose()
+        Blue1DS.Dispose()
+        Blue2DS.Dispose()
+        Blue3DS.Dispose()
+
     End Sub
     Public Shared Sub ConnectLeds()
 
@@ -147,32 +159,43 @@ Public Class Field
                 My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
                 PLC_Reset = True
                 Match_PreStart = True
+                fieldStatus = MatchEnums.PreMatch
                 SendDS(Auto:=True, Enabled:=False)
             Case MatchEnums.WarmUp
                 SendDS(Auto:=True, Enabled:=False)
                 GameDataGen()
                 Match_Start = True
+                fieldStatus = MatchEnums.WarmUp
                 SendDS(Auto:=True, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_warmup, AudioPlayMode.Background)
             Case MatchEnums.Auto
+                fieldStatus = MatchEnums.Auto
                 SendDS(Auto:=True, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_start, AudioPlayMode.Background)
             Case MatchEnums.Pause
+                fieldStatus = MatchEnums.Pause
                 SendDS(Auto:=False, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
             Case MatchEnums.TeleOp
+                fieldStatus = MatchEnums.TeleOp
                 SendDS(Auto:=False, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_resume, AudioPlayMode.Background)
             Case MatchEnums.EndGame
+                fieldStatus = MatchEnums.EndGame
                 SendDS(Auto:=False, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_endgame, AudioPlayMode.Background)
             Case MatchEnums.PostMatch
+                fieldStatus = MatchEnums.PostMatch
                 SendDS(Auto:=False, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
                 Match_Stop = True
+                DisposeDS()
             Case MatchEnums.AbortMatch
+                fieldStatus = MatchEnums.AbortMatch
                 SendDS(Auto:=False, Enabled:=False)
                 Match_Stop = True
+                Thread.Sleep(50)
+                DisposeDS()
             Case Else
                 MatchEnums = MatchEnums.PreMatch
         End Select

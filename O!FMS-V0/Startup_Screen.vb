@@ -23,4 +23,9 @@ Public Class Startup_Screen
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         'Match_Generator.Show()
     End Sub
+
+    Private Sub Startup_Screen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+    End Sub
 End Class

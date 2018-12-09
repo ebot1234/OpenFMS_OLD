@@ -24,7 +24,7 @@ Public Class Main_Panel
         ' Me.FMSMasterTableAdapter.Fill(Me._O_FMSDataSet.FMSMaster)
         Call CenterToScreen()
         Me.FormBorderStyle = Windows.Forms.BorderStyle.Fixed3D
-        Me.WindowState = FormWindowState.Maximized
+        Me.WindowState = FormWindowState.Normal
 
     End Sub
 
@@ -345,6 +345,8 @@ Public Class Main_Panel
         matchTimerLbl.Text = WarmUpTime
         WarmUpTimer.Enabled = False
         MatchMessages.Text = "Field Pre-Started"
+        ResetPLC()
+
     End Sub
 
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
@@ -453,7 +455,7 @@ Public Class Main_Panel
         Do While (True)
 
             If PLC_Estop_Field = True Then
-                HandleAbortedMatch()
+                ' HandleAbortedMatch()
 
             End If
 

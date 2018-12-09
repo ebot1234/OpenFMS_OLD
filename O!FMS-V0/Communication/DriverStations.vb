@@ -171,43 +171,51 @@ Public Class DriverStations
         Return data
     End Function
 
-    Public Function ListenToDS()
+    Public Sub ListenToDS()
         Dim dsListener As TcpListener = New TcpListener(IPAddress.Parse("10.0.100.5"), 1750)
 
+        Try
+            dsListener.Start()
+        Catch ex As Exception
+            MessageBox.Show("DS Listener Not Started Restart Application")
+        End Try
 
-        dsListener.Start()
+        While (Field.fieldStatus = Field.MatchEnums.PreMatch)
+            Dim tcpClient As TcpClient = dsListener.AcceptTcpClient
+            Dim buffer(5) As Byte
+            tcpClient.GetStream.Read(buffer, 0, buffer.Length)
+
+            If buffer(0) = 0 & buffer(1) = 3 & buffer(2) = 24 Then
+                tcpClient.Close()
+
+            End If
+
+            Dim teamid_1 As Integer = buffer(3) << 8
+            Dim teamid_2 As Integer = buffer(4)
+            Dim teamId As Integer = teamid_1 And teamid_2
+
+            Dim allianceStation As Integer = -1
+            Dim ip As String = tcpClient.Client.RemoteEndPoint.ToString().Split()(0)
+            Dim dsIp As IPAddress = IPAddress.Parse(ip)
+
+            If TeamNumber = teamId Then
+                setConnections(dsIp, tcpClient)
+            End If
 
 
+            Dim assignmentPacket(5) As Byte
+            assignmentPacket(0) = 0
+            assignmentPacket(1) = 3
+            assignmentPacket(2) = 25
+            assignmentPacket(3) = allianceStation
+            assignmentPacket(4) = 0
 
-        Dim tcpClient As TcpClient = dsListener.AcceptTcpClient
-        Dim buffer(5) As Byte
-        tcpClient.GetStream.Read(buffer, 0, buffer.Length)
+            tcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
+        End While
 
-        If buffer(0) = 0 & buffer(1) = 3 & buffer(2) = 24 Then
-            tcpClient.Close()
+    End Sub
 
-        End If
-
-        Dim teamid_1 As Integer = buffer(3) << 8
-        Dim teamid_2 As Integer = buffer(4)
-        Dim teamId As Integer = teamid_1 And teamid_2
-
-        Dim allianceStation As Integer = -1
-        Dim ip As String = tcpClient.Client.RemoteEndPoint.ToString().Split()(0)
-        Dim dsIp As IPAddress = IPAddress.Parse(ip)
-
-        Dim assignmentPacket(5) As Byte
-        assignmentPacket(0) = 0
-        assignmentPacket(1) = 3
-        assignmentPacket(2) = 25
-        assignmentPacket(3) = allianceStation
-        assignmentPacket(4) = 0
-
-        tcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
-        Return dsIp
-    End Function
-
-    Public Function generateGameString()
+    Public Function generateGameStringPacket()
         Dim gameString = Encoding.ASCII.GetBytes(gamedatause)
         Dim packet(gameString.Length + 4) As Byte
 
@@ -228,7 +236,7 @@ Public Class DriverStations
 
     Public Sub sendGameDataPacket(gameData As String)
         If tcpClient IsNot Nothing Then
-            Dim packet(generateGameString) As Byte
+            Dim packet(generateGameStringPacket) As Byte
             tcpClient.GetStream.Write(packet, 0, packet.Length)
         End If
 
@@ -248,7 +256,4 @@ Public Class DriverStations
         End If
     End Sub
 
-    Public Sub pingTeam()
-        'Add ping stuff to see if a robot, ds, and team radio's are connected'
-    End Sub
 End Class
