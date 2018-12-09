@@ -348,12 +348,12 @@ Public Class PLC_Comms_Server
 
 
         'Teams To PLC
-        modbusClient.WriteSingleRegister(7, RedT1)
-        modbusClient.WriteSingleRegister(8, RedT2)
-        modbusClient.WriteSingleRegister(9, RedT3)
-        modbusClient.WriteSingleRegister(10, BlueT1)
-        modbusClient.WriteSingleRegister(11, BlueT2)
-        modbusClient.WriteSingleRegister(12, BlueT3)
+        modbusClient.WriteSingleRegister(10, RedT1)
+        modbusClient.WriteSingleRegister(11, RedT2)
+        modbusClient.WriteSingleRegister(12, RedT3)
+        modbusClient.WriteSingleRegister(13, BlueT1)
+        modbusClient.WriteSingleRegister(14, BlueT2)
+        modbusClient.WriteSingleRegister(15, BlueT3)
 
         'modbusClient.WriteMultipleCoils(16, New Boolean() {True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True})
         'Write Coils starting with Address 16
