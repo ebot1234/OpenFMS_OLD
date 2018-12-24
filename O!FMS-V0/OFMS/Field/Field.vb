@@ -40,9 +40,9 @@ Public Class Field
         PostMatch
         AbortMatch
     End Enum
-    Public Shared Sub HandleDSConnections()
-        'Alliance Station Numbers start at 0 and go to 5'
 
+
+    Public Shared Sub HandleDSConnections()
         'Starts the TCP connection threads for finding driver stations'
         Red1DS.ListenToDS()
         'Pings and starts control for the driver station'

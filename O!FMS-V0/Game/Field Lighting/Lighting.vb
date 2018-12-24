@@ -45,37 +45,29 @@ Public Class Lighting
     Public Sub SetMode(LightingModes)
         Select Case (LightingModes)
             Case LightingModes.Owned_Red
-                SendPacket("Red_Owned")
+                SendPacket("R")
             Case LightingModes.Owned_Blue
-                SendPacket("Blue_Owned")
+                SendPacket("B")
             Case LightingModes.NotOwned
-                SendPacket("NotOwned")
+                SendPacket("N")
             Case LightingModes.Blue_Force
-                SendPacket("Blue_Force")
+                SendPacket("BF")
             Case LightingModes.Blue_Boost
-                SendPacket("Blue_Boost")
-            Case LightingModes.Blue_Levitate
-                SendPacket("Blue_Levitate")
-            Case LightingModes.Red_Levitate
-                SendPacket("Red_Levitate")
+                SendPacket("BB")
             Case LightingModes.Red_Force
-                SendPacket("Red_Force")
+                SendPacket("RF")
             Case LightingModes.Red_Boost
-                SendPacket("Red_Boost")
+                SendPacket("RB")
             Case LightingModes.Purple
-                SendPacket("Purple")
+                SendPacket("P")
             Case LightingModes.Green
-                SendPacket("Green")
-            Case LightingModes.Red
-                SendPacket("Red")
-            Case LightingModes.Blue
-                SendPacket("Blue")
+                SendPacket("G")
             Case LightingModes.Awards
-                SendPacket("Awards")
+                SendPacket("A")
             Case LightingModes.Test
-                SendPacket("Test")
+                SendPacket("T")
             Case LightingModes.Off
-                SendPacket("Off")
+                SendPacket("O")
             Case Else
                 LightingModes.Off
         End Select

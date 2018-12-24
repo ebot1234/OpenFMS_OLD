@@ -13,7 +13,6 @@ Public Class DriverStations
     Public packetCount As Integer = 0
     Public DSUpdSendPort As Int32 = 1121
     Public DSUdpReceivePort As Int32 = 1160
-    Public DSTcpPort As Int32 = 1750
     Public Auto As Boolean = False
     Public Enabled As Boolean = False
     Public Estop As Boolean = False
@@ -21,9 +20,7 @@ Public Class DriverStations
     Public radioIp As IPAddress
     Public DriverStationIP As IPAddress
     Public FMS_IP As String = "10.0.100.5"
-
     Public TeamNumber As Integer
-
     Public tcpClient As TcpClient
     Public udpClient As UdpClient
 
@@ -172,15 +169,19 @@ Public Class DriverStations
     End Function
 
     Public Sub ListenToDS()
-        Dim dsListener As TcpListener = New TcpListener(IPAddress.Parse("10.0.100.5"), 1750)
-
+        Dim IpEnd = New IPEndPoint(IPAddress.Parse("10.0.100.5"), 1750)
+        Dim dsListener = New TcpListener(IpEnd)
+        Dim listen As Boolean = False
         Try
             dsListener.Start()
+            listen = True
         Catch ex As Exception
-            MessageBox.Show("DS Listener Not Started Restart Application")
+            MessageBox.Show("Ds Listener not started set network card to 10.0.100.5 for driver stations")
+            listen = False
         End Try
 
-        While (Field.fieldStatus = Field.MatchEnums.PreMatch)
+
+        While (Field.fieldStatus = Field.MatchEnums.PreMatch And listen = True)
             Dim tcpClient As TcpClient = dsListener.AcceptTcpClient
             Dim buffer(5) As Byte
             tcpClient.GetStream.Read(buffer, 0, buffer.Length)
