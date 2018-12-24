@@ -20,12 +20,12 @@ Public Class DriverStations
     Public radioIp As IPAddress
     Public DriverStationIP As IPAddress
     Public FMS_IP As String = "10.0.100.5"
-    Public TeamNumber As Integer
     Public tcpClient As TcpClient
     Public udpClient As UdpClient
 
     Public Sub newDriverStationConnection(teamNumber As String, allianceStationNumber As Integer)
-        If Integer.TryParse(teamNumber, teamNumber) Then
+        Dim TeamNum As Integer = Convert.ToInt32(teamNumber)
+        If TeamNum <> 0 Then
             Select Case teamNumber.Length
                 Case 1
                 Case 2

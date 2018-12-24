@@ -46,7 +46,7 @@ Public Class Field
         'Starts the TCP connection threads for finding driver stations'
         Red1DS.ListenToDS()
         'Pings and starts control for the driver station'
-        Red1DS.newDriverStationConnection(Main_Panel.RedTeam1.Text, 0)
+        ' Red1DS.newDriverStationConnection(Main_Panel.RedTeam1.Text, 0)
     End Sub
 
     Public Shared Sub DisposeDS()
@@ -83,7 +83,7 @@ Public Class Field
 
     End Sub
     Public Shared Sub handleLeds()
-        ' RedSwitchLeds.SendPacket("BOB")
+
 
     End Sub
 
