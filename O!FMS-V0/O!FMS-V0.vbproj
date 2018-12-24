@@ -108,8 +108,6 @@
     <Compile Include="Communication\DriverStations.vb" />
     <Compile Include="Game\Field Lighting\Lighting.vb" />
     <Compile Include="Game\Timing.vb" />
-    <Compile Include="Game\Vault Leds\Vault_Controller.vb" />
-    <Compile Include="Game\Vault Leds\Vault_Modes.vb" />
     <Compile Include="Match_Generator.Designer.vb">
       <DependentUpon>Match_Generator.vb</DependentUpon>
     </Compile>
