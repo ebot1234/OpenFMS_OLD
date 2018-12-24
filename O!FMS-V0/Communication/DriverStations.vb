@@ -22,9 +22,10 @@ Public Class DriverStations
     Public FMS_IP As String = "10.0.100.5"
     Public tcpClient As TcpClient
     Public udpClient As UdpClient
+    Public TeamNum As Integer
 
     Public Sub newDriverStationConnection(teamNumber As String, allianceStationNumber As Integer)
-        Dim TeamNum As Integer = Convert.ToInt32(teamNumber)
+        TeamNum = Convert.ToInt32(teamNumber)
         If TeamNum <> 0 Then
             Select Case teamNumber.Length
                 Case 1
@@ -199,7 +200,7 @@ Public Class DriverStations
             Dim ip As String = tcpClient.Client.RemoteEndPoint.ToString().Split()(0)
             Dim dsIp As IPAddress = IPAddress.Parse(ip)
 
-            If TeamNumber = teamId Then
+            If TeamNum = teamId Then
                 setConnections(dsIp, tcpClient)
             End If
 
