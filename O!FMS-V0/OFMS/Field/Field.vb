@@ -60,8 +60,24 @@ Public Class Field
     End Sub
 
     Public Shared Sub handleLeds()
+        Dim pre As Integer = 0
+        Dim warm As Integer = 0
+        Do While (True)
+            If fieldStatus = MatchEnums.PreMatch Then
+                If pre < 1 Then
+                    setMode("g")
+                    pre = pre + 1
+                End If
 
+            ElseIf fieldStatus = MatchEnums.WarmUp Then
+                If warm < 1 Then
+                    setMode("")
+                    setMode(gamedatause)
+                    warm = warm + 1
+                End If
 
+            End If
+        Loop
     End Sub
 
 
