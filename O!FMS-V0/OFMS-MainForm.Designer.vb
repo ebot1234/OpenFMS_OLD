@@ -200,7 +200,6 @@ Partial Class Main_Panel
         Me.LedPatternTestBtn = New System.Windows.Forms.Button()
         Me.DSLightTestBtn = New System.Windows.Forms.Button()
         Me.ScoringTableLightTestBtn = New System.Windows.Forms.Button()
-        Me.ConnectLedsBtn = New System.Windows.Forms.Button()
         Me.ConnectPLCBtn = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1702,7 +1701,6 @@ Partial Class Main_Panel
         Me.GroupBox2.Controls.Add(Me.LedPatternTestBtn)
         Me.GroupBox2.Controls.Add(Me.DSLightTestBtn)
         Me.GroupBox2.Controls.Add(Me.ScoringTableLightTestBtn)
-        Me.GroupBox2.Controls.Add(Me.ConnectLedsBtn)
         Me.GroupBox2.Controls.Add(Me.ConnectPLCBtn)
         Me.GroupBox2.Location = New System.Drawing.Point(920, 172)
         Me.GroupBox2.Name = "GroupBox2"
@@ -1738,18 +1736,9 @@ Partial Class Main_Panel
         Me.ScoringTableLightTestBtn.Text = "Scoring Table Light Test"
         Me.ScoringTableLightTestBtn.UseVisualStyleBackColor = True
         '
-        'ConnectLedsBtn
-        '
-        Me.ConnectLedsBtn.Location = New System.Drawing.Point(158, 22)
-        Me.ConnectLedsBtn.Name = "ConnectLedsBtn"
-        Me.ConnectLedsBtn.Size = New System.Drawing.Size(117, 36)
-        Me.ConnectLedsBtn.TabIndex = 1
-        Me.ConnectLedsBtn.Text = "Connect Leds"
-        Me.ConnectLedsBtn.UseVisualStyleBackColor = True
-        '
         'ConnectPLCBtn
         '
-        Me.ConnectPLCBtn.Location = New System.Drawing.Point(21, 22)
+        Me.ConnectPLCBtn.Location = New System.Drawing.Point(91, 23)
         Me.ConnectPLCBtn.Name = "ConnectPLCBtn"
         Me.ConnectPLCBtn.Size = New System.Drawing.Size(119, 36)
         Me.ConnectPLCBtn.TabIndex = 0
@@ -1974,7 +1963,6 @@ Partial Class Main_Panel
     Friend WithEvents Label22 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents ConnectLedsBtn As Button
     Friend WithEvents ConnectPLCBtn As Button
     Friend WithEvents LedPatternTestBtn As Button
     Friend WithEvents DSLightTestBtn As Button

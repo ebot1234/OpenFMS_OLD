@@ -581,8 +581,8 @@ Public Class Main_Panel
         ' SetMode(LightingModes.Test)
     End Sub
 
-    Private Sub ConnectLedsBtn_Click(sender As Object, e As EventArgs) Handles ConnectLedsBtn.Click
-        ConnectLeds()
+    Private Sub ConnectLedsBtn_Click(sender As Object, e As EventArgs) 
+        MainLighting()
     End Sub
 
     'Display Box Buttons'
