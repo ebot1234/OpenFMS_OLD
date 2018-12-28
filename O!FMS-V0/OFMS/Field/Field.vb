@@ -59,23 +59,29 @@ Public Class Field
 
     End Sub
 
-    Public Shared Sub handleLeds()
+    Public Shared Sub handleSwitchLeds()
         Dim pre As Integer = 0
         Dim warm As Integer = 0
         Do While (True)
             If fieldStatus = MatchEnums.PreMatch Then
                 If pre < 1 Then
-                    setMode("g")
+                    setMode("G")
                     pre = pre + 1
                 End If
 
             ElseIf fieldStatus = MatchEnums.WarmUp Then
                 If warm < 1 Then
-                    setMode("")
                     setMode(gamedatause)
                     warm = warm + 1
                 End If
-
+            ElseIf fieldStatus = MatchEnums.Auto Then
+                If PLC_BlueSWOwned = True Then
+                    setMode("O")
+                ElseIf PLC_BlueSWROwned = True Then
+                    setMode("R")
+                ElseIf PLC_BlueSWROwned = False And PLC_BlueSWOwned = False Then
+                    setMode("N")
+                End If
             End If
         Loop
     End Sub
