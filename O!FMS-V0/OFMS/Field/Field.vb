@@ -89,6 +89,8 @@ Public Class Field
                 ElseIf PLC_RedScaleOwned = False And PLC_BlueScaleOwned = False Then
                     sendClearScale()
                     setModeScale("N")
+
+                    'TODO Add Switch Led Methods (ETHEN)
                 End If
 
             End If
