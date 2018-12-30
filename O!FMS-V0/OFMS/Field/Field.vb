@@ -71,21 +71,26 @@ Public Class Field
 
             ElseIf fieldStatus = MatchEnums.WarmUp Then
                 If warm < 1 Then
-                    setMode("")
                     setMode(gamedatause)
                     warm = warm + 1
                 End If
             ElseIf fieldStatus = MatchEnums.Auto Then
                 If PLC_BlueSWOwned = True Then
-                    setMode("")
+                    sendClear()
                     setMode("O")
                 ElseIf PLC_BlueSWROwned = True Then
-                    setMode("")
+                    sendClear()
                     setMode("R")
                 ElseIf PLC_BlueSWROwned = False And PLC_BlueSWOwned = False Then
-                    setMode("")
+                    sendClear()
                     setMode("N")
                 End If
+            ElseIf fieldStatus = MatchEnums.Pause Then
+                sendClear()
+                setMode("K")
+            ElseIf fieldStatus = MatchEnums.TeleOp Then
+
+
             End If
         Loop
     End Sub

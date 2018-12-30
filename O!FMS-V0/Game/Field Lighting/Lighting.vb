@@ -4,6 +4,16 @@ Imports System.Net
 'This class is for interating with the led controllers for the 2018 FRC game FIRST POWERUP'
 
 Public Class Lighting
+    Public Shared Sub sendClear()
+        Dim socket As New Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp)
+        Dim address As IPAddress = IPAddress.Parse("10.0.100.23")
+        Dim endPoint As New IPEndPoint(address, 80)
+        Dim sendByte(1) As Byte
+        sendByte(0) = &H0
+        sendByte(1) = &H0
+
+        socket.SendTo(sendByte, endPoint)
+    End Sub
 
     'Sends the mode string to the led controller through a UDP socket'
     Public Shared Sub setMode(mode As String)
