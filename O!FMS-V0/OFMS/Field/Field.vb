@@ -74,23 +74,17 @@ Public Class Field
                     setMode(gamedatause)
                     warm = warm + 1
                 End If
-            ElseIf fieldStatus = MatchEnums.Auto Then
-                If PLC_BlueSWOwned = True Then
-                    sendClear()
-                    setMode("O")
-                ElseIf PLC_BlueSWROwned = True Then
-                    sendClear()
-                    setMode("R")
-                ElseIf PLC_BlueSWROwned = False And PLC_BlueSWOwned = False Then
-                    sendClear()
-                    setMode("N")
-                End If
-            ElseIf fieldStatus = MatchEnums.Pause Then
+            End If
+
+            If PLC_BlueScaleOwned = True Then
                 sendClear()
-                setMode("K")
-            ElseIf fieldStatus = MatchEnums.TeleOp Then
-
-
+                setMode("B")
+            ElseIf PLC_RedScaleOwned = True Then
+                sendClear()
+                setMode("R")
+            ElseIf PLC_RedScaleOwned = False And PLC_BlueScaleOwned = False Then
+                sendClear()
+                setMode("N")
             End If
         Loop
     End Sub
