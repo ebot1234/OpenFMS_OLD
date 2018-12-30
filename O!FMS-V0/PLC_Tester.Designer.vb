@@ -36,6 +36,9 @@ Partial Class PLC_Tester
         Me.RadioButton12 = New System.Windows.Forms.RadioButton()
         Me.RadioButton13 = New System.Windows.Forms.RadioButton()
         Me.FieldEstopbtn = New System.Windows.Forms.RadioButton()
+        Me.RadioButton14 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton15 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton16 = New System.Windows.Forms.RadioButton()
         Me.SuspendLayout()
         '
         'RadioButton1
@@ -192,11 +195,47 @@ Partial Class PLC_Tester
         Me.FieldEstopbtn.Text = "Field Estop"
         Me.FieldEstopbtn.UseVisualStyleBackColor = True
         '
+        'RadioButton14
+        '
+        Me.RadioButton14.AutoSize = True
+        Me.RadioButton14.Location = New System.Drawing.Point(487, 76)
+        Me.RadioButton14.Name = "RadioButton14"
+        Me.RadioButton14.Size = New System.Drawing.Size(57, 17)
+        Me.RadioButton14.TabIndex = 14
+        Me.RadioButton14.TabStop = True
+        Me.RadioButton14.Text = "B True"
+        Me.RadioButton14.UseVisualStyleBackColor = True
+        '
+        'RadioButton15
+        '
+        Me.RadioButton15.AutoSize = True
+        Me.RadioButton15.Location = New System.Drawing.Point(522, 130)
+        Me.RadioButton15.Name = "RadioButton15"
+        Me.RadioButton15.Size = New System.Drawing.Size(54, 17)
+        Me.RadioButton15.TabIndex = 15
+        Me.RadioButton15.TabStop = True
+        Me.RadioButton15.Text = "R true"
+        Me.RadioButton15.UseVisualStyleBackColor = True
+        '
+        'RadioButton16
+        '
+        Me.RadioButton16.AutoSize = True
+        Me.RadioButton16.Location = New System.Drawing.Point(522, 183)
+        Me.RadioButton16.Name = "RadioButton16"
+        Me.RadioButton16.Size = New System.Drawing.Size(50, 17)
+        Me.RadioButton16.TabIndex = 16
+        Me.RadioButton16.TabStop = True
+        Me.RadioButton16.Text = "False"
+        Me.RadioButton16.UseVisualStyleBackColor = True
+        '
         'PLC_Tester
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.RadioButton16)
+        Me.Controls.Add(Me.RadioButton15)
+        Me.Controls.Add(Me.RadioButton14)
         Me.Controls.Add(Me.FieldEstopbtn)
         Me.Controls.Add(Me.RadioButton13)
         Me.Controls.Add(Me.RadioButton12)
@@ -232,4 +271,7 @@ Partial Class PLC_Tester
     Friend WithEvents RadioButton12 As RadioButton
     Friend WithEvents RadioButton13 As RadioButton
     Friend WithEvents FieldEstopbtn As RadioButton
+    Friend WithEvents RadioButton14 As RadioButton
+    Friend WithEvents RadioButton15 As RadioButton
+    Friend WithEvents RadioButton16 As RadioButton
 End Class

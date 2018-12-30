@@ -55,4 +55,17 @@ Public Class PLC_Tester
     Private Sub FieldEstopbtn_CheckedChanged(sender As Object, e As EventArgs) Handles FieldEstopbtn.CheckedChanged
         PLC_Estop_Field = True
     End Sub
+
+    Private Sub RadioButton14_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton14.CheckedChanged
+        PLC_BlueScaleOwned = True
+    End Sub
+
+    Private Sub RadioButton15_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton15.CheckedChanged
+        PLC_RedScaleOwned = True
+    End Sub
+
+    Private Sub RadioButton16_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton16.CheckedChanged
+        PLC_RedScaleOwned = False
+        PLC_BlueScaleOwned = False
+    End Sub
 End Class
