@@ -66,31 +66,29 @@ Public Class Field
         Do While (True)
             If fieldStatus = MatchEnums.PreMatch Then
                 If pre < 1 Then
-                    setMode("G")
+                    setModeScale("G")
                     status = False
                     pre = pre + 1
                 End If
 
             ElseIf fieldStatus = MatchEnums.WarmUp Then
                 If warm < 1 Then
-                    setMode(gamedatause)
+                    setModeScale(gamedatause)
                     warm = warm + 1
                     status = True
                 End If
             End If
 
-
-
             If status = True Then
                 If PLC_BlueScaleOwned = True Then
-                    sendClear()
-                    setMode("B")
+                    sendClearScale()
+                    setModeScale("B")
                 ElseIf PLC_RedScaleOwned = True Then
-                    sendClear()
-                    setMode("R")
+                    sendClearScale()
+                    setModeScale("R")
                 ElseIf PLC_RedScaleOwned = False And PLC_BlueScaleOwned = False Then
-                    sendClear()
-                    setMode("N")
+                    sendClearScale()
+                    setModeScale("N")
                 End If
 
             End If
