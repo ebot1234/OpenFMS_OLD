@@ -6,6 +6,7 @@ Imports System.Threading
 Imports System.Net
 
 Public Class Field
+    Public Shared status As Boolean = False
     'PLC Field Types'
     Public Shared FieldReset As Boolean
     Public Shared Volunteers As Boolean
@@ -62,7 +63,7 @@ Public Class Field
     Public Shared Sub handleSwitchLeds()
         Dim pre As Integer = 0
         Dim warm As Integer = 0
-        Dim status As Boolean = False
+
         Do While (True)
             If fieldStatus = MatchEnums.PreMatch Then
                 If pre < 1 Then
@@ -83,22 +84,18 @@ Public Class Field
                         setModeScale("4")
                     End If
                     warm = warm + 1
-                    status = True
                 End If
             End If
 
             If status = True Then
                 If PLC_BlueScaleOwned = True Then
-                    sendClearScale()
                     setModeScale("B")
                 ElseIf PLC_RedScaleOwned = True Then
-                    sendClearScale()
                     setModeScale("R")
                 ElseIf PLC_RedScaleOwned = False And PLC_BlueScaleOwned = False Then
-                    sendClearScale()
                     setModeScale("N")
+                ElseIf PLC_BlueSWOwned = True Then
 
-                    'TODO Add Switch Led Methods (ETHEN)
                 End If
 
             End If
@@ -177,6 +174,7 @@ Public Class Field
         Select Case (MatchEnums)
 
             Case MatchEnums.PreMatch
+                status = False
                 My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
                 PLC_Reset = True
                 Match_PreStart = True
@@ -190,6 +188,7 @@ Public Class Field
                 SendDS(Auto:=True, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_warmup, AudioPlayMode.Background)
             Case MatchEnums.Auto
+                status = True
                 fieldStatus = MatchEnums.Auto
                 SendDS(Auto:=True, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_start, AudioPlayMode.Background)
@@ -211,12 +210,14 @@ Public Class Field
                 My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
                 Match_Stop = True
                 DisposeDS()
+                status = False
             Case MatchEnums.AbortMatch
                 fieldStatus = MatchEnums.AbortMatch
                 SendDS(Auto:=False, Enabled:=False)
                 Match_Stop = True
                 Thread.Sleep(50)
                 DisposeDS()
+                status = False
             Case Else
                 MatchEnums = MatchEnums.PreMatch
         End Select
