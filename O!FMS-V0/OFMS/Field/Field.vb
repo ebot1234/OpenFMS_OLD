@@ -73,7 +73,15 @@ Public Class Field
 
             ElseIf fieldStatus = MatchEnums.WarmUp Then
                 If warm < 1 Then
-                    setModeScale(gamedatause)
+                    If gamedatause = "LRL" Then
+                        setModeScale("1")
+                    ElseIf gamedatause = "RRR" Then
+                        setModeScale("2")
+                    ElseIf gamedatause = "LLL" Then
+                        setModeScale("3")
+                    ElseIf gamedatause = "RLR" Then
+                        setModeScale("4")
+                    End If
                     warm = warm + 1
                     status = True
                 End If
