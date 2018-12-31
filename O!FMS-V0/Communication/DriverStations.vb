@@ -86,8 +86,8 @@ Public Class DriverStations
                     End If
                 End If
             End If
-            'sleeps for 50ms to see if another connection has appeared'
-            Thread.Sleep(50)
+            'sleeps for 100ms to see if another connection has appeared'
+            Thread.Sleep(100)
         End While
     End Sub
 
