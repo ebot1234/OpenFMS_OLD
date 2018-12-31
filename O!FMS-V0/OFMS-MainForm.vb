@@ -580,7 +580,7 @@ Public Class Main_Panel
     End Sub
 
     Private Sub LedPatternTestBtn_Click(sender As Object, e As EventArgs) Handles LedPatternTestBtn.Click
-        setMode("test")
+        ' setMode("test")
     End Sub
 
     'Display Box Buttons'
