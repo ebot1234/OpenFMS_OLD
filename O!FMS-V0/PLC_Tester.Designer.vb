@@ -39,6 +39,15 @@ Partial Class PLC_Tester
         Me.RadioButton14 = New System.Windows.Forms.RadioButton()
         Me.RadioButton15 = New System.Windows.Forms.RadioButton()
         Me.RadioButton16 = New System.Windows.Forms.RadioButton()
+        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.RadioButton17 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton18 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton19 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton20 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton21 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton22 = New System.Windows.Forms.RadioButton()
         Me.SuspendLayout()
         '
         'RadioButton1
@@ -176,7 +185,7 @@ Partial Class PLC_Tester
         'RadioButton13
         '
         Me.RadioButton13.AutoSize = True
-        Me.RadioButton13.Location = New System.Drawing.Point(299, 314)
+        Me.RadioButton13.Location = New System.Drawing.Point(300, 21)
         Me.RadioButton13.Name = "RadioButton13"
         Me.RadioButton13.Size = New System.Drawing.Size(62, 17)
         Me.RadioButton13.TabIndex = 12
@@ -187,7 +196,7 @@ Partial Class PLC_Tester
         'FieldEstopbtn
         '
         Me.FieldEstopbtn.AutoSize = True
-        Me.FieldEstopbtn.Location = New System.Drawing.Point(418, 314)
+        Me.FieldEstopbtn.Location = New System.Drawing.Point(300, 57)
         Me.FieldEstopbtn.Name = "FieldEstopbtn"
         Me.FieldEstopbtn.Size = New System.Drawing.Size(77, 17)
         Me.FieldEstopbtn.TabIndex = 13
@@ -198,7 +207,7 @@ Partial Class PLC_Tester
         'RadioButton14
         '
         Me.RadioButton14.AutoSize = True
-        Me.RadioButton14.Location = New System.Drawing.Point(327, 21)
+        Me.RadioButton14.Location = New System.Drawing.Point(13, 300)
         Me.RadioButton14.Name = "RadioButton14"
         Me.RadioButton14.Size = New System.Drawing.Size(87, 17)
         Me.RadioButton14.TabIndex = 14
@@ -209,7 +218,7 @@ Partial Class PLC_Tester
         'RadioButton15
         '
         Me.RadioButton15.AutoSize = True
-        Me.RadioButton15.Location = New System.Drawing.Point(327, 57)
+        Me.RadioButton15.Location = New System.Drawing.Point(12, 268)
         Me.RadioButton15.Name = "RadioButton15"
         Me.RadioButton15.Size = New System.Drawing.Size(88, 17)
         Me.RadioButton15.TabIndex = 15
@@ -220,19 +229,117 @@ Partial Class PLC_Tester
         'RadioButton16
         '
         Me.RadioButton16.AutoSize = True
-        Me.RadioButton16.Location = New System.Drawing.Point(327, 91)
+        Me.RadioButton16.Location = New System.Drawing.Point(12, 245)
         Me.RadioButton16.Name = "RadioButton16"
-        Me.RadioButton16.Size = New System.Drawing.Size(80, 17)
+        Me.RadioButton16.Size = New System.Drawing.Size(109, 17)
         Me.RadioButton16.TabIndex = 16
         Me.RadioButton16.TabStop = True
-        Me.RadioButton16.Text = "False Scale"
+        Me.RadioButton16.Text = "Not Owned Scale"
         Me.RadioButton16.UseVisualStyleBackColor = True
+        '
+        'ShapeContainer1
+        '
+        Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer1.Name = "ShapeContainer1"
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape2, Me.LineShape1})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(800, 450)
+        Me.ShapeContainer1.TabIndex = 17
+        Me.ShapeContainer1.TabStop = False
+        '
+        'LineShape1
+        '
+        Me.LineShape1.Name = "LineShape1"
+        Me.LineShape1.X1 = 10
+        Me.LineShape1.X2 = 264
+        Me.LineShape1.Y1 = 239
+        Me.LineShape1.Y2 = 239
+        '
+        'LineShape2
+        '
+        Me.LineShape2.Name = "LineShape2"
+        Me.LineShape2.X1 = 268
+        Me.LineShape2.X2 = 272
+        Me.LineShape2.Y1 = 239
+        Me.LineShape2.Y2 = 1
+        '
+        'RadioButton17
+        '
+        Me.RadioButton17.AutoSize = True
+        Me.RadioButton17.Location = New System.Drawing.Point(139, 245)
+        Me.RadioButton17.Name = "RadioButton17"
+        Me.RadioButton17.Size = New System.Drawing.Size(137, 17)
+        Me.RadioButton17.TabIndex = 18
+        Me.RadioButton17.TabStop = True
+        Me.RadioButton17.Text = "Not Owned Red Switch"
+        Me.RadioButton17.UseVisualStyleBackColor = True
+        '
+        'RadioButton18
+        '
+        Me.RadioButton18.AutoSize = True
+        Me.RadioButton18.Location = New System.Drawing.Point(139, 268)
+        Me.RadioButton18.Name = "RadioButton18"
+        Me.RadioButton18.Size = New System.Drawing.Size(116, 17)
+        Me.RadioButton18.TabIndex = 19
+        Me.RadioButton18.TabStop = True
+        Me.RadioButton18.Text = "R True Red Switch"
+        Me.RadioButton18.UseVisualStyleBackColor = True
+        '
+        'RadioButton19
+        '
+        Me.RadioButton19.AutoSize = True
+        Me.RadioButton19.Location = New System.Drawing.Point(139, 300)
+        Me.RadioButton19.Name = "RadioButton19"
+        Me.RadioButton19.Size = New System.Drawing.Size(115, 17)
+        Me.RadioButton19.TabIndex = 20
+        Me.RadioButton19.TabStop = True
+        Me.RadioButton19.Text = "B True Red Switch"
+        Me.RadioButton19.UseVisualStyleBackColor = True
+        '
+        'RadioButton20
+        '
+        Me.RadioButton20.AutoSize = True
+        Me.RadioButton20.Location = New System.Drawing.Point(13, 337)
+        Me.RadioButton20.Name = "RadioButton20"
+        Me.RadioButton20.Size = New System.Drawing.Size(138, 17)
+        Me.RadioButton20.TabIndex = 21
+        Me.RadioButton20.TabStop = True
+        Me.RadioButton20.Text = "Not Owned Blue Switch"
+        Me.RadioButton20.UseVisualStyleBackColor = True
+        '
+        'RadioButton21
+        '
+        Me.RadioButton21.AutoSize = True
+        Me.RadioButton21.Location = New System.Drawing.Point(13, 360)
+        Me.RadioButton21.Name = "RadioButton21"
+        Me.RadioButton21.Size = New System.Drawing.Size(117, 17)
+        Me.RadioButton21.TabIndex = 22
+        Me.RadioButton21.TabStop = True
+        Me.RadioButton21.Text = "R True Blue Switch"
+        Me.RadioButton21.UseVisualStyleBackColor = True
+        '
+        'RadioButton22
+        '
+        Me.RadioButton22.AutoSize = True
+        Me.RadioButton22.Location = New System.Drawing.Point(12, 383)
+        Me.RadioButton22.Name = "RadioButton22"
+        Me.RadioButton22.Size = New System.Drawing.Size(116, 17)
+        Me.RadioButton22.TabIndex = 23
+        Me.RadioButton22.TabStop = True
+        Me.RadioButton22.Text = "B True Blue Switch"
+        Me.RadioButton22.UseVisualStyleBackColor = True
         '
         'PLC_Tester
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.RadioButton22)
+        Me.Controls.Add(Me.RadioButton21)
+        Me.Controls.Add(Me.RadioButton20)
+        Me.Controls.Add(Me.RadioButton19)
+        Me.Controls.Add(Me.RadioButton18)
+        Me.Controls.Add(Me.RadioButton17)
         Me.Controls.Add(Me.RadioButton16)
         Me.Controls.Add(Me.RadioButton15)
         Me.Controls.Add(Me.RadioButton14)
@@ -250,6 +357,7 @@ Partial Class PLC_Tester
         Me.Controls.Add(Me.RadioButton3)
         Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.RadioButton1)
+        Me.Controls.Add(Me.ShapeContainer1)
         Me.Name = "PLC_Tester"
         Me.Text = "PLC_Tester"
         Me.ResumeLayout(False)
@@ -274,4 +382,13 @@ Partial Class PLC_Tester
     Friend WithEvents RadioButton14 As RadioButton
     Friend WithEvents RadioButton15 As RadioButton
     Friend WithEvents RadioButton16 As RadioButton
+    Friend WithEvents RadioButton17 As RadioButton
+    Friend WithEvents RadioButton18 As RadioButton
+    Friend WithEvents RadioButton19 As RadioButton
+    Friend WithEvents RadioButton20 As RadioButton
+    Friend WithEvents RadioButton21 As RadioButton
+    Friend WithEvents RadioButton22 As RadioButton
+    Friend WithEvents ShapeContainer1 As ShapeContainer
+    Friend WithEvents LineShape2 As LineShape
+    Friend WithEvents LineShape1 As LineShape
 End Class

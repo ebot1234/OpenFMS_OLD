@@ -70,4 +70,38 @@ Public Class PLC_Tester
         PLC_RedScaleOwned = False
         PLC_BlueScaleOwned = False
     End Sub
+
+    Private Sub RadioButton13_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton13.CheckedChanged
+
+    End Sub
+
+    Private Sub RadioButton17_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton17.CheckedChanged
+        PLC_RedSWBOwned = False
+        PLC_RedSWOwned = False
+    End Sub
+
+    Private Sub RadioButton18_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton18.CheckedChanged
+        PLC_RedSWOwned = True
+        PLC_RedSWBOwned = False
+    End Sub
+
+    Private Sub RadioButton19_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton19.CheckedChanged
+        PLC_RedSWBOwned = True
+        PLC_RedSWOwned = False
+    End Sub
+
+    Private Sub RadioButton20_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton20.CheckedChanged
+        PLC_BlueSWOwned = False
+        PLC_BlueSWROwned = False
+    End Sub
+
+    Private Sub RadioButton21_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton21.CheckedChanged
+        PLC_BlueSWROwned = True
+        PLC_BlueSWOwned = False
+    End Sub
+
+    Private Sub RadioButton22_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton22.CheckedChanged
+        PLC_BlueSWOwned = True
+        PLC_BlueSWROwned = False
+    End Sub
 End Class
