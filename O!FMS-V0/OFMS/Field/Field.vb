@@ -94,17 +94,7 @@ Public Class Field
                 ElseIf PLC_RedScaleOwned = False And PLC_BlueScaleOwned = False Then
                     setModeScale("N")
                 ElseIf PLC_BlueSWOwned = True Then
-                    setModeBlueSwitch("B")
-                ElseIf PLC_BlueSWROwned = True Then
-                    setModeBlueSwitch("R")
-                ElseIf PLC_BlueSWROwned = False And PLC_BlueSWOwned = False Then
-                    setModeBlueSwitch("N")
-                ElseIf PLC_RedSWOwned = True Then
-                    setModeRedSwitch("R")
-                ElseIf PLC_RedSWBOwned = True Then
-                    setModeRedSwitch("B")
-                ElseIf PLC_RedSWBOwned = False And PLC_RedSWOwned = True Then
-                    setModeRedSwitch("N")
+
                 End If
 
             End If
