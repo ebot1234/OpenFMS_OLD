@@ -39,9 +39,6 @@ Partial Class PLC_Tester
         Me.RadioButton14 = New System.Windows.Forms.RadioButton()
         Me.RadioButton15 = New System.Windows.Forms.RadioButton()
         Me.RadioButton16 = New System.Windows.Forms.RadioButton()
-        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
-        Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.RadioButton17 = New System.Windows.Forms.RadioButton()
         Me.RadioButton18 = New System.Windows.Forms.RadioButton()
         Me.RadioButton19 = New System.Windows.Forms.RadioButton()
@@ -236,32 +233,7 @@ Partial Class PLC_Tester
         Me.RadioButton16.TabStop = True
         Me.RadioButton16.Text = "Not Owned Scale"
         Me.RadioButton16.UseVisualStyleBackColor = True
-        '
-        'ShapeContainer1
-        '
-        Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape2, Me.LineShape1})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(800, 450)
-        Me.ShapeContainer1.TabIndex = 17
-        Me.ShapeContainer1.TabStop = False
-        '
-        'LineShape1
-        '
-        Me.LineShape1.Name = "LineShape1"
-        Me.LineShape1.X1 = 10
-        Me.LineShape1.X2 = 264
-        Me.LineShape1.Y1 = 239
-        Me.LineShape1.Y2 = 239
-        '
-        'LineShape2
-        '
-        Me.LineShape2.Name = "LineShape2"
-        Me.LineShape2.X1 = 268
-        Me.LineShape2.X2 = 272
-        Me.LineShape2.Y1 = 239
-        Me.LineShape2.Y2 = 1
+
         '
         'RadioButton17
         '
@@ -356,8 +328,6 @@ Partial Class PLC_Tester
         Me.Controls.Add(Me.RadioButton4)
         Me.Controls.Add(Me.RadioButton3)
         Me.Controls.Add(Me.RadioButton2)
-        Me.Controls.Add(Me.RadioButton1)
-        Me.Controls.Add(Me.ShapeContainer1)
         Me.Name = "PLC_Tester"
         Me.Text = "PLC_Tester"
         Me.ResumeLayout(False)
@@ -388,7 +358,5 @@ Partial Class PLC_Tester
     Friend WithEvents RadioButton20 As RadioButton
     Friend WithEvents RadioButton21 As RadioButton
     Friend WithEvents RadioButton22 As RadioButton
-    Friend WithEvents ShapeContainer1 As ShapeContainer
-    Friend WithEvents LineShape2 As LineShape
-    Friend WithEvents LineShape1 As LineShape
+
 End Class
