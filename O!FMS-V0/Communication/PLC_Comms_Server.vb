@@ -52,6 +52,11 @@ Public Class PLC_Comms_Server
 
 
     'Data Sent from FMS Software to PLC
+    Public Shared RedCargoShipPlatesRelease
+    Public Shared BlueCargoShipPlatesRelease
+    Public Shared ResetCargoShips
+    Public Shared BlueCargoShipLight
+    Public Shared RedCargoShipLight
     Public Shared Match_Start
     Public Shared Match_Stop
     Public Shared Match_PreStart
@@ -167,7 +172,13 @@ Public Class PLC_Comms_Server
             modbusClient.WriteSingleCoil(15, True)
         End If
 
+        If RedCargoShipPlatesRelease = True Then
+            modbusClient.WriteSingleCoil(0, True)
+        End If
 
+        If BlueCargoShipPlatesRelease = True Then
+            modbusClient.WriteSingleCoil(1, True)
+        End If
 
         'Alliance Light Test
         If Alliance_Light_Test = True Then
