@@ -118,7 +118,6 @@
     <Compile Include="OFMS\Field\Field.vb" />
     <Compile Include="OFMS\Field\Match.vb" />
     <Compile Include="OFMS\Field\Team_Networks.vb" />
-    <Compile Include="OFMS\Schedule_Generator.vb" />
     <Compile Include="Other\CRC.vb" />
     <Compile Include="Communication\PLC_Comms_Server.vb" />
     <Compile Include="OFMS-MainForm.vb">
@@ -150,6 +149,7 @@
     <Compile Include="PLC_Tester.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Schedules\Schedule_Generator.vb" />
     <Compile Include="Startup_Screen.Designer.vb">
       <DependentUpon>Startup_Screen.vb</DependentUpon>
     </Compile>

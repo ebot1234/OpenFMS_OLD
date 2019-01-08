@@ -3,11 +3,12 @@ Imports System.IO
 
 
 Public Class Match_Generator
-    Public dir = Directory.Text = "C:\OFMS"
+    ' Public dir = Directory.Text = "C:\OFMS"
+    Public dir = "C:\OFMS"
     Public fullpath = dir & "\Teams.txt"
     Public lineCount As Int16 = File.ReadLines(dir & "\Teams.txt").Count
-    Public numTeams
-    Public numRounds
+    Public numTeams = Teams
+    Public numRounds = Rounds
     Public Quality
     Public command As String
     Private Sub Match_Generator_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -48,13 +49,21 @@ Public Class Match_Generator
         ElseIf matchQuality.Text = Nothing Then
             MessageBox.Show("Quality not selected")
         End If
-        command = Quality & " -t " & numTeams & " -r " & numRounds & " -l " & fullpath & " -s -e > matches.txt"
-        Shell("c:\OFMS\MatchMaker.exe\" & command, vbNormalFocus)
+        'command = Quality & " -t " & numTeams & " -r " & numRounds & " -l " & "C:\OFMS\" & " -s -e > Matches.txt"
+        ' command = " MatchMaker -t 20 -r 7 -l teams.txt -f -u 3 -q -s >" & dir & "\matches.txt"
+        'Shell("C:\OFMS\MatchMaker" & command, vbNormalFocus)
         ' ucan hide or maximise window
+        RunMatchMaker("cd C:\OFMS", "MatchMaker -t 20 -r 7 -l teams.txt -f -u 3 -q -s > matches.txt", True)
 
     End Sub
-
-   
+    Private Sub RunMatchMaker(command As String, args As String, permanent As Boolean)
+        Dim p As Process = New Process()
+        Dim pi As ProcessStartInfo = New ProcessStartInfo()
+        pi.Arguments = " " + If(permanent = True, "/K", "/C") + " " + command + " " + args
+        pi.FileName = "cmd.exe"
+        p.StartInfo = pi
+        p.Start()
+    End Sub
 
     Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles Teams.ValueChanged
 

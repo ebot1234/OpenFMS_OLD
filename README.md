@@ -29,6 +29,7 @@ The field lighting for each year will use an Arduino and a WS2812 LED Pixel stri
 ## Release Info:
 
 We will try to release a pre-release version for the pre-season for week zero scrimmages and an offical release for each years off-seasons.
+Note the pre-release version will not have automated scoring. You will have to use the built-in manual scoring system.
 
 
 ## PLC and Field Lighting Programs:

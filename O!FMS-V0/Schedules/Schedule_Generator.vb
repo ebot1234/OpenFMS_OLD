@@ -21,7 +21,7 @@ Public Class Schedule_Generator
 
         Dim teamlistdone
         'Connection to my SQL Server database
-        myConnectStr = "data source=Miyuki\sqlexpress; Initial Catalog=O!FMS; Integrated Security = true"
+        myConnectStr = "data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true"
         myConnectDB = New System.Data.SqlClient.SqlConnection(myConnectStr)
 
         myConnectDB.Open()
