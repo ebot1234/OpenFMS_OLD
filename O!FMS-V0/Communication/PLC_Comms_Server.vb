@@ -43,47 +43,15 @@ Public Class PLC_Comms_Server
     'Data Pulled from PLC
     Public Shared PLC_RedScore
     Public Shared PLC_BlueScore
-    Public Shared PLC_Used_Boost_Red
-    Public Shared PLC_Blue_Boost_1_Cube
-    Public Shared PLC_Blue_Boost_2_Cube
-    Public Shared PLC_Blue_Boost_3_Cube
-    Public Shared PLC_Blue_Force_1_Cube
-    Public Shared PLC_Blue_Force_2_Cube
-    Public Shared PLC_Blue_Force_3_Cube
-    Public Shared PLC_Blue_Lev_1_Cube
-    Public Shared PLC_Blue_Lev_2_Cube
-    Public Shared PLC_Blue_Lev_3_Cube
-    Public Shared PLC_Red_Boost_1_Cube
-    Public Shared PLC_Red_Boost_2_Cube
-    Public Shared PLC_Red_Boost_3_Cube
-    Public Shared PLC_Red_Force_1_Cube
-    Public Shared PLC_Red_Force_2_Cube
-    Public Shared PLC_Red_Force_3_Cube
-    Public Shared PLC_Red_Lev_1_Cube
-    Public Shared PLC_Red_Lev_2_Cube
-    Public Shared PLC_Red_Lev_3_Cube
-    Public Shared PLC_Used_Force_Red
-    Public Shared PLC_Used_Lev_Red
-    Public Shared PLC_Used_Boost_Blue
-    Public Shared PLC_Used_Force_Blue
-    Public Shared PLC_Used_Lev_Blue
     Public Shared PLC_Match_Timer
     Public Shared PLC_Match_Mode
     Public Shared PLC_RedPen_Ref
     Public Shared PLC_BluePen_Ref
-    Public Shared PLC_BlueScaleOwned
-    Public Shared PLC_RedScaleOwned
-    Public Shared PLC_BlueSWOwned
-    Public Shared PLC_RedSWOwned
-    Public Shared PLC_RedSWBOwned
-    Public Shared PLC_BlueSWROwned
     Public Shared PLC_Field_Reset
     Public Shared PLC_Field_Volunteers
 
 
     'Data Sent from FMS Software to PLC
-    Public Shared Game_Data
-    Public Shared PLC_Game_Data
     Public Shared Match_Start
     Public Shared Match_Stop
     Public Shared Match_PreStart
@@ -164,49 +132,6 @@ Public Class PLC_Comms_Server
             PLC_Estop_Blue1 = readCoils(4)
             PLC_Estop_Blue2 = readCoils(5)
             PLC_Estop_Blue3 = readCoils(6)
-
-
-            PLC_Used_Boost_Red = readCoils(7)
-            PLC_Used_Force_Red = readCoils(8)
-            PLC_Used_Lev_Red = readCoils(9)
-            PLC_Used_Boost_Blue = readCoils(10)
-            PLC_Used_Force_Blue = readCoils(11)
-            PLC_Used_Lev_Blue = readCoils(12)
-
-
-            PLC_BlueScaleOwned = readCoils(40)
-            PLC_BlueSWOwned = readCoils(41)
-            PLC_RedSWOwned = readCoils(42)
-            PLC_RedScaleOwned = readCoils(43)
-            PLC_BlueSWROwned = readCoils(45)
-            PLC_RedSWBOwned = readCoils(46)
-
-            PLC_Field_Reset = readCoils(47)
-            PLC_Field_Volunteers = readCoils(48)
-
-            'Blue powerup levels'
-            PLC_Blue_Boost_1_Cube = readCoils(49)
-            PLC_Blue_Boost_2_Cube = readCoils(50)
-            PLC_Blue_Boost_3_Cube = readCoils(51)
-            PLC_Blue_Force_1_Cube = readCoils(52)
-            PLC_Blue_Force_2_Cube = readCoils(53)
-            PLC_Blue_Force_3_Cube = readCoils(54)
-            PLC_Blue_Lev_1_Cube = readCoils(55)
-            PLC_Blue_Lev_2_Cube = readCoils(56)
-            PLC_Blue_Lev_3_Cube = readCoils(57)
-
-            'Red powerup levels'
-            PLC_Red_Boost_1_Cube = readCoils(58)
-            PLC_Red_Boost_2_Cube = readCoils(59)
-            PLC_Red_Boost_3_Cube = readCoils(60)
-            PLC_Red_Force_1_Cube = readCoils(61)
-            PLC_Red_Force_2_Cube = readCoils(62)
-            PLC_Red_Force_3_Cube = readCoils(63)
-            PLC_Red_Lev_1_Cube = readCoils(64)
-            PLC_Red_Lev_2_Cube = readCoils(65)
-            PLC_Red_Lev_3_Cube = readCoils(66)
-
-
 
             i = (i + 1)
         Loop
@@ -342,10 +267,6 @@ Public Class PLC_Comms_Server
             modbusClient.WriteSingleCoil(37, True)
         Else : modbusClient.WriteSingleCoil(37, False)
         End If
-
-        'GameData to PLC
-        modbusClient.WriteSingleRegister(4, GamedataUse)
-
 
         'Teams To PLC
         modbusClient.WriteSingleRegister(10, RedT1)

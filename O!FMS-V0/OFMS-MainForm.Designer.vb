@@ -26,50 +26,6 @@ Partial Class Main_Panel
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main_Panel))
         Me.MatchNum = New System.Windows.Forms.TextBox()
         Me.Save_btn = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.RedAllianceHang = New System.Windows.Forms.TextBox()
-        Me.Red3Sur = New System.Windows.Forms.Label()
-        Me.Red2Sur = New System.Windows.Forms.Label()
-        Me.Red1Sur = New System.Windows.Forms.Label()
-        Me.PWRTimerLbl = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.RedScore = New System.Windows.Forms.Label()
-        Me.RedPen = New System.Windows.Forms.TextBox()
-        Me.RPLC_Score = New System.Windows.Forms.Label()
-        Me.RBypass3 = New System.Windows.Forms.CheckBox()
-        Me.RDQ3 = New System.Windows.Forms.CheckBox()
-        Me.RBypass2 = New System.Windows.Forms.CheckBox()
-        Me.RDQ2 = New System.Windows.Forms.CheckBox()
-        Me.RedVolt3 = New System.Windows.Forms.Label()
-        Me.RedVolt2 = New System.Windows.Forms.Label()
-        Me.RedVolt1 = New System.Windows.Forms.Label()
-        Me.RedLevitate = New System.Windows.Forms.Label()
-        Me.REDBoost = New System.Windows.Forms.Label()
-        Me.RBypass1 = New System.Windows.Forms.CheckBox()
-        Me.RDQ1 = New System.Windows.Forms.CheckBox()
-        Me.REDForce = New System.Windows.Forms.Label()
-        Me.RedTeam3 = New System.Windows.Forms.Label()
-        Me.RedTeam2 = New System.Windows.Forms.Label()
-        Me.RedTeam1 = New System.Windows.Forms.Label()
-        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.R3Estop = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.R3Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.R3DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.R2Estop = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.R2Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.R2DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RLev = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RBoost = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RForce = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.R1Estop = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.R1Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.R1DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.MatchDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -140,7 +96,6 @@ Partial Class Main_Panel
         Me.Blue3Sur = New System.Windows.Forms.Label()
         Me.Blue2Sur = New System.Windows.Forms.Label()
         Me.Blue1Sur = New System.Windows.Forms.Label()
-        Me.PowerUpTimerBluelbl = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -157,11 +112,8 @@ Partial Class Main_Panel
         Me.BlueVolt3 = New System.Windows.Forms.Label()
         Me.BlueVolt2 = New System.Windows.Forms.Label()
         Me.BlueVolt1 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.BBypass1 = New System.Windows.Forms.CheckBox()
         Me.BDQ1 = New System.Windows.Forms.CheckBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.BlueTeam3 = New System.Windows.Forms.Label()
         Me.BlueTeam2 = New System.Windows.Forms.Label()
         Me.BlueTeam1 = New System.Windows.Forms.Label()
@@ -179,15 +131,12 @@ Partial Class Main_Panel
         Me.B1Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.B1DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.FMSMasterTableAdapter = New O_FMS_V0._O_FMSDataSetTableAdapters.FMSMasterTableAdapter()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Ctime = New System.Windows.Forms.Label()
         Me.Pre_Start_btn = New System.Windows.Forms.Button()
         Me.matchTimerLbl = New System.Windows.Forms.Label()
         Me.MatchMessages = New System.Windows.Forms.Label()
-        Me.ScaleSwitch = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.WarmUpTimer = New System.Windows.Forms.Timer(Me.components)
         Me.AutoTimer = New System.Windows.Forms.Timer(Me.components)
         Me.PauseTimer = New System.Windows.Forms.Timer(Me.components)
         Me.TeleTimer = New System.Windows.Forms.Timer(Me.components)
@@ -201,7 +150,46 @@ Partial Class Main_Panel
         Me.DSLightTestBtn = New System.Windows.Forms.Button()
         Me.ScoringTableLightTestBtn = New System.Windows.Forms.Button()
         Me.ConnectPLCBtn = New System.Windows.Forms.Button()
-        Me.Panel1.SuspendLayout()
+        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.R3Estop = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.R3Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.R3DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.R2Estop = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.R2Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.R2DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RLev = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RBoost = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RForce = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.R1Estop = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.R1Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.R1DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RedTeam1 = New System.Windows.Forms.Label()
+        Me.RedTeam2 = New System.Windows.Forms.Label()
+        Me.RedTeam3 = New System.Windows.Forms.Label()
+        Me.RDQ1 = New System.Windows.Forms.CheckBox()
+        Me.RBypass1 = New System.Windows.Forms.CheckBox()
+        Me.RedVolt1 = New System.Windows.Forms.Label()
+        Me.RedVolt2 = New System.Windows.Forms.Label()
+        Me.RedVolt3 = New System.Windows.Forms.Label()
+        Me.RDQ2 = New System.Windows.Forms.CheckBox()
+        Me.RBypass2 = New System.Windows.Forms.CheckBox()
+        Me.RDQ3 = New System.Windows.Forms.CheckBox()
+        Me.RBypass3 = New System.Windows.Forms.CheckBox()
+        Me.RPLC_Score = New System.Windows.Forms.Label()
+        Me.RedPen = New System.Windows.Forms.TextBox()
+        Me.RedScore = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Red1Sur = New System.Windows.Forms.Label()
+        Me.Red2Sur = New System.Windows.Forms.Label()
+        Me.Red3Sur = New System.Windows.Forms.Label()
+        Me.RedAllianceHang = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -209,6 +197,7 @@ Partial Class Main_Panel
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MatchNum
@@ -226,470 +215,6 @@ Partial Class Main_Panel
         Me.Save_btn.TabIndex = 10
         Me.Save_btn.Text = "Save && Next Match"
         Me.Save_btn.UseVisualStyleBackColor = True
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.MediumTurquoise
-        Me.Panel1.Controls.Add(Me.Label21)
-        Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.RedAllianceHang)
-        Me.Panel1.Controls.Add(Me.Red3Sur)
-        Me.Panel1.Controls.Add(Me.Red2Sur)
-        Me.Panel1.Controls.Add(Me.Red1Sur)
-        Me.Panel1.Controls.Add(Me.PWRTimerLbl)
-        Me.Panel1.Controls.Add(Me.Label16)
-        Me.Panel1.Controls.Add(Me.Label15)
-        Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.RedScore)
-        Me.Panel1.Controls.Add(Me.RedPen)
-        Me.Panel1.Controls.Add(Me.RPLC_Score)
-        Me.Panel1.Controls.Add(Me.RBypass3)
-        Me.Panel1.Controls.Add(Me.RDQ3)
-        Me.Panel1.Controls.Add(Me.RBypass2)
-        Me.Panel1.Controls.Add(Me.RDQ2)
-        Me.Panel1.Controls.Add(Me.RedVolt3)
-        Me.Panel1.Controls.Add(Me.RedVolt2)
-        Me.Panel1.Controls.Add(Me.RedVolt1)
-        Me.Panel1.Controls.Add(Me.RedLevitate)
-        Me.Panel1.Controls.Add(Me.REDBoost)
-        Me.Panel1.Controls.Add(Me.RBypass1)
-        Me.Panel1.Controls.Add(Me.RDQ1)
-        Me.Panel1.Controls.Add(Me.REDForce)
-        Me.Panel1.Controls.Add(Me.RedTeam3)
-        Me.Panel1.Controls.Add(Me.RedTeam2)
-        Me.Panel1.Controls.Add(Me.RedTeam1)
-        Me.Panel1.Controls.Add(Me.ShapeContainer1)
-        Me.Panel1.ForeColor = System.Drawing.Color.Black
-        Me.Panel1.Location = New System.Drawing.Point(24, 57)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(336, 257)
-        Me.Panel1.TabIndex = 11
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(179, 228)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(61, 13)
-        Me.Label21.TabIndex = 32
-        Me.Label21.Text = "Red Score:"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(167, 205)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(70, 13)
-        Me.Label9.TabIndex = 31
-        Me.Label9.Text = "Red Hanging"
-        '
-        'RedAllianceHang
-        '
-        Me.RedAllianceHang.Location = New System.Drawing.Point(247, 198)
-        Me.RedAllianceHang.Name = "RedAllianceHang"
-        Me.RedAllianceHang.Size = New System.Drawing.Size(44, 20)
-        Me.RedAllianceHang.TabIndex = 30
-        '
-        'Red3Sur
-        '
-        Me.Red3Sur.AutoSize = True
-        Me.Red3Sur.Location = New System.Drawing.Point(288, 72)
-        Me.Red3Sur.Name = "Red3Sur"
-        Me.Red3Sur.Size = New System.Drawing.Size(14, 13)
-        Me.Red3Sur.TabIndex = 29
-        Me.Red3Sur.Text = "S"
-        '
-        'Red2Sur
-        '
-        Me.Red2Sur.AutoSize = True
-        Me.Red2Sur.Location = New System.Drawing.Point(288, 45)
-        Me.Red2Sur.Name = "Red2Sur"
-        Me.Red2Sur.Size = New System.Drawing.Size(14, 13)
-        Me.Red2Sur.TabIndex = 28
-        Me.Red2Sur.Text = "S"
-        '
-        'Red1Sur
-        '
-        Me.Red1Sur.AutoSize = True
-        Me.Red1Sur.Location = New System.Drawing.Point(288, 20)
-        Me.Red1Sur.Name = "Red1Sur"
-        Me.Red1Sur.Size = New System.Drawing.Size(14, 13)
-        Me.Red1Sur.TabIndex = 27
-        Me.Red1Sur.Text = "S"
-        '
-        'PWRTimerLbl
-        '
-        Me.PWRTimerLbl.AutoSize = True
-        Me.PWRTimerLbl.Location = New System.Drawing.Point(17, 179)
-        Me.PWRTimerLbl.Name = "PWRTimerLbl"
-        Me.PWRTimerLbl.Size = New System.Drawing.Size(80, 13)
-        Me.PWRTimerLbl.TabIndex = 26
-        Me.PWRTimerLbl.Text = "Power Up Time"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label16.ForeColor = System.Drawing.Color.Transparent
-        Me.Label16.Location = New System.Drawing.Point(255, -1)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(41, 13)
-        Me.Label16.TabIndex = 25
-        Me.Label16.Text = "Bypass"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label15.ForeColor = System.Drawing.Color.Transparent
-        Me.Label15.Location = New System.Drawing.Point(226, -1)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(23, 13)
-        Me.Label15.TabIndex = 24
-        Me.Label15.Text = "DQ"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label6.Location = New System.Drawing.Point(203, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(14, 13)
-        Me.Label6.TabIndex = 24
-        Me.Label6.Text = "E"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.Transparent
-        Me.Label5.Location = New System.Drawing.Point(165, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(35, 13)
-        Me.Label5.TabIndex = 24
-        Me.Label5.Text = "Robot"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(176, 179)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(65, 13)
-        Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Red Penalty"
-        '
-        'RedScore
-        '
-        Me.RedScore.AutoSize = True
-        Me.RedScore.Location = New System.Drawing.Point(246, 228)
-        Me.RedScore.Name = "RedScore"
-        Me.RedScore.Size = New System.Drawing.Size(13, 13)
-        Me.RedScore.TabIndex = 18
-        Me.RedScore.Text = "0"
-        '
-        'RedPen
-        '
-        Me.RedPen.Location = New System.Drawing.Point(247, 172)
-        Me.RedPen.Name = "RedPen"
-        Me.RedPen.Size = New System.Drawing.Size(44, 20)
-        Me.RedPen.TabIndex = 17
-        '
-        'RPLC_Score
-        '
-        Me.RPLC_Score.AutoSize = True
-        Me.RPLC_Score.Location = New System.Drawing.Point(246, 145)
-        Me.RPLC_Score.Name = "RPLC_Score"
-        Me.RPLC_Score.Size = New System.Drawing.Size(58, 13)
-        Me.RPLC_Score.TabIndex = 16
-        Me.RPLC_Score.Text = "PLC Score"
-        '
-        'RBypass3
-        '
-        Me.RBypass3.AutoSize = True
-        Me.RBypass3.Location = New System.Drawing.Point(267, 71)
-        Me.RBypass3.Name = "RBypass3"
-        Me.RBypass3.Size = New System.Drawing.Size(15, 14)
-        Me.RBypass3.TabIndex = 15
-        Me.RBypass3.UseVisualStyleBackColor = True
-        '
-        'RDQ3
-        '
-        Me.RDQ3.AutoSize = True
-        Me.RDQ3.Location = New System.Drawing.Point(234, 71)
-        Me.RDQ3.Name = "RDQ3"
-        Me.RDQ3.Size = New System.Drawing.Size(15, 14)
-        Me.RDQ3.TabIndex = 14
-        Me.RDQ3.UseVisualStyleBackColor = True
-        '
-        'RBypass2
-        '
-        Me.RBypass2.AutoSize = True
-        Me.RBypass2.Location = New System.Drawing.Point(267, 45)
-        Me.RBypass2.Name = "RBypass2"
-        Me.RBypass2.Size = New System.Drawing.Size(15, 14)
-        Me.RBypass2.TabIndex = 13
-        Me.RBypass2.UseVisualStyleBackColor = True
-        '
-        'RDQ2
-        '
-        Me.RDQ2.AutoSize = True
-        Me.RDQ2.Location = New System.Drawing.Point(234, 45)
-        Me.RDQ2.Name = "RDQ2"
-        Me.RDQ2.Size = New System.Drawing.Size(15, 14)
-        Me.RDQ2.TabIndex = 12
-        Me.RDQ2.UseVisualStyleBackColor = True
-        '
-        'RedVolt3
-        '
-        Me.RedVolt3.AutoSize = True
-        Me.RedVolt3.Location = New System.Drawing.Point(77, 71)
-        Me.RedVolt3.Name = "RedVolt3"
-        Me.RedVolt3.Size = New System.Drawing.Size(43, 13)
-        Me.RedVolt3.TabIndex = 11
-        Me.RedVolt3.Text = "Voltage"
-        '
-        'RedVolt2
-        '
-        Me.RedVolt2.AutoSize = True
-        Me.RedVolt2.Location = New System.Drawing.Point(77, 46)
-        Me.RedVolt2.Name = "RedVolt2"
-        Me.RedVolt2.Size = New System.Drawing.Size(43, 13)
-        Me.RedVolt2.TabIndex = 10
-        Me.RedVolt2.Text = "Voltage"
-        '
-        'RedVolt1
-        '
-        Me.RedVolt1.AutoSize = True
-        Me.RedVolt1.Location = New System.Drawing.Point(77, 18)
-        Me.RedVolt1.Name = "RedVolt1"
-        Me.RedVolt1.Size = New System.Drawing.Size(43, 13)
-        Me.RedVolt1.TabIndex = 9
-        Me.RedVolt1.Text = "Voltage"
-        '
-        'RedLevitate
-        '
-        Me.RedLevitate.AutoSize = True
-        Me.RedLevitate.Location = New System.Drawing.Point(3, 150)
-        Me.RedLevitate.Name = "RedLevitate"
-        Me.RedLevitate.Size = New System.Drawing.Size(73, 13)
-        Me.RedLevitate.TabIndex = 8
-        Me.RedLevitate.Text = "Levitate Used"
-        '
-        'REDBoost
-        '
-        Me.REDBoost.AutoSize = True
-        Me.REDBoost.Location = New System.Drawing.Point(3, 100)
-        Me.REDBoost.Name = "REDBoost"
-        Me.REDBoost.Size = New System.Drawing.Size(62, 13)
-        Me.REDBoost.TabIndex = 7
-        Me.REDBoost.Text = "Boost Used"
-        '
-        'RBypass1
-        '
-        Me.RBypass1.AutoSize = True
-        Me.RBypass1.Location = New System.Drawing.Point(267, 19)
-        Me.RBypass1.Name = "RBypass1"
-        Me.RBypass1.Size = New System.Drawing.Size(15, 14)
-        Me.RBypass1.TabIndex = 6
-        Me.RBypass1.UseVisualStyleBackColor = True
-        '
-        'RDQ1
-        '
-        Me.RDQ1.AutoSize = True
-        Me.RDQ1.Location = New System.Drawing.Point(234, 19)
-        Me.RDQ1.Name = "RDQ1"
-        Me.RDQ1.Size = New System.Drawing.Size(15, 14)
-        Me.RDQ1.TabIndex = 4
-        Me.RDQ1.UseVisualStyleBackColor = True
-        '
-        'REDForce
-        '
-        Me.REDForce.AutoSize = True
-        Me.REDForce.Location = New System.Drawing.Point(4, 125)
-        Me.REDForce.Name = "REDForce"
-        Me.REDForce.Size = New System.Drawing.Size(62, 13)
-        Me.REDForce.TabIndex = 3
-        Me.REDForce.Text = "Force Used"
-        '
-        'RedTeam3
-        '
-        Me.RedTeam3.AutoSize = True
-        Me.RedTeam3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RedTeam3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.RedTeam3.Location = New System.Drawing.Point(4, 71)
-        Me.RedTeam3.Name = "RedTeam3"
-        Me.RedTeam3.Size = New System.Drawing.Size(77, 15)
-        Me.RedTeam3.TabIndex = 2
-        Me.RedTeam3.Text = "RedTeam3"
-        '
-        'RedTeam2
-        '
-        Me.RedTeam2.AutoSize = True
-        Me.RedTeam2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RedTeam2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.RedTeam2.Location = New System.Drawing.Point(3, 45)
-        Me.RedTeam2.Name = "RedTeam2"
-        Me.RedTeam2.Size = New System.Drawing.Size(77, 15)
-        Me.RedTeam2.TabIndex = 1
-        Me.RedTeam2.Text = "RedTeam2"
-        '
-        'RedTeam1
-        '
-        Me.RedTeam1.AutoSize = True
-        Me.RedTeam1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RedTeam1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.RedTeam1.Location = New System.Drawing.Point(4, 18)
-        Me.RedTeam1.Name = "RedTeam1"
-        Me.RedTeam1.Size = New System.Drawing.Size(77, 15)
-        Me.RedTeam1.TabIndex = 0
-        Me.RedTeam1.Text = "RedTeam1"
-        '
-        'ShapeContainer1
-        '
-        Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.R3Estop, Me.R3Robot, Me.R3DS, Me.R2Estop, Me.R2Robot, Me.R2DS, Me.RLev, Me.RBoost, Me.RForce, Me.R1Estop, Me.R1Robot, Me.R1DS})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(336, 257)
-        Me.ShapeContainer1.TabIndex = 5
-        Me.ShapeContainer1.TabStop = False
-        '
-        'R3Estop
-        '
-        Me.R3Estop.BackColor = System.Drawing.Color.Yellow
-        Me.R3Estop.BorderWidth = 2
-        Me.R3Estop.CornerRadius = 1
-        Me.R3Estop.FillColor = System.Drawing.Color.LimeGreen
-        Me.R3Estop.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.R3Estop.Location = New System.Drawing.Point(200, 66)
-        Me.R3Estop.Name = "R3Estop"
-        Me.R3Estop.Size = New System.Drawing.Size(18, 17)
-        '
-        'R3Robot
-        '
-        Me.R3Robot.BackColor = System.Drawing.Color.Yellow
-        Me.R3Robot.BorderWidth = 2
-        Me.R3Robot.CornerRadius = 1
-        Me.R3Robot.FillColor = System.Drawing.Color.LimeGreen
-        Me.R3Robot.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.R3Robot.Location = New System.Drawing.Point(170, 66)
-        Me.R3Robot.Name = "R3Robot"
-        Me.R3Robot.Size = New System.Drawing.Size(18, 17)
-        '
-        'R3DS
-        '
-        Me.R3DS.BackColor = System.Drawing.Color.Yellow
-        Me.R3DS.BorderWidth = 2
-        Me.R3DS.CornerRadius = 1
-        Me.R3DS.FillColor = System.Drawing.Color.LimeGreen
-        Me.R3DS.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.R3DS.Location = New System.Drawing.Point(140, 66)
-        Me.R3DS.Name = "R3DS"
-        Me.R3DS.Size = New System.Drawing.Size(18, 17)
-        '
-        'R2Estop
-        '
-        Me.R2Estop.BackColor = System.Drawing.Color.Yellow
-        Me.R2Estop.BorderWidth = 2
-        Me.R2Estop.CornerRadius = 1
-        Me.R2Estop.FillColor = System.Drawing.Color.LimeGreen
-        Me.R2Estop.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.R2Estop.Location = New System.Drawing.Point(200, 40)
-        Me.R2Estop.Name = "R2Estop"
-        Me.R2Estop.Size = New System.Drawing.Size(18, 17)
-        '
-        'R2Robot
-        '
-        Me.R2Robot.BackColor = System.Drawing.Color.Yellow
-        Me.R2Robot.BorderWidth = 2
-        Me.R2Robot.CornerRadius = 1
-        Me.R2Robot.FillColor = System.Drawing.Color.LimeGreen
-        Me.R2Robot.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.R2Robot.Location = New System.Drawing.Point(170, 40)
-        Me.R2Robot.Name = "R2Robot"
-        Me.R2Robot.Size = New System.Drawing.Size(18, 17)
-        '
-        'R2DS
-        '
-        Me.R2DS.BackColor = System.Drawing.Color.Yellow
-        Me.R2DS.BorderWidth = 2
-        Me.R2DS.CornerRadius = 1
-        Me.R2DS.FillColor = System.Drawing.Color.LimeGreen
-        Me.R2DS.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.R2DS.Location = New System.Drawing.Point(140, 40)
-        Me.R2DS.Name = "R2DS"
-        Me.R2DS.Size = New System.Drawing.Size(18, 17)
-        '
-        'RLev
-        '
-        Me.RLev.BackColor = System.Drawing.Color.Yellow
-        Me.RLev.BorderWidth = 2
-        Me.RLev.CornerRadius = 1
-        Me.RLev.FillColor = System.Drawing.Color.LimeGreen
-        Me.RLev.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.RLev.Location = New System.Drawing.Point(80, 145)
-        Me.RLev.Name = "RLev"
-        Me.RLev.Size = New System.Drawing.Size(18, 17)
-        '
-        'RBoost
-        '
-        Me.RBoost.BackColor = System.Drawing.Color.Yellow
-        Me.RBoost.BorderWidth = 2
-        Me.RBoost.CornerRadius = 1
-        Me.RBoost.FillColor = System.Drawing.Color.LimeGreen
-        Me.RBoost.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.RBoost.Location = New System.Drawing.Point(80, 95)
-        Me.RBoost.Name = "RBoost"
-        Me.RBoost.Size = New System.Drawing.Size(18, 17)
-        '
-        'RForce
-        '
-        Me.RForce.BackColor = System.Drawing.Color.Yellow
-        Me.RForce.BorderWidth = 2
-        Me.RForce.CornerRadius = 1
-        Me.RForce.FillColor = System.Drawing.Color.LimeGreen
-        Me.RForce.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.RForce.Location = New System.Drawing.Point(80, 120)
-        Me.RForce.Name = "RForce"
-        Me.RForce.Size = New System.Drawing.Size(18, 17)
-        '
-        'R1Estop
-        '
-        Me.R1Estop.BackColor = System.Drawing.Color.Yellow
-        Me.R1Estop.BorderWidth = 2
-        Me.R1Estop.CornerRadius = 1
-        Me.R1Estop.FillColor = System.Drawing.Color.LimeGreen
-        Me.R1Estop.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.R1Estop.Location = New System.Drawing.Point(200, 14)
-        Me.R1Estop.Name = "R1Estop"
-        Me.R1Estop.Size = New System.Drawing.Size(18, 17)
-        '
-        'R1Robot
-        '
-        Me.R1Robot.BackColor = System.Drawing.Color.Yellow
-        Me.R1Robot.BorderWidth = 2
-        Me.R1Robot.CornerRadius = 1
-        Me.R1Robot.FillColor = System.Drawing.Color.LimeGreen
-        Me.R1Robot.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.R1Robot.Location = New System.Drawing.Point(170, 14)
-        Me.R1Robot.Name = "R1Robot"
-        Me.R1Robot.Size = New System.Drawing.Size(18, 17)
-        '
-        'R1DS
-        '
-        Me.R1DS.BackColor = System.Drawing.Color.Yellow
-        Me.R1DS.BorderWidth = 2
-        Me.R1DS.CornerRadius = 1
-        Me.R1DS.FillColor = System.Drawing.Color.LimeGreen
-        Me.R1DS.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.R1DS.Location = New System.Drawing.Point(140, 14)
-        Me.R1DS.Name = "R1DS"
-        Me.R1DS.Size = New System.Drawing.Size(18, 17)
         '
         'Label10
         '
@@ -1092,7 +617,6 @@ Partial Class Main_Panel
         Me.Panel2.Controls.Add(Me.Blue3Sur)
         Me.Panel2.Controls.Add(Me.Blue2Sur)
         Me.Panel2.Controls.Add(Me.Blue1Sur)
-        Me.Panel2.Controls.Add(Me.PowerUpTimerBluelbl)
         Me.Panel2.Controls.Add(Me.Label17)
         Me.Panel2.Controls.Add(Me.Label18)
         Me.Panel2.Controls.Add(Me.Label7)
@@ -1109,11 +633,8 @@ Partial Class Main_Panel
         Me.Panel2.Controls.Add(Me.BlueVolt3)
         Me.Panel2.Controls.Add(Me.BlueVolt2)
         Me.Panel2.Controls.Add(Me.BlueVolt1)
-        Me.Panel2.Controls.Add(Me.Label8)
-        Me.Panel2.Controls.Add(Me.Label11)
         Me.Panel2.Controls.Add(Me.BBypass1)
         Me.Panel2.Controls.Add(Me.BDQ1)
-        Me.Panel2.Controls.Add(Me.Label12)
         Me.Panel2.Controls.Add(Me.BlueTeam3)
         Me.Panel2.Controls.Add(Me.BlueTeam2)
         Me.Panel2.Controls.Add(Me.BlueTeam1)
@@ -1174,15 +695,6 @@ Partial Class Main_Panel
         Me.Blue1Sur.Size = New System.Drawing.Size(14, 13)
         Me.Blue1Sur.TabIndex = 30
         Me.Blue1Sur.Text = "S"
-        '
-        'PowerUpTimerBluelbl
-        '
-        Me.PowerUpTimerBluelbl.AutoSize = True
-        Me.PowerUpTimerBluelbl.Location = New System.Drawing.Point(32, 179)
-        Me.PowerUpTimerBluelbl.Name = "PowerUpTimerBluelbl"
-        Me.PowerUpTimerBluelbl.Size = New System.Drawing.Size(80, 13)
-        Me.PowerUpTimerBluelbl.TabIndex = 28
-        Me.PowerUpTimerBluelbl.Text = "Power Up Time"
         '
         'Label17
         '
@@ -1339,24 +851,6 @@ Partial Class Main_Panel
         Me.BlueVolt1.TabIndex = 9
         Me.BlueVolt1.Text = "Voltage"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(3, 150)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(73, 13)
-        Me.Label8.TabIndex = 8
-        Me.Label8.Text = "Levitate Used"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(3, 100)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(62, 13)
-        Me.Label11.TabIndex = 7
-        Me.Label11.Text = "Boost Used"
-        '
         'BBypass1
         '
         Me.BBypass1.AutoSize = True
@@ -1374,15 +868,6 @@ Partial Class Main_Panel
         Me.BDQ1.Size = New System.Drawing.Size(15, 14)
         Me.BDQ1.TabIndex = 4
         Me.BDQ1.UseVisualStyleBackColor = True
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(4, 125)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(62, 13)
-        Me.Label12.TabIndex = 3
-        Me.Label12.Text = "Force Used"
         '
         'BlueTeam3
         '
@@ -1563,15 +1048,6 @@ Partial Class Main_Panel
         '
         Me.FMSMasterTableAdapter.ClearBeforeFill = True
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(406, 217)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(116, 13)
-        Me.Label3.TabIndex = 21
-        Me.Label3.Text = "Scale/Switch Positions"
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -1621,15 +1097,6 @@ Partial Class Main_Panel
         Me.MatchMessages.Text = "Match Not Started"
         Me.MatchMessages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'ScaleSwitch
-        '
-        Me.ScaleSwitch.Location = New System.Drawing.Point(427, 236)
-        Me.ScaleSwitch.Name = "ScaleSwitch"
-        Me.ScaleSwitch.Size = New System.Drawing.Size(71, 13)
-        Me.ScaleSwitch.TabIndex = 28
-        Me.ScaleSwitch.Text = "Scale/Switch"
-        Me.ScaleSwitch.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
         'Label19
         '
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1639,9 +1106,6 @@ Partial Class Main_Panel
         Me.Label19.TabIndex = 29
         Me.Label19.Text = "Timer"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'WarmUpTimer
-        '
         '
         'AutoTimer
         '
@@ -1745,6 +1209,430 @@ Partial Class Main_Panel
         Me.ConnectPLCBtn.Text = "Connect PLC"
         Me.ConnectPLCBtn.UseVisualStyleBackColor = True
         '
+        'ShapeContainer1
+        '
+        Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer1.Name = "ShapeContainer1"
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.R3Estop, Me.R3Robot, Me.R3DS, Me.R2Estop, Me.R2Robot, Me.R2DS, Me.RLev, Me.RBoost, Me.RForce, Me.R1Estop, Me.R1Robot, Me.R1DS})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(336, 257)
+        Me.ShapeContainer1.TabIndex = 5
+        Me.ShapeContainer1.TabStop = False
+        '
+        'R3Estop
+        '
+        Me.R3Estop.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.R3Estop.BorderWidth = 2
+        Me.R3Estop.CornerRadius = 1
+        Me.R3Estop.FillColor = System.Drawing.Color.LimeGreen
+        Me.R3Estop.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.R3Estop.Location = New System.Drawing.Point(200, 66)
+        Me.R3Estop.Name = "R3Estop"
+        Me.R3Estop.Size = New System.Drawing.Size(18, 17)
+        '
+        'R3Robot
+        '
+        Me.R3Robot.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.R3Robot.BorderWidth = 2
+        Me.R3Robot.CornerRadius = 1
+        Me.R3Robot.FillColor = System.Drawing.Color.LimeGreen
+        Me.R3Robot.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.R3Robot.Location = New System.Drawing.Point(170, 66)
+        Me.R3Robot.Name = "R3Robot"
+        Me.R3Robot.Size = New System.Drawing.Size(18, 17)
+        '
+        'R3DS
+        '
+        Me.R3DS.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.R3DS.BorderWidth = 2
+        Me.R3DS.CornerRadius = 1
+        Me.R3DS.FillColor = System.Drawing.Color.LimeGreen
+        Me.R3DS.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.R3DS.Location = New System.Drawing.Point(140, 66)
+        Me.R3DS.Name = "R3DS"
+        Me.R3DS.Size = New System.Drawing.Size(18, 17)
+        '
+        'R2Estop
+        '
+        Me.R2Estop.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.R2Estop.BorderWidth = 2
+        Me.R2Estop.CornerRadius = 1
+        Me.R2Estop.FillColor = System.Drawing.Color.LimeGreen
+        Me.R2Estop.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.R2Estop.Location = New System.Drawing.Point(200, 40)
+        Me.R2Estop.Name = "R2Estop"
+        Me.R2Estop.Size = New System.Drawing.Size(18, 17)
+        '
+        'R2Robot
+        '
+        Me.R2Robot.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.R2Robot.BorderWidth = 2
+        Me.R2Robot.CornerRadius = 1
+        Me.R2Robot.FillColor = System.Drawing.Color.LimeGreen
+        Me.R2Robot.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.R2Robot.Location = New System.Drawing.Point(170, 40)
+        Me.R2Robot.Name = "R2Robot"
+        Me.R2Robot.Size = New System.Drawing.Size(18, 17)
+        '
+        'R2DS
+        '
+        Me.R2DS.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.R2DS.BorderWidth = 2
+        Me.R2DS.CornerRadius = 1
+        Me.R2DS.FillColor = System.Drawing.Color.LimeGreen
+        Me.R2DS.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.R2DS.Location = New System.Drawing.Point(140, 40)
+        Me.R2DS.Name = "R2DS"
+        Me.R2DS.Size = New System.Drawing.Size(18, 17)
+        '
+        'RLev
+        '
+        Me.RLev.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.RLev.BorderWidth = 2
+        Me.RLev.CornerRadius = 1
+        Me.RLev.FillColor = System.Drawing.Color.LimeGreen
+        Me.RLev.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.RLev.Location = New System.Drawing.Point(80, 145)
+        Me.RLev.Name = "RLev"
+        Me.RLev.Size = New System.Drawing.Size(18, 17)
+        '
+        'RBoost
+        '
+        Me.RBoost.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.RBoost.BorderWidth = 2
+        Me.RBoost.CornerRadius = 1
+        Me.RBoost.FillColor = System.Drawing.Color.LimeGreen
+        Me.RBoost.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.RBoost.Location = New System.Drawing.Point(80, 95)
+        Me.RBoost.Name = "RBoost"
+        Me.RBoost.Size = New System.Drawing.Size(18, 17)
+        '
+        'RForce
+        '
+        Me.RForce.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.RForce.BorderWidth = 2
+        Me.RForce.CornerRadius = 1
+        Me.RForce.FillColor = System.Drawing.Color.LimeGreen
+        Me.RForce.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.RForce.Location = New System.Drawing.Point(80, 120)
+        Me.RForce.Name = "RForce"
+        Me.RForce.Size = New System.Drawing.Size(18, 17)
+        '
+        'R1Estop
+        '
+        Me.R1Estop.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.R1Estop.BorderWidth = 2
+        Me.R1Estop.CornerRadius = 1
+        Me.R1Estop.FillColor = System.Drawing.Color.LimeGreen
+        Me.R1Estop.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.R1Estop.Location = New System.Drawing.Point(200, 14)
+        Me.R1Estop.Name = "R1Estop"
+        Me.R1Estop.Size = New System.Drawing.Size(18, 17)
+        '
+        'R1Robot
+        '
+        Me.R1Robot.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.R1Robot.BorderWidth = 2
+        Me.R1Robot.CornerRadius = 1
+        Me.R1Robot.FillColor = System.Drawing.Color.LimeGreen
+        Me.R1Robot.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.R1Robot.Location = New System.Drawing.Point(170, 14)
+        Me.R1Robot.Name = "R1Robot"
+        Me.R1Robot.Size = New System.Drawing.Size(18, 17)
+        '
+        'R1DS
+        '
+        Me.R1DS.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
+        Me.R1DS.BorderWidth = 2
+        Me.R1DS.CornerRadius = 1
+        Me.R1DS.FillColor = System.Drawing.Color.LimeGreen
+        Me.R1DS.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.R1DS.Location = New System.Drawing.Point(140, 14)
+        Me.R1DS.Name = "R1DS"
+        Me.R1DS.Size = New System.Drawing.Size(18, 17)
+        '
+        'RedTeam1
+        '
+        Me.RedTeam1.AutoSize = True
+        Me.RedTeam1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RedTeam1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.RedTeam1.Location = New System.Drawing.Point(4, 18)
+        Me.RedTeam1.Name = "RedTeam1"
+        Me.RedTeam1.Size = New System.Drawing.Size(77, 15)
+        Me.RedTeam1.TabIndex = 0
+        Me.RedTeam1.Text = "RedTeam1"
+        '
+        'RedTeam2
+        '
+        Me.RedTeam2.AutoSize = True
+        Me.RedTeam2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RedTeam2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.RedTeam2.Location = New System.Drawing.Point(3, 45)
+        Me.RedTeam2.Name = "RedTeam2"
+        Me.RedTeam2.Size = New System.Drawing.Size(77, 15)
+        Me.RedTeam2.TabIndex = 1
+        Me.RedTeam2.Text = "RedTeam2"
+        '
+        'RedTeam3
+        '
+        Me.RedTeam3.AutoSize = True
+        Me.RedTeam3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RedTeam3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.RedTeam3.Location = New System.Drawing.Point(4, 71)
+        Me.RedTeam3.Name = "RedTeam3"
+        Me.RedTeam3.Size = New System.Drawing.Size(77, 15)
+        Me.RedTeam3.TabIndex = 2
+        Me.RedTeam3.Text = "RedTeam3"
+        '
+        'RDQ1
+        '
+        Me.RDQ1.AutoSize = True
+        Me.RDQ1.Location = New System.Drawing.Point(234, 19)
+        Me.RDQ1.Name = "RDQ1"
+        Me.RDQ1.Size = New System.Drawing.Size(15, 14)
+        Me.RDQ1.TabIndex = 4
+        Me.RDQ1.UseVisualStyleBackColor = True
+        '
+        'RBypass1
+        '
+        Me.RBypass1.AutoSize = True
+        Me.RBypass1.Location = New System.Drawing.Point(267, 19)
+        Me.RBypass1.Name = "RBypass1"
+        Me.RBypass1.Size = New System.Drawing.Size(15, 14)
+        Me.RBypass1.TabIndex = 6
+        Me.RBypass1.UseVisualStyleBackColor = True
+        '
+        'RedVolt1
+        '
+        Me.RedVolt1.AutoSize = True
+        Me.RedVolt1.Location = New System.Drawing.Point(77, 18)
+        Me.RedVolt1.Name = "RedVolt1"
+        Me.RedVolt1.Size = New System.Drawing.Size(43, 13)
+        Me.RedVolt1.TabIndex = 9
+        Me.RedVolt1.Text = "Voltage"
+        '
+        'RedVolt2
+        '
+        Me.RedVolt2.AutoSize = True
+        Me.RedVolt2.Location = New System.Drawing.Point(77, 46)
+        Me.RedVolt2.Name = "RedVolt2"
+        Me.RedVolt2.Size = New System.Drawing.Size(43, 13)
+        Me.RedVolt2.TabIndex = 10
+        Me.RedVolt2.Text = "Voltage"
+        '
+        'RedVolt3
+        '
+        Me.RedVolt3.AutoSize = True
+        Me.RedVolt3.Location = New System.Drawing.Point(77, 71)
+        Me.RedVolt3.Name = "RedVolt3"
+        Me.RedVolt3.Size = New System.Drawing.Size(43, 13)
+        Me.RedVolt3.TabIndex = 11
+        Me.RedVolt3.Text = "Voltage"
+        '
+        'RDQ2
+        '
+        Me.RDQ2.AutoSize = True
+        Me.RDQ2.Location = New System.Drawing.Point(234, 45)
+        Me.RDQ2.Name = "RDQ2"
+        Me.RDQ2.Size = New System.Drawing.Size(15, 14)
+        Me.RDQ2.TabIndex = 12
+        Me.RDQ2.UseVisualStyleBackColor = True
+        '
+        'RBypass2
+        '
+        Me.RBypass2.AutoSize = True
+        Me.RBypass2.Location = New System.Drawing.Point(267, 45)
+        Me.RBypass2.Name = "RBypass2"
+        Me.RBypass2.Size = New System.Drawing.Size(15, 14)
+        Me.RBypass2.TabIndex = 13
+        Me.RBypass2.UseVisualStyleBackColor = True
+        '
+        'RDQ3
+        '
+        Me.RDQ3.AutoSize = True
+        Me.RDQ3.Location = New System.Drawing.Point(234, 71)
+        Me.RDQ3.Name = "RDQ3"
+        Me.RDQ3.Size = New System.Drawing.Size(15, 14)
+        Me.RDQ3.TabIndex = 14
+        Me.RDQ3.UseVisualStyleBackColor = True
+        '
+        'RBypass3
+        '
+        Me.RBypass3.AutoSize = True
+        Me.RBypass3.Location = New System.Drawing.Point(267, 71)
+        Me.RBypass3.Name = "RBypass3"
+        Me.RBypass3.Size = New System.Drawing.Size(15, 14)
+        Me.RBypass3.TabIndex = 15
+        Me.RBypass3.UseVisualStyleBackColor = True
+        '
+        'RPLC_Score
+        '
+        Me.RPLC_Score.AutoSize = True
+        Me.RPLC_Score.Location = New System.Drawing.Point(246, 145)
+        Me.RPLC_Score.Name = "RPLC_Score"
+        Me.RPLC_Score.Size = New System.Drawing.Size(58, 13)
+        Me.RPLC_Score.TabIndex = 16
+        Me.RPLC_Score.Text = "PLC Score"
+        '
+        'RedPen
+        '
+        Me.RedPen.Location = New System.Drawing.Point(247, 172)
+        Me.RedPen.Name = "RedPen"
+        Me.RedPen.Size = New System.Drawing.Size(44, 20)
+        Me.RedPen.TabIndex = 17
+        '
+        'RedScore
+        '
+        Me.RedScore.AutoSize = True
+        Me.RedScore.Location = New System.Drawing.Point(246, 228)
+        Me.RedScore.Name = "RedScore"
+        Me.RedScore.Size = New System.Drawing.Size(13, 13)
+        Me.RedScore.TabIndex = 18
+        Me.RedScore.Text = "0"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(176, 179)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(65, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Red Penalty"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Transparent
+        Me.Label5.Location = New System.Drawing.Point(165, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(35, 13)
+        Me.Label5.TabIndex = 24
+        Me.Label5.Text = "Robot"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label6.Location = New System.Drawing.Point(203, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(14, 13)
+        Me.Label6.TabIndex = 24
+        Me.Label6.Text = "E"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label15.ForeColor = System.Drawing.Color.Transparent
+        Me.Label15.Location = New System.Drawing.Point(226, -1)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(23, 13)
+        Me.Label15.TabIndex = 24
+        Me.Label15.Text = "DQ"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label16.ForeColor = System.Drawing.Color.Transparent
+        Me.Label16.Location = New System.Drawing.Point(255, -1)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(41, 13)
+        Me.Label16.TabIndex = 25
+        Me.Label16.Text = "Bypass"
+        '
+        'Red1Sur
+        '
+        Me.Red1Sur.AutoSize = True
+        Me.Red1Sur.Location = New System.Drawing.Point(288, 20)
+        Me.Red1Sur.Name = "Red1Sur"
+        Me.Red1Sur.Size = New System.Drawing.Size(14, 13)
+        Me.Red1Sur.TabIndex = 27
+        Me.Red1Sur.Text = "S"
+        '
+        'Red2Sur
+        '
+        Me.Red2Sur.AutoSize = True
+        Me.Red2Sur.Location = New System.Drawing.Point(288, 45)
+        Me.Red2Sur.Name = "Red2Sur"
+        Me.Red2Sur.Size = New System.Drawing.Size(14, 13)
+        Me.Red2Sur.TabIndex = 28
+        Me.Red2Sur.Text = "S"
+        '
+        'Red3Sur
+        '
+        Me.Red3Sur.AutoSize = True
+        Me.Red3Sur.Location = New System.Drawing.Point(288, 72)
+        Me.Red3Sur.Name = "Red3Sur"
+        Me.Red3Sur.Size = New System.Drawing.Size(14, 13)
+        Me.Red3Sur.TabIndex = 29
+        Me.Red3Sur.Text = "S"
+        '
+        'RedAllianceHang
+        '
+        Me.RedAllianceHang.Location = New System.Drawing.Point(247, 198)
+        Me.RedAllianceHang.Name = "RedAllianceHang"
+        Me.RedAllianceHang.Size = New System.Drawing.Size(44, 20)
+        Me.RedAllianceHang.TabIndex = 30
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(167, 205)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(70, 13)
+        Me.Label9.TabIndex = 31
+        Me.Label9.Text = "Red Hanging"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(179, 228)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(61, 13)
+        Me.Label21.TabIndex = 32
+        Me.Label21.Text = "Red Score:"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.MediumTurquoise
+        Me.Panel1.Controls.Add(Me.Label21)
+        Me.Panel1.Controls.Add(Me.Label9)
+        Me.Panel1.Controls.Add(Me.RedAllianceHang)
+        Me.Panel1.Controls.Add(Me.Red3Sur)
+        Me.Panel1.Controls.Add(Me.Red2Sur)
+        Me.Panel1.Controls.Add(Me.Red1Sur)
+        Me.Panel1.Controls.Add(Me.Label16)
+        Me.Panel1.Controls.Add(Me.Label15)
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.RedScore)
+        Me.Panel1.Controls.Add(Me.RedPen)
+        Me.Panel1.Controls.Add(Me.RPLC_Score)
+        Me.Panel1.Controls.Add(Me.RBypass3)
+        Me.Panel1.Controls.Add(Me.RDQ3)
+        Me.Panel1.Controls.Add(Me.RBypass2)
+        Me.Panel1.Controls.Add(Me.RDQ2)
+        Me.Panel1.Controls.Add(Me.RedVolt3)
+        Me.Panel1.Controls.Add(Me.RedVolt2)
+        Me.Panel1.Controls.Add(Me.RedVolt1)
+        Me.Panel1.Controls.Add(Me.RBypass1)
+        Me.Panel1.Controls.Add(Me.RDQ1)
+        Me.Panel1.Controls.Add(Me.RedTeam3)
+        Me.Panel1.Controls.Add(Me.RedTeam2)
+        Me.Panel1.Controls.Add(Me.RedTeam1)
+        Me.Panel1.Controls.Add(Me.ShapeContainer1)
+        Me.Panel1.ForeColor = System.Drawing.Color.Black
+        Me.Panel1.Location = New System.Drawing.Point(24, 57)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(336, 257)
+        Me.Panel1.TabIndex = 11
+        '
         'Main_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1754,13 +1642,11 @@ Partial Class Main_Panel
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.ScaleSwitch)
         Me.Controls.Add(Me.MatchMessages)
         Me.Controls.Add(Me.matchTimerLbl)
         Me.Controls.Add(Me.Pre_Start_btn)
         Me.Controls.Add(Me.Ctime)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.AbortMatch_btn)
         Me.Controls.Add(Me.StartMatch_btn)
@@ -1774,8 +1660,6 @@ Partial Class Main_Panel
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Main_Panel"
         Me.Text = "Main_Panel"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1784,38 +1668,21 @@ Partial Class Main_Panel
         Me.Panel2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents MatchNum As System.Windows.Forms.TextBox
     Friend WithEvents Save_btn As System.Windows.Forms.Button
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents REDForce As System.Windows.Forms.Label
-    Friend WithEvents RedTeam3 As System.Windows.Forms.Label
-    Friend WithEvents RedTeam2 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents MatchLoad_Btn As System.Windows.Forms.Button
     Friend WithEvents StartMatch_btn As System.Windows.Forms.Button
     Friend WithEvents AbortMatch_btn As System.Windows.Forms.Button
-    Friend WithEvents RBypass1 As System.Windows.Forms.CheckBox
-    Friend WithEvents RDQ1 As System.Windows.Forms.CheckBox
-    Friend WithEvents RedLevitate As System.Windows.Forms.Label
-    Friend WithEvents REDBoost As System.Windows.Forms.Label
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents _O_FMSDataSet As O_FMS_V0._O_FMSDataSet
-    Friend WithEvents RedVolt3 As System.Windows.Forms.Label
-    Friend WithEvents RedVolt2 As System.Windows.Forms.Label
-    Friend WithEvents RedVolt1 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents RedScore As System.Windows.Forms.Label
-    Friend WithEvents RedPen As System.Windows.Forms.TextBox
-    Friend WithEvents RPLC_Score As System.Windows.Forms.Label
-    Friend WithEvents RBypass3 As System.Windows.Forms.CheckBox
-    Friend WithEvents RDQ3 As System.Windows.Forms.CheckBox
-    Friend WithEvents RBypass2 As System.Windows.Forms.CheckBox
-    Friend WithEvents RDQ2 As System.Windows.Forms.CheckBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents BlueScore As System.Windows.Forms.Label
@@ -1828,11 +1695,8 @@ Partial Class Main_Panel
     Friend WithEvents BlueVolt3 As System.Windows.Forms.Label
     Friend WithEvents BlueVolt2 As System.Windows.Forms.Label
     Friend WithEvents BlueVolt1 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents BBypass1 As System.Windows.Forms.CheckBox
     Friend WithEvents BDQ1 As System.Windows.Forms.CheckBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents BlueTeam3 As System.Windows.Forms.Label
     Friend WithEvents BlueTeam2 As System.Windows.Forms.Label
     Friend WithEvents BlueTeam1 As System.Windows.Forms.Label
@@ -1893,11 +1757,6 @@ Partial Class Main_Panel
     Friend WithEvents RedLevitateDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents RedBoostDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents SwitchScaleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -1905,22 +1764,6 @@ Partial Class Main_Panel
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Ctime As System.Windows.Forms.Label
-    ' Friend WithEvents OpcSystems1 As OPCSystemsService.OPCSystems
-    ' Private WithEvents ClientAceDA_Junction1 As Kepware.ClientAce.DA_Junction.ClientAceDA_Junction
-    Friend WithEvents RedTeam1 As System.Windows.Forms.Label
-    Private WithEvents ShapeContainer1 As PowerPacks.ShapeContainer
-    Private WithEvents R1Estop As PowerPacks.RectangleShape
-    Private WithEvents R1Robot As PowerPacks.RectangleShape
-    Private WithEvents R1DS As PowerPacks.RectangleShape
-    Private WithEvents RLev As PowerPacks.RectangleShape
-    Private WithEvents RBoost As PowerPacks.RectangleShape
-    Private WithEvents RForce As PowerPacks.RectangleShape
-    Private WithEvents R3Estop As PowerPacks.RectangleShape
-    Private WithEvents R3Robot As PowerPacks.RectangleShape
-    Private WithEvents R3DS As PowerPacks.RectangleShape
-    Private WithEvents R2Estop As PowerPacks.RectangleShape
-    Private WithEvents R2Robot As PowerPacks.RectangleShape
-    Private WithEvents R2DS As PowerPacks.RectangleShape
     Private WithEvents ShapeContainer2 As PowerPacks.ShapeContainer
     Private WithEvents B3Estop As PowerPacks.RectangleShape
     Private WithEvents B3Robot As PowerPacks.RectangleShape
@@ -1937,21 +1780,12 @@ Partial Class Main_Panel
     Friend WithEvents Pre_Start_btn As Button
     Friend WithEvents matchTimerLbl As Label
     Friend WithEvents MatchMessages As Label
-    Friend WithEvents ScaleSwitch As Label
     Friend WithEvents Label19 As Label
-    Friend WithEvents PWRTimerLbl As Label
-    Friend WithEvents PowerUpTimerBluelbl As Label
-    Friend WithEvents Red1Sur As System.Windows.Forms.Label
-    Friend WithEvents Red3Sur As System.Windows.Forms.Label
-    Friend WithEvents Red2Sur As System.Windows.Forms.Label
     Friend WithEvents Blue3Sur As System.Windows.Forms.Label
     Friend WithEvents Blue2Sur As System.Windows.Forms.Label
     Friend WithEvents Blue1Sur As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents RedAllianceHang As System.Windows.Forms.TextBox
     Friend WithEvents BlueAllianceHang As System.Windows.Forms.TextBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
-    Public WithEvents WarmUpTimer As Timer
     Friend WithEvents AutoTimer As Timer
     Friend WithEvents PauseTimer As Timer
     Friend WithEvents TeleTimer As Timer
@@ -1959,7 +1793,6 @@ Partial Class Main_Panel
     Friend WithEvents MatchPlay As Button
     Friend WithEvents FinalScoreBtn As Button
     Friend WithEvents PreMatchBtn As Button
-    Friend WithEvents Label21 As Label
     Friend WithEvents Label22 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
@@ -1967,4 +1800,44 @@ Partial Class Main_Panel
     Friend WithEvents LedPatternTestBtn As Button
     Friend WithEvents DSLightTestBtn As Button
     Friend WithEvents ScoringTableLightTestBtn As Button
+    Private WithEvents ShapeContainer1 As PowerPacks.ShapeContainer
+    Private WithEvents R3Estop As PowerPacks.RectangleShape
+    Private WithEvents R3Robot As PowerPacks.RectangleShape
+    Private WithEvents R3DS As PowerPacks.RectangleShape
+    Private WithEvents R2Estop As PowerPacks.RectangleShape
+    Private WithEvents R2Robot As PowerPacks.RectangleShape
+    Private WithEvents R2DS As PowerPacks.RectangleShape
+    Private WithEvents RLev As PowerPacks.RectangleShape
+    Private WithEvents RBoost As PowerPacks.RectangleShape
+    Private WithEvents RForce As PowerPacks.RectangleShape
+    Private WithEvents R1Estop As PowerPacks.RectangleShape
+    Private WithEvents R1Robot As PowerPacks.RectangleShape
+    Private WithEvents R1DS As PowerPacks.RectangleShape
+    Friend WithEvents RedTeam1 As Label
+    Friend WithEvents RedTeam2 As Label
+    Friend WithEvents RedTeam3 As Label
+    Friend WithEvents RDQ1 As CheckBox
+    Friend WithEvents RBypass1 As CheckBox
+    Friend WithEvents RedVolt1 As Label
+    Friend WithEvents RedVolt2 As Label
+    Friend WithEvents RedVolt3 As Label
+    Friend WithEvents RDQ2 As CheckBox
+    Friend WithEvents RBypass2 As CheckBox
+    Friend WithEvents RDQ3 As CheckBox
+    Friend WithEvents RBypass3 As CheckBox
+    Friend WithEvents RPLC_Score As Label
+    Friend WithEvents RedPen As TextBox
+    Friend WithEvents RedScore As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Red1Sur As Label
+    Friend WithEvents Red2Sur As Label
+    Friend WithEvents Red3Sur As Label
+    Friend WithEvents RedAllianceHang As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Panel1 As Panel
 End Class

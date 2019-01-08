@@ -33,14 +33,14 @@ Public Class Main_Panel
     Private Sub BindingSource1_CurrentChanged(sender As Object, e As EventArgs)
 
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Save_btn.Click
-        Dim insertquery As String = "INSERT INTO FMSMaster([Match], [MatchTime], [Blue1], [B1Sur],  [Blue1DQ], [Blue1Volt], [Blue1Estop], [Blue1RL], [Blue1DS], [Blue1Bypass], [Blue2], [B2Sur], [Blue2DQ], [Blue2Volt], [Blue2Estop], [Blue2RL], [Blue2DS], [Blue2Bypass], [Blue3], [B3Sur], [Blue3DQ], [Blue3Volt], [Blue3Estop], [Blue3RL], [Blue3DS], [Blue3Bypass], [Red1], [R1Sur], [Red1DQ], [Red1Volt], [Red1Estop], [Red1RL], [Red1DS], [Red1Bypass], [Red2], [R2Sur], [Red2DQ], [Red2Volt], [Red2Estop], [Red2RL], [Red2DS], [Red2Bypass], [Red3], [R3Sur], [Red3DQ], [Red3Volt], [Red3Estop], [Red3RL], [Red3DS], [Red3Bypass], [Bluescore], [bluepen], [BlueForce], [BlueLevitate], [BlueBoost], [BlueHang], [Redscore], [redpen], [RedForce], [RedLevitate], [RedBoost], [RedHang], [SwitchScale]) VALUES('" & MatchNum.Text & "', '" & Ctime.Text & "', '" & BlueTeam1.Text & "', '" & Blue1Sur.Text & "', '" & BDQ1.Checked & "', '" & BlueVolt1.Text & "','" & PLC_Estop_Red1 & "' ,'" & Robot_Linked_Red1 & "' , '" & DS_Linked_Red1 & "', '" & BBypass1.Checked & "', '" & BlueTeam2.Text & "','" & Blue2Sur.Text & "', '" & BDQ2.Checked & "', '" & BlueVolt2.Text & "', '" & PLC_Estop_Blue2 & "','" & Robot_Linked_Blue2 & "' ,'" & DS_Linked_Blue2 & "' , '" & BBypass2.Checked & "', '" & BlueTeam3.Text & "','" & Blue3Sur.Text & "' , '" & BDQ3.Checked & "', '" & BlueVolt3.Text & "','" & PLC_Estop_Blue3 & "' , '" & Robot_Linked_Blue3 & "', '" & DS_Linked_Blue3 & "', '" & BBypass3.Checked & "', '" & RedTeam1.Text & "', '" & Red1Sur.Text & "', '" & RDQ1.Checked & "', '" & RedVolt1.Text & "', '" & PLC_Estop_Red1 & "', '" & Robot_Linked_Red1 & "', '" & DS_Linked_Red1 & "', '" & RBypass1.Checked & "', '" & RedTeam2.Text & "', '" & Red2Sur.Text & "', '" & RDQ2.Checked & "', '" & RedVolt2.Text & "', '" & PLC_Estop_Red2 & "', '" & Robot_Linked_Red2 & "','" & DS_Linked_Red2 & "' , '" & RBypass2.Checked & "', '" & RedTeam3.Text & "', '" & Red3Sur.Text & "', '" & RDQ3.Checked & "', '" & RedVolt3.Text & "','" & PLC_Estop_Red3 & "' ,'" & Robot_Linked_Red3 & "' ,'" & DS_Linked_Red3 & "' , '" & RBypass3.Checked & "', '" & BlueScore.Text & "', '" & BluePen.Text & "','" & PLC_Used_Force_Blue & "' , '" & PLC_Used_Lev_Blue & "','" & PLC_Used_Boost_Blue & "' , '" & BlueAllianceHang.Text & "', '" & RedScore.Text & "', '" & RedPen.Text & "','" & PLC_Used_Force_Red & "' , '" & PLC_Used_Lev_Red & "','" & PLC_Used_Boost_Red & "' , '" & RedAllianceHang & "', '" & ScaleSwitch.Text & "')"
+    '   Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Save_btn.Click
+    '   Dim insertquery As String = "INSERT INTO FMSMaster([Match], [MatchTime], [Blue1], [B1Sur],  [Blue1DQ], [Blue1Volt], [Blue1Estop], [Blue1RL], [Blue1DS], [Blue1Bypass], [Blue2], [B2Sur], [Blue2DQ], [Blue2Volt], [Blue2Estop], [Blue2RL], [Blue2DS], [Blue2Bypass], [Blue3], [B3Sur], [Blue3DQ], [Blue3Volt], [Blue3Estop], [Blue3RL], [Blue3DS], [Blue3Bypass], [Red1], [R1Sur], [Red1DQ], [Red1Volt], [Red1Estop], [Red1RL], [Red1DS], [Red1Bypass], [Red2], [R2Sur], [Red2DQ], [Red2Volt], [Red2Estop], [Red2RL], [Red2DS], [Red2Bypass], [Red3], [R3Sur], [Red3DQ], [Red3Volt], [Red3Estop], [Red3RL], [Red3DS], [Red3Bypass], [Bluescore], [bluepen], [BlueForce], [BlueLevitate], [BlueBoost], [BlueHang], [Redscore], [redpen], [RedForce], [RedLevitate], [RedBoost], [RedHang], [SwitchScale]) VALUES('" & MatchNum.Text & "', '" & Ctime.Text & "', '" & BlueTeam1.Text & "', '" & Blue1Sur.Text & "', '" & BDQ1.Checked & "', '" & BlueVolt1.Text & "','" & PLC_Estop_Red1 & "' ,'" & Robot_Linked_Red1 & "' , '" & DS_Linked_Red1 & "', '" & BBypass1.Checked & "', '" & BlueTeam2.Text & "','" & Blue2Sur.Text & "', '" & BDQ2.Checked & "', '" & BlueVolt2.Text & "', '" & PLC_Estop_Blue2 & "','" & Robot_Linked_Blue2 & "' ,'" & DS_Linked_Blue2 & "' , '" & BBypass2.Checked & "', '" & BlueTeam3.Text & "','" & Blue3Sur.Text & "' , '" & BDQ3.Checked & "', '" & BlueVolt3.Text & "','" & PLC_Estop_Blue3 & "' , '" & Robot_Linked_Blue3 & "', '" & DS_Linked_Blue3 & "', '" & BBypass3.Checked & "', '" & RedTeam1.Text & "', '" & Red1Sur.Text & "', '" & RDQ1.Checked & "', '" & RedVolt1.Text & "', '" & PLC_Estop_Red1 & "', '" & Robot_Linked_Red1 & "', '" & DS_Linked_Red1 & "', '" & RBypass1.Checked & "', '" & RedTeam2.Text & "', '" & Red2Sur.Text & "', '" & RDQ2.Checked & "', '" & RedVolt2.Text & "', '" & PLC_Estop_Red2 & "', '" & Robot_Linked_Red2 & "','" & DS_Linked_Red2 & "' , '" & RBypass2.Checked & "', '" & RedTeam3.Text & "', '" & Red3Sur.Text & "', '" & RDQ3.Checked & "', '" & RedVolt3.Text & "','" & PLC_Estop_Red3 & "' ,'" & Robot_Linked_Red3 & "' ,'" & DS_Linked_Red3 & "' , '" & RBypass3.Checked & "', '" & BlueScore.Text & "', '" & BluePen.Text & "','" & PLC_Used_Force_Blue & "' , '" & PLC_Used_Lev_Blue & "','" & PLC_Used_Boost_Blue & "' , '" & BlueAllianceHang.Text & "', '" & RedScore.Text & "', '" & RedPen.Text & "','" & PLC_Used_Force_Red & "' , '" & PLC_Used_Lev_Red & "','" & PLC_Used_Boost_Red & "' , '" & RedAllianceHang & "', '" & ScaleSwitch.Text & "')"
 
-        ExecuteQuery(insertquery)
+    '       ExecuteQuery(insertquery)
 
-        MessageBox.Show("Data Saved")
+    '      MessageBox.Show("Data Saved")
 
-    End Sub
+    '  End Sub
 
     Public Sub ExecuteQuery(query As String)
         Dim command As New SqlCommand(query, connection)
@@ -114,35 +114,6 @@ Public Class Main_Panel
         RPLC_Score.Text = PLC_RedScore
         BPLC_Score.Text = PLC_BlueScore
 
-        'Red Power-Ups
-
-        If PLC_Used_Boost_Red = True Then
-            RBoost.FillColor = System.Drawing.Color.LimeGreen
-
-        Else : RBoost.FillColor = System.Drawing.Color.Gray
-        End If
-        If PLC_Used_Force_Red = True Then
-            RForce.FillColor = System.Drawing.Color.LimeGreen
-        Else : RForce.FillColor = System.Drawing.Color.Gray
-        End If
-        If PLC_Used_Lev_Red = True Then
-            RLev.FillColor = System.Drawing.Color.LimeGreen
-        Else : RLev.FillColor = System.Drawing.Color.Gray
-        End If
-
-        'Blue Power-Ups
-        If PLC_Used_Boost_Blue = True Then
-            BBoost.FillColor = System.Drawing.Color.LimeGreen
-        Else : BBoost.FillColor = System.Drawing.Color.Gray
-        End If
-        If PLC_Used_Force_Blue = True Then
-            BForce.FillColor = System.Drawing.Color.LimeGreen
-        Else : BForce.FillColor = System.Drawing.Color.Gray
-        End If
-        If PLC_Used_Lev_Blue = True Then
-            BLev.FillColor = System.Drawing.Color.LimeGreen
-        Else : BLev.FillColor = System.Drawing.Color.Gray
-        End If
 
         'Estops
         If PLC_Estop_Red1 = True Then
@@ -343,31 +314,14 @@ Public Class Main_Panel
         PLCThread.Start()
         updateField(MatchEnums.PreMatch)
         matchTimerLbl.Text = WarmUpTime
-        WarmUpTimer.Enabled = False
+        AutoTimer.Enabled = False
         MatchMessages.Text = "Field Pre-Started"
         ResetPLC()
     End Sub
 
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
-        updateField(MatchEnums.WarmUp)
-        WarmUpTimer.Start()
-    End Sub
-
-    Private Sub WarmUpTimer_Tick(sender As Object, e As EventArgs) Handles WarmUpTimer.Tick
-        WarmUpTimer.Interval = 1000
-        matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
-        MatchMessages.Text = "Warm-Up"
-        ScaleSwitch.Text = gamedatause
-
-
-
-        If matchTimerLbl.Text = 0 Then
-            updateField(MatchEnums.Auto)
-            matchTimerLbl.Text = AutoTime
-            WarmUpTimer.Stop()
-            AutoTimer.Enabled = True
-            AutoTimer.Start()
-        End If
+        updateField(MatchEnums.Auto)
+        AutoTimer.Start()
     End Sub
 
     Private Sub AutoTimer_Tick(sender As Object, e As EventArgs) Handles AutoTimer.Tick
@@ -429,7 +383,6 @@ Public Class Main_Panel
         If matchTimerLbl.Text = 0 Then
             updateField(MatchEnums.PostMatch)
             EndGameTimer.Stop()
-            ScaleSwitch.Text = ""
             ResetPLC()
             LEDThread.Abort()
             DriverStation.Abort()
@@ -485,42 +438,6 @@ Public Class Main_Panel
                 Blue3DS.Estop = True
             End If
 
-            'Blue Boost'
-            If PLC_Used_Boost_Blue = True And BB < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
-                BB = BB + 1
-            End If
-
-            'Blue Force'
-            If PLC_Used_Force_Blue = True And BF < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
-                BF = BF + 1
-            End If
-
-            'Blue Lev'
-            If PLC_Used_Lev_Blue = True And BL < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_levitate, AudioPlayMode.Background)
-                BL = BL + 1
-            End If
-
-            'Red Boost'
-            If PLC_Used_Boost_Red = True And RB < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
-                RB = RB + 1
-            End If
-
-            'Red Force'
-            If PLC_Used_Force_Red = True And RF < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
-                RF = RF + 1
-            End If
-
-            'Red Lev'
-            If PLC_Used_Lev_Red = True And RL < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_levitate, AudioPlayMode.Background)
-                RL = RL + 1
-            End If
-
 
         Loop
 
@@ -537,7 +454,6 @@ Public Class Main_Panel
         PLC_Estop_Blue2 = True
         PLC_Estop_Blue3 = True
         updateField(MatchEnums.AbortMatch)
-        Me.WarmUpTimer.Stop()
         Me.AutoTimer.Stop()
         Me.PauseTimer.Stop()
         Me.TeleTimer.Stop()
@@ -558,12 +474,6 @@ Public Class Main_Panel
         PLC_Estop_Blue1 = False
         PLC_Estop_Blue2 = False
         PLC_Estop_Blue3 = False
-        PLC_Used_Force_Red = False
-        PLC_Used_Lev_Blue = False
-        PLC_Used_Lev_Red = False
-        PLC_Used_Force_Blue = False
-        PLC_Used_Boost_Blue = False
-        PLC_Used_Boost_Red = False
     End Sub
 
     'FTA Group Buttons'
