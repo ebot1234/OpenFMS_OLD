@@ -82,16 +82,16 @@ Public Class PLC_Comms_Server
 
 
     'Data Sent from FMS Software to PLC
-<<<<<<< HEAD
+
     Public Shared RedCargoShipPlatesRelease
     Public Shared BlueCargoShipPlatesRelease
     Public Shared ResetCargoShips
     Public Shared BlueCargoShipLight
     Public Shared RedCargoShipLight
-=======
+
     Public Shared Game_Data
     Public Shared PLC_Game_Data
->>>>>>> parent of 7db7f5e... Removed most of 2018 files and varibles
+
     Public Shared Match_Start
     Public Shared Match_Stop
     Public Shared Match_PreStart
