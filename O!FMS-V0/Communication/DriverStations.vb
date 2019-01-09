@@ -2,6 +2,7 @@
 Imports System.Net
 Imports System.Text
 Imports O_FMS_V0.PLC_Comms_Server
+Imports O_FMS_V0.RandomString
 Imports System.Threading
 
 
@@ -210,6 +211,33 @@ Public Class DriverStations
 
             tcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
         End While
+
+    End Sub
+
+    Public Function generateGameStringPacket()
+        Dim gameString = Encoding.ASCII.GetBytes(gamedatause)
+        Dim packet(gameString.Length + 4) As Byte
+
+        packet(0) = 0 'size'
+        packet(1) = gameString.Length + 2
+        packet(2) = 28 'type'
+        packet(3) = gameString.Length
+
+        Dim i As Integer = 0
+
+        If i < gameString.Length Then
+            packet(i + 4) = gameString(i)
+            i = i + 1
+        End If
+
+        Return packet
+    End Function
+
+    Public Sub sendGameDataPacket(gameData As String)
+        If tcpClient IsNot Nothing Then
+            Dim packet(generateGameStringPacket) As Byte
+            tcpClient.GetStream.Write(packet, 0, packet.Length)
+        End If
 
     End Sub
 

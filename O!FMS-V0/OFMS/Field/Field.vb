@@ -16,6 +16,10 @@ Public Class Field
     Public Shared Blue1DS As New DriverStations
     Public Shared Blue2DS As New DriverStations
     Public Shared Blue3DS As New DriverStations
+    'Led Controllers'
+    Public Shared ScaleLeds As New Lighting
+    Public Shared RedSwitchLeds As New Lighting
+    Public Shared BlueSwitchLeds As New Lighting
     '2018 timing'
     Public Shared WarmUpTime As Integer = 4
     Public Shared AutoTime As Integer = 15
@@ -28,6 +32,7 @@ Public Class Field
     'Match Type enums'
     Public Enum MatchEnums
         PreMatch
+        WarmUp
         Auto
         Pause
         TeleOp
@@ -55,7 +60,48 @@ Public Class Field
     End Sub
 
     Public Shared Sub handleSwitchLeds()
+        Dim pre As Integer = 0
+        Dim warm As Integer = 0
 
+        Do While (True)
+            If fieldStatus = MatchEnums.PreMatch Then
+                If pre < 1 Then
+                    setModeScale("G")
+                    status = False
+                    pre = pre + 1
+                End If
+
+            ElseIf fieldStatus = MatchEnums.WarmUp Then
+                If warm < 1 Then
+                    If gamedatause = "LRL" Then
+                        setModeScale("1")
+                    ElseIf gamedatause = "RRR" Then
+                        setModeScale("2")
+                    ElseIf gamedatause = "LLL" Then
+                        setModeScale("3")
+                    ElseIf gamedatause = "RLR" Then
+                        setModeScale("4")
+                    End If
+                    warm = warm + 1
+                End If
+            End If
+
+            If status = True Then
+                If PLC_BlueScaleOwned = True Then
+                    setModeScale("B")
+                ElseIf PLC_RedScaleOwned = True Then
+                    setModeScale("R")
+                ElseIf PLC_RedScaleOwned = False And PLC_BlueScaleOwned = False Then
+                    setModeScale("N")
+                ElseIf PLC_BlueSWOwned = True Then
+
+                End If
+
+            End If
+
+
+
+        Loop
     End Sub
 
 
@@ -133,6 +179,13 @@ Public Class Field
                 Match_PreStart = True
                 fieldStatus = MatchEnums.PreMatch
                 SendDS(Auto:=True, Enabled:=False)
+            Case MatchEnums.WarmUp
+                SendDS(Auto:=True, Enabled:=False)
+                GameDataGen()
+                Match_Start = True
+                fieldStatus = MatchEnums.WarmUp
+                SendDS(Auto:=True, Enabled:=False)
+                My.Computer.Audio.Play(My.Resources.match_warmup, AudioPlayMode.Background)
             Case MatchEnums.Auto
                 status = True
                 fieldStatus = MatchEnums.Auto

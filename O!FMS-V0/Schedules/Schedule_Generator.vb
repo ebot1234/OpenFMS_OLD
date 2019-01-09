@@ -10,9 +10,9 @@ Imports O_FMS_V0.Match_Generator
 
 Public Class Schedule_Generator
 
-    Public dir = Match_Generator.Directory.Text = "C:\OFMS"
-    Public fullpath = Dir() & "\Teams.txt"
-    Public lineCount As Int16 = File.ReadLines(Dir() & "\Teams.txt").Count
+    Public Shared dir = Match_Generator.Directory.Text = "C:\OFMS"
+    Public Shared fullpath = dir() & "\Teams.txt"
+    Public Shared lineCount As Int16 = File.ReadLines(dir() & "\Teams.txt").Count
 
     Public Shared Sub Team_list_gen()
         Dim myConnectDB As System.Data.SqlClient.SqlConnection
@@ -46,7 +46,7 @@ Public Class Schedule_Generator
         outputStream.Close()
         teamlistdone = True
     End Sub
-    Sub File_Convert()
+    Public Shared Sub File_Convert()
 
 
         '    Dim selectQuery As New SqlCommand("Select team FROM teaminfo where Idx= @TeamNo", connection)
@@ -54,8 +54,8 @@ Public Class Schedule_Generator
         '    Dim adapter As New SqlDataAdapter(selectQuery)
         '    Dim table As New DataTable()
         '    adapter.Fill(table)
-        Dim i As Int16 = linecount
-        Dim j As Int16 = linecount
+        Dim i As Int16 = lineCount
+        Dim j As Int16 = lineCount
 
         Dim teams(i)
         'Dim PlaceHolder(j)
@@ -72,7 +72,7 @@ Public Class Schedule_Generator
     End Sub
 
 
-    Public Sub Matchgen()
+    Public Shared Sub Matchgen()
         Dim table As New DataTable()
         Dim parser As New FileIO.TextFieldParser("C:\OFMS\temp.csv")
 
@@ -103,7 +103,7 @@ Public Class Schedule_Generator
 
         Dim strSql As String = "INSERT INTO MatchList (Match, Blue1, BlSur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur) VALUES (@Match, @Blue1, @BlSur, @Blue2, @B2Sur, @Blue3, @B3Sur, @Red1, @R1Sur, @Red2, @R2Sur, @Red3, @R3Sur)"
 
-        Dim connection As New SqlConnection("data source=Miyuki\sqlexpress; Initial Catalog=O!FMS; Integrated Security = true")
+        Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
         Dim cmd As New SqlClient.SqlCommand(strSql, connection)
         With cmd.Parameters
             .Add("@Match", SqlDbType.Int, 8, "Match")
@@ -165,7 +165,7 @@ Public Class Schedule_Generator
             Dim strSql As String = "INSERT INTO MatchSchedule([Match], [Blue1], [Blue2], [Blue3], [Red1], [Red2], [Red3]) VALUES (@Match,@Blue1,@Blue2,@Blue3,@Red1,@Red2,@Red3)"
 
 
-            Dim connection As New SqlConnection("data source=miyuki\sqlexpress; Initial Catalog=O!FMS; Integrated Security = true")
+            Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
 
             Using connection
 

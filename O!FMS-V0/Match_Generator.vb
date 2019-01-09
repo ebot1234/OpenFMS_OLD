@@ -7,8 +7,8 @@ Public Class Match_Generator
     Public dir = "C:\OFMS"
     Public fullpath = dir & "\Teams.txt"
     Public lineCount As Int16 = File.ReadLines(dir & "\Teams.txt").Count
-    Public numTeams = Teams
-    Public numRounds = Rounds
+    Public numTeams As String = "20"
+    Public numRounds As String = "7"
     Public Quality
     Public command As String
     Private Sub Match_Generator_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -53,16 +53,21 @@ Public Class Match_Generator
         ' command = " MatchMaker -t 20 -r 7 -l teams.txt -f -u 3 -q -s >" & dir & "\matches.txt"
         'Shell("C:\OFMS\MatchMaker" & command, vbNormalFocus)
         ' ucan hide or maximise window
-        RunMatchMaker("cd C:\OFMS", "MatchMaker -t 20 -r 7 -l teams.txt -f -u 3 -q -s > matches.txt", True)
+        runMatchMaker()
 
     End Sub
-    Private Sub RunMatchMaker(command As String, args As String, permanent As Boolean)
-        Dim p As Process = New Process()
-        Dim pi As ProcessStartInfo = New ProcessStartInfo()
-        pi.Arguments = " " + If(permanent = True, "/K", "/C") + " " + command + " " + args
-        pi.FileName = "cmd.exe"
-        p.StartInfo = pi
-        p.Start()
+    Private Sub runMatchMaker()
+        Const workingDirectory As String = "C:\OFMS"
+        Dim exePath As String = Environment.SystemDirectory & "\cmd.exe"
+        Dim startInfo As New ProcessStartInfo(exePath)
+        Dim cmdSession As New Process
+
+        startInfo.UseShellExecute = False
+        startInfo.WorkingDirectory = workingDirectory
+        startInfo.Arguments = "/C" + "MatchMaker -t 20 -r 7 -l teams.txt -b -u 3 -q -s > matches.txt"
+        cmdSession.StartInfo = startInfo
+
+        cmdSession.Start()
     End Sub
 
     Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles Teams.ValueChanged
@@ -71,6 +76,6 @@ Public Class Match_Generator
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
+        File_Convert()
     End Sub
 End Class
