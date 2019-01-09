@@ -61,12 +61,12 @@ Public Class Schedule_Generator
         'Dim PlaceHolder(j)
         i = 30
         j = 30
-        My.Computer.FileSystem.WriteAllText("C:\OFMS\temp.csv", My.Computer.FileSystem.ReadAllText("C:\OFMS\matchestest.txt").Replace(" ", ","), True)
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\temp.csv", My.Computer.FileSystem.ReadAllText("C:\OFMS\matches.txt").Replace(" ", ","), True)
         'below line not needed
         ' My.Computer.FileSystem.WriteAllText("C:\OFMS\temp.csv", My.Computer.FileSystem.ReadAllText("C:\OFMS\temp.txt").Replace(",0", ""), False)
 
 
-
+        MessageBox.Show("Converted File to CSV")
         Matchgen()
 
     End Sub
@@ -138,15 +138,21 @@ Public Class Schedule_Generator
 
         table.Columns.Add("Match")
         table.Columns.Add("Blue1")
+        table.Columns.Add("B1Sur")
         table.Columns.Add("Blue2")
+        table.Columns.Add("B2Sur")
         table.Columns.Add("Blue3")
+        table.Columns.Add("B3Sur")
         table.Columns.Add("Red1")
+        table.Columns.Add("R1Sur")
         table.Columns.Add("Red2")
+        table.Columns.Add("R2Sur")
         table.Columns.Add("Red3")
+        table.Columns.Add("R3Sur")
 
 
         '--TextField Parser is used to read the files 
-        Dim parser As New FileIO.TextFieldParser("C:\OFMS\temp.csv")
+        Dim parser As New FileIO.TextFieldParser("C:\OFMS\matches.txt")
 
         parser.Delimiters = New String() {","} ' fields are separated by comma
         parser.HasFieldsEnclosedInQuotes = False ' each of the values is not enclosed with double quotes
@@ -162,7 +168,7 @@ Public Class Schedule_Generator
 
 
             '--Create SQL query
-            Dim strSql As String = "INSERT INTO MatchSchedule([Match], [Blue1], [Blue2], [Blue3], [Red1], [Red2], [Red3]) VALUES (@Match,@Blue1,@Blue2,@Blue3,@Red1,@Red2,@Red3)"
+            Dim strSql As String = "INSERT INTO MatchList (Match, Blue1, BlSur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur) VALUES (@Match, @Blue1, @BlSur, @Blue2, @B2Sur, @Blue3, @B3Sur, @Red1, @R1Sur, @Red2, @R2Sur, @Red3, @R3Sur)"
 
 
             Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
@@ -171,13 +177,19 @@ Public Class Schedule_Generator
 
                 Dim cmd As New SqlClient.SqlCommand(strSql, connection) ' create command objects and add parameters
                 With cmd.Parameters
-                    .Add("@Match", SqlDbType.VarChar, 3, "Match")
-                    .Add("@Blue1", SqlDbType.VarChar, 4, "Blue1")
-                    .Add("@Blue2", SqlDbType.VarChar, 4, "Blue2")
-                    .Add("@Blue3", SqlDbType.VarChar, 4, "Blue3")
-                    .Add("@Red1", SqlDbType.VarChar, 4, "Red1")
-                    .Add("@Red2", SqlDbType.VarChar, 4, "Red2")
-                    .Add("@Red3", SqlDbType.VarChar, 4, "Red3")
+                    .Add("@Match", SqlDbType.Int, 8, "Match")
+                    .Add("@Blue1", SqlDbType.Int, 8, "Blue1")
+                    .Add("@B1Sur", SqlDbType.Int, 8, "B1Sur")
+                    .Add("@Blue2", SqlDbType.Int, 8, "Blue2")
+                    .Add("@B2Sur", SqlDbType.Int, 8, "B2Sur")
+                    .Add("@Blue3", SqlDbType.Int, 8, "Blue3")
+                    .Add("@B3Sur", SqlDbType.Int, 8, "B3Sur")
+                    .Add("@Red1", SqlDbType.Int, 8, "Red1")
+                    .Add("@R1Sur", SqlDbType.Int, 8, "R1Sur")
+                    .Add("@Red2", SqlDbType.Int, 8, "Red2")
+                    .Add("@R2Sur", SqlDbType.Int, 8, "R2Sur")
+                    .Add("@Red3", SqlDbType.Int, 8, "Red3")
+                    .Add("@R3Sur", SqlDbType.Int, 8, "R3Sur")
                 End With
 
                 Dim adapter As New SqlClient.SqlDataAdapter()
@@ -190,5 +202,25 @@ Public Class Schedule_Generator
             End Using
         Loop
 
+    End Sub
+
+    Public Shared Sub addMatches()
+
+        Dim i As Long = 0
+        Dim sr As StreamReader = New StreamReader("C:\OFMS\ matches.txt")
+        Dim line As String = sr.ReadLine()
+        Dim dbConn As SqlConnection = New SqlConnection("Data Source=MY-PC\OFMS;Initial Catalog= USERSDAT;Integrated Security=True")
+        Dim dbCmd As SqlCommand = New SqlCommand()
+        dbCmd.Connection = dbConn
+        While Not (sr.EndOfStream)
+            line = sr.ReadLine()
+            Dim fields() As String = line.Split(",")
+            dbCmd.CommandText = "INSERT INTO dbo. matchlist(Match, Blue1, BlSur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur) VALUES (@Match, @Blue1, @BlSur, @Blue2, @B2Sur, @Blue3, @B3Sur, @Red1, @R1Sur, @Red2, @R2Sur, @Red3, @R3Sur)"
+            dbConn.Open()
+            dbCmd.ExecuteNonQuery()
+            i = i + 1
+
+        End While
+        dbConn.Close()
     End Sub
 End Class

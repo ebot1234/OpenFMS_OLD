@@ -1,5 +1,10 @@
 ﻿Imports O_FMS_V0.Schedule_Generator
 Imports System.IO
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Net.Sockets
+Imports System.Text
+Imports Microsoft.VisualBasic.FileIO
 
 
 Public Class Match_Generator
@@ -64,7 +69,7 @@ Public Class Match_Generator
 
         startInfo.UseShellExecute = False
         startInfo.WorkingDirectory = workingDirectory
-        startInfo.Arguments = "/C" + "MatchMaker -t 20 -r 7 -l teams.txt -b -u 3 -q -s > matches.txt"
+        startInfo.Arguments = "/C" + "MatchMaker -t 20 -r 7 -l teams.txt -f -u 3 -q -s > matches.txt"
         cmdSession.StartInfo = startInfo
 
         cmdSession.Start()
@@ -76,6 +81,8 @@ Public Class Match_Generator
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        File_Convert()
+
     End Sub
+
+
 End Class
