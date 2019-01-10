@@ -41,4 +41,6 @@ The Arudino programs are programmed in Arduino's desktop IDE which is also free 
 https://www.arduino.cc/en/Main/Software
 The OFMS Led program is also changed each year and will be included in each years release.
 
+## Feature Requests:
 
+If you want to request features you can do so by using the issues tab in the repository.
