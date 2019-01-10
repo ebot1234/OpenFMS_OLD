@@ -20,6 +20,8 @@ Public Class DriverStations
     Public tcpClient As TcpClient
     Public udpClient As UdpClient
     Public TeamNum As Integer
+    Dim IpEnd As IPEndPoint = New IPEndPoint(IPAddress.Parse("10.0.100.5"), 1750)
+    Dim dsListener As TcpListener
 
     Public Sub newDriverStationConnection(teamNumber As String, allianceStationNumber As Integer)
         TeamNum = Convert.ToInt32(teamNumber)
@@ -167,9 +169,10 @@ Public Class DriverStations
     End Function
 
     Public Sub ListenToDS()
-        Dim IpEnd = New IPEndPoint(IPAddress.Parse("10.0.100.5"), 1750)
-        Dim dsListener = New TcpListener(IpEnd)
         Dim listen As Boolean = False
+        If dsListener Is Nothing Then
+            dsListener = New TcpListener(IPAddress.Parse("10.0.100.5"), 1750)
+        End If
         Try
             dsListener.Start()
             listen = True
@@ -214,33 +217,6 @@ Public Class DriverStations
 
     End Sub
 
-    Public Function generateGameStringPacket()
-        Dim gameString = Encoding.ASCII.GetBytes(gamedatause)
-        Dim packet(gameString.Length + 4) As Byte
-
-        packet(0) = 0 'size'
-        packet(1) = gameString.Length + 2
-        packet(2) = 28 'type'
-        packet(3) = gameString.Length
-
-        Dim i As Integer = 0
-
-        If i < gameString.Length Then
-            packet(i + 4) = gameString(i)
-            i = i + 1
-        End If
-
-        Return packet
-    End Function
-
-    Public Sub sendGameDataPacket(gameData As String)
-        If tcpClient IsNot Nothing Then
-            Dim packet(generateGameStringPacket) As Byte
-            tcpClient.GetStream.Write(packet, 0, packet.Length)
-        End If
-
-    End Sub
-
     Public Sub Dispose()
         If udpClient IsNot Nothing Then
             udpClient.Close()
@@ -253,6 +229,13 @@ Public Class DriverStations
         Else
             'Do nothing since it is nothing'
         End If
+
+        If dsListener IsNot Nothing Then
+            dsListener.Stop()
+        Else
+            'Do nothing since it is nothing
+        End If
+
     End Sub
 
 End Class

@@ -25,7 +25,8 @@ Public Class Field
     Public Shared AutoTime As Integer = 15
     Public Shared PauseTime As Integer = 3
     Public Shared TeleTime As Integer = 135
-    Public Shared EndgameTime As Integer = 30
+    Public Shared EndgameWarningTime As Integer = 30
+    Public Shared EndGameTime As Integer = 20
     Public Shared GameTime As Integer = 0
 
     Public Shared fieldStatus
@@ -33,8 +34,8 @@ Public Class Field
     Public Enum MatchEnums
         PreMatch
         SandStorm
-        Pause
         TeleOp
+        EndGameWarning
         EndGame
         PostMatch
         AbortMatch
@@ -131,6 +132,7 @@ Public Class Field
         Select Case (MatchEnums)
 
             Case MatchEnums.PreMatch
+                DisposeDS()
                 status = False
                 My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
                 PLC_Reset = True
@@ -142,14 +144,15 @@ Public Class Field
                 fieldStatus = MatchEnums.SandStorm
                 SendDS(Auto:=True, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_start, AudioPlayMode.Background)
-            Case MatchEnums.Pause
-                fieldStatus = MatchEnums.Pause
-                SendDS(Auto:=False, Enabled:=False)
-                My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
             Case MatchEnums.TeleOp
                 fieldStatus = MatchEnums.TeleOp
                 SendDS(Auto:=False, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_resume, AudioPlayMode.Background)
+            Case MatchEnums.EndGameWarning
+                fieldStatus = MatchEnums.EndGameWarning
+                SendDS(Auto:=False, Enabled:=True)
+                'Add EndGameWarning'
+                My.Computer.Audio.Play(My.Resources.match_levitate, AudioPlayMode.Background)
             Case MatchEnums.EndGame
                 fieldStatus = MatchEnums.EndGame
                 SendDS(Auto:=False, Enabled:=True)

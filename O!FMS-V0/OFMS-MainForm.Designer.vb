@@ -39,7 +39,7 @@ Partial Class Main_Panel
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.RedScore = New System.Windows.Forms.Label()
+        Me.ScoreLbl = New System.Windows.Forms.Label()
         Me.RedPen = New System.Windows.Forms.TextBox()
         Me.RPLC_Score = New System.Windows.Forms.Label()
         Me.RBypass3 = New System.Windows.Forms.CheckBox()
@@ -201,6 +201,7 @@ Partial Class Main_Panel
         Me.DSLightTestBtn = New System.Windows.Forms.Button()
         Me.ScoringTableLightTestBtn = New System.Windows.Forms.Button()
         Me.ConnectPLCBtn = New System.Windows.Forms.Button()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -230,6 +231,7 @@ Partial Class Main_Panel
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.MediumTurquoise
+        Me.Panel1.Controls.Add(Me.Label23)
         Me.Panel1.Controls.Add(Me.Label21)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.RedAllianceHang)
@@ -242,7 +244,7 @@ Partial Class Main_Panel
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.RedScore)
+        Me.Panel1.Controls.Add(Me.ScoreLbl)
         Me.Panel1.Controls.Add(Me.RedPen)
         Me.Panel1.Controls.Add(Me.RPLC_Score)
         Me.Panel1.Controls.Add(Me.RBypass3)
@@ -383,14 +385,14 @@ Partial Class Main_Panel
         Me.Label1.TabIndex = 19
         Me.Label1.Text = "Red Penalty"
         '
-        'RedScore
+        'ScoreLbl
         '
-        Me.RedScore.AutoSize = True
-        Me.RedScore.Location = New System.Drawing.Point(246, 228)
-        Me.RedScore.Name = "RedScore"
-        Me.RedScore.Size = New System.Drawing.Size(13, 13)
-        Me.RedScore.TabIndex = 18
-        Me.RedScore.Text = "0"
+        Me.ScoreLbl.AutoSize = True
+        Me.ScoreLbl.Location = New System.Drawing.Point(246, 228)
+        Me.ScoreLbl.Name = "ScoreLbl"
+        Me.ScoreLbl.Size = New System.Drawing.Size(13, 13)
+        Me.ScoreLbl.TabIndex = 18
+        Me.ScoreLbl.Text = "0"
         '
         'RedPen
         '
@@ -1640,13 +1642,7 @@ Partial Class Main_Panel
         Me.Label19.Text = "Timer"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'WarmUpTimer
-        '
-        '
         'AutoTimer
-        '
-        '
-        'PauseTimer
         '
         '
         'TeleTimer
@@ -1745,6 +1741,15 @@ Partial Class Main_Panel
         Me.ConnectPLCBtn.Text = "Connect PLC"
         Me.ConnectPLCBtn.UseVisualStyleBackColor = True
         '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(140, 125)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(45, 13)
+        Me.Label23.TabIndex = 33
+        Me.Label23.Text = "Label23"
+        '
         'Main_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1809,7 +1814,7 @@ Partial Class Main_Panel
     Friend WithEvents RedVolt2 As System.Windows.Forms.Label
     Friend WithEvents RedVolt1 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents RedScore As System.Windows.Forms.Label
+    Friend WithEvents ScoreLbl As System.Windows.Forms.Label
     Friend WithEvents RedPen As System.Windows.Forms.TextBox
     Friend WithEvents RPLC_Score As System.Windows.Forms.Label
     Friend WithEvents RBypass3 As System.Windows.Forms.CheckBox
@@ -1967,4 +1972,5 @@ Partial Class Main_Panel
     Friend WithEvents LedPatternTestBtn As Button
     Friend WithEvents DSLightTestBtn As Button
     Friend WithEvents ScoringTableLightTestBtn As Button
+    Friend WithEvents Label23 As Label
 End Class
