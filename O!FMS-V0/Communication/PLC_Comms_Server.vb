@@ -251,11 +251,11 @@ Public Class PLC_Comms_Server
         End If
 
         If RedCargoShipPlatesRelease = True Then
-            modbusClient.WriteSingleCoil(0, True)
+            modbusClient.WriteSingleCoil(40, True)
         End If
 
         If BlueCargoShipPlatesRelease = True Then
-            modbusClient.WriteSingleCoil(1, True)
+            modbusClient.WriteSingleCoil(41, True)
         End If
 
         'Alliance Light Test

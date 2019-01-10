@@ -341,39 +341,22 @@ Public Class Main_Panel
         DriverStation.Start()
         PLCThread.Start()
         updateField(MatchEnums.PreMatch)
-        matchTimerLbl.Text = WarmUpTime
-        WarmUpTimer.Enabled = False
+        matchTimerLbl.Text = AutoTime
+        AutoTimer.Enabled = False
         MatchMessages.Text = "Field Pre-Started"
         ResetPLC()
     End Sub
 
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
-        updateField(MatchEnums.WarmUp)
-        WarmUpTimer.Start()
-    End Sub
-
-    Private Sub WarmUpTimer_Tick(sender As Object, e As EventArgs) Handles WarmUpTimer.Tick
-        WarmUpTimer.Interval = 1000
-        matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
-        MatchMessages.Text = "Warm-Up"
-        ScaleSwitch.Text = gamedatause
-
-
-
-        If matchTimerLbl.Text = 0 Then
-            updateField(MatchEnums.Auto)
-            matchTimerLbl.Text = AutoTime
-            WarmUpTimer.Stop()
-            AutoTimer.Enabled = True
-            AutoTimer.Start()
-        End If
+        updateField(MatchEnums.SandStorm)
+        AutoTimer.Start()
     End Sub
 
     Private Sub AutoTimer_Tick(sender As Object, e As EventArgs) Handles AutoTimer.Tick
         AutoTimer.Start()
         AutoTimer.Interval = 1000
         matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
-        MatchMessages.Text = "Auto"
+        MatchMessages.Text = "Sand Storm"
 
 
         If matchTimerLbl.Text = 0 Then

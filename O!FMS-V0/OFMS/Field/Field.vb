@@ -32,8 +32,7 @@ Public Class Field
     'Match Type enums'
     Public Enum MatchEnums
         PreMatch
-        WarmUp
-        Auto
+        SandStorm
         Pause
         TeleOp
         EndGame
@@ -60,48 +59,7 @@ Public Class Field
     End Sub
 
     Public Shared Sub handleSwitchLeds()
-        Dim pre As Integer = 0
-        Dim warm As Integer = 0
 
-        Do While (True)
-            If fieldStatus = MatchEnums.PreMatch Then
-                If pre < 1 Then
-                    setModeScale("G")
-                    status = False
-                    pre = pre + 1
-                End If
-
-            ElseIf fieldStatus = MatchEnums.WarmUp Then
-                If warm < 1 Then
-                    If gamedatause = "LRL" Then
-                        setModeScale("1")
-                    ElseIf gamedatause = "RRR" Then
-                        setModeScale("2")
-                    ElseIf gamedatause = "LLL" Then
-                        setModeScale("3")
-                    ElseIf gamedatause = "RLR" Then
-                        setModeScale("4")
-                    End If
-                    warm = warm + 1
-                End If
-            End If
-
-            If status = True Then
-                If PLC_BlueScaleOwned = True Then
-                    setModeScale("B")
-                ElseIf PLC_RedScaleOwned = True Then
-                    setModeScale("R")
-                ElseIf PLC_RedScaleOwned = False And PLC_BlueScaleOwned = False Then
-                    setModeScale("N")
-                ElseIf PLC_BlueSWOwned = True Then
-
-                End If
-
-            End If
-
-
-
-        Loop
     End Sub
 
 
@@ -179,16 +137,9 @@ Public Class Field
                 Match_PreStart = True
                 fieldStatus = MatchEnums.PreMatch
                 SendDS(Auto:=True, Enabled:=False)
-            Case MatchEnums.WarmUp
-                SendDS(Auto:=True, Enabled:=False)
-                GameDataGen()
-                Match_Start = True
-                fieldStatus = MatchEnums.WarmUp
-                SendDS(Auto:=True, Enabled:=False)
-                My.Computer.Audio.Play(My.Resources.match_warmup, AudioPlayMode.Background)
-            Case MatchEnums.Auto
+            Case MatchEnums.SandStorm
                 status = True
-                fieldStatus = MatchEnums.Auto
+                fieldStatus = MatchEnums.SandStorm
                 SendDS(Auto:=True, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_start, AudioPlayMode.Background)
             Case MatchEnums.Pause
