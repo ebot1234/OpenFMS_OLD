@@ -185,7 +185,7 @@ Partial Class Main_Panel
         Me.Pre_Start_btn = New System.Windows.Forms.Button()
         Me.matchTimerLbl = New System.Windows.Forms.Label()
         Me.MatchMessages = New System.Windows.Forms.Label()
-        Me.ScaleSwitch = New System.Windows.Forms.Label()
+        Me.SandStormMessage = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.WarmUpTimer = New System.Windows.Forms.Timer(Me.components)
         Me.AutoTimer = New System.Windows.Forms.Timer(Me.components)
@@ -1568,11 +1568,11 @@ Partial Class Main_Panel
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(406, 217)
+        Me.Label3.Location = New System.Drawing.Point(410, 218)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(116, 13)
+        Me.Label3.Size = New System.Drawing.Size(102, 13)
         Me.Label3.TabIndex = 21
-        Me.Label3.Text = "Scale/Switch Positions"
+        Me.Label3.Text = "Sand Storm Position"
         '
         'Label4
         '
@@ -1623,14 +1623,13 @@ Partial Class Main_Panel
         Me.MatchMessages.Text = "Match Not Started"
         Me.MatchMessages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'ScaleSwitch
+        'SandStormMessage
         '
-        Me.ScaleSwitch.Location = New System.Drawing.Point(427, 236)
-        Me.ScaleSwitch.Name = "ScaleSwitch"
-        Me.ScaleSwitch.Size = New System.Drawing.Size(71, 13)
-        Me.ScaleSwitch.TabIndex = 28
-        Me.ScaleSwitch.Text = "Scale/Switch"
-        Me.ScaleSwitch.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.SandStormMessage.Location = New System.Drawing.Point(427, 236)
+        Me.SandStormMessage.Name = "SandStormMessage"
+        Me.SandStormMessage.Size = New System.Drawing.Size(71, 13)
+        Me.SandStormMessage.TabIndex = 28
+        Me.SandStormMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label19
         '
@@ -1759,7 +1758,7 @@ Partial Class Main_Panel
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.ScaleSwitch)
+        Me.Controls.Add(Me.SandStormMessage)
         Me.Controls.Add(Me.MatchMessages)
         Me.Controls.Add(Me.matchTimerLbl)
         Me.Controls.Add(Me.Pre_Start_btn)
@@ -1942,7 +1941,7 @@ Partial Class Main_Panel
     Friend WithEvents Pre_Start_btn As Button
     Friend WithEvents matchTimerLbl As Label
     Friend WithEvents MatchMessages As Label
-    Friend WithEvents ScaleSwitch As Label
+    Friend WithEvents SandStormMessage As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents PWRTimerLbl As Label
     Friend WithEvents PowerUpTimerBluelbl As Label

@@ -88,6 +88,7 @@ Public Class PLC_Comms_Server
     Public Shared ResetCargoShips
     Public Shared BlueCargoShipLight
     Public Shared RedCargoShipLight
+    Public Shared SandStorm
 
     Public Shared Game_Data
     Public Shared PLC_Game_Data
