@@ -8,8 +8,8 @@ Public Class Match_Generator
     Public dir = "C:\OFMS"
     Public fullpath = dir & "\Teams.txt"
     Public lineCount As Int16 = File.ReadLines(dir & "\Teams.txt").Count
-    Public numTeams As String = NumTeamsBox.Text
-    Public numRounds As String = NumRoundsBox.Text
+    Public numTeams As String
+    Public numRounds As String
     Public Quality
     Private Sub Match_Generator_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim i As Integer = 0
@@ -49,6 +49,10 @@ Public Class Match_Generator
         ElseIf matchQuality.Text = Nothing Then
             MessageBox.Show("Quality not selected")
         End If
+
+        numTeams = NumTeamsBox.Text
+        numRounds = NumRoundsBox.Text
+
         'runs the match maker software with the varibles set from the form
         runMatchMaker()
 
