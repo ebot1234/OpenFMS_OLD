@@ -1,10 +1,6 @@
 ﻿Imports O_FMS_V0.Schedule_Generator
 Imports System.IO
-Imports System.Data
-Imports System.Data.SqlClient
-Imports System.Net.Sockets
-Imports System.Text
-Imports Microsoft.VisualBasic.FileIO
+
 
 
 Public Class Match_Generator
@@ -12,10 +8,9 @@ Public Class Match_Generator
     Public dir = "C:\OFMS"
     Public fullpath = dir & "\Teams.txt"
     Public lineCount As Int16 = File.ReadLines(dir & "\Teams.txt").Count
-    Public numTeams As String = "20"
-    Public numRounds As String = "7"
+    Public numTeams As String = NumTeamsBox.Text
+    Public numRounds As String = NumRoundsBox.Text
     Public Quality
-    Public command As String
     Private Sub Match_Generator_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim i As Integer = 0
         If i = 0 Then
@@ -41,7 +36,7 @@ Public Class Match_Generator
         End If
 
 
-        If lineCount = Teams.Text Then
+        If lineCount = NumTeamsBox.Text Then
 
         Else : MessageBox.Show("Teams List Count doesn't match selected # of Teams")
         End If
@@ -54,10 +49,7 @@ Public Class Match_Generator
         ElseIf matchQuality.Text = Nothing Then
             MessageBox.Show("Quality not selected")
         End If
-        'command = Quality & " -t " & numTeams & " -r " & numRounds & " -l " & "C:\OFMS\" & " -s -e > Matches.txt"
-        ' command = " MatchMaker -t 20 -r 7 -l teams.txt -f -u 3 -q -s >" & dir & "\matches.txt"
-        'Shell("C:\OFMS\MatchMaker" & command, vbNormalFocus)
-        ' ucan hide or maximise window
+        'runs the match maker software with the varibles set from the form
         runMatchMaker()
 
     End Sub
@@ -67,16 +59,18 @@ Public Class Match_Generator
         Dim startInfo As New ProcessStartInfo(exePath)
         Dim cmdSession As New Process
 
+        Dim command As String = String.Format("MatchMaker -t {0} -r {1} -l teams.txt {2} -u 3 -q -s > matches.txt", numTeams, numRounds, Quality)
+
         startInfo.UseShellExecute = False
         startInfo.WorkingDirectory = workingDirectory
-        startInfo.Arguments = "/C" + "MatchMaker -t 20 -r 7 -l teams.txt -f -u 3 -q -s > matches.txt"
+        startInfo.Arguments = "/C" + command
         cmdSession.StartInfo = startInfo
 
         cmdSession.Start()
     End Sub
 
-    Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles Teams.ValueChanged
-
+    Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs)
+        numTeams = numTeams + 1
 
     End Sub
 

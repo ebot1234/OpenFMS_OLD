@@ -27,9 +27,7 @@ Partial Class Match_Generator
         Me.ScheduleGeneratorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Directory = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Teams = New System.Windows.Forms.NumericUpDown()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Rounds = New System.Windows.Forms.NumericUpDown()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.matchQuality = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -39,10 +37,10 @@ Partial Class Match_Generator
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.NumTeamsBox = New System.Windows.Forms.TextBox()
+        Me.NumRoundsBox = New System.Windows.Forms.TextBox()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ScheduleGeneratorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Teams, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Rounds, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -69,30 +67,15 @@ Partial Class Match_Generator
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Location of Teams LIst (# of teams in list must match Selected #) "
         '
-        'Teams
-        '
-        Me.Teams.Location = New System.Drawing.Point(6, 59)
-        Me.Teams.Maximum = New Decimal(New Integer() {200, 0, 0, 0})
-        Me.Teams.Name = "Teams"
-        Me.Teams.Size = New System.Drawing.Size(120, 20)
-        Me.Teams.TabIndex = 2
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(190, 62)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(330, 17)
+        Me.Label2.Size = New System.Drawing.Size(328, 17)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "# Teams (# of teams in list must match Selected #) "
-        '
-        'Rounds
-        '
-        Me.Rounds.Location = New System.Drawing.Point(18, 135)
-        Me.Rounds.Name = "Rounds"
-        Me.Rounds.Size = New System.Drawing.Size(120, 20)
-        Me.Rounds.TabIndex = 4
+        Me.Label2.Text = "# Teams (# of teams in list must match selected #) "
         '
         'Label3
         '
@@ -145,9 +128,9 @@ Partial Class Match_Generator
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.NumTeamsBox)
         Me.GroupBox1.Controls.Add(Me.Directory)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.Teams)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 41)
         Me.GroupBox1.Name = "GroupBox1"
@@ -184,11 +167,26 @@ Partial Class Match_Generator
         Me.Button3.Text = "Generate Schedule"
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'NumTeamsBox
+        '
+        Me.NumTeamsBox.Location = New System.Drawing.Point(6, 61)
+        Me.NumTeamsBox.Name = "NumTeamsBox"
+        Me.NumTeamsBox.Size = New System.Drawing.Size(100, 20)
+        Me.NumTeamsBox.TabIndex = 14
+        '
+        'NumRoundsBox
+        '
+        Me.NumRoundsBox.Location = New System.Drawing.Point(18, 138)
+        Me.NumRoundsBox.Name = "NumRoundsBox"
+        Me.NumRoundsBox.Size = New System.Drawing.Size(100, 20)
+        Me.NumRoundsBox.TabIndex = 14
+        '
         'Match_Generator
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(820, 502)
+        Me.Controls.Add(Me.NumRoundsBox)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Button2)
@@ -197,14 +195,11 @@ Partial Class Match_Generator
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.matchQuality)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Rounds)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Match_Generator"
         Me.Text = "Match_Generator"
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ScheduleGeneratorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Teams, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Rounds, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -216,9 +211,7 @@ Partial Class Match_Generator
     Friend WithEvents ScheduleGeneratorBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Directory As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Teams As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Rounds As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents matchQuality As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
@@ -228,4 +221,6 @@ Partial Class Match_Generator
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents NumTeamsBox As TextBox
+    Friend WithEvents NumRoundsBox As TextBox
 End Class
