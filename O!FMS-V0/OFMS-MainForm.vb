@@ -1,10 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports O_FMS_V0.PLC_Comms_Server
-Imports O_FMS_V0.RandomString
 Imports O_FMS_V0.Field
-Imports O_FMS_V0.Lighting
-
-
+Imports O_FMS_V0.ScoringPanel
 
 
 
@@ -12,8 +9,6 @@ Public Class Main_Panel
 
     Dim DriverStation As New Threading.Thread(AddressOf HandleDSConnections)
     Dim PLCThread As New Threading.Thread(AddressOf HandlePLC)
-    Dim LEDThread As New Threading.Thread(AddressOf handleSwitchLeds)
-
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
@@ -337,15 +332,14 @@ Public Class Main_Panel
         If DriverStation IsNot Nothing Then
             DriverStation.Abort()
         End If
-
+        Label23.Text = 0
+        ScoringPanel.score = 0
         PLCThread = New Threading.Thread(AddressOf HandlePLC)
         DriverStation = New Threading.Thread(AddressOf HandleDSConnections)
-        LEDThread = New Threading.Thread(AddressOf handleSwitchLeds)
-        LEDThread.Start()
         DriverStation.Start()
         PLCThread.Start()
         updateField(MatchEnums.PreMatch)
-        matchTimerLbl.Text = AutoTime
+        matchTimerLbl.Text = SandStormTime
         AutoTimer.Enabled = False
         MatchMessages.Text = "Field Pre-Started"
         SandStormMessage.Text = "Sand Storm Enabled"
@@ -364,7 +358,6 @@ Public Class Main_Panel
         matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
         MatchMessages.Text = "Sand Storm"
 
-
         If matchTimerLbl.Text = 0 Then
             updateField(MatchEnums.TeleOp)
             matchTimerLbl.Text = TeleTime
@@ -380,6 +373,7 @@ Public Class Main_Panel
         TeleTimer.Interval = 1000
         matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
         MatchMessages.Text = "Tele-Operated"
+        SandStormMessage.Text = "Sand Storm Disabled"
 
         SandStorm = False
 
@@ -408,7 +402,6 @@ Public Class Main_Panel
             updateField(MatchEnums.PostMatch)
             EndGameTimer.Stop()
             SandStormMessage.Text = ""
-            LEDThread.Abort()
             MatchMessages.Text = "Match Ended"
         End If
     End Sub
@@ -418,9 +411,11 @@ Public Class Main_Panel
         Field.updateField(MatchEnums.AbortMatch)
         MatchMessages.Text = "Match Aborted"
         matchTimerLbl.Text = 0
-        LEDThread.Abort()
-    End Sub
+        AutoTimer.Stop()
+        TeleTimer.Stop()
+        EndGameTimer.Stop()
 
+    End Sub
 
     Public Sub HandlePLC()
         Dim RB As Integer = 0
@@ -434,8 +429,12 @@ Public Class Main_Panel
         Do While (True)
 
             If PLC_Estop_Field = True Then
-                ' HandleAbortedMatch()
-
+                Red1DS.Estop = True
+                Red2DS.Estop = True
+                Red3DS.Estop = True
+                Blue1DS.Estop = True
+                Blue2DS.Estop = True
+                Blue3DS.Estop = True
             End If
 
             If PLC_Estop_Red1 = True Then
@@ -462,43 +461,6 @@ Public Class Main_Panel
                 Blue3DS.Estop = True
             End If
 
-            'Blue Boost'
-            If PLC_Used_Boost_Blue = True And BB < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
-                BB = BB + 1
-            End If
-
-            'Blue Force'
-            If PLC_Used_Force_Blue = True And BF < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
-                BF = BF + 1
-            End If
-
-            'Blue Lev'
-            If PLC_Used_Lev_Blue = True And BL < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_levitate, AudioPlayMode.Background)
-                BL = BL + 1
-            End If
-
-            'Red Boost'
-            If PLC_Used_Boost_Red = True And RB < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_boost, AudioPlayMode.Background)
-                RB = RB + 1
-            End If
-
-            'Red Force'
-            If PLC_Used_Force_Red = True And RF < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
-                RF = RF + 1
-            End If
-
-            'Red Lev'
-            If PLC_Used_Lev_Red = True And RL < 1 Then
-                My.Computer.Audio.Play(My.Resources.match_levitate, AudioPlayMode.Background)
-                RL = RL + 1
-            End If
-
-
         Loop
 
 
@@ -506,25 +468,8 @@ Public Class Main_Panel
 
 
     Public Sub HandleAbortedMatch()
-        Dim i As Integer = 0
-        PLC_Estop_Red1 = True
-        PLC_Estop_Red2 = True
-        PLC_Estop_Red3 = True
-        PLC_Estop_Blue1 = True
-        PLC_Estop_Blue2 = True
-        PLC_Estop_Blue3 = True
-        updateField(MatchEnums.AbortMatch)
-        Me.WarmUpTimer.Stop()
-        Me.AutoTimer.Stop()
-        Me.PauseTimer.Stop()
-        Me.TeleTimer.Stop()
-        Me.EndGameTimer.Stop()
-        If i < 1 Then
-            My.Computer.Audio.Play(My.Resources.fog_blast, AudioPlayMode.Background)
-        End If
         DriverStation.Abort()
         PLCThread.Abort()
-
     End Sub
 
     Public Sub ResetPLC()
@@ -535,12 +480,6 @@ Public Class Main_Panel
         PLC_Estop_Blue1 = False
         PLC_Estop_Blue2 = False
         PLC_Estop_Blue3 = False
-        PLC_Used_Force_Red = False
-        PLC_Used_Lev_Blue = False
-        PLC_Used_Lev_Red = False
-        PLC_Used_Force_Blue = False
-        PLC_Used_Boost_Blue = False
-        PLC_Used_Boost_Red = False
     End Sub
 
     'FTA Group Buttons'
@@ -557,7 +496,7 @@ Public Class Main_Panel
     End Sub
 
     Private Sub LedPatternTestBtn_Click(sender As Object, e As EventArgs) Handles LedPatternTestBtn.Click
-        ' setMode("test")
+
     End Sub
 
     'Display Box Buttons'

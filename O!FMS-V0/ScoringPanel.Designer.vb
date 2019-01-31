@@ -29,6 +29,11 @@ Partial Class ScoringPanel
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Button10 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -43,7 +48,7 @@ Partial Class ScoringPanel
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(65, 64)
+        Me.Button1.Location = New System.Drawing.Point(162, 83)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(134, 23)
         Me.Button1.TabIndex = 1
@@ -52,7 +57,7 @@ Partial Class ScoringPanel
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(65, 117)
+        Me.Button2.Location = New System.Drawing.Point(162, 123)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(134, 23)
         Me.Button2.TabIndex = 2
@@ -61,7 +66,7 @@ Partial Class ScoringPanel
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(65, 166)
+        Me.Button3.Location = New System.Drawing.Point(65, 193)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(134, 23)
         Me.Button3.TabIndex = 4
@@ -70,7 +75,7 @@ Partial Class ScoringPanel
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(65, 221)
+        Me.Button4.Location = New System.Drawing.Point(65, 164)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(134, 23)
         Me.Button4.TabIndex = 5
@@ -79,7 +84,7 @@ Partial Class ScoringPanel
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(65, 271)
+        Me.Button5.Location = New System.Drawing.Point(162, 233)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(134, 23)
         Me.Button5.TabIndex = 6
@@ -89,17 +94,68 @@ Partial Class ScoringPanel
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(109, 20)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(193, 49)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(45, 13)
+        Me.Label2.Size = New System.Drawing.Size(85, 20)
         Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Scorelbl"
+        Me.Label2.Text = "Red Score"
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(270, 193)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(127, 23)
+        Me.Button6.TabIndex = 8
+        Me.Button6.Text = "Cargoship Cargo"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(270, 164)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(127, 23)
+        Me.Button7.TabIndex = 9
+        Me.Button7.Text = "Cargoship Hatch"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(162, 262)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(134, 23)
+        Me.Button8.TabIndex = 10
+        Me.Button8.Text = "HAB 1"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(162, 292)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(134, 23)
+        Me.Button9.TabIndex = 11
+        Me.Button9.Text = "HAB 2"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'Button10
+        '
+        Me.Button10.Location = New System.Drawing.Point(162, 322)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(134, 23)
+        Me.Button10.TabIndex = 12
+        Me.Button10.Text = "HAB 3"
+        Me.Button10.UseVisualStyleBackColor = True
         '
         'ScoringPanel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button10)
+        Me.Controls.Add(Me.Button9)
+        Me.Controls.Add(Me.Button8)
+        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -121,4 +177,9 @@ Partial Class ScoringPanel
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Button9 As Button
+    Friend WithEvents Button10 As Button
 End Class

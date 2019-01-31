@@ -173,6 +173,7 @@ Public Class DriverStations
         If dsListener Is Nothing Then
             dsListener = New TcpListener(IPAddress.Parse("10.0.100.5"), 1750)
         End If
+
         Try
             dsListener.Start()
             listen = True

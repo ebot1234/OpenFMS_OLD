@@ -17,13 +17,10 @@ Public Class Field
     Public Shared Blue2DS As New DriverStations
     Public Shared Blue3DS As New DriverStations
     'Led Controllers'
-    Public Shared ScaleLeds As New Lighting
-    Public Shared RedSwitchLeds As New Lighting
-    Public Shared BlueSwitchLeds As New Lighting
-    '2018 timing'
-    Public Shared WarmUpTime As Integer = 4
-    Public Shared AutoTime As Integer = 15
-    Public Shared PauseTime As Integer = 3
+    'TODO Add new light controllers
+
+    '2019 timing'
+    Public Shared SandStormTime As Integer = 15
     Public Shared TeleTime As Integer = 135
     Public Shared EndgameWarningTime As Integer = 30
     Public Shared EndGameTime As Integer = 20
@@ -56,13 +53,7 @@ Public Class Field
         Blue1DS.Dispose()
         Blue2DS.Dispose()
         Blue3DS.Dispose()
-
     End Sub
-
-    Public Shared Sub handleSwitchLeds()
-
-    End Sub
-
 
     Public Shared Function SendDS(Auto As Boolean, Enabled As Boolean)
         If Auto = True Then
@@ -166,6 +157,7 @@ Public Class Field
                 status = False
             Case MatchEnums.AbortMatch
                 fieldStatus = MatchEnums.AbortMatch
+                My.Computer.Audio.Play(My.Resources.fog_blast, AudioPlayMode.Background)
                 SendDS(Auto:=False, Enabled:=False)
                 Match_Stop = True
                 Thread.Sleep(50)
