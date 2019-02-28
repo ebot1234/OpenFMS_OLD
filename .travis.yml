@@ -1,1 +1,3 @@
-language: VISUAL BASIC
+language: visual basic
+visual basic:
+  - "15.3"
