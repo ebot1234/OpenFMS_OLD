@@ -1,2 +1,6 @@
 language: visual basic
-solution: O!FMS-V0.sln
+mono: none
+dotnet: 2.1.502
+script:
+ - dotnet restore
+...
