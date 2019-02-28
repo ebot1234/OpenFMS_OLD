@@ -1,3 +1,2 @@
 language: visual basic
-visual basic:
-  - "15.3"
+solution: O!FMS-V0.sln
