@@ -1,3 +1,5 @@
+https://travis-ci.org/ebot1234/OFMS.svg?branch=master
+
 OFMS is a re-implentation of FIRST's FMS for controlling robots in an event. This software is used to control 3v3 matches with real-time scoring and year-specfic elements. 
 
 
