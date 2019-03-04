@@ -88,7 +88,7 @@ Public Class PLC_Comms_Server
     Public Shared ResetCargoShips
     Public Shared BlueCargoShipLight
     Public Shared RedCargoShipLight
-    Public Shared SandStorm
+    Public Shared SandStormUp
 
     Public Shared Game_Data
     Public Shared PLC_Game_Data
@@ -164,8 +164,7 @@ Public Class PLC_Comms_Server
         Dim i As Integer = 0
         Do While (i < readCoils.Length)
             Console.WriteLine(("Value of Coil " + ((42 + (i + 1)) + (" " + readCoils(i).ToString))))
-
-
+            'Estops'
             PLC_Estop_Field = readCoils(0)
             PLC_Estop_Red1 = readCoils(1)
             PLC_Estop_Red2 = readCoils(2)
@@ -173,49 +172,9 @@ Public Class PLC_Comms_Server
             PLC_Estop_Blue1 = readCoils(4)
             PLC_Estop_Blue2 = readCoils(5)
             PLC_Estop_Blue3 = readCoils(6)
-
-
-            PLC_Used_Boost_Red = readCoils(7)
-            PLC_Used_Force_Red = readCoils(8)
-            PLC_Used_Lev_Red = readCoils(9)
-            PLC_Used_Boost_Blue = readCoils(10)
-            PLC_Used_Force_Blue = readCoils(11)
-            PLC_Used_Lev_Blue = readCoils(12)
-
-
-            PLC_BlueScaleOwned = readCoils(40)
-            PLC_BlueSWOwned = readCoils(41)
-            PLC_RedSWOwned = readCoils(42)
-            PLC_RedScaleOwned = readCoils(43)
-            PLC_BlueSWROwned = readCoils(45)
-            PLC_RedSWBOwned = readCoils(46)
-
+            
             PLC_Field_Reset = readCoils(47)
             PLC_Field_Volunteers = readCoils(48)
-
-            'Blue powerup levels'
-            PLC_Blue_Boost_1_Cube = readCoils(49)
-            PLC_Blue_Boost_2_Cube = readCoils(50)
-            PLC_Blue_Boost_3_Cube = readCoils(51)
-            PLC_Blue_Force_1_Cube = readCoils(52)
-            PLC_Blue_Force_2_Cube = readCoils(53)
-            PLC_Blue_Force_3_Cube = readCoils(54)
-            PLC_Blue_Lev_1_Cube = readCoils(55)
-            PLC_Blue_Lev_2_Cube = readCoils(56)
-            PLC_Blue_Lev_3_Cube = readCoils(57)
-
-            'Red powerup levels'
-            PLC_Red_Boost_1_Cube = readCoils(58)
-            PLC_Red_Boost_2_Cube = readCoils(59)
-            PLC_Red_Boost_3_Cube = readCoils(60)
-            PLC_Red_Force_1_Cube = readCoils(61)
-            PLC_Red_Force_2_Cube = readCoils(62)
-            PLC_Red_Force_3_Cube = readCoils(63)
-            PLC_Red_Lev_1_Cube = readCoils(64)
-            PLC_Red_Lev_2_Cube = readCoils(65)
-            PLC_Red_Lev_3_Cube = readCoils(66)
-
-
 
             i = (i + 1)
         Loop
@@ -251,6 +210,7 @@ Public Class PLC_Comms_Server
             modbusClient.WriteSingleCoil(15, True)
         End If
 
+        'Controls the Cargoship's electromagnets'
         If RedCargoShipPlatesRelease = True Then
             modbusClient.WriteSingleCoil(40, True)
         End If
@@ -258,6 +218,9 @@ Public Class PLC_Comms_Server
         If BlueCargoShipPlatesRelease = True Then
             modbusClient.WriteSingleCoil(41, True)
         End If
+        'Controls the Sandstorm curtain'
+        if SandStormUp = True Then
+            modbusClient.WriteSingleCoil(42, True)
 
         'Alliance Light Test
         If Alliance_Light_Test = True Then
@@ -358,9 +321,6 @@ Public Class PLC_Comms_Server
         Else : modbusClient.WriteSingleCoil(37, False)
         End If
 
-        'GameData to PLC
-        modbusClient.WriteSingleRegister(4, GamedataUse)
-
 
         'Teams To PLC
         modbusClient.WriteSingleRegister(10, RedT1)
@@ -369,9 +329,6 @@ Public Class PLC_Comms_Server
         modbusClient.WriteSingleRegister(13, BlueT1)
         modbusClient.WriteSingleRegister(14, BlueT2)
         modbusClient.WriteSingleRegister(15, BlueT3)
-
-        'modbusClient.WriteMultipleCoils(16, New Boolean() {True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True})
-        'Write Coils starting with Address 16
 
     End Sub
 
