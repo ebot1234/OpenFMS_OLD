@@ -6,6 +6,7 @@ Imports System.Threading
 
 Public Class Field
     Public Shared status As Boolean = False
+    Public Shared sandstorm As Boolean = False
     'PLC Field Types'
     Public Shared FieldReset As Boolean
     Public Shared Volunteers As Boolean
@@ -27,6 +28,9 @@ Public Class Field
     Public Shared GameTime As Integer = 0
 
     Public Shared fieldStatus
+
+    Public Shared PLC_Thread As New Thread(AddressOf handlePLC)
+
     'Match Type enums'
     Public Enum MatchEnums
         PreMatch
@@ -37,7 +41,6 @@ Public Class Field
         PostMatch
         AbortMatch
     End Enum
-
 
     Public Shared Sub HandleDSConnections()
         'Starts the TCP connection threads for finding driver stations'
@@ -118,6 +121,31 @@ Public Class Field
         End If
         Return 0
     End Function
+
+    Public Shared Sub handlePLC()
+        If isPlcConnected = True Then
+            handleEstops()
+            handleInputs()
+            handleOutputs()
+        End If
+    End Sub
+
+    Public Shared Sub handleEstops() '
+
+    End Sub
+
+    Public Shared Sub handleInputs()
+
+    End Sub
+
+    Public Shared Sub handleOutputs()
+        Do While (True)
+            If sandstorm = True Then
+
+            End If
+        Loop
+
+    End Sub
 
     Public Shared Sub updateField(MatchEnums As MatchEnums)
         Select Case (MatchEnums)

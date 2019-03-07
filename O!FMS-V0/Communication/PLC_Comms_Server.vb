@@ -4,7 +4,7 @@
 
 Public Class PLC_Comms_Server
 
-
+    Public Shared isPlcConnected = False
 
     'Estops bidirectional communications
     Public Shared PLC_Estop_Red1
@@ -143,6 +143,7 @@ Public Class PLC_Comms_Server
     Public Shared Sub ConnectPLC()
         Try
             modbusClient.Connect()
+            isPlcConnected = True
         Catch e As Exception
             MessageBox.Show("PLC Not Connected")
         End Try
@@ -171,7 +172,7 @@ Public Class PLC_Comms_Server
             PLC_Estop_Blue1 = readCoils(4)
             PLC_Estop_Blue2 = readCoils(5)
             PLC_Estop_Blue3 = readCoils(6)
-            
+
             PLC_Field_Reset = readCoils(47)
             PLC_Field_Volunteers = readCoils(48)
 
@@ -217,9 +218,7 @@ Public Class PLC_Comms_Server
         If BlueCargoShipPlatesRelease = True Then
             modbusClient.WriteSingleCoil(41, True)
         End If
-        'Controls the Sandstorm curtain'
-        if SandStormUp = True Then
-            modbusClient.WriteSingleCoil(42, True)
+
 
         'Alliance Light Test
         If Alliance_Light_Test = True Then
@@ -329,6 +328,16 @@ Public Class PLC_Comms_Server
         modbusClient.WriteSingleRegister(14, BlueT2)
         modbusClient.WriteSingleRegister(15, BlueT3)
 
+    End Sub
+
+    Public Shared Sub handleEstops()
+        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 66)
+
+        Do While (True)
+            PLC_Estop_Red1 = readCoils(0)
+            PLC_Estop_Red2 = readCoils(1)
+            PLC_Estop_Red3 = readCoils(2)
+        Loop
     End Sub
 
 End Class

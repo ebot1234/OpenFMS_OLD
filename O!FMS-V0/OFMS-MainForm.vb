@@ -8,7 +8,6 @@ Imports O_FMS_V0.ScoringPanel
 Public Class Main_Panel
 
     Dim DriverStation As New Threading.Thread(AddressOf HandleDSConnections)
-    Dim PLCThread As New Threading.Thread(AddressOf HandlePLC)
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
@@ -334,17 +333,12 @@ Public Class Main_Panel
         End If
         Label23.Text = 0
         ScoringPanel.score = 0
-        PLCThread = New Threading.Thread(AddressOf HandlePLC)
         DriverStation = New Threading.Thread(AddressOf HandleDSConnections)
         DriverStation.Start()
-        PLCThread.Start()
         updateField(MatchEnums.PreMatch)
         matchTimerLbl.Text = SandStormTime
         AutoTimer.Enabled = False
         MatchMessages.Text = "Field Pre-Started"
-        SandStormMessage.Text = "Sand Storm Enabled"
-        SandStorm = True
-        ResetPLC()
     End Sub
 
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
@@ -374,9 +368,6 @@ Public Class Main_Panel
         matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
         MatchMessages.Text = "Tele-Operated"
         SandStormMessage.Text = "Sand Storm Disabled"
-
-        SandStorm = False
-
 
         If matchTimerLbl.Text = 30 Then
             updateField(MatchEnums.EndGameWarning)
@@ -417,59 +408,8 @@ Public Class Main_Panel
 
     End Sub
 
-    Public Sub HandlePLC()
-        Dim RB As Integer = 0
-        Dim RF As Integer = 0
-        Dim RL As Integer = 0
-        Dim BB As Integer = 0
-        Dim BF As Integer = 0
-        Dim BL As Integer = 0
-        Dim i As Integer = 0
-
-        Do While (True)
-
-            If PLC_Estop_Field = True Then
-                Red1DS.Estop = True
-                Red2DS.Estop = True
-                Red3DS.Estop = True
-                Blue1DS.Estop = True
-                Blue2DS.Estop = True
-                Blue3DS.Estop = True
-            End If
-
-            If PLC_Estop_Red1 = True Then
-                Red1DS.Estop = True
-            End If
-
-            If PLC_Estop_Red2 = True Then
-                Red2DS.Estop = True
-            End If
-
-            If PLC_Estop_Red3 = True Then
-                Red3DS.Estop = True
-            End If
-
-            If PLC_Estop_Blue1 = True Then
-                Blue1DS.Estop = True
-            End If
-
-            If PLC_Estop_Blue2 = True Then
-                Blue2DS.Estop = True
-            End If
-
-            If PLC_Estop_Blue3 = True Then
-                Blue3DS.Estop = True
-            End If
-
-        Loop
-
-
-    End Sub
-
-
     Public Sub HandleAbortedMatch()
         DriverStation.Abort()
-        PLCThread.Abort()
     End Sub
 
     Public Sub ResetPLC()
@@ -496,7 +436,7 @@ Public Class Main_Panel
     End Sub
 
     Private Sub LedPatternTestBtn_Click(sender As Object, e As EventArgs) Handles LedPatternTestBtn.Click
-
+        'Add Led Pattern Test'
     End Sub
 
     'Display Box Buttons'
