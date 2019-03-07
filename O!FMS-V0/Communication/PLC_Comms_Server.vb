@@ -208,49 +208,6 @@ Public Class PLC_Comms_Server
             modbusClient.WriteSingleCoil(15, True)
         End If
 
-        'Alliance Light Test
-        If Alliance_Light_Test = True Then
-
-            'StnRed1Red
-            modbusClient.WriteSingleCoil(16, True)
-            'StnRed2Red
-            modbusClient.WriteSingleCoil(17, True)
-            'StnRed3Red
-            modbusClient.WriteSingleCoil(18, True)
-            'StnRed1Amb
-            modbusClient.WriteSingleCoil(19, True)
-            'StnRed2Amb
-            modbusClient.WriteSingleCoil(20, True)
-            'StnRed3Amb
-            modbusClient.WriteSingleCoil(21, True)
-            'StnBlue1Blue
-            modbusClient.WriteSingleCoil(22, True)
-            'StnBlue2Blue
-            modbusClient.WriteSingleCoil(23, True)
-            'StnBlue3Blue
-            modbusClient.WriteSingleCoil(24, True)
-            'StnBlue1Amb
-            modbusClient.WriteSingleCoil(25, True)
-            'StnBlue2Amb
-            modbusClient.WriteSingleCoil(26, True)
-            'StnBlue3Amb
-            modbusClient.WriteSingleCoil(27, True)
-
-        End If
-
-        If Scoring_Light_Test = True Then
-
-            'FieldGreen
-            modbusClient.WriteSingleCoil(28, True)
-            'FieldBlue
-            modbusClient.WriteSingleCoil(29, True)
-            'FieldRed
-            modbusClient.WriteSingleCoil(30, True)
-            'FieldAmber
-            modbusClient.WriteSingleCoil(31, True)
-
-        End If
-
 
         If DS_Linked_Red1 = True & Robot_Linked_Red1 = True Then
             Red1Ready = True
@@ -277,49 +234,24 @@ Public Class PLC_Comms_Server
             Blue3Ready = True
         End If
 
-        If Red1Ready Then
-            modbusClient.WriteSingleCoil(32, True)
-        Else : modbusClient.WriteSingleCoil(32, False)
-        End If
-
-        If Red2Ready Then
-            modbusClient.WriteSingleCoil(33, True)
-        Else : modbusClient.WriteSingleCoil(33, False)
-        End If
-
-        If Red3Ready Then
-            modbusClient.WriteSingleCoil(34, True)
-        Else : modbusClient.WriteSingleCoil(34, False)
-        End If
-
-        If Blue1Ready Then
-            modbusClient.WriteSingleCoil(35, True)
-        Else : modbusClient.WriteSingleCoil(35, False)
-        End If
-
-        If Blue2Ready Then
-            modbusClient.WriteSingleCoil(36, True)
-        Else : modbusClient.WriteSingleCoil(36, False)
-        End If
-
-        If Blue3Ready Then
-            modbusClient.WriteSingleCoil(37, True)
-        Else : modbusClient.WriteSingleCoil(37, False)
-        End If
-
-
-        'Teams To PLC
-        modbusClient.WriteSingleRegister(10, RedT1)
-        modbusClient.WriteSingleRegister(11, RedT2)
-        modbusClient.WriteSingleRegister(12, RedT3)
-        modbusClient.WriteSingleRegister(13, BlueT1)
-        modbusClient.WriteSingleRegister(14, BlueT2)
-        modbusClient.WriteSingleRegister(15, BlueT3)
 
     End Sub
 
     Public Shared Sub handleFieldOuputs()
         Do While (True)
+            'handles field status'
+            If Match_Start = True Then
+                modbusClient.WriteSingleCoil(13, True)
+            End If
+
+            If Match_Stop = True Then
+                modbusClient.WriteSingleCoil(14, True)
+            End If
+
+            If PLC_Reset = True Then
+                modbusClient.WriteSingleCoil(15, True)
+            End If
+
             'handles the scoring table light testing'
             If Scoring_Light_Test = True Then
                 'FieldGreen'
