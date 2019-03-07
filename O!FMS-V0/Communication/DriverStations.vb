@@ -12,7 +12,7 @@ Public Class DriverStations
     Public DSUdpReceivePort As Int32 = 1160
     Public Auto As Boolean = False
     Public Enabled As Boolean = False
-    Public Estop As Boolean = False
+    Public Estop As Boolean = True
     Public robotIp As IPAddress
     Public radioIp As IPAddress
     Public DriverStationIP As IPAddress
@@ -126,7 +126,7 @@ Public Class DriverStations
             data(3) = &H4
         End If
 
-        If Estop = True Then
+        If Estop = False Then
             data(3) = &H80
         End If
         'Unused byte or unknown'

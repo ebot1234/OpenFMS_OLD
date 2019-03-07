@@ -1,9 +1,11 @@
 ﻿Imports EasyModbus
+Imports O_FMS_V0.Field
+Imports O_FMS_V0.Lighting
 
 
 
 Public Class PLC_Comms_Server
-
+    'To check if PLC is connected'
     Public Shared isPlcConnected = False
 
     'Estops bidirectional communications
@@ -81,10 +83,8 @@ Public Class PLC_Comms_Server
 
 
     'Data Sent from FMS Software to PLC
-
-    Public Shared RedCargoShipPlatesRelease
-    Public Shared BlueCargoShipPlatesRelease
-    Public Shared ResetCargoShips
+    Public Shared CargoshipEnabled
+    Public Shared CargoshipReleased
     Public Shared BlueCargoShipLight
     Public Shared RedCargoShipLight
     Public Shared SandStormUp
@@ -210,16 +210,6 @@ Public Class PLC_Comms_Server
             modbusClient.WriteSingleCoil(15, True)
         End If
 
-        'Controls the Cargoship's electromagnets'
-        If RedCargoShipPlatesRelease = True Then
-            modbusClient.WriteSingleCoil(40, True)
-        End If
-
-        If BlueCargoShipPlatesRelease = True Then
-            modbusClient.WriteSingleCoil(41, True)
-        End If
-
-
         'Alliance Light Test
         If Alliance_Light_Test = True Then
 
@@ -330,13 +320,71 @@ Public Class PLC_Comms_Server
 
     End Sub
 
+    Public Shared Sub handleOutputs()
+        If CargoshipReleased = True Then
+            modbusClient.WriteSingleCoil(40, True)
+            modbusClient.WriteSingleCoil(41, True)
+            modbusClient.WriteSingleCoil(42, False)
+            modbusClient.WriteSingleCoil(43, False)
+        End If
+
+        If CargoshipEnabled = True Then
+            modbusClient.WriteSingleCoil(40, False)
+            modbusClient.WriteSingleCoil(41, False)
+            modbusClient.WriteSingleCoil(42, True)
+            modbusClient.WriteSingleCoil(43, True)
+        End If
+    End Sub
+
     Public Shared Sub handleEstops()
-        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 66)
+        'Reads and sets the Estops for teams'
+        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 4)
 
         Do While (True)
-            PLC_Estop_Red1 = readCoils(0)
-            PLC_Estop_Red2 = readCoils(1)
-            PLC_Estop_Red3 = readCoils(2)
+            PLC_Estop_Field = readCoils(0)
+            PLC_Estop_Red1 = readCoils(1)
+            PLC_Estop_Red2 = readCoils(2)
+            PLC_Estop_Red3 = readCoils(3)
+
+            'Estops all robots on the field'
+            If PLC_Estop_Field = False Then
+                Red1DS.Estop = False
+                Red2DS.Estop = False
+                Red3DS.Estop = False
+                Blue1DS.Estop = False
+                Blue2DS.Estop = False
+                Blue3DS.Estop = False
+            End If
+
+            'Estops Red 1'
+            If PLC_Estop_Red1 = False Then
+                Red1DS.Estop = False
+            End If
+
+            'Estops Red 2'
+            If PLC_Estop_Red2 = False Then
+                Red2DS.Estop = False
+            End If
+
+            'Estops Red 3'
+            If PLC_Estop_Red3 = False Then
+                Red3DS.Estop = False
+            End If
+
+            'Estops Blue 1'
+            If PLC_Estop_Blue1 = False Then
+                Blue1DS.Estop = False
+            End If
+
+            'Estops Blue 2'
+            If PLC_Estop_Blue2 = False Then
+                Blue2DS.Estop = False
+            End If
+
+            'Estops Blue 3'
+            If PLC_Estop_Blue3 = False Then
+                Blue3DS.Estop = False
+            End If
         Loop
     End Sub
 

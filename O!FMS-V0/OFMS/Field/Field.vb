@@ -122,31 +122,6 @@ Public Class Field
         Return 0
     End Function
 
-    Public Shared Sub handlePLC()
-        If isPlcConnected = True Then
-            handleEstops()
-            handleInputs()
-            handleOutputs()
-        End If
-    End Sub
-
-    Public Shared Sub handleEstops() '
-
-    End Sub
-
-    Public Shared Sub handleInputs()
-
-    End Sub
-
-    Public Shared Sub handleOutputs()
-        Do While (True)
-            If sandstorm = True Then
-
-            End If
-        Loop
-
-    End Sub
-
     Public Shared Sub updateField(MatchEnums As MatchEnums)
         Select Case (MatchEnums)
 
