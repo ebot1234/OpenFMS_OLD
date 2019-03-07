@@ -29,8 +29,6 @@ Public Class Field
 
     Public Shared fieldStatus
 
-    Public Shared PLC_Thread As New Thread(AddressOf handlePLC)
-
     'Match Type enums'
     Public Enum MatchEnums
         PreMatch

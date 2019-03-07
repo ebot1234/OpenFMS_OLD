@@ -179,34 +179,16 @@ Public Class PLC_Comms_Server
 
 
         Dim j As Integer = 0
-        Do While (j < readHoldingRegisters.Length)
-            Console.WriteLine(("Value of HoldingRegister " + ((j + 1) + (" " + readHoldingRegisters(j).ToString))))
+        Console.WriteLine(("Value of HoldingRegister " + ((j + 1) + (" " + readHoldingRegisters(j).ToString))))
 
-            PLC_Match_Timer = readHoldingRegisters(0)
-            PLC_Match_Mode = readHoldingRegisters(1)
-            PLC_RedScore = readHoldingRegisters(2)
-            PLC_BlueScore = readHoldingRegisters(3)
-            PLC_RedPen_Ref = readHoldingRegisters(5)
-            PLC_BluePen_Ref = readHoldingRegisters(6)
-
-
-            j = (j + 1)
-        Loop
+        PLC_Match_Timer = readHoldingRegisters(0)
+        PLC_Match_Mode = readHoldingRegisters(1)
+        PLC_RedScore = readHoldingRegisters(2)
+        PLC_BlueScore = readHoldingRegisters(3)
+        PLC_RedPen_Ref = readHoldingRegisters(5)
+        PLC_BluePen_Ref = readHoldingRegisters(6)
 
 
-
-        If Match_Start = True Then
-            modbusClient.WriteSingleCoil(13, True)
-            'Writes value True to Coil Address 13
-        End If
-
-        If Match_Stop = True Then
-            modbusClient.WriteSingleCoil(14, True)
-        End If
-
-        If PLC_Reset = True Then
-            modbusClient.WriteSingleCoil(15, True)
-        End If
 
 
         If DS_Linked_Red1 = True & Robot_Linked_Red1 = True Then
@@ -235,6 +217,19 @@ Public Class PLC_Comms_Server
         End If
 
 
+    End Sub
+
+    Public Shared Sub handleRegisters()
+        Dim readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 6)
+
+        Do While (True)
+            PLC_Match_Timer = readHoldingRegisters(0)
+            PLC_Match_Mode = readHoldingRegisters(1)
+            PLC_RedScore = readHoldingRegisters(2)
+            PLC_BlueScore = readHoldingRegisters(3)
+            PLC_RedPen_Ref = readHoldingRegisters(5)
+            PLC_BluePen_Ref = readHoldingRegisters(6)
+        Loop
     End Sub
 
     Public Shared Sub handleFieldOuputs()
