@@ -85,9 +85,7 @@ Public Class PLC_Comms_Server
     'Data Sent from FMS Software to PLC
     Public Shared CargoshipEnabled
     Public Shared CargoshipReleased
-    Public Shared BlueCargoShipLight
-    Public Shared RedCargoShipLight
-    Public Shared SandStormUp
+    Public Shared SandstormActive
 
     Public Shared Game_Data
     Public Shared PLC_Game_Data
@@ -320,20 +318,140 @@ Public Class PLC_Comms_Server
 
     End Sub
 
-    Public Shared Sub handleOutputs()
-        If CargoshipReleased = True Then
-            modbusClient.WriteSingleCoil(40, True)
-            modbusClient.WriteSingleCoil(41, True)
-            modbusClient.WriteSingleCoil(42, False)
-            modbusClient.WriteSingleCoil(43, False)
-        End If
+    Public Shared Sub handleFieldOuputs()
+        Do While (True)
+            'handles the scoring table light testing'
+            If Scoring_Light_Test = True Then
+                'FieldGreen'
+                modbusClient.WriteSingleCoil(28, True)
+                'FieldBlue'
+                modbusClient.WriteSingleCoil(29, True)
+                'FieldRed'
+                modbusClient.WriteSingleCoil(30, True)
+                'FieldAmber'
+                modbusClient.WriteSingleCoil(31, True)
+            End If
 
-        If CargoshipEnabled = True Then
-            modbusClient.WriteSingleCoil(40, False)
-            modbusClient.WriteSingleCoil(41, False)
-            modbusClient.WriteSingleCoil(42, True)
-            modbusClient.WriteSingleCoil(43, True)
-        End If
+            'handles the alliance station light testing'
+            If Alliance_Light_Test = True Then
+                'StnRed1Red
+                modbusClient.WriteSingleCoil(16, True)
+                'StnRed2Red
+                modbusClient.WriteSingleCoil(17, True)
+                'StnRed3Red
+                modbusClient.WriteSingleCoil(18, True)
+                'StnRed1Amb
+                modbusClient.WriteSingleCoil(19, True)
+                'StnRed2Amb
+                modbusClient.WriteSingleCoil(20, True)
+                'StnRed3Amb
+                modbusClient.WriteSingleCoil(21, True)
+                'StnBlue1Blue
+                modbusClient.WriteSingleCoil(22, True)
+                'StnBlue2Blue
+                modbusClient.WriteSingleCoil(23, True)
+                'StnBlue3Blue
+                modbusClient.WriteSingleCoil(24, True)
+                'StnBlue1Amb
+                modbusClient.WriteSingleCoil(25, True)
+                'StnBlue2Amb
+                modbusClient.WriteSingleCoil(26, True)
+                'StnBlue3Amb
+                modbusClient.WriteSingleCoil(27, True)
+
+                Threading.Thread.Sleep(2000)
+
+                'StnRed1Red
+                modbusClient.WriteSingleCoil(16, False)
+                'StnRed2Red
+                modbusClient.WriteSingleCoil(17, False)
+                'StnRed3Red
+                modbusClient.WriteSingleCoil(18, False)
+                'StnRed1Amb
+                modbusClient.WriteSingleCoil(19, False)
+                'StnRed2Amb
+                modbusClient.WriteSingleCoil(20, False)
+                'StnRed3Amb
+                modbusClient.WriteSingleCoil(21, False)
+                'StnBlue1Blue
+                modbusClient.WriteSingleCoil(22, False)
+                'StnBlue2Blue
+                modbusClient.WriteSingleCoil(23, False)
+                'StnBlue3Blue
+                modbusClient.WriteSingleCoil(24, False)
+                'StnBlue1Amb
+                modbusClient.WriteSingleCoil(25, False)
+                'StnBlue2Amb
+                modbusClient.WriteSingleCoil(26, False)
+                'StnBlue3Amb
+                modbusClient.WriteSingleCoil(27, False)
+            End If
+
+            'handles the team lights'
+            If Red1Ready Then
+                modbusClient.WriteSingleCoil(32, True)
+            Else : modbusClient.WriteSingleCoil(32, False)
+            End If
+
+            If Red2Ready Then
+                modbusClient.WriteSingleCoil(33, True)
+            Else : modbusClient.WriteSingleCoil(33, False)
+            End If
+
+            If Red3Ready Then
+                modbusClient.WriteSingleCoil(34, True)
+            Else : modbusClient.WriteSingleCoil(34, False)
+            End If
+
+            If Blue1Ready Then
+                modbusClient.WriteSingleCoil(35, True)
+            Else : modbusClient.WriteSingleCoil(35, False)
+            End If
+
+            If Blue2Ready Then
+                modbusClient.WriteSingleCoil(36, True)
+            Else : modbusClient.WriteSingleCoil(36, False)
+            End If
+
+            If Blue3Ready Then
+                modbusClient.WriteSingleCoil(37, True)
+            Else : modbusClient.WriteSingleCoil(37, False)
+            End If
+
+            'Sends the team numbers to the ViewMarq Displays via PLC
+            modbusClient.WriteSingleRegister(10, RedT1)
+            modbusClient.WriteSingleRegister(11, RedT2)
+            modbusClient.WriteSingleRegister(12, RedT3)
+            modbusClient.WriteSingleRegister(13, BlueT1)
+            modbusClient.WriteSingleRegister(14, BlueT2)
+            modbusClient.WriteSingleRegister(15, BlueT3)
+        Loop
+    End Sub
+
+    Public Shared Sub handleGameOutputs()
+        Do While (True)
+            'Releases the magnets on the Cargoship'
+            If CargoshipEnabled = False Then
+                modbusClient.WriteSingleCoil(40, True)
+                modbusClient.WriteSingleCoil(41, True)
+                modbusClient.WriteSingleCoil(42, False)
+                modbusClient.WriteSingleCoil(43, False)
+            End If
+
+            'Enables the magnets on the Cargoships'
+            If CargoshipEnabled = True Then
+                modbusClient.WriteSingleCoil(40, False)
+                modbusClient.WriteSingleCoil(41, False)
+                modbusClient.WriteSingleCoil(42, True)
+                modbusClient.WriteSingleCoil(43, True)
+            End If
+
+            If SandstormActive = False Then
+                modbusClient.WriteSingleCoil(44, True)
+                Threading.Thread.Sleep(1500)
+                modbusClient.WriteSingleCoil(44, False)
+            End If
+        Loop
     End Sub
 
     Public Shared Sub handleEstops()
