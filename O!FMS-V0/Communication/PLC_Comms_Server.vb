@@ -450,6 +450,7 @@ Public Class PLC_Comms_Server
                 modbusClient.WriteSingleCoil(44, True)
                 Threading.Thread.Sleep(1500)
                 modbusClient.WriteSingleCoil(44, False)
+                SandstormActive = True
             End If
         Loop
     End Sub
