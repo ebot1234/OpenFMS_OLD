@@ -152,45 +152,11 @@ Public Class PLC_Comms_Server
     End Sub
 
     Public Shared Sub Modbus_Main(ByVal args() As String)
-        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 66)
-        'Read 66 Coils from Server, starting with address 0
-
-        Dim readHoldingRegisters() As Integer = modbusClient.ReadHoldingRegisters(0, 20)
-        'Read 20 Holding Registers from Server, starting with Address 0
-
-        ' Output
-        Dim i As Integer = 0
-        Do While (i < readCoils.Length)
-            Console.WriteLine(("Value of Coil " + ((42 + (i + 1)) + (" " + readCoils(i).ToString))))
-            'Estops'
-            PLC_Estop_Field = readCoils(0)
-            PLC_Estop_Red1 = readCoils(1)
-            PLC_Estop_Red2 = readCoils(2)
-            PLC_Estop_Red3 = readCoils(3)
-            PLC_Estop_Blue1 = readCoils(4)
-            PLC_Estop_Blue2 = readCoils(5)
-            PLC_Estop_Blue3 = readCoils(6)
-
+       
             PLC_Field_Reset = readCoils(47)
             PLC_Field_Volunteers = readCoils(48)
-
-            i = (i + 1)
-        Loop
-
-
-        Dim j As Integer = 0
-        Console.WriteLine(("Value of HoldingRegister " + ((j + 1) + (" " + readHoldingRegisters(j).ToString))))
-
-        PLC_Match_Timer = readHoldingRegisters(0)
-        PLC_Match_Mode = readHoldingRegisters(1)
-        PLC_RedScore = readHoldingRegisters(2)
-        PLC_BlueScore = readHoldingRegisters(3)
-        PLC_RedPen_Ref = readHoldingRegisters(5)
-        PLC_BluePen_Ref = readHoldingRegisters(6)
-
-
-
-
+    
+      public shared sub handleDS_PLC()
         If DS_Linked_Red1 = True & Robot_Linked_Red1 = True Then
             Red1Ready = True
         End If
@@ -215,9 +181,7 @@ Public Class PLC_Comms_Server
         If DS_Linked_Blue3 = True & Robot_Linked_Blue3 = True Then
             Blue3Ready = True
         End If
-
-
-    End Sub
+    end sub
 
     Public Shared Sub handleRegisters()
         Dim readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 6)
@@ -381,7 +345,12 @@ Public Class PLC_Comms_Server
             End If
         Loop
     End Sub
-
+        public shared sub handleCoils()
+            do while(true)
+                PLC_Field_Reset = readCoils(47)
+            PLC_Field_Volunteers = readCoils(48)
+            loop
+        end sub
     Public Shared Sub handleEstops()
         'Reads and sets the Estops for teams'
         Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 4)
