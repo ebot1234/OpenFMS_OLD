@@ -136,7 +136,7 @@ Public Class PLC_Comms_Server
     'Teams
     Public Shared RedT1, RedT2, RedT3, BlueT1, BlueT2, BlueT3
 
-    Public Shared modbusClient As ModbusClient = New ModbusClient("10.0.0.7", 502)
+    Public Shared modbusClient As ModbusClient = New ModbusClient("0.0.0.0", 502)
 
     Public Shared Sub ConnectPLC()
         Try
@@ -148,6 +148,7 @@ Public Class PLC_Comms_Server
     End Sub
 
     Public Shared Sub DisconnectPLC()
+        MessageBox.Show("PLC is disconnecting!")
         modbusClient.Disconnect()
     End Sub
 
