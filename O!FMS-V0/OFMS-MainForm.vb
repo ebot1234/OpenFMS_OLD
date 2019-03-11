@@ -1,13 +1,13 @@
 ﻿Imports System.Data.SqlClient
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.Field
-Imports O_FMS_V0.ScoringPanel
 
 
 
 Public Class Main_Panel
 
     Dim DriverStation As New Threading.Thread(AddressOf HandleDSConnections)
+    Dim PLC_Thread As New Threading.Thread(AddressOf handlePLC)
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
@@ -19,7 +19,7 @@ Public Class Main_Panel
         Call CenterToScreen()
         Me.FormBorderStyle = Windows.Forms.BorderStyle.Fixed3D
         Me.WindowState = FormWindowState.Normal
-
+        PLC_Thread.Start()
     End Sub
 
 
@@ -331,6 +331,7 @@ Public Class Main_Panel
         If DriverStation IsNot Nothing Then
             DriverStation.Abort()
         End If
+
         Label23.Text = 0
         ScoringPanel.score = 0
         DriverStation = New Threading.Thread(AddressOf HandleDSConnections)
@@ -413,13 +414,13 @@ Public Class Main_Panel
     End Sub
 
     Public Sub ResetPLC()
-        PLC_Estop_Field = False
-        PLC_Estop_Red1 = False
-        PLC_Estop_Red2 = False
-        PLC_Estop_Red3 = False
-        PLC_Estop_Blue1 = False
-        PLC_Estop_Blue2 = False
-        PLC_Estop_Blue3 = False
+        PLC_Estop_Field = True
+        PLC_Estop_Red1 = True
+        PLC_Estop_Red2 = True
+        PLC_Estop_Red3 = True
+        PLC_Estop_Blue1 = True
+        PLC_Estop_Blue2 = True
+        PLC_Estop_Blue3 = True
     End Sub
 
     'FTA Group Buttons'

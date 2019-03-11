@@ -152,16 +152,10 @@ Public Class PLC_Comms_Server
         modbusClient.Disconnect()
     End Sub
 
-    Public Shared Sub Modbus_Main(ByVal args() As String)
-       
-            PLC_Field_Reset = readCoils(47)
-            PLC_Field_Volunteers = readCoils(48)
-    
-      public shared sub handleDS_PLC()
+    Public Shared Sub checkAlliances()
         If DS_Linked_Red1 = True & Robot_Linked_Red1 = True Then
             Red1Ready = True
         End If
-
 
         If DS_Linked_Red2 = True & Robot_Linked_Red2 = True Then
             Red2Ready = True
@@ -182,7 +176,7 @@ Public Class PLC_Comms_Server
         If DS_Linked_Blue3 = True & Robot_Linked_Blue3 = True Then
             Blue3Ready = True
         End If
-    end sub
+    End Sub
 
     Public Shared Sub handleRegisters()
         Dim readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 6)
@@ -346,12 +340,13 @@ Public Class PLC_Comms_Server
             End If
         Loop
     End Sub
-        public shared sub handleCoils()
-            do while(true)
-                PLC_Field_Reset = readCoils(47)
+    Public Shared Sub handleCoils()
+        Dim readCoils() As Boolean = modbusClient.ReadCoils(48, 2)
+        Do While (True)
+            PLC_Field_Reset = readCoils(47)
             PLC_Field_Volunteers = readCoils(48)
-            loop
-        end sub
+        Loop
+    End Sub
     Public Shared Sub handleEstops()
         'Reads and sets the Estops for teams'
         Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 4)

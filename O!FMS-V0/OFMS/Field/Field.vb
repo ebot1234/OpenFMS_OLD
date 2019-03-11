@@ -47,6 +47,17 @@ Public Class Field
         ' Red1DS.newDriverStationConnection(Main_Panel.RedTeam1.Text, 0)
     End Sub
 
+    Public Shared Sub handlePLC()
+        Do While (True)
+            checkAlliances()
+            handleCoils()
+            handleEstops()
+            handleFieldOuputs()
+            handleGameOutputs()
+            handleRegisters()
+        Loop
+    End Sub
+
     Public Shared Sub DisposeDS()
         Red1DS.Dispose()
         Red2DS.Dispose()
