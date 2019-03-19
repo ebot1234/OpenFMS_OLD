@@ -19,7 +19,7 @@ Public Class Main_Panel
         Call CenterToScreen()
         Me.FormBorderStyle = Windows.Forms.BorderStyle.Fixed3D
         Me.WindowState = FormWindowState.Normal
-        PLC_Thread.Start()
+
     End Sub
 
 
@@ -28,7 +28,7 @@ Public Class Main_Panel
 
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Save_btn.Click
-        Dim insertquery As String = "INSERT INTO FMSMaster([Match], [MatchTime], [Blue1], [B1Sur],  [Blue1DQ], [Blue1Volt], [Blue1Estop], [Blue1RL], [Blue1DS], [Blue1Bypass], [Blue2], [B2Sur], [Blue2DQ], [Blue2Volt], [Blue2Estop], [Blue2RL], [Blue2DS], [Blue2Bypass], [Blue3], [B3Sur], [Blue3DQ], [Blue3Volt], [Blue3Estop], [Blue3RL], [Blue3DS], [Blue3Bypass], [Red1], [R1Sur], [Red1DQ], [Red1Volt], [Red1Estop], [Red1RL], [Red1DS], [Red1Bypass], [Red2], [R2Sur], [Red2DQ], [Red2Volt], [Red2Estop], [Red2RL], [Red2DS], [Red2Bypass], [Red3], [R3Sur], [Red3DQ], [Red3Volt], [Red3Estop], [Red3RL], [Red3DS], [Red3Bypass], [Bluescore], [bluepen], [BlueForce], [BlueLevitate], [BlueBoost], [BlueHang], [Redscore], [redpen], [RedForce], [RedLevitate], [RedBoost], [RedHang], [SwitchScale]) VALUES('" & MatchNum.Text & "', '" & Ctime.Text & "', '" & BlueTeam1.Text & "', '" & Blue1Sur.Text & "', '" & BDQ1.Checked & "', '" & BlueVolt1.Text & "','" & PLC_Estop_Red1 & "' ,'" & Robot_Linked_Red1 & "' , '" & DS_Linked_Red1 & "', '" & BBypass1.Checked & "', '" & BlueTeam2.Text & "','" & Blue2Sur.Text & "', '" & BDQ2.Checked & "', '" & BlueVolt2.Text & "', '" & PLC_Estop_Blue2 & "','" & Robot_Linked_Blue2 & "' ,'" & DS_Linked_Blue2 & "' , '" & BBypass2.Checked & "', '" & BlueTeam3.Text & "','" & Blue3Sur.Text & "' , '" & BDQ3.Checked & "', '" & BlueVolt3.Text & "','" & PLC_Estop_Blue3 & "' , '" & Robot_Linked_Blue3 & "', '" & DS_Linked_Blue3 & "', '" & BBypass3.Checked & "', '" & RedTeam1.Text & "', '" & Red1Sur.Text & "', '" & RDQ1.Checked & "', '" & RedVolt1.Text & "', '" & PLC_Estop_Red1 & "', '" & Robot_Linked_Red1 & "', '" & DS_Linked_Red1 & "', '" & RBypass1.Checked & "', '" & RedTeam2.Text & "', '" & Red2Sur.Text & "', '" & RDQ2.Checked & "', '" & RedVolt2.Text & "', '" & PLC_Estop_Red2 & "', '" & Robot_Linked_Red2 & "','" & DS_Linked_Red2 & "' , '" & RBypass2.Checked & "', '" & RedTeam3.Text & "', '" & Red3Sur.Text & "', '" & RDQ3.Checked & "', '" & RedVolt3.Text & "','" & PLC_Estop_Red3 & "' ,'" & Robot_Linked_Red3 & "' ,'" & DS_Linked_Red3 & "' , '" & RBypass3.Checked & "', '" & BlueScore.Text & "', '" & BluePen.Text & "','" & PLC_Used_Force_Blue & "' , '" & PLC_Used_Lev_Blue & "','" & PLC_Used_Boost_Blue & "' , '" & BlueAllianceHang.Text & "', '" & ScoreLbl.Text & "', '" & RedPen.Text & "','" & PLC_Used_Force_Red & "' , '" & PLC_Used_Lev_Red & "','" & PLC_Used_Boost_Red & "' , '" & RedAllianceHang & "', '" & SandStormMessage.Text & "')"
+        Dim insertquery As String = "INSERT INTO FMSMaster([Match], [MatchTime], [Blue1], [B1Sur],  [Blue1DQ], [Blue1Volt], [Blue1Estop], [Blue1RL], [Blue1DS], [Blue1Bypass], [Blue2], [B2Sur], [Blue2DQ], [Blue2Volt], [Blue2Estop], [Blue2RL], [Blue2DS], [Blue2Bypass], [Blue3], [B3Sur], [Blue3DQ], [Blue3Volt], [Blue3Estop], [Blue3RL], [Blue3DS], [Blue3Bypass], [Red1], [R1Sur], [Red1DQ], [Red1Volt], [Red1Estop], [Red1RL], [Red1DS], [Red1Bypass], [Red2], [R2Sur], [Red2DQ], [Red2Volt], [Red2Estop], [Red2RL], [Red2DS], [Red2Bypass], [Red3], [R3Sur], [Red3DQ], [Red3Volt], [Red3Estop], [Red3RL], [Red3DS], [Red3Bypass]) VALUES('" & MatchNum.Text & "', '" & Ctime.Text & "', '" & BlueTeam1.Text & "', '" & Blue1Sur.Text & "', '" & BDQ1.Checked & "', '" & BlueVolt1.Text & "','" & PLC_Estop_Red1 & "' ,'" & Robot_Linked_Red1 & "' , '" & DS_Linked_Red1 & "', '" & BBypass1.Checked & "', '" & BlueTeam2.Text & "','" & Blue2Sur.Text & "', '" & BDQ2.Checked & "', '" & BlueVolt2.Text & "', '" & PLC_Estop_Blue2 & "','" & Robot_Linked_Blue2 & "' ,'" & DS_Linked_Blue2 & "' , '" & BBypass2.Checked & "', '" & BlueTeam3.Text & "','" & Blue3Sur.Text & "' , '" & BDQ3.Checked & "', '" & BlueVolt3.Text & "','" & PLC_Estop_Blue3 & "' , '" & Robot_Linked_Blue3 & "', '" & DS_Linked_Blue3 & "', '" & BBypass3.Checked & "', '" & RedTeam1.Text & "', '" & Red1Sur.Text & "', '" & RDQ1.Checked & "', '" & RedVolt1.Text & "', '" & PLC_Estop_Red1 & "', '" & Robot_Linked_Red1 & "', '" & DS_Linked_Red1 & "', '" & RBypass1.Checked & "', '" & RedTeam2.Text & "', '" & Red2Sur.Text & "', '" & RDQ2.Checked & "', '" & RedVolt2.Text & "', '" & PLC_Estop_Red2 & "', '" & Robot_Linked_Red2 & "','" & DS_Linked_Red2 & "' , '" & RBypass2.Checked & "', '" & RedTeam3.Text & "', '" & Red3Sur.Text & "', '" & RDQ3.Checked & "', '" & RedVolt3.Text & "','" & PLC_Estop_Red3 & "' ,'" & Robot_Linked_Red3 & "' ,'" & DS_Linked_Red3 & "' , '" & RBypass3.Checked & "', '" & SandStormMessage.Text & "')"
 
         ExecuteQuery(insertquery)
 
@@ -104,38 +104,6 @@ Public Class Main_Panel
         Ctime.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         'Convert match mode timer to PLC Timer'
         ' PLCTimer.Text = PLC_Match_Timer
-        RPLC_Score.Text = PLC_RedScore
-        BPLC_Score.Text = PLC_BlueScore
-
-        'Red Power-Ups
-
-        If PLC_Used_Boost_Red = True Then
-            RBoost.FillColor = System.Drawing.Color.LimeGreen
-
-        Else : RBoost.FillColor = System.Drawing.Color.Gray
-        End If
-        If PLC_Used_Force_Red = True Then
-            RForce.FillColor = System.Drawing.Color.LimeGreen
-        Else : RForce.FillColor = System.Drawing.Color.Gray
-        End If
-        If PLC_Used_Lev_Red = True Then
-            RLev.FillColor = System.Drawing.Color.LimeGreen
-        Else : RLev.FillColor = System.Drawing.Color.Gray
-        End If
-
-        'Blue Power-Ups
-        If PLC_Used_Boost_Blue = True Then
-            BBoost.FillColor = System.Drawing.Color.LimeGreen
-        Else : BBoost.FillColor = System.Drawing.Color.Gray
-        End If
-        If PLC_Used_Force_Blue = True Then
-            BForce.FillColor = System.Drawing.Color.LimeGreen
-        Else : BForce.FillColor = System.Drawing.Color.Gray
-        End If
-        If PLC_Used_Lev_Blue = True Then
-            BLev.FillColor = System.Drawing.Color.LimeGreen
-        Else : BLev.FillColor = System.Drawing.Color.Gray
-        End If
 
         'Estops
         If PLC_Estop_Red1 = True Then
@@ -218,16 +186,6 @@ Public Class Main_Panel
         Else : B3Robot.FillColor = System.Drawing.Color.Red
         End If
 
-        'Score & Penalty Calculations
-        If RedPen.Text <> Nothing Then
-            ScoreLbl.Text = (RPLC_Score.Text + RedAllianceHang.Text - RedPen.Text)
-        Else : ScoreLbl = RPLC_Score
-        End If
-        If BluePen.Text <> Nothing Then
-            BlueScore.Text = (BPLC_Score.Text + BlueAllianceHang.Text - BluePen.Text)
-        Else : BlueScore = BPLC_Score
-        End If
-
         'Match Mode
         If PLC_Match_Timer = 0 Then
             PLC_Match_Mode = 0
@@ -244,27 +202,25 @@ Public Class Main_Panel
         End If
         'Updates the audience display with time and scores'
         AudianceDisplay.Timerlbl.Text = matchTimerLbl.Text
-        AudianceDisplay.RedScoreLbl.Text = ScoreLbl.Text
-        AudianceDisplay.BlueScoreLbl.Text = BlueScore.Text
 
     End Sub
 
 
-    Private Sub R1Estop_Click(sender As Object, e As EventArgs) Handles R1Estop.Click
+    Private Sub R1Estop_Click(sender As Object, e As EventArgs)
         If PLC_Estop_Red1 = False Then
             PLC_Estop_Red1 = True
         Else : PLC_Estop_Red1 = True
         End If
     End Sub
 
-    Private Sub R2Estop_Click(sender As Object, e As EventArgs) Handles R2Estop.Click
+    Private Sub R2Estop_Click(sender As Object, e As EventArgs)
         If PLC_Estop_Red2 = False Then
             PLC_Estop_Red2 = True
         Else : PLC_Estop_Red2 = True
         End If
     End Sub
 
-    Private Sub R3Estop_Click(sender As Object, e As EventArgs) Handles R3Estop.Click
+    Private Sub R3Estop_Click(sender As Object, e As EventArgs)
         If PLC_Estop_Red3 = False Then
             PLC_Estop_Red3 = True
         Else : PLC_Estop_Red3 = True
@@ -285,21 +241,21 @@ Public Class Main_Panel
         End If
     End Sub
 
-    Private Sub B1Estop_Click(sender As Object, e As EventArgs) Handles B1Estop.Click
+    Private Sub B1Estop_Click(sender As Object, e As EventArgs)
         If PLC_Estop_Blue1 = False Then
             PLC_Estop_Blue1 = True
         Else : PLC_Estop_Blue1 = True
         End If
     End Sub
 
-    Private Sub B2Estop_Click(sender As Object, e As EventArgs) Handles B2Estop.Click
+    Private Sub B2Estop_Click(sender As Object, e As EventArgs)
         If PLC_Estop_Blue2 = False Then
             PLC_Estop_Blue2 = True
         Else : PLC_Estop_Blue2 = True
         End If
     End Sub
 
-    Private Sub B3Estop_Click(sender As Object, e As EventArgs) Handles B3Estop.Click
+    Private Sub B3Estop_Click(sender As Object, e As EventArgs)
         If PLC_Estop_Blue3 = False Then
             PLC_Estop_Blue3 = True
         Else : PLC_Estop_Blue3 = True
@@ -328,12 +284,15 @@ Public Class Main_Panel
     End Sub
 
     Private Sub Pre_Start_btn_Click(sender As Object, e As EventArgs) Handles Pre_Start_btn.Click
+
+        If PLC_Thread Is Nothing Then
+            PLC_Thread.Start()
+        End If
+
         If DriverStation IsNot Nothing Then
             DriverStation.Abort()
         End If
 
-        Label23.Text = 0
-        ScoringPanel.score = 0
         DriverStation = New Threading.Thread(AddressOf HandleDSConnections)
         DriverStation.Start()
         updateField(MatchEnums.PreMatch)
@@ -359,7 +318,6 @@ Public Class Main_Panel
             AutoTimer.Stop()
             TeleTimer.Enabled = True
             TeleTimer.Start()
-            SandStormMessage.Text = "Sand Storm Disabled"
         End If
     End Sub
 
@@ -368,7 +326,6 @@ Public Class Main_Panel
         TeleTimer.Interval = 1000
         matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
         MatchMessages.Text = "Tele-Operated"
-        SandStormMessage.Text = "Sand Storm Disabled"
 
         If matchTimerLbl.Text = 30 Then
             updateField(MatchEnums.EndGameWarning)

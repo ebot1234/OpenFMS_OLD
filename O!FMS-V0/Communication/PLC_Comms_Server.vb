@@ -1,4 +1,4 @@
-﻿Imports EasyModbus
+﻿Imports EasyModbus.ModbusClient
 Imports O_FMS_V0.Field
 Imports O_FMS_V0.Lighting
 
@@ -44,40 +44,10 @@ Public Class PLC_Comms_Server
     'Data Pulled from PLC
     Public Shared PLC_RedScore
     Public Shared PLC_BlueScore
-    Public Shared PLC_Used_Boost_Red
-    Public Shared PLC_Blue_Boost_1_Cube
-    Public Shared PLC_Blue_Boost_2_Cube
-    Public Shared PLC_Blue_Boost_3_Cube
-    Public Shared PLC_Blue_Force_1_Cube
-    Public Shared PLC_Blue_Force_2_Cube
-    Public Shared PLC_Blue_Force_3_Cube
-    Public Shared PLC_Blue_Lev_1_Cube
-    Public Shared PLC_Blue_Lev_2_Cube
-    Public Shared PLC_Blue_Lev_3_Cube
-    Public Shared PLC_Red_Boost_1_Cube
-    Public Shared PLC_Red_Boost_2_Cube
-    Public Shared PLC_Red_Boost_3_Cube
-    Public Shared PLC_Red_Force_1_Cube
-    Public Shared PLC_Red_Force_2_Cube
-    Public Shared PLC_Red_Force_3_Cube
-    Public Shared PLC_Red_Lev_1_Cube
-    Public Shared PLC_Red_Lev_2_Cube
-    Public Shared PLC_Red_Lev_3_Cube
-    Public Shared PLC_Used_Force_Red
-    Public Shared PLC_Used_Lev_Red
-    Public Shared PLC_Used_Boost_Blue
-    Public Shared PLC_Used_Force_Blue
-    Public Shared PLC_Used_Lev_Blue
     Public Shared PLC_Match_Timer
     Public Shared PLC_Match_Mode
     Public Shared PLC_RedPen_Ref
     Public Shared PLC_BluePen_Ref
-    Public Shared PLC_BlueScaleOwned
-    Public Shared PLC_RedScaleOwned
-    Public Shared PLC_BlueSWOwned
-    Public Shared PLC_RedSWOwned
-    Public Shared PLC_RedSWBOwned
-    Public Shared PLC_BlueSWROwned
     Public Shared PLC_Field_Reset
     Public Shared PLC_Field_Volunteers
 
@@ -87,12 +57,10 @@ Public Class PLC_Comms_Server
     Public Shared CargoshipReleased
     Public Shared SandstormActive
 
-    Public Shared Game_Data
-    Public Shared PLC_Game_Data
-
     Public Shared Match_Start
     Public Shared Match_Stop
     Public Shared Match_PreStart
+    Public Shared Field_Ready
     Public Shared PLC_Reset
     Public Shared Red1Ready
     Public Shared Red2Ready
@@ -133,17 +101,16 @@ Public Class PLC_Comms_Server
     Public Shared FieldAmber
 
 
-    'Teams
+    'Teams number varibles
     Public Shared RedT1, RedT2, RedT3, BlueT1, BlueT2, BlueT3
 
-    Public Shared modbusClient As ModbusClient = New ModbusClient("0.0.0.0", 502)
+    Public Shared modbusClient = New EasyModbus.ModbusClient("10.0.100.5", 502)
 
     Public Shared Sub ConnectPLC()
         Try
             modbusClient.Connect()
-            isPlcConnected = True
-        Catch e As Exception
-            MessageBox.Show("PLC Not Connected")
+        Catch ex As Exception
+            MessageBox.Show("Not Connected to PLC")
         End Try
     End Sub
 
