@@ -146,32 +146,38 @@ Public Class PLC_Comms_Server
 
         If Red1_Bypass = True Then
             modbusClient.WriteSingleCoil(32, False)
+            Red1Ready = True
         Else
             modbusClient.WriteSingleCoil(32, False)
         End If
 
         If Red2_Bypass = True Then
             modbusClient.WriteSingleCoil(33, False)
+            Red2Ready = True
         Else
             modbusClient.WriteSingleCoil(33, False)
         End If
 
         If Red3_Bypass = True Then
             modbusClient.WriteSingleCoil(34, False)
+            Red3Ready = True
         Else
             modbusClient.WriteSingleCoil(34, False)
         End If
 
         If Blue1_Bypass = True Then
             modbusClient.WriteSingleCoil(35, False)
+            Blue1Ready = True
         Else
             modbusClient.WriteSingleCoil(35, False)
         End If
 
         If Blue2_Bypass = True Then
             modbusClient.WriteSingleCoil(36, False)
+            Blue2Ready = True
         Else
             modbusClient.WriteSingleCoil(36, False)
+            Blue3Ready = True
         End If
 
         If Blue3_Bypass = True Then
@@ -180,6 +186,7 @@ Public Class PLC_Comms_Server
             modbusClient.WriteSingleCoil(37, False)
         End If
 
+        'Checks if the alliances are ready'
         If Red1Ready = True And Red2Ready = True And Red3Ready = True And Blue1Ready = True And Blue2Ready = True And Blue3Ready = True Then
             modbusClient.WriteSingleCoil(10, True)
         Else
