@@ -1,6 +1,6 @@
 ﻿Imports EasyModbus.ModbusClient
 Imports O_FMS_V0.Field
-Imports O_FMS_V0.Lighting
+Imports O_FMS_V0.Main_Panel
 
 
 
@@ -142,6 +142,48 @@ Public Class PLC_Comms_Server
 
         If DS_Linked_Blue3 = True & Robot_Linked_Blue3 = True Then
             Blue3Ready = True
+        End If
+
+        If Red1_Bypass = True Then
+            modbusClient.WriteSingleCoil(32, False)
+        Else
+            modbusClient.WriteSingleCoil(32, False)
+        End If
+
+        If Red2_Bypass = True Then
+            modbusClient.WriteSingleCoil(33, False)
+        Else
+            modbusClient.WriteSingleCoil(33, False)
+        End If
+
+        If Red3_Bypass = True Then
+            modbusClient.WriteSingleCoil(34, False)
+        Else
+            modbusClient.WriteSingleCoil(34, False)
+        End If
+
+        If Blue1_Bypass = True Then
+            modbusClient.WriteSingleCoil(35, False)
+        Else
+            modbusClient.WriteSingleCoil(35, False)
+        End If
+
+        If Blue2_Bypass = True Then
+            modbusClient.WriteSingleCoil(36, False)
+        Else
+            modbusClient.WriteSingleCoil(36, False)
+        End If
+
+        If Blue3_Bypass = True Then
+            modbusClient.WriteSingleCoil(37, False)
+        Else
+            modbusClient.WriteSingleCoil(37, False)
+        End If
+
+        If Red1Ready = True And Red2Ready = True And Red3Ready = True And Blue1Ready = True And Blue2Ready = True And Blue3Ready = True Then
+            modbusClient.WriteSingleCoil(10, True)
+        Else
+            modbusClient.WriteSingleCoil(10, False)
         End If
     End Sub
 

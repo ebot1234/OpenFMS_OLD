@@ -9,6 +9,14 @@ Public Class Main_Panel
     Dim DriverStation As New Threading.Thread(AddressOf HandleDSConnections)
     Dim PLC_Thread As New Threading.Thread(AddressOf handlePLC)
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
+
+    Public Shared Red1_Bypass As Boolean = False
+    Public Shared Red2_Bypass As Boolean = False
+    Public Shared Red3_Bypass As Boolean = False
+    Public Shared Blue1_Bypass As Boolean = False
+    Public Shared Blue2_Bypass As Boolean = False
+    Public Shared Blue3_Bypass As Boolean = False
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
         Timer1.Interval = 1000 '1 seconds
@@ -422,4 +430,27 @@ Public Class Main_Panel
         AudianceDisplay.WinningAlliance.Show()
     End Sub
 
+    Private Sub RBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass1.CheckedChanged
+        Red1_Bypass = True
+    End Sub
+
+    Private Sub RBypass2_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass2.CheckedChanged
+        Red2_Bypass = True
+    End Sub
+
+    Private Sub RBypass3_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass3.CheckedChanged
+        Red3_Bypass = True
+    End Sub
+
+    Private Sub BBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass1.CheckedChanged
+        Blue1_Bypass = True
+    End Sub
+
+    Private Sub BBypass2_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass2.CheckedChanged
+        Blue2_Bypass = True
+    End Sub
+
+    Private Sub BBypass3_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass3.CheckedChanged
+        Blue3_Bypass = True
+    End Sub
 End Class

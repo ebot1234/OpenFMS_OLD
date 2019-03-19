@@ -27,6 +27,7 @@ Partial Class Main_Panel
         Me.MatchNum = New System.Windows.Forms.TextBox()
         Me.Save_btn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Red3Sur = New System.Windows.Forms.Label()
         Me.Red2Sur = New System.Windows.Forms.Label()
         Me.Red1Sur = New System.Windows.Forms.Label()
@@ -64,6 +65,7 @@ Partial Class Main_Panel
         Me.StartMatch_btn = New System.Windows.Forms.Button()
         Me.AbortMatch_btn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Blue3Sur = New System.Windows.Forms.Label()
         Me.Blue2Sur = New System.Windows.Forms.Label()
         Me.Blue1Sur = New System.Windows.Forms.Label()
@@ -116,8 +118,6 @@ Partial Class Main_Panel
         Me.DSLightTestBtn = New System.Windows.Forms.Button()
         Me.ScoringTableLightTestBtn = New System.Windows.Forms.Button()
         Me.ConnectPLCBtn = New System.Windows.Forms.Button()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Panel1.SuspendLayout()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -172,6 +172,15 @@ Partial Class Main_Panel
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(336, 356)
         Me.Panel1.TabIndex = 11
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Location = New System.Drawing.Point(0, 103)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(333, 253)
+        Me.GroupBox3.TabIndex = 30
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Red Scoring"
         '
         'Red3Sur
         '
@@ -549,6 +558,15 @@ Partial Class Main_Panel
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(346, 356)
         Me.Panel2.TabIndex = 20
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Location = New System.Drawing.Point(0, 138)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(346, 218)
+        Me.GroupBox4.TabIndex = 33
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Blue Scoring"
         '
         'Blue3Sur
         '
@@ -1027,24 +1045,6 @@ Partial Class Main_Panel
         Me.ConnectPLCBtn.TabIndex = 0
         Me.ConnectPLCBtn.Text = "Connect PLC"
         Me.ConnectPLCBtn.UseVisualStyleBackColor = True
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Location = New System.Drawing.Point(0, 103)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(333, 253)
-        Me.GroupBox3.TabIndex = 30
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Red Scoring"
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Location = New System.Drawing.Point(0, 138)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(346, 218)
-        Me.GroupBox4.TabIndex = 33
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Blue Scoring"
         '
         'Main_Panel
         '
