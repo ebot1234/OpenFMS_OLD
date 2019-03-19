@@ -149,12 +149,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Schedules\Schedule_Generator.vb" />
-    <Compile Include="ScoringPanel.Designer.vb">
-      <DependentUpon>ScoringPanel.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ScoringPanel.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Startup_Screen.Designer.vb">
       <DependentUpon>Startup_Screen.vb</DependentUpon>
     </Compile>
@@ -196,9 +190,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PLC_Tester.resx">
       <DependentUpon>PLC_Tester.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScoringPanel.resx">
-      <DependentUpon>ScoringPanel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Startup_Screen.resx">
       <DependentUpon>Startup_Screen.vb</DependentUpon>

@@ -28,23 +28,8 @@ Partial Class PLC_Tester
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.RadioButton5 = New System.Windows.Forms.RadioButton()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton8 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton9 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton10 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton11 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton12 = New System.Windows.Forms.RadioButton()
         Me.RadioButton13 = New System.Windows.Forms.RadioButton()
         Me.FieldEstopbtn = New System.Windows.Forms.RadioButton()
-        Me.RadioButton14 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton15 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton16 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton17 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton18 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton19 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton20 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton21 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton22 = New System.Windows.Forms.RadioButton()
         Me.SuspendLayout()
         '
         'RadioButton1
@@ -113,76 +98,10 @@ Partial Class PLC_Tester
         Me.RadioButton6.Text = "Estop Blue3"
         Me.RadioButton6.UseVisualStyleBackColor = True
         '
-        'RadioButton7
-        '
-        Me.RadioButton7.AutoSize = True
-        Me.RadioButton7.Location = New System.Drawing.Point(190, 21)
-        Me.RadioButton7.Name = "RadioButton7"
-        Me.RadioButton7.Size = New System.Drawing.Size(75, 17)
-        Me.RadioButton7.TabIndex = 6
-        Me.RadioButton7.TabStop = True
-        Me.RadioButton7.Text = "Red Force"
-        Me.RadioButton7.UseVisualStyleBackColor = True
-        '
-        'RadioButton8
-        '
-        Me.RadioButton8.AutoSize = True
-        Me.RadioButton8.Location = New System.Drawing.Point(190, 57)
-        Me.RadioButton8.Name = "RadioButton8"
-        Me.RadioButton8.Size = New System.Drawing.Size(78, 17)
-        Me.RadioButton8.TabIndex = 7
-        Me.RadioButton8.TabStop = True
-        Me.RadioButton8.Text = "Red Boost "
-        Me.RadioButton8.UseVisualStyleBackColor = True
-        '
-        'RadioButton9
-        '
-        Me.RadioButton9.AutoSize = True
-        Me.RadioButton9.Location = New System.Drawing.Point(190, 91)
-        Me.RadioButton9.Name = "RadioButton9"
-        Me.RadioButton9.Size = New System.Drawing.Size(66, 17)
-        Me.RadioButton9.TabIndex = 8
-        Me.RadioButton9.TabStop = True
-        Me.RadioButton9.Text = "Red Lev"
-        Me.RadioButton9.UseVisualStyleBackColor = True
-        '
-        'RadioButton10
-        '
-        Me.RadioButton10.AutoSize = True
-        Me.RadioButton10.Location = New System.Drawing.Point(190, 130)
-        Me.RadioButton10.Name = "RadioButton10"
-        Me.RadioButton10.Size = New System.Drawing.Size(76, 17)
-        Me.RadioButton10.TabIndex = 9
-        Me.RadioButton10.TabStop = True
-        Me.RadioButton10.Text = "Blue Force"
-        Me.RadioButton10.UseVisualStyleBackColor = True
-        '
-        'RadioButton11
-        '
-        Me.RadioButton11.AutoSize = True
-        Me.RadioButton11.Location = New System.Drawing.Point(190, 168)
-        Me.RadioButton11.Name = "RadioButton11"
-        Me.RadioButton11.Size = New System.Drawing.Size(76, 17)
-        Me.RadioButton11.TabIndex = 10
-        Me.RadioButton11.TabStop = True
-        Me.RadioButton11.Text = "Blue Boost"
-        Me.RadioButton11.UseVisualStyleBackColor = True
-        '
-        'RadioButton12
-        '
-        Me.RadioButton12.AutoSize = True
-        Me.RadioButton12.Location = New System.Drawing.Point(190, 204)
-        Me.RadioButton12.Name = "RadioButton12"
-        Me.RadioButton12.Size = New System.Drawing.Size(67, 17)
-        Me.RadioButton12.TabIndex = 11
-        Me.RadioButton12.TabStop = True
-        Me.RadioButton12.Text = "Blue Lev"
-        Me.RadioButton12.UseVisualStyleBackColor = True
-        '
         'RadioButton13
         '
         Me.RadioButton13.AutoSize = True
-        Me.RadioButton13.Location = New System.Drawing.Point(300, 21)
+        Me.RadioButton13.Location = New System.Drawing.Point(12, 2)
         Me.RadioButton13.Name = "RadioButton13"
         Me.RadioButton13.Size = New System.Drawing.Size(62, 17)
         Me.RadioButton13.TabIndex = 12
@@ -193,7 +112,7 @@ Partial Class PLC_Tester
         'FieldEstopbtn
         '
         Me.FieldEstopbtn.AutoSize = True
-        Me.FieldEstopbtn.Location = New System.Drawing.Point(300, 57)
+        Me.FieldEstopbtn.Location = New System.Drawing.Point(12, 34)
         Me.FieldEstopbtn.Name = "FieldEstopbtn"
         Me.FieldEstopbtn.Size = New System.Drawing.Size(77, 17)
         Me.FieldEstopbtn.TabIndex = 13
@@ -201,128 +120,13 @@ Partial Class PLC_Tester
         Me.FieldEstopbtn.Text = "Field Estop"
         Me.FieldEstopbtn.UseVisualStyleBackColor = True
         '
-        'RadioButton14
-        '
-        Me.RadioButton14.AutoSize = True
-        Me.RadioButton14.Location = New System.Drawing.Point(13, 300)
-        Me.RadioButton14.Name = "RadioButton14"
-        Me.RadioButton14.Size = New System.Drawing.Size(87, 17)
-        Me.RadioButton14.TabIndex = 14
-        Me.RadioButton14.TabStop = True
-        Me.RadioButton14.Text = "B True Scale"
-        Me.RadioButton14.UseVisualStyleBackColor = True
-        '
-        'RadioButton15
-        '
-        Me.RadioButton15.AutoSize = True
-        Me.RadioButton15.Location = New System.Drawing.Point(12, 268)
-        Me.RadioButton15.Name = "RadioButton15"
-        Me.RadioButton15.Size = New System.Drawing.Size(88, 17)
-        Me.RadioButton15.TabIndex = 15
-        Me.RadioButton15.TabStop = True
-        Me.RadioButton15.Text = "R True Scale"
-        Me.RadioButton15.UseVisualStyleBackColor = True
-        '
-        'RadioButton16
-        '
-        Me.RadioButton16.AutoSize = True
-        Me.RadioButton16.Location = New System.Drawing.Point(12, 245)
-        Me.RadioButton16.Name = "RadioButton16"
-        Me.RadioButton16.Size = New System.Drawing.Size(109, 17)
-        Me.RadioButton16.TabIndex = 16
-        Me.RadioButton16.TabStop = True
-        Me.RadioButton16.Text = "Not Owned Scale"
-        Me.RadioButton16.UseVisualStyleBackColor = True
-
-        '
-        'RadioButton17
-        '
-        Me.RadioButton17.AutoSize = True
-        Me.RadioButton17.Location = New System.Drawing.Point(139, 245)
-        Me.RadioButton17.Name = "RadioButton17"
-        Me.RadioButton17.Size = New System.Drawing.Size(137, 17)
-        Me.RadioButton17.TabIndex = 18
-        Me.RadioButton17.TabStop = True
-        Me.RadioButton17.Text = "Not Owned Red Switch"
-        Me.RadioButton17.UseVisualStyleBackColor = True
-        '
-        'RadioButton18
-        '
-        Me.RadioButton18.AutoSize = True
-        Me.RadioButton18.Location = New System.Drawing.Point(139, 268)
-        Me.RadioButton18.Name = "RadioButton18"
-        Me.RadioButton18.Size = New System.Drawing.Size(116, 17)
-        Me.RadioButton18.TabIndex = 19
-        Me.RadioButton18.TabStop = True
-        Me.RadioButton18.Text = "R True Red Switch"
-        Me.RadioButton18.UseVisualStyleBackColor = True
-        '
-        'RadioButton19
-        '
-        Me.RadioButton19.AutoSize = True
-        Me.RadioButton19.Location = New System.Drawing.Point(139, 300)
-        Me.RadioButton19.Name = "RadioButton19"
-        Me.RadioButton19.Size = New System.Drawing.Size(115, 17)
-        Me.RadioButton19.TabIndex = 20
-        Me.RadioButton19.TabStop = True
-        Me.RadioButton19.Text = "B True Red Switch"
-        Me.RadioButton19.UseVisualStyleBackColor = True
-        '
-        'RadioButton20
-        '
-        Me.RadioButton20.AutoSize = True
-        Me.RadioButton20.Location = New System.Drawing.Point(13, 337)
-        Me.RadioButton20.Name = "RadioButton20"
-        Me.RadioButton20.Size = New System.Drawing.Size(138, 17)
-        Me.RadioButton20.TabIndex = 21
-        Me.RadioButton20.TabStop = True
-        Me.RadioButton20.Text = "Not Owned Blue Switch"
-        Me.RadioButton20.UseVisualStyleBackColor = True
-        '
-        'RadioButton21
-        '
-        Me.RadioButton21.AutoSize = True
-        Me.RadioButton21.Location = New System.Drawing.Point(13, 360)
-        Me.RadioButton21.Name = "RadioButton21"
-        Me.RadioButton21.Size = New System.Drawing.Size(117, 17)
-        Me.RadioButton21.TabIndex = 22
-        Me.RadioButton21.TabStop = True
-        Me.RadioButton21.Text = "R True Blue Switch"
-        Me.RadioButton21.UseVisualStyleBackColor = True
-        '
-        'RadioButton22
-        '
-        Me.RadioButton22.AutoSize = True
-        Me.RadioButton22.Location = New System.Drawing.Point(12, 383)
-        Me.RadioButton22.Name = "RadioButton22"
-        Me.RadioButton22.Size = New System.Drawing.Size(116, 17)
-        Me.RadioButton22.TabIndex = 23
-        Me.RadioButton22.TabStop = True
-        Me.RadioButton22.Text = "B True Blue Switch"
-        Me.RadioButton22.UseVisualStyleBackColor = True
-        '
         'PLC_Tester
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.RadioButton22)
-        Me.Controls.Add(Me.RadioButton21)
-        Me.Controls.Add(Me.RadioButton20)
-        Me.Controls.Add(Me.RadioButton19)
-        Me.Controls.Add(Me.RadioButton18)
-        Me.Controls.Add(Me.RadioButton17)
-        Me.Controls.Add(Me.RadioButton16)
-        Me.Controls.Add(Me.RadioButton15)
-        Me.Controls.Add(Me.RadioButton14)
         Me.Controls.Add(Me.FieldEstopbtn)
         Me.Controls.Add(Me.RadioButton13)
-        Me.Controls.Add(Me.RadioButton12)
-        Me.Controls.Add(Me.RadioButton11)
-        Me.Controls.Add(Me.RadioButton10)
-        Me.Controls.Add(Me.RadioButton9)
-        Me.Controls.Add(Me.RadioButton8)
-        Me.Controls.Add(Me.RadioButton7)
         Me.Controls.Add(Me.RadioButton6)
         Me.Controls.Add(Me.RadioButton5)
         Me.Controls.Add(Me.RadioButton4)
@@ -341,22 +145,7 @@ Partial Class PLC_Tester
     Friend WithEvents RadioButton4 As RadioButton
     Friend WithEvents RadioButton5 As RadioButton
     Friend WithEvents RadioButton6 As RadioButton
-    Friend WithEvents RadioButton7 As RadioButton
-    Friend WithEvents RadioButton8 As RadioButton
-    Friend WithEvents RadioButton9 As RadioButton
-    Friend WithEvents RadioButton10 As RadioButton
-    Friend WithEvents RadioButton11 As RadioButton
-    Friend WithEvents RadioButton12 As RadioButton
     Friend WithEvents RadioButton13 As RadioButton
     Friend WithEvents FieldEstopbtn As RadioButton
-    Friend WithEvents RadioButton14 As RadioButton
-    Friend WithEvents RadioButton15 As RadioButton
-    Friend WithEvents RadioButton16 As RadioButton
-    Friend WithEvents RadioButton17 As RadioButton
-    Friend WithEvents RadioButton18 As RadioButton
-    Friend WithEvents RadioButton19 As RadioButton
-    Friend WithEvents RadioButton20 As RadioButton
-    Friend WithEvents RadioButton21 As RadioButton
-    Friend WithEvents RadioButton22 As RadioButton
 
 End Class

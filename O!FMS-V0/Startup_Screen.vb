@@ -4,9 +4,6 @@ Public Class Startup_Screen
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Main_Panel.Show()
-        ScoringPanel.Show()
-
-
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -19,7 +16,6 @@ Public Class Startup_Screen
         AudianceDisplay.Show()
         'Utilities.Show()
         'Match_Generator.Show()
-        ScoringPanel.Show()
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
