@@ -118,7 +118,11 @@ Partial Class Main_Panel
         Me.DSLightTestBtn = New System.Windows.Forms.Button()
         Me.ScoringTableLightTestBtn = New System.Windows.Forms.Button()
         Me.ConnectPLCBtn = New System.Windows.Forms.Button()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.RedScoreLbl = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._O_FMSDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -175,6 +179,9 @@ Partial Class Main_Panel
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.RedScoreLbl)
+        Me.GroupBox3.Controls.Add(Me.GroupBox6)
+        Me.GroupBox3.Controls.Add(Me.GroupBox5)
         Me.GroupBox3.Location = New System.Drawing.Point(0, 103)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(333, 253)
@@ -561,9 +568,9 @@ Partial Class Main_Panel
         '
         'GroupBox4
         '
-        Me.GroupBox4.Location = New System.Drawing.Point(0, 138)
+        Me.GroupBox4.Location = New System.Drawing.Point(0, 103)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(346, 218)
+        Me.GroupBox4.Size = New System.Drawing.Size(346, 253)
         Me.GroupBox4.TabIndex = 33
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Blue Scoring"
@@ -1046,6 +1053,34 @@ Partial Class Main_Panel
         Me.ConnectPLCBtn.Text = "Connect PLC"
         Me.ConnectPLCBtn.UseVisualStyleBackColor = True
         '
+        'GroupBox5
+        '
+        Me.GroupBox5.Location = New System.Drawing.Point(6, 125)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(153, 112)
+        Me.GroupBox5.TabIndex = 0
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Cargoship"
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Location = New System.Drawing.Point(178, 125)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(155, 112)
+        Me.GroupBox6.TabIndex = 1
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Rocket"
+        '
+        'RedScoreLbl
+        '
+        Me.RedScoreLbl.AutoSize = True
+        Me.RedScoreLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RedScoreLbl.Location = New System.Drawing.Point(6, 35)
+        Me.RedScoreLbl.Name = "RedScoreLbl"
+        Me.RedScoreLbl.Size = New System.Drawing.Size(85, 20)
+        Me.RedScoreLbl.TabIndex = 2
+        Me.RedScoreLbl.Text = "Red Score"
+        '
         'Main_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1075,6 +1110,8 @@ Partial Class Main_Panel
         Me.Text = "Main_Panel"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._O_FMSDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1182,4 +1219,7 @@ Partial Class Main_Panel
     Friend WithEvents ScoringTableLightTestBtn As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents RedScoreLbl As Label
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents GroupBox5 As GroupBox
 End Class

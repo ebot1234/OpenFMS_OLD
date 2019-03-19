@@ -145,52 +145,55 @@ Public Class PLC_Comms_Server
         End If
 
         If Red1_Bypass = True Then
-            modbusClient.WriteSingleCoil(32, False)
+            'modbusClient.WriteSingleCoil(32, False)
             Red1Ready = True
         Else
-            modbusClient.WriteSingleCoil(32, False)
+            ' modbusClient.WriteSingleCoil(32, False)
         End If
 
         If Red2_Bypass = True Then
-            modbusClient.WriteSingleCoil(33, False)
+            ' modbusClient.WriteSingleCoil(33, False)
             Red2Ready = True
         Else
-            modbusClient.WriteSingleCoil(33, False)
+            'modbusClient.WriteSingleCoil(33, False)
         End If
 
         If Red3_Bypass = True Then
-            modbusClient.WriteSingleCoil(34, False)
+            ' modbusClient.WriteSingleCoil(34, False)
             Red3Ready = True
         Else
-            modbusClient.WriteSingleCoil(34, False)
+            'modbusClient.WriteSingleCoil(34, False)
         End If
 
         If Blue1_Bypass = True Then
-            modbusClient.WriteSingleCoil(35, False)
+            ' modbusClient.WriteSingleCoil(35, False)
             Blue1Ready = True
         Else
-            modbusClient.WriteSingleCoil(35, False)
+            'modbusClient.WriteSingleCoil(35, False)
         End If
 
         If Blue2_Bypass = True Then
-            modbusClient.WriteSingleCoil(36, False)
+            ' modbusClient.WriteSingleCoil(36, False)
             Blue2Ready = True
         Else
-            modbusClient.WriteSingleCoil(36, False)
-            Blue3Ready = True
+            ' modbusClient.WriteSingleCoil(36, False)
         End If
 
         If Blue3_Bypass = True Then
-            modbusClient.WriteSingleCoil(37, False)
+            'modbusClient.WriteSingleCoil(37, False)
+            Blue3Ready = True
         Else
-            modbusClient.WriteSingleCoil(37, False)
+            ' modbusClient.WriteSingleCoil(37, False)
         End If
 
         'Checks if the alliances are ready'
         If Red1Ready = True And Red2Ready = True And Red3Ready = True And Blue1Ready = True And Blue2Ready = True And Blue3Ready = True Then
-            modbusClient.WriteSingleCoil(10, True)
+            ' modbusClient.WriteSingleCoil(10, True)
+            Field_Ready = True
+
         Else
-            modbusClient.WriteSingleCoil(10, False)
+            'modbusClient.WriteSingleCoil(10, False)
+            Field_Ready = False
         End If
     End Sub
 
