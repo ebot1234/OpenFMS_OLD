@@ -10,25 +10,27 @@ Imports O_FMS_V0.Match_Generator
 
 Public Class Schedule_Generator
 
-    Public Shared dir = Match_Generator.Directory.Text = "C:\OFMS"
-    Public Shared fullpath = dir() & "\Teams.txt"
-    Public Shared lineCount As Int16 = File.ReadLines(dir() & "\Teams.txt").Count
+    ' Public Shared dir = Match_Generator.Directory.Text = "C:\OFMS"
+    'Public Shared fullpath = dir() & "\Teams.txt"
+    'Public Shared lineCount As Int16 = File.ReadLines(dir() & "\Teams.txt").Count
+    Public Shared connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
 
     Public Shared Sub Team_list_gen()
-        Dim myConnectDB As System.Data.SqlClient.SqlConnection
-        Dim myConnectStr As String
-        Dim mySQLCommand As System.Data.SqlClient.SqlCommand
+        Dim selectQuery As New SqlCommand("Select team FROM teaminfo", connection)
 
-        Dim teamlistdone
+        ' Dim myConnectDB As System.Data.SqlClient.SqlConnection
+        ' Dim myConnectStr As String
+        ' Dim mySQLCommand As System.Data.SqlClient.SqlCommand
+
         'Connection to my SQL Server database
-        myConnectStr = "data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true"
-        myConnectDB = New System.Data.SqlClient.SqlConnection(myConnectStr)
+        ' myConnectStr = "data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true"
+        ' myConnectDB = New System.Data.SqlClient.SqlConnection(myConnectStr)
 
-        myConnectDB.Open()
+        connection.Open()
         ' SQL Select statement to read data from the desired table
-        mySQLCommand = New System.Data.SqlClient.SqlCommand("Select team FROM teaminfo;", myConnectDB)
+        ' mySQLCommand = New System.Data.SqlClient.SqlCommand("Select team FROM teaminfo;", myConnectDB)
 
-        Dim myReader As SqlDataReader = mySQLCommand.ExecuteReader()
+        Dim myReader As SqlDataReader = selectQuery.ExecuteReader()
         Dim fileName As String = "C:\OFMS\Teams.txt"
         'create a stream object which can write text to a file
         Dim outputStream As StreamWriter = New StreamWriter(fileName)
@@ -44,7 +46,7 @@ Public Class Schedule_Generator
         Loop
         myReader.Close()
         outputStream.Close()
-        teamlistdone = True
+        'teamlistdone = True
     End Sub
     Public Shared Sub File_Convert()
 
@@ -54,13 +56,13 @@ Public Class Schedule_Generator
         '    Dim adapter As New SqlDataAdapter(selectQuery)
         '    Dim table As New DataTable()
         '    adapter.Fill(table)
-        Dim i As Int16 = lineCount
-        Dim j As Int16 = lineCount
+        ' Dim i As Int16 = lineCount
+        ' Dim j As Int16 = lineCount
 
-        Dim teams(i)
+        ' Dim teams(i)
         'Dim PlaceHolder(j)
-        i = 30
-        j = 30
+        ' i = 30
+        ' j = 30
         My.Computer.FileSystem.WriteAllText("C:\OFMS\temp.csv", My.Computer.FileSystem.ReadAllText("C:\OFMS\matches.txt").Replace(" ", ","), True)
         'below line not needed
         ' My.Computer.FileSystem.WriteAllText("C:\OFMS\temp.csv", My.Computer.FileSystem.ReadAllText("C:\OFMS\temp.txt").Replace(",0", ""), False)
