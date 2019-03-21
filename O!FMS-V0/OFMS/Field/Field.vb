@@ -4,6 +4,7 @@ Imports O_FMS_V0.Lighting
 Imports System.Threading
 
 
+
 Public Class Field
     Public Shared status As Boolean = False
     Public Shared sandstorm As Boolean = False
@@ -55,6 +56,7 @@ Public Class Field
             handleFieldOuputs()
             handleGameOutputs()
             handleRegisters()
+            abortedMatch()
         Loop
     End Sub
 
@@ -139,8 +141,11 @@ Public Class Field
                 status = False
                 My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
                 PLC_Reset = True
+                Match_Aborted = False
                 Match_PreStart = True
                 fieldStatus = MatchEnums.PreMatch
+                CargoshipEnabled = True
+                SandstormActive = True
                 SendDS(Auto:=True, Enabled:=False)
             Case MatchEnums.SandStorm
                 status = True
@@ -149,6 +154,8 @@ Public Class Field
                 My.Computer.Audio.Play(My.Resources.match_start, AudioPlayMode.Background)
             Case MatchEnums.TeleOp
                 fieldStatus = MatchEnums.TeleOp
+                CargoshipEnabled = False
+                SandstormActive = False
                 SendDS(Auto:=False, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_resume, AudioPlayMode.Background)
             Case MatchEnums.EndGameWarning
@@ -171,10 +178,11 @@ Public Class Field
                 fieldStatus = MatchEnums.AbortMatch
                 My.Computer.Audio.Play(My.Resources.fog_blast, AudioPlayMode.Background)
                 SendDS(Auto:=False, Enabled:=False)
+                Match_Aborted = True
                 Match_Stop = True
-                Thread.Sleep(50)
                 DisposeDS()
                 status = False
+
             Case Else
                 MatchEnums = MatchEnums.PreMatch
         End Select

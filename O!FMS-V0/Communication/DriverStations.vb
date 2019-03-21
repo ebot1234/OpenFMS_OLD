@@ -169,10 +169,9 @@ Public Class DriverStations
     End Function
 
     Public Sub ListenToDS()
+        Dim dsListener As New TcpListener(IPAddress.Parse(FMS_IP), 1750)
         Dim listen As Boolean = False
-        If dsListener Is Nothing Then
-            dsListener = New TcpListener(IPAddress.Parse("10.0.100.5"), 1750)
-        End If
+
 
         Try
             dsListener.Start()

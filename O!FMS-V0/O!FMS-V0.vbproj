@@ -116,6 +116,7 @@
     <Compile Include="OFMS\Field\AccessPoint.vb" />
     <Compile Include="OFMS\Field\Field.vb" />
     <Compile Include="OFMS\Field\Match.vb" />
+    <Compile Include="OFMS\Field\Switch.vb" />
     <Compile Include="OFMS\Field\Team_Networks.vb" />
     <Compile Include="Other\CRC.vb" />
     <Compile Include="Communication\PLC_Comms_Server.vb" />

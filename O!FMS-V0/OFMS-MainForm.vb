@@ -7,7 +7,7 @@ Imports O_FMS_V0.Field
 Public Class Main_Panel
 
     Dim DriverStation As New Threading.Thread(AddressOf HandleDSConnections)
-    Dim PLC_Thread As New Threading.Thread(AddressOf handlePLC)
+    Public Shared PLC_Thread As New Threading.Thread(AddressOf handlePLC)
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
 
     Public Shared Red1_Bypass As Boolean = False
@@ -211,6 +211,8 @@ Public Class Main_Panel
         'Updates the audience display with time and scores'
         AudianceDisplay.Timerlbl.Text = matchTimerLbl.Text
 
+
+
     End Sub
 
 
@@ -293,10 +295,7 @@ Public Class Main_Panel
 
     Private Sub Pre_Start_btn_Click(sender As Object, e As EventArgs) Handles Pre_Start_btn.Click
 
-        If PLC_Thread Is Nothing Then
-            PLC_Thread.Start()
-        End If
-
+        Match_Aborted = False
         If DriverStation IsNot Nothing Then
             DriverStation.Abort()
         End If
@@ -365,6 +364,7 @@ Public Class Main_Panel
 
     Private Sub AbortMatch_btn_Click(sender As Object, e As EventArgs) Handles AbortMatch_btn.Click
         HandleAbortedMatch()
+        Match_Aborted = True
         Field.updateField(MatchEnums.AbortMatch)
         MatchMessages.Text = "Match Aborted"
         matchTimerLbl.Text = 0
@@ -379,13 +379,13 @@ Public Class Main_Panel
     End Sub
 
     Public Sub ResetPLC()
-        PLC_Estop_Field = True
-        PLC_Estop_Red1 = True
-        PLC_Estop_Red2 = True
-        PLC_Estop_Red3 = True
-        PLC_Estop_Blue1 = True
-        PLC_Estop_Blue2 = True
-        PLC_Estop_Blue3 = True
+        PLC_Estop_Field = False
+        PLC_Estop_Red1 = False
+        PLC_Estop_Red2 = False
+        PLC_Estop_Red3 = False
+        PLC_Estop_Blue1 = False
+        PLC_Estop_Blue2 = False
+        PLC_Estop_Blue3 = False
     End Sub
 
     'FTA Group Buttons'
