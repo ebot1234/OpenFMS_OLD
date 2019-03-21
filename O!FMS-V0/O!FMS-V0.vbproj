@@ -156,6 +156,12 @@
     <Compile Include="Startup_Screen.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TeamAdder.Designer.vb">
+      <DependentUpon>TeamAdder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TeamAdder.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilities.Designer.vb">
       <DependentUpon>Utilities.vb</DependentUpon>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Startup_Screen.resx">
       <DependentUpon>Startup_Screen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamAdder.resx">
+      <DependentUpon>TeamAdder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilities.resx">
       <DependentUpon>Utilities.vb</DependentUpon>

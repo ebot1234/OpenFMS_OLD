@@ -156,3 +156,4 @@ C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\obj\Debug\O!FMS-V0.pdb
 C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\obj\Debug\O!FMS-V0.vbprojAssemblyReference.cache
 C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
 C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\obj\Debug\O_FMS_V0.TeamAdder.resources
