@@ -169,15 +169,16 @@ Public Class DriverStations
     End Function
 
     Public Sub ListenToDS()
-        Dim dsListener As New TcpListener(IPAddress.Parse(FMS_IP), 1750)
-        Dim listen As Boolean = False
-
+        Dim listen As Boolean
 
         Try
+            Dim port As Int32 = 1750
+            Dim FMS_Address As IPAddress = IPAddress.Parse("10.0.100.5")
+            dsListener = New TcpListener(FMS_Address, port)
             dsListener.Start()
             listen = True
-        Catch ex As Exception
-            MessageBox.Show("Ds Listener not started set network card to 10.0.100.5 for driver stations")
+        Catch ex As SocketException
+            MessageBox.Show(ex.ToString)
             listen = False
         End Try
 

@@ -10,9 +10,10 @@ Imports O_FMS_V0.Match_Generator
 
 Public Class Schedule_Generator
 
-    ' Public Shared dir = Match_Generator.Directory.Text = "C:\OFMS"
+    Public Shared dir = Match_Generator.Directory.Text = "C:\OFMS"
     'Public Shared fullpath = dir() & "\Teams.txt"
-    'Public Shared lineCount As Int16 = File.ReadLines(dir() & "\Teams.txt").Count
+    Public Shared lineCount As Int16 = File.ReadLines("C:\OFMS\teams.txt").Count
+    Public Shared matchDir As String = "C:\OFMS\matches.txt"
     Public Shared connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
 
     Public Shared Sub Team_list_gen()
@@ -49,20 +50,20 @@ Public Class Schedule_Generator
         'teamlistdone = True
     End Sub
     Public Shared Sub File_Convert()
+        Dim i As Int16 = lineCount
+        Dim j As Int16 = lineCount
+        i = 400
+        j = 400
+        Dim teams = i
+        Dim PlaceHolder(j)
 
 
-        '    Dim selectQuery As New SqlCommand("Select team FROM teaminfo where Idx= @TeamNo", connection)
-        '    selectQuery.Parameters.Add("@TeamNo", SqlDbType.Int).Value = teams(i)
-        '    Dim adapter As New SqlDataAdapter(selectQuery)
-        '    Dim table As New DataTable()
-        '    adapter.Fill(table)
-        ' Dim i As Int16 = lineCount
-        ' Dim j As Int16 = lineCount
+        Dim selectQuery As New SqlCommand("Select team FROM teaminfo", connection)
+        selectQuery.Parameters.Add("team", SqlDbType.Int).Value = teams
+        Dim adapter As New SqlDataAdapter(selectQuery)
+        Dim table As New DataTable()
+        adapter.Fill(table)
 
-        ' Dim teams(i)
-        'Dim PlaceHolder(j)
-        ' i = 30
-        ' j = 30
         My.Computer.FileSystem.WriteAllText("C:\OFMS\temp.csv", My.Computer.FileSystem.ReadAllText("C:\OFMS\matches.txt").Replace(" ", ","), True)
         'below line not needed
         ' My.Computer.FileSystem.WriteAllText("C:\OFMS\temp.csv", My.Computer.FileSystem.ReadAllText("C:\OFMS\temp.txt").Replace(",0", ""), False)
@@ -103,37 +104,38 @@ Public Class Schedule_Generator
             table.Rows.Add(parser.ReadFields())
         Loop
 
-        Dim strSql As String = "INSERT INTO MatchList (Match, Blue1, BlSur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur) VALUES (@Match, @Blue1, @BlSur, @Blue2, @B2Sur, @Blue3, @B3Sur, @Red1, @R1Sur, @Red2, @R2Sur, @Red3, @R3Sur)"
+        Dim strSql As String = "INSERT INTO matchlist ([Match], [Blue1], [B1Sur], [Blue2], [B2Sur], [Blue3], [B3Sur], [Red1], [R1Sur], [Red2], [R2Sur], [Red3], [R3Sur])  VALUES (Match, Blue1, B1Sur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur)"
 
         Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
         Dim cmd As New SqlClient.SqlCommand(strSql, connection)
-        With cmd.Parameters
-            .Add("@Match", SqlDbType.Int, 8, "Match")
-            .Add("@Blue1", SqlDbType.Int, 8, "Blue1")
-            .Add("@B1Sur", SqlDbType.Int, 8, "B1Sur")
-            .Add("@Blue2", SqlDbType.Int, 8, "Blue2")
-            .Add("@B2Sur", SqlDbType.Int, 8, "B2Sur")
-            .Add("@Blue3", SqlDbType.Int, 8, "Blue3")
-            .Add("@B3Sur", SqlDbType.Int, 8, "B3Sur")
-            .Add("@Red1", SqlDbType.Int, 8, "Red1")
-            .Add("@R1Sur", SqlDbType.Int, 8, "R1Sur")
-            .Add("@Red2", SqlDbType.Int, 8, "Red2")
-            .Add("@R2Sur", SqlDbType.Int, 8, "R2Sur")
-            .Add("@Red3", SqlDbType.Int, 8, "Red3")
-            .Add("@R3Sur", SqlDbType.Int, 8, "R3Sur")
+        ' With cmd.Parameters
+        ' .Add("Match", SqlDbType.Int, 8, "Match")
+        '.Add("Blue1", SqlDbType.Int, 8, "Blue1")
+        '.Add("B1Sur", SqlDbType.Int, 8, "B1Sur")
+        ' .Add("Blue2", SqlDbType.Int, 8, "Blue2")
+        '.Add("B2Sur", SqlDbType.Int, 8, "B2Sur")
+        '  .Add("Blue3", SqlDbType.Int, 8, "Blue3")
+        '.Add("B3Sur", SqlDbType.Int, 8, "B3Sur")
+        '.Add("Red1", SqlDbType.Int, 8, "Red1")
+        '.Add("R1Sur", SqlDbType.Int, 8, "R1Sur")
+        '.Add("Red2", SqlDbType.Int, 8, "Red2")
+        '.Add("R2Sur", SqlDbType.Int, 8, "R2Sur")
+        '.Add("Red3", SqlDbType.Int, 8, "Red3")
+        '.Add("R3Sur", SqlDbType.Int, 8, "R3Sur")
 
-        End With
+        'End With
 
         Dim adapter As New SqlClient.SqlDataAdapter()
         adapter.InsertCommand = cmd
+        adapter.Update(table)
 
-        Dim iRowsInserted As Int32 = adapter.Update(table)
+        ' Dim iRowsInserted As Int32 = adapter.Update(table)
 
 
     End Sub
 
     'Do not use  doesn't account for surogate teams
-    Public Sub Matches_to_SQL()
+    Public Shared Sub Matches_to_SQL()
 
         '--First create a datatable with the same cols as CSV file, the cols order in both should be same
         Dim table As New DataTable()
@@ -198,7 +200,9 @@ Public Class Schedule_Generator
                 adapter.InsertCommand = cmd
 
                 '--Update the original SQL table from the datatable
-                Dim iRowsInserted As Int32 = adapter.Update(table)
+                Dim iRowsInserted = Convert.ToInt32(table.ToString(strSql))
+
+                'executeCommand(cmd.ToString())
 
 
             End Using
@@ -206,12 +210,19 @@ Public Class Schedule_Generator
 
     End Sub
 
+    Public Shared Sub executeCommand(input As String)
+        Dim command As New SqlCommand(input, connection)
+        connection.Open()
+        command.ExecuteNonQuery()
+        connection.Close()
+    End Sub
+
     Public Shared Sub addMatches()
 
         Dim i As Long = 0
-        Dim sr As StreamReader = New StreamReader("C:\OFMS\ matches.txt")
+        Dim sr As StreamReader = New StreamReader(matchDir)
         Dim line As String = sr.ReadLine()
-        Dim dbConn As SqlConnection = New SqlConnection("Data Source=MY-PC\OFMS;Initial Catalog= USERSDAT;Integrated Security=True")
+        Dim dbConn As SqlConnection = New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
         Dim dbCmd As SqlCommand = New SqlCommand()
         dbCmd.Connection = dbConn
         While Not (sr.EndOfStream)
@@ -225,4 +236,5 @@ Public Class Schedule_Generator
         End While
         dbConn.Close()
     End Sub
+
 End Class

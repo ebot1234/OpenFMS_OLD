@@ -8,6 +8,7 @@ Public Class Main_Panel
 
     Dim DriverStation As New Threading.Thread(AddressOf HandleDSConnections)
     Public Shared PLC_Thread As New Threading.Thread(AddressOf handlePLC)
+    Dim scoreHandler As New Threading.Thread(AddressOf updateScores)
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
 
     Public Shared Red1_Bypass As Boolean = False
@@ -50,6 +51,7 @@ Public Class Main_Panel
         Me.FormBorderStyle = Windows.Forms.BorderStyle.Fixed3D
         Me.WindowState = FormWindowState.Normal
         resetScore()
+        scoreHandler.Start()
     End Sub
 
 
@@ -234,6 +236,8 @@ Public Class Main_Panel
         End If
         'Updates the audience display with time and scores'
         AudianceDisplay.Timerlbl.Text = matchTimerLbl.Text
+        AudianceDisplay.RedScoreLbl.Text = RedScore
+        AudianceDisplay.BlueScoreLbl.Text = BlueScore
 
 
 
@@ -649,5 +653,14 @@ Public Class Main_Panel
 
         RedScoreLbl.Text = RedScore
         BlueScoreLbl.Text = BlueScore
+    End Sub
+
+    Public Sub updateScores()
+        AudianceDisplay.Timerlbl.Text = matchTimerLbl.Text
+        AudianceDisplay.RedScoreLbl.Text = RedScore
+        AudianceDisplay.BlueScoreLbl.Text = BlueScore
+        AudianceDisplay.BlueTeam1lbl.Text = BlueTeam1.Text
+        AudianceDisplay.BlueTeam2.Text = BlueTeam2.Text
+        AudianceDisplay.BlueTeam3.Text = BlueTeam3.Text
     End Sub
 End Class
