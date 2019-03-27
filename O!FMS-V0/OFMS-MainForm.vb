@@ -10,6 +10,7 @@ Public Class Main_Panel
     Public Shared PLC_Thread As New Threading.Thread(AddressOf handlePLC)
     Dim scoreHandler As New Threading.Thread(AddressOf updateScores)
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
+    Dim i As Integer = 0
 
     Public Shared Red1_Bypass As Boolean = False
     Public Shared Red2_Bypass As Boolean = False
@@ -67,6 +68,8 @@ Public Class Main_Panel
         'MessageBox.Show("Data Saved")
 
         resetScore()
+        Match_Aborted = False
+        Field_Estop = False
 
     End Sub
 
@@ -239,7 +242,9 @@ Public Class Main_Panel
         AudianceDisplay.RedScoreLbl.Text = RedScore
         AudianceDisplay.BlueScoreLbl.Text = BlueScore
 
-
+        If Field_Estop = True Or Match_Aborted = True Then
+            HandleAbortedMatch()
+        End If
 
     End Sub
 
@@ -322,7 +327,6 @@ Public Class Main_Panel
     End Sub
 
     Private Sub Pre_Start_btn_Click(sender As Object, e As EventArgs) Handles Pre_Start_btn.Click
-        Match_Aborted = False
         If DriverStation IsNot Nothing Then
             DriverStation.Abort()
         End If
@@ -390,29 +394,36 @@ Public Class Main_Panel
     End Sub
 
     Private Sub AbortMatch_btn_Click(sender As Object, e As EventArgs) Handles AbortMatch_btn.Click
-        HandleAbortedMatch()
         Match_Aborted = True
+        HandleAbortedMatch()
         Field.updateField(MatchEnums.AbortMatch)
         MatchMessages.Text = "Match Aborted"
-        matchTimerLbl.Text = 0
-        AutoTimer.Stop()
-        TeleTimer.Stop()
-        EndGameTimer.Stop()
-
-    End Sub
-
-    Public Sub HandleAbortedMatch()
         DriverStation.Abort()
     End Sub
 
-    Public Sub ResetPLC()
-        PLC_Estop_Field = False
-        PLC_Estop_Red1 = False
-        PLC_Estop_Red2 = False
-        PLC_Estop_Red3 = False
-        PLC_Estop_Blue1 = False
-        PLC_Estop_Blue2 = False
-        PLC_Estop_Blue3 = False
+    Public Sub HandleAbortedMatch()
+        If Field_Estop = True Then
+            If i < 1 Then
+                i = i + 1
+                AutoTimer.Stop()
+                TeleTimer.Stop()
+                EndGameTimer.Stop()
+                matchTimerLbl.Text = 0
+                fieldStatus = MatchEnums.AbortMatch
+                Field.updateField(MatchEnums.AbortMatch)
+            End If
+        End If
+    End Sub
+
+    Public Shared Sub ResetPLC()
+        PLC_Reset = True
+        PLC_Estop_Field = True
+        PLC_Estop_Red1 = True
+        PLC_Estop_Red2 = True
+        PLC_Estop_Red3 = True
+        PLC_Estop_Blue1 = True
+        PLC_Estop_Blue2 = True
+        PLC_Estop_Blue3 = True
     End Sub
 
     'FTA Group Buttons'

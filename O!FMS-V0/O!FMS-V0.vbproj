@@ -53,7 +53,13 @@
       <HintPath>..\packages\EasyModbusTCP.5.0.0\lib\EasyModbus.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LiteGuard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteGuard.1.1.0\lib\net35\LiteGuard.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PrimS.Telnet, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telnet.0.9.0-beta0001\lib\net45\PrimS.Telnet.dll</HintPath>
+    </Reference>
     <Reference Include="Rebex.Common, Version=2.5.6874.0, Culture=neutral, PublicKeyToken=1c4638788972655d, processorArchitecture=MSIL">
       <HintPath>..\packages\Rebex.Common.2.5.6874\lib\net40\Rebex.Common.dll</HintPath>
     </Reference>
@@ -117,6 +123,7 @@
     <Compile Include="OFMS\Field\Field.vb" />
     <Compile Include="OFMS\Field\Match.vb" />
     <Compile Include="OFMS\Field\Switch.vb" />
+    <Compile Include="OFMS\Field\Team.vb" />
     <Compile Include="OFMS\Field\Team_Networks.vb" />
     <Compile Include="Other\CRC.vb" />
     <Compile Include="Communication\PLC_Comms_Server.vb" />
@@ -246,6 +253,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="License.txt" />
     <Content Include="ofms logo.ico" />
     <Content Include="OFMS\Field\APTemplate.txt" />
     <Content Include="OFMS\Sounds\fog-blast.wav" />

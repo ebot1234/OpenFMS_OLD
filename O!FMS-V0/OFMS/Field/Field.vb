@@ -57,6 +57,7 @@ Public Class Field
             handleGameOutputs()
             handleRegisters()
             abortedMatch()
+            handleFieldEstop()
         Loop
     End Sub
 
@@ -141,7 +142,7 @@ Public Class Field
                 status = False
                 My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
                 PLC_Reset = True
-                Match_Aborted = False
+                ResetPLC()
                 Match_PreStart = True
                 fieldStatus = MatchEnums.PreMatch
                 CargoshipEnabled = True
@@ -178,7 +179,6 @@ Public Class Field
                 fieldStatus = MatchEnums.AbortMatch
                 My.Computer.Audio.Play(My.Resources.fog_blast, AudioPlayMode.Background)
                 SendDS(Auto:=False, Enabled:=False)
-                Match_Aborted = True
                 Match_Stop = True
                 DisposeDS()
                 status = False

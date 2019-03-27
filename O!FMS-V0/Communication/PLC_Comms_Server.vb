@@ -8,6 +8,7 @@ Imports O_FMS_V0.Main_Panel
 Public Class PLC_Comms_Server
     'To check if PLC is connected'
     Public Shared isPlcConnected = False
+    Public Shared Field_Estop As Boolean = False
 
     'Estops bidirectional communications
     Public Shared PLC_Estop_Red1
@@ -370,7 +371,6 @@ Public Class PLC_Comms_Server
         'Reads and sets the Estops for teams'
         Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 7)
 
-        PLC_Estop_Field = readCoils(0)
         PLC_Estop_Red1 = readCoils(1)
         PLC_Estop_Red2 = readCoils(2)
         PLC_Estop_Red3 = readCoils(3)
@@ -378,18 +378,8 @@ Public Class PLC_Comms_Server
         PLC_Estop_Blue2 = readCoils(5)
         PLC_Estop_Blue3 = readCoils(6)
 
-        'Estops all robots on the field'
-        If PLC_Estop_Field = False Then
-                Red1DS.Estop = False
-                Red2DS.Estop = False
-                Red3DS.Estop = False
-                Blue1DS.Estop = False
-                Blue2DS.Estop = False
-                Blue3DS.Estop = False
-            End If
-
-            'Estops Red 1'
-            If PLC_Estop_Red1 = False Then
+        'Estops Red 1'
+        If PLC_Estop_Red1 = False Then
                 Red1DS.Estop = False
             End If
 
@@ -408,28 +398,32 @@ Public Class PLC_Comms_Server
                 Blue1DS.Estop = False
             End If
 
-            'Estops Blue 2'
-            If PLC_Estop_Blue2 = False Then
-                Blue2DS.Estop = False
-            End If
+        'Estops Blue 2'
+        If PLC_Estop_Blue2 = False Then
+            Blue2DS.Estop = False
+        End If
 
-            'Estops Blue 3'
-            If PLC_Estop_Blue3 = False Then
-                Blue3DS.Estop = False
-            End If
+        'Estops Blue 3'
+        If PLC_Estop_Blue3 = False Then
+            Blue3DS.Estop = False
+        End If
 
-    End Sub
+        If Field_Estop = True Then
+            Red1DS.Estop = True
+            Red2DS.Estop = True
+            Red3DS.Estop = True
+            Blue1DS.Estop = True
+            Blue2DS.Estop = True
+            Blue3DS.Estop = True
+            ' modbusClient.WriteSingleCoil(19, True)
+            ' modbusClient.WriteSingleCoil(20, True)
+            ' modbusClient.WriteSingleCoil(21, True)
+            ' modbusClient.WriteSingleCoil(25, True)
+            ' modbusClient.WriteSingleCoil(26, True)
+            ' modbusClient.WriteSingleCoil(27, True)
+        End If
 
-    Public Shared Sub abortedMatch()
-        If Match_Aborted = True Then
-            modbusClient.WriteSingleCoil(0, False)
-            modbusClient.WriteSingleCoil(1, False)
-            modbusClient.WriteSingleCoil(2, False)
-            modbusClient.WriteSingleCoil(3, False)
-            modbusClient.WriteSingleCoil(4, False)
-            modbusClient.WriteSingleCoil(5, False)
-            modbusClient.WriteSingleCoil(6, False)
-        Else
+        If PLC_Reset = True Then
             modbusClient.WriteSingleCoil(0, True)
             modbusClient.WriteSingleCoil(1, True)
             modbusClient.WriteSingleCoil(2, True)
@@ -437,6 +431,48 @@ Public Class PLC_Comms_Server
             modbusClient.WriteSingleCoil(4, True)
             modbusClient.WriteSingleCoil(5, True)
             modbusClient.WriteSingleCoil(6, True)
+            modbusClient.WriteSingleCoil(7, True)
         End If
+
+    End Sub
+
+    Public Shared Sub abortedMatch()
+        ' If Match_Aborted = True Then
+        'modbusClient.WriteSingleCoil(0, False)
+        'modbusClient.WriteSingleCoil(1, False)
+        'modbusClient.WriteSingleCoil(2, False)
+        'modbusClient.WriteSingleCoil(3, False)
+        'modbusClient.WriteSingleCoil(4, False)
+        'modbusClient.WriteSingleCoil(5, False)
+        'modbusClient.WriteSingleCoil(6, False)
+        ' Else
+        'modbusClient.WriteSingleCoil(0, True)
+        'modbusClient.WriteSingleCoil(1, True)
+        'modbusClient.WriteSingleCoil(2, True)
+        'modbusClient.WriteSingleCoil(3, True)
+        'modbusClient.WriteSingleCoil(4, True)
+        'modbusClient.WriteSingleCoil(5, True)
+        'modbusClient.WriteSingleCoil(6, True)
+        ' End If
+    End Sub
+
+    Public Shared Sub handleFieldEstop()
+        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 1)
+
+        PLC_Estop_Field = readCoils(0)
+
+        If PLC_Estop_Field = False Then
+            Field_Estop = True
+            modbusClient.WriteSingleCoil(7, False)
+            modbusClient.WriteSingleCoil(1, False)
+            modbusClient.WriteSingleCoil(2, False)
+            modbusClient.WriteSingleCoil(3, False)
+            modbusClient.WriteSingleCoil(4, False)
+            modbusClient.WriteSingleCoil(5, False)
+            modbusClient.WriteSingleCoil(6, False)
+        End If
+
+
+
     End Sub
 End Class
