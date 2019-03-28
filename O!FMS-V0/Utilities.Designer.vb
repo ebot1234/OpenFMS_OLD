@@ -34,6 +34,7 @@ Partial Class Utilities
         Me.FMS = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -163,12 +164,22 @@ Partial Class Utilities
         Me.Panel1.Size = New System.Drawing.Size(689, 362)
         Me.Panel1.TabIndex = 12
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(42, 424)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(157, 44)
+        Me.Button2.TabIndex = 13
+        Me.Button2.Text = "Main Loop Access Point"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Utilities
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.AliceBlue
         Me.ClientSize = New System.Drawing.Size(695, 480)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
@@ -192,4 +203,5 @@ Partial Class Utilities
     Friend WithEvents FMS As System.Windows.Forms.Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Button2 As Button
 End Class

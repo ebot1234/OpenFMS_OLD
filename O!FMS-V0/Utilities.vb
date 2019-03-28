@@ -1,4 +1,5 @@
 ﻿Imports Microsoft.VisualBasic.PowerPacks
+Imports O_FMS_V0.AccessPoint
 
 Public Class Utilities
 
@@ -80,4 +81,7 @@ Public Class Utilities
         End If
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Main()
+    End Sub
 End Class

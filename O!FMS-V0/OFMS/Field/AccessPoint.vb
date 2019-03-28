@@ -10,126 +10,268 @@ Imports System
 
 
 Public Class AccessPoint
-    Public accessPointSshPort As Integer = 22
-    Public accessPointConnectTimeoutSec = 1
-    Public accessPointCommandTimeoutSec = 3
-    Public accessPointRetryCount = 2
+    Public Shared accessPointSshPort As Integer = 22
+    Public Shared accessPointConnectTimeoutSec = 1
+    Public Shared accessPointCommandTimeoutSec = 3
+    Public Shared accessPointRetryCount = 2
+    Public Shared accessPointRequestBufferSize = 10
+    Public Shared accessPointPollPeriodSecond = 5
 
-    Public red1Vlan = 10
-    Public red2Vlan = 20
-    Public red3Vlan = 30
-    Public blue1Vlan = 40
-    Public blue2Vlan = 50
-    Public blue3Vlan = 60
+    Structure AccessPoint
+        Public Shared address As String
+        Public Shared port As Integer
+        Public Shared username As String
+        Public Shared password As String
+        Public Shared teamChannel As Integer
+        Public Shared adminChannel As String
+        Public Shared adminWpaKey As String
+        Public Shared configRequestChan(6) As Team
+        Public Shared TeamWifiStatuses(6) As TeamWifiStatus
+        Public Shared initalStatusFetched As Boolean
+    End Structure
 
-    Dim APUserName As String = "root"
-    Dim APPassWord As String = "1234Five"
-    Dim APAddress As String = "10.0.100.3"
-    Public address As String
-    Public port As Integer
-    Public username As String
-    Public password As String
-    'Public teamChannel As Integer = 11
-    Public TChannel As Integer = 11
-    Public adminChannel As Integer = 2
-    Public adminWpaKey As String
-    Public mutex As New Threading.Mutex
-    Public config As Renci.SshNet.SshClient
-    Private sshConnectionInfo As Renci.SshNet.PasswordConnectionInfo
-    Public Red1 As Team_Networks
-    Public red2 As Team_Networks
-    Public red3 As Team_Networks
-    Public blue1 As Team_Networks
-    Public blue2 As Team_Networks
-    Public blue3 As Team_Networks
+    Structure TeamWifiStatus
+        Public Shared TeamId As Integer
+        Public Shared RadioLinked As Boolean
+    End Structure
+
+    Structure sshOutput
+        Public Shared output As String
+        Public Shared err As ErrObject
+    End Structure
 
 
-    Dim i As Int16 = 6, j As Int16 = 6, k As Int16 = 6, l As Int16 = 6, m As Int16 = 6, n As Int16 = 6
-    Public Temp(i) As String
+    Public Shared Sub SetSettings(address As String, password As String, username As String, teamChannel As Integer,
+                                          adminChannel As Integer, adminWpaKey As String)
+        address = AccessPoint.address
+        username = AccessPoint.username
+        password = AccessPoint.password
+        teamChannel = AccessPoint.teamChannel
+        adminChannel = AccessPoint.adminChannel
+        adminWpaKey = AccessPoint.adminWpaKey
 
-    Public TeamChannel(j), Networks(k), vlan(l), SSID(m), WPAKEY(n)
+        If AccessPoint.configRequestChan Is Nothing Then
+            AccessPoint.configRequestChan(0) = accessPointRequestBufferSize
+            AccessPoint.configRequestChan(1) = accessPointRequestBufferSize
+            AccessPoint.configRequestChan(2) = accessPointRequestBufferSize
+            AccessPoint.configRequestChan(3) = accessPointRequestBufferSize
+            AccessPoint.configRequestChan(4) = accessPointRequestBufferSize
+            AccessPoint.configRequestChan(5) = accessPointRequestBufferSize
+        End If
 
+    End Sub
+    Public Shared Sub configureTeamWifi(red1 As Team, red2 As Team, red3 As Team, blue1 As Team, blue2 As Team, blue3 As Team)
 
-
-
-
-    Sub Main()
-        i = 1
-        j = 1
-        k = 1
-        l = 1
-        m = 1
-        n = 1
-
-        While i < 7
-            Console.WriteLine(i)
-            Temp(1) = "C:\1\TempRed1.txt"
-            Temp(2) = "C:\1\TempRed2.txt"
-            Temp(3) = "C:\1\TempRed3.txt"
-            Temp(4) = "C:\1\TempBlue1.txt"
-            Temp(5) = "C:\1\TempBlue2.txt"
-            Temp(6) = "C:\1\TempBlue3.txt"
-
-            AdminChannel = "AdminChannel"
-            AdminWpaKey = "Admin Key"
-
-            TeamChannel(1) = TChannel
-            TeamChannel(2) = TChannel
-            TeamChannel(3) = TChannel
-            TeamChannel(4) = TChannel
-            TeamChannel(5) = TChannel
-            TeamChannel(6) = TChannel
-
-            Networks(1) = "redNet1"
-            Networks(2) = "redNet2"
-            Networks(3) = "redNet3"
-            Networks(4) = "BlueNet1"
-            Networks(5) = "BlueNet2"
-            Networks(6) = "BlueNet3"
-
-            vlan(1) = 10
-            vlan(2) = 20
-            vlan(3) = 30
-            vlan(4) = 40
-            vlan(5) = 50
-            vlan(6) = 60
-
-            SSID(1) = "TeamNo1"
-            SSID(2) = "TeamNo2"
-            SSID(3) = "TeamNo3"
-            SSID(4) = "TeamNo4"
-            SSID(5) = "TeamNo5"
-            SSID(6) = "TeamNo6"
-
-            WPAKEY(1) = "Key1"
-            WPAKEY(2) = "Key2"
-            WPAKEY(3) = "Key3"
-            WPAKEY(4) = "Key4"
-            WPAKEY(5) = "Key5"
-            WPAKEY(6) = "Key6"
-
-            My.Computer.FileSystem.WriteAllText(Temp(i), My.Computer.FileSystem.ReadAllText("C:\APTemplate.txt").Replace("{{.AdminChannel}}", adminChannel).Replace("{{.AdminWpaKey}}", adminWpaKey).Replace("{{.TeamChannel}}", TeamChannel(j)).Replace("{{$vlan}}", vlan(l)).Replace("{{$Id}}", SSID(m)).Replace("{{$WpaKey}}", WPAKEY(n)).Replace("{{end}}", ""), False)
-            i = i + 1
-            j = j + 1
-            k = k + 1
-            l = l + 1
-            m = m + 1
-            n = n + 1
-
-        End While
-        i = 1
-        While i < 7
-            My.Computer.FileSystem.WriteAllText("C:\AccessPointconfig.Txt", My.Computer.FileSystem.ReadAllText(Temp(i)), True)
-            i = i + 1
-
-        End While
+        If AccessPoint.configRequestChan(0) Is red1 And AccessPoint.configRequestChan(3) Is blue1 Then
+            MessageBox.Show("Wifi buffer full!!!")
+        Else
+            AccessPoint.configRequestChan(0) = red1
+            AccessPoint.configRequestChan(1) = red2
+            AccessPoint.configRequestChan(2) = red3
+            AccessPoint.configRequestChan(3) = blue1
+            AccessPoint.configRequestChan(4) = blue2
+            AccessPoint.configRequestChan(5) = blue3
+        End If
     End Sub
 
+    Public Shared Sub configureAdminWifi(ap As AccessPoint)
+        Dim disabled = 0
+
+        If AccessPoint.adminChannel = 0 Then
+            disabled = 1
+        End If
+
+        Dim command(5) As String
+        command(0) = String.Format("set wireless.radio0.channel='{0}'", AccessPoint.teamChannel)
+        command(1) = String.Format("set wireless.radio1.disabled='{0}'", disabled)
+        command(2) = String.Format("set wireless.radio.1.channel='{0}'", AccessPoint.adminChannel)
+        command(3) = String.Format("set wireless.@wifi-iface[0].key='{0}'", AccessPoint.adminWpaKey)
+        command(4) = "commit wireless"
+
+        Dim wifiCommand
+        wifiCommand = String.Format("uci batch <<ENDCONFIG && wifi radio1\n{0}\nENDCONFIG\n", command)
+        RunCommand(command)
+    End Sub
+
+    Public Shared Sub handleTeamWifiConfiguration(teams As Team)
+        Dim config = generateAccessPointConfig(teams)
+
+        If config IsNot Nothing Then
+            MessageBox.Show(String.Format("Failed to configure wifi: {0}", config))
+        End If
+
+        Dim command = String.Format("uci batch <<ENDCONFIG && wifi radio0\n%s\nENDCONFIG\n", config)
+        Dim attemptCount = 1
+
+        Do
+            Dim err = RunTeamCommand(command)
+            Threading.Thread.Sleep(accessPointCommandTimeoutSec * 1000)
+
+            If err Is Nothing Then
+                err = updateTeamStatuses()
+                If err Is Nothing And configIsCorrectForTeams(teams) Then
+                    MessageBox.Show("Correctly configured wifi for teams, yay!")
+                    Return
+                End If
+            End If
+
+            If err IsNot Nothing Then
+                MessageBox.Show("Error team wifi is not configured")
+            End If
+
+            MessageBox.Show(String.Format("Wifi is still wrong after {0} attempts", attemptCount))
+            attemptCount = attemptCount + 1
+        Loop
+
+    End Sub
+
+    Public Shared Sub RunCommand(command() As String)
+
+    End Sub
+
+    Public Shared Function RunTeamCommand(command As String)
+        Return 0
+    End Function
+
+    Public Shared Function updateTeamStatuses()
+        Return 0
+    End Function
+
+    Public Shared Function configIsCorrectForTeams(teams As Team) As Boolean
+        'Dim team = 0
+
+        'If AccessPoint.initalStatusFetched = False Then
+        '    Return False
+        'End If
+
+        'For Each team In teams
+        '    Dim exspectedTeamId = 0
+
+        '    If team Then
+
+        '    End If
+        'Next
+        Return 0
+    End Function
+
+    'Public Shared red1Vlan = 10
+    'Public Shared red2Vlan = 20
+    'Public Shared red3Vlan = 30
+    'Public Shared blue1Vlan = 40
+    'Public Shared blue2Vlan = 50
+    'Public Shared blue3Vlan = 60
+
+    'Public Shared APUserName As String = "root"
+    'Public Shared APPassWord As String = "1234Five"
+    'Public Shared APAddress As String = "10.0.100.3"
+    'Public Shared address As String
+    'Public Shared port As Integer
+    'Public Shared username As String
+    'Public Shared password As String
+    ''Public teamChannel As Integer = 11
+    'Public Shared TChannel As Integer = 11
+    'Public Shared adminChannel As String
+    'Public Shared adminWpaKey As String
+    'Public Shared mutex As New Threading.Mutex
+    'Public Shared config As Renci.SshNet.SshClient
+    'Public Shared sshConnectionInfo As Renci.SshNet.PasswordConnectionInfo
+    'Public Shared Red1 As Team_Networks
+    'Public Shared red2 As Team_Networks
+    'Public Shared red3 As Team_Networks
+    'Public Shared blue1 As Team_Networks
+    'Public Shared blue2 As Team_Networks
+    'Public Shared blue3 As Team_Networks
 
 
-    'Public Function newAccessPoint(ap As AccessPoint)
-    '    Return ap.address = APAddress & ap.port = accessPointSshPort & ap.username = APUserName & ap.password = APPassWord &
-    '    ap.teamChannel = teamChannel & ap.adminChannel = adminChannel & ap.adminWpaKey = adminWpaKey
+    'Public Shared i As Int16 = 6, j As Int16 = 6, k As Int16 = 6, l As Int16 = 6, m As Int16 = 6, n As Int16 = 6
+    'Public Shared Temp(i) As String
+
+    'Public Shared TeamChannel(6), Networks(6), vlan(6), SSID(m), WPAKEY(6)
+
+
+
+
+
+
+
+    'Public Shared Sub Main()
+    '    i = 1
+    '    j = 1
+    '    k = 1
+    '    l = 1
+    '    m = 1
+    '    n = 1
+
+    '    While i < 7
+    '        Console.WriteLine(i)
+    '        Temp(1) = "C:\1\TempRed1.txt"
+    '        Temp(2) = "C:\1\TempRed2.txt"
+    '        Temp(3) = "C:\1\TempRed3.txt"
+    '        Temp(4) = "C:\1\TempBlue1.txt"
+    '        Temp(5) = "C:\1\TempBlue2.txt"
+    '        Temp(6) = "C:\1\TempBlue3.txt"
+
+    '        adminChannel = "AdminChannel"
+    '        adminWpaKey = "Admin Key"
+
+    '        teamChannel(1) = TChannel
+    '        teamChannel(2) = TChannel
+    '        teamChannel(3) = TChannel
+    '        teamChannel(4) = TChannel
+    '        teamChannel(5) = TChannel
+    '        teamChannel(6) = TChannel
+
+    '        Networks(1) = "redNet1"
+    '        Networks(2) = "redNet2"
+    '        Networks(3) = "redNet3"
+    '        Networks(4) = "BlueNet1"
+    '        Networks(5) = "BlueNet2"
+    '        Networks(6) = "BlueNet3"
+
+    '        vlan(1) = 10
+    '        vlan(2) = 20
+    '        vlan(3) = 30
+    '        vlan(4) = 40
+    '        vlan(5) = 50
+    '        vlan(6) = 60
+
+    '        SSID(1) = "TeamNo1"
+    '        SSID(2) = "TeamNo2"
+    '        SSID(3) = "TeamNo3"
+    '        SSID(4) = "TeamNo4"
+    '        SSID(5) = "TeamNo5"
+    '        SSID(6) = "TeamNo6"
+
+    '        WPAKEY(1) = "Key1"
+    '        WPAKEY(2) = "Key2"
+    '        WPAKEY(3) = "Key3"
+    '        WPAKEY(4) = "Key4"
+    '        WPAKEY(5) = "Key5"
+    '        WPAKEY(6) = "Key6"
+
+    '        'Temp(i)
+    '        'My.Computer.FileSystem.WriteAllText(My.Computer.FileSystem.ReadAllText("C:\OFMS\APTemplate.txt").Replace("{{.AdminChannel}}", adminChannel).Replace("{{.AdminWpaKey}}", adminWpaKey).Replace("{{.TeamChannel}}", TeamChannel(j)).Replace("{{$vlan}}", vlan(l)).Replace("{{$Id}}", SSID(m)).Replace("{{$WpaKey}}", WPAKEY(n)).Replace("{{end}}", ""), False)
+    '        i = i + 1
+    '        j = j + 1
+    '        k = k + 1
+    '        l = l + 1
+    '        m = m + 1
+    '        n = n + 1
+
+    '    End While
+    '    i = 1
+    '    While i < 7
+    '        My.Computer.FileSystem.WriteAllText("C:\AccessPointconfig.Txt", My.Computer.FileSystem.ReadAllText(Temp(i)), True)
+    '        i = i + 1
+
+    '    End While
+    'End Sub
+
+
+
+    'Public Shared Function newAccessPoint(ap As AccessPoint)
+    '    Return address = APAddress & port = accessPointSshPort & username = APUserName & password = APPassWord &
+    'TChannel = TChannel & adminChannel = adminChannel & adminWpaKey = adminWpaKey
     'End Function
     'Public Function generateAccessPointConfig(red1, red2, red3, blue1, blue2, blue3)
 
@@ -152,52 +294,52 @@ Public Class AccessPoint
     'End Function
 
 
-    Public Function sendCommand(cmd As String, s As ShellStream) As String
-        Dim reader As StreamReader
-        Dim writer As StreamWriter
-        Try
-            reader = New StreamReader(s)
-            writer = New StreamWriter(s)
-            writer.AutoFlush = True
-            writer.WriteLine(cmd)
-            While s.Length = 0
-                Threading.Thread.Sleep(500)
-            End While
+    'Public Function sendCommand(cmd As String, s As ShellStream) As String
+    '    Dim reader As StreamReader
+    '    Dim writer As StreamWriter
+    '    Try
+    '        reader = New StreamReader(s)
+    '        writer = New StreamWriter(s)
+    '        writer.AutoFlush = True
+    '        writer.WriteLine(cmd)
+    '        While s.Length = 0
+    '            Threading.Thread.Sleep(500)
+    '        End While
 
-        Catch ex As Exception
-            Console.WriteLine("Send Command(" & cmd & ") caught Exception: ex" & ex.ToString)
-        End Try
-        Return reader.ReadToEnd
+    '    Catch ex As Exception
+    '        Console.WriteLine("Send Command(" & cmd & ") caught Exception: ex" & ex.ToString)
+    '    End Try
+    '    Return reader.ReadToEnd
 
-    End Function
+    'End Function
 
-    Public Function runCommand()
+    'Public Function runCommand()
 
-        Dim linereader As New StreamReader("c:\AccessPointconfig.Txt", Encoding.Default)
+    '    Dim linereader As New StreamReader("c:\AccessPointconfig.Txt", Encoding.Default)
 
-        Try
-            Using client = New SshClient(APAddress, APUserName, APPassWord)
-                client.Connect()
-                Using ss As ShellStream = client.CreateShellStream("dumb", 80, 24, 800, 600, 1024)
-                    Debug.WriteLine("1 [" & sendCommand("enable", ss) & "]")
-                    While (linereader.Peek >= 0)
+    '    Try
+    '        Using client = New SshClient(APAddress, APUserName, APPassWord)
+    '            client.Connect()
+    '            Using ss As ShellStream = client.CreateShellStream("dumb", 80, 24, 800, 600, 1024)
+    '                Debug.WriteLine("1 [" & sendCommand("enable", ss) & "]")
+    '                While (linereader.Peek >= 0)
 
-                        Debug.WriteLine("1 [" & sendCommand(linereader.ReadLine, ss) & "]")
+    '                    Debug.WriteLine("1 [" & sendCommand(linereader.ReadLine, ss) & "]")
 
-                    End While
+    '                End While
 
-                End Using
-                client.Disconnect()
-            End Using
+    '            End Using
+    '            client.Disconnect()
+    '        End Using
 
-        Catch ex As Exception
-            Debug.WriteLine("CAUGHT: " & ex.ToString())
-        Finally
-            Console.WriteLine("hit enter to exit")
-            Dim blah As String = Console.ReadLine()
-        End Try
-        Return 0
-    End Function
+    '    Catch ex As Exception
+    '        Debug.WriteLine("CAUGHT: " & ex.ToString())
+    '    Finally
+    '        Console.WriteLine("hit enter to exit")
+    '        Dim blah As String = Console.ReadLine()
+    '    End Try
+    '    Return 0
+    'End Function
 
 
 End Class

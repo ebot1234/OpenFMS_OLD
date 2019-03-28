@@ -157,3 +157,7 @@ C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\obj\Debug\O!FMS-V0.vbprojAss
 C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
 C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
 C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\obj\Debug\O_FMS_V0.TeamAdder.resources
+C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\bin\Debug\LiteGuard.dll
+C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\bin\Debug\PrimS.Telnet.dll
+C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\bin\Debug\LiteGuard.xml
+C:\Users\ellen.estep.one\Documents\OpenFMS\O!FMS-V0\bin\Debug\PrimS.Telnet.xml

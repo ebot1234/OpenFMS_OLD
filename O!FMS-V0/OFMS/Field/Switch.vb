@@ -118,7 +118,7 @@ Public Class Switch
             returnedData = Encoding.ASCII.GetString(returnedByte)
         End If
 
-        Return returnedData, 0
+        Return returnedData
     End Function
 
     Public Shared Function runConfigCommand(command As String)
