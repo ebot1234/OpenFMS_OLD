@@ -125,6 +125,14 @@ Public Class Main_Panel
         BlueT2 = BlueTeam2.Text
         BlueT3 = BlueTeam3.Text
 
+        'Updates the team numbers for the switch configuration'
+        Switch.Red1 = RedTeam1.Text
+        Switch.Red2 = RedTeam2.Text
+        Switch.Red3 = RedTeam3.Text
+        Switch.Blue1 = BlueTeam1.Text
+        Switch.Blue2 = BlueTeam2.Text
+        Switch.Blue3 = BlueTeam3.Text
+
 
     End Sub
 

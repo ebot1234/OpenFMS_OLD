@@ -5,6 +5,13 @@ Imports O_FMS_V0.Team
 Imports System.Text
 
 Public Class Switch
+    Public Shared Red1 As String
+    Public Shared Red2 As String
+    Public Shared Red3 As String
+    Public Shared Blue1 As String
+    Public Shared Blue2 As String
+    Public Shared Blue3 As String
+
     'port for telneting the switch'
     Public Shared switchTelnetPort As Integer = 23
 
@@ -32,7 +39,7 @@ Public Class Switch
         Return Switch.address = address And Switch.port = switchTelnetPort And Switch.password = password
     End Function
 
-    Public Shared Function configureTeamEthernet(red1 As Team, red2 As Team, red3 As Team, blue1 As Team, blue2 As Team, blue3 As Team)
+    Public Shared Function configureTeamEthernet(red1 As String, red2 As String, red3 As String, blue1 As String, blue2 As String, blue3 As String)
         Switch.mutex.ReleaseMutex()
 
         'Determines what new VLANs are needed
@@ -71,10 +78,12 @@ Public Class Switch
         Return 0
     End Function
 
-    Public Shared Function replaceVlan(team As Team, vlan As Integer)
+    Public Shared Function replaceVlan(teamNumber As String, vlan As Integer)
+
+
         Dim oldTeamVlans = getTeamVlans()
 
-        If team Is Nothing Then
+        If teamNumber = 0 Then
             MessageBox.Show("Team is nothing, can't configure the switch")
         End If
         'add vlan checking before command?'
@@ -89,9 +98,9 @@ Public Class Switch
                                                  "access-list 1{11} permit ip 10.{12}.{13}.0 0.0.0.255 host {14}\n" +
                                                  "access-list 1{15} permit udp any eq bootpc any eq bootps\n" +
                                                  "interface Vlan{16}\nip address 10.{17}.{18}.61 255.255.255.0\n",
-                                     Team.Id / 100, Team.Id Mod 100, Team.Id / 100, Team.Id Mod 100, vlan, vlan,
-                                     Team.Id / 100, Team.Id Mod 100, Team.Id / 100, Team.Id Mod 100, vlan, vlan, Team.Id / 100, Team.Id Mod 100,
-                                     ServerIpAddress, vlan, vlan, Team.Id / 100, Team.Id Mod 100)
+                                      teamNumber.Substring(0, 2), teamNumber.Substring(2, 2), teamNumber.Substring(0, 2), teamNumber.Substring(2, 2), vlan, vlan,
+                                     teamNumber.Substring(0, 2), teamNumber.Substring(2, 2), teamNumber.Substring(0, 2), teamNumber.Substring(2, 2), vlan, vlan, teamNumber.Substring(0, 2), teamNumber.Substring(2, 2),
+                                     ServerIpAddress, vlan, vlan, teamNumber.Substring(0, 2), teamNumber.Substring(2, 2))
 
         Return addTeamVlanCommand
     End Function
