@@ -43,14 +43,14 @@ Public Class Field
 
     Public Shared Sub HandleDSConnections()
         'Starts the TCP connection threads for finding driver stations'
-        'Red1DS.ListenToDS()
+        Red1DS.ListenToDS()
         'Red2DS.ListenToDS()
         'Red3DS.ListenToDS()
         'Blue1DS.ListenToDS()
         'Blue2DS.ListenToDS()
         'Blue3DS.ListenToDS()
         'Pings and starts control for the driver station'
-        'Red1DS.newDriverStationConnection(Main_Panel.RedTeam1.Text, 0)
+        Red1DS.newDriverStationConnection(Main_Panel.RedTeam1.Text, 0)
         'Red2DS.newDriverStationConnection(Main_Panel.RedTeam2.Text, 1)
         'Red3DS.newDriverStationConnection(Main_Panel.RedTeam3.Text, 2)
         'Blue1DS.newDriverStationConnection(Main_Panel.BlueTeam1.Text, 3)

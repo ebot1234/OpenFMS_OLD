@@ -158,6 +158,12 @@ Partial Class Main_Panel
         Me.BlueScoreLbl = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.MatchListTableAdapter1 = New O_FMS_V0._O_FMSDataSet1TableAdapters.MatchListTableAdapter()
+        Me.Button27 = New System.Windows.Forms.Button()
+        Me.Button28 = New System.Windows.Forms.Button()
+        Me.Button30 = New System.Windows.Forms.Button()
+        Me.Button31 = New System.Windows.Forms.Button()
+        Me.Button32 = New System.Windows.Forms.Button()
+        Me.Button29 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -196,6 +202,9 @@ Partial Class Main_Panel
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.MediumTurquoise
+        Me.Panel1.Controls.Add(Me.Button29)
+        Me.Panel1.Controls.Add(Me.Button28)
+        Me.Panel1.Controls.Add(Me.Button27)
         Me.Panel1.Controls.Add(Me.Red3Sur)
         Me.Panel1.Controls.Add(Me.Red2Sur)
         Me.Panel1.Controls.Add(Me.Red1Sur)
@@ -572,6 +581,9 @@ Partial Class Main_Panel
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.MediumTurquoise
+        Me.Panel2.Controls.Add(Me.Button32)
+        Me.Panel2.Controls.Add(Me.Button31)
+        Me.Panel2.Controls.Add(Me.Button30)
         Me.Panel2.Controls.Add(Me.Blue3Sur)
         Me.Panel2.Controls.Add(Me.Blue2Sur)
         Me.Panel2.Controls.Add(Me.Blue1Sur)
@@ -1494,6 +1506,60 @@ Partial Class Main_Panel
         '
         Me.MatchListTableAdapter1.ClearBeforeFill = True
         '
+        'Button27
+        '
+        Me.Button27.Location = New System.Drawing.Point(14, 94)
+        Me.Button27.Name = "Button27"
+        Me.Button27.Size = New System.Drawing.Size(75, 47)
+        Me.Button27.TabIndex = 30
+        Me.Button27.Text = "Red 1 Estop"
+        Me.Button27.UseVisualStyleBackColor = True
+        '
+        'Button28
+        '
+        Me.Button28.Location = New System.Drawing.Point(121, 93)
+        Me.Button28.Name = "Button28"
+        Me.Button28.Size = New System.Drawing.Size(75, 48)
+        Me.Button28.TabIndex = 31
+        Me.Button28.Text = "Red 2 Estop"
+        Me.Button28.UseVisualStyleBackColor = True
+        '
+        'Button30
+        '
+        Me.Button30.Location = New System.Drawing.Point(18, 95)
+        Me.Button30.Name = "Button30"
+        Me.Button30.Size = New System.Drawing.Size(75, 46)
+        Me.Button30.TabIndex = 33
+        Me.Button30.Text = "Blue 1 Estop"
+        Me.Button30.UseVisualStyleBackColor = True
+        '
+        'Button31
+        '
+        Me.Button31.Location = New System.Drawing.Point(132, 95)
+        Me.Button31.Name = "Button31"
+        Me.Button31.Size = New System.Drawing.Size(75, 46)
+        Me.Button31.TabIndex = 34
+        Me.Button31.Text = "Blue 2 Estop"
+        Me.Button31.UseVisualStyleBackColor = True
+        '
+        'Button32
+        '
+        Me.Button32.Location = New System.Drawing.Point(249, 95)
+        Me.Button32.Name = "Button32"
+        Me.Button32.Size = New System.Drawing.Size(75, 46)
+        Me.Button32.TabIndex = 35
+        Me.Button32.Text = "Blue 3 Estop"
+        Me.Button32.UseVisualStyleBackColor = True
+        '
+        'Button29
+        '
+        Me.Button29.Location = New System.Drawing.Point(236, 95)
+        Me.Button29.Name = "Button29"
+        Me.Button29.Size = New System.Drawing.Size(75, 46)
+        Me.Button29.TabIndex = 32
+        Me.Button29.Text = "Red 3 Estop"
+        Me.Button29.UseVisualStyleBackColor = True
+        '
         'Main_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1684,4 +1750,10 @@ Partial Class Main_Panel
     Public WithEvents PauseTimer As Timer
     Public WithEvents TeleTimer As Timer
     Public WithEvents EndGameTimer As Timer
+    Friend WithEvents Button28 As Button
+    Friend WithEvents Button27 As Button
+    Friend WithEvents Button32 As Button
+    Friend WithEvents Button31 As Button
+    Friend WithEvents Button30 As Button
+    Friend WithEvents Button29 As Button
 End Class
