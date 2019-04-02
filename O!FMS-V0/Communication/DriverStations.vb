@@ -10,9 +10,10 @@ Public Class DriverStations
     Public packetCount As Integer = 0
     Public DSUpdSendPort As Int32 = 1121
     Public DSUdpReceivePort As Int32 = 1160
+    Public Bypassed As Boolean = False
     Public Auto As Boolean = False
     Public Enabled As Boolean = False
-    Public Estop As Boolean = True
+    Public Estop As Boolean = False
     Public robotIp As IPAddress
     Public radioIp As IPAddress
     Public DriverStationIP As IPAddress
@@ -48,6 +49,7 @@ Public Class DriverStations
 
         Dim sendDataThread As New Thread(AddressOf sendPacketDS)
         sendDataThread.Start()
+
     End Sub
 
     Public Sub robotPing(stationNumber As Integer)
@@ -126,7 +128,7 @@ Public Class DriverStations
             data(3) = &H4
         End If
 
-        If Estop = False Then
+        If Estop = True Then
             data(3) = &H80
         End If
         'Unused byte or unknown'

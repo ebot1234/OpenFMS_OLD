@@ -125,6 +125,7 @@
     <Compile Include="OFMS\Field\Switch.vb" />
     <Compile Include="OFMS\Field\Team.vb" />
     <Compile Include="OFMS\Field\Team_Networks.vb" />
+    <Compile Include="OFMS\Field\ViewMarqUpdater.vb" />
     <Compile Include="Other\CRC.vb" />
     <Compile Include="Communication\PLC_Comms_Server.vb" />
     <Compile Include="OFMS-MainForm.vb">

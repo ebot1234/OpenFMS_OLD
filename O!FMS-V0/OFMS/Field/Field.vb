@@ -143,7 +143,6 @@ Public Class Field
                 My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
                 PLC_Reset = True
                 ResetPLC()
-                Match_PreStart = True
                 fieldStatus = MatchEnums.PreMatch
                 CargoshipEnabled = True
                 SandstormActive = True

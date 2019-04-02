@@ -93,6 +93,10 @@ Public Class AccessPoint
         RunCommand(command)
     End Sub
 
+    Public Shared Function generateAccessPointConfig(team As Team)
+        Return team
+    End Function
+
     Public Shared Sub handleTeamWifiConfiguration(teams As Team)
         Dim config = generateAccessPointConfig(teams)
 

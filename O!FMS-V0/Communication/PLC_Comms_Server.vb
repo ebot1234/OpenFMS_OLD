@@ -61,8 +61,6 @@ Public Class PLC_Comms_Server
 
     Public Shared Match_Start
     Public Shared Match_Stop
-    Public Shared Match_PreStart
-    Public Shared Match_Aborted
     Public Shared Field_Ready
     Public Shared PLC_Reset
     Public Shared Red1Ready
@@ -75,7 +73,7 @@ Public Class PLC_Comms_Server
 
     'Alliance Station Lights
 
-    Public Shared Alliance_Light_Test
+    Public Shared DS_Light_Test
     Public Shared Scoring_Light_Test
 
     'RED Alliance
@@ -144,48 +142,6 @@ Public Class PLC_Comms_Server
             Blue3Ready = True
         End If
 
-        If Red1_Bypass = True Then
-            modbusClient.WriteSingleCoil(32, False)
-            Red1Ready = True
-        Else
-            modbusClient.WriteSingleCoil(32, False)
-        End If
-
-        If Red2_Bypass = True Then
-            modbusClient.WriteSingleCoil(33, False)
-            Red2Ready = True
-        Else
-            modbusClient.WriteSingleCoil(33, False)
-        End If
-
-        If Red3_Bypass = True Then
-            modbusClient.WriteSingleCoil(34, False)
-            Red3Ready = True
-        Else
-            modbusClient.WriteSingleCoil(34, False)
-        End If
-
-        If Blue1_Bypass = True Then
-            modbusClient.WriteSingleCoil(35, False)
-            Blue1Ready = True
-        Else
-            modbusClient.WriteSingleCoil(35, False)
-        End If
-
-        If Blue2_Bypass = True Then
-            modbusClient.WriteSingleCoil(36, False)
-            Blue2Ready = True
-        Else
-            modbusClient.WriteSingleCoil(36, False)
-        End If
-
-        If Blue3_Bypass = True Then
-            modbusClient.WriteSingleCoil(37, False)
-            Blue3Ready = True
-        Else
-            modbusClient.WriteSingleCoil(37, False)
-        End If
-
         'Checks if the alliances are ready'
         If Red1Ready = True And Red2Ready = True And Red3Ready = True And Blue1Ready = True And Blue2Ready = True And Blue3Ready = True Then
             modbusClient.WriteSingleCoil(10, True)
@@ -212,119 +168,32 @@ Public Class PLC_Comms_Server
 
         'handles field status'
         If Match_Start = True Then
-                modbusClient.WriteSingleCoil(13, True)
-            End If
+
+        End If
 
             If Match_Stop = True Then
-                modbusClient.WriteSingleCoil(14, True)
-            End If
+
+        End If
 
             If PLC_Reset = True Then
-                modbusClient.WriteSingleCoil(15, True)
-            End If
+
+        End If
 
             'handles the scoring table light testing'
             If Scoring_Light_Test = True Then
-                'FieldGreen'
-                modbusClient.WriteSingleCoil(28, True)
-                'FieldBlue'
-                modbusClient.WriteSingleCoil(29, True)
-                'FieldRed'
-                modbusClient.WriteSingleCoil(30, True)
-            'FieldAmber'
-            modbusClient.WriteSingleCoil(31, True)
-
-            Threading.Thread.Sleep(5000)
+            modbusClient.WriteSingleCoil(11, True)
         End If
 
-            'handles the alliance station light testing'
-            If Alliance_Light_Test = True Then
-                'StnRed1Red
-                modbusClient.WriteSingleCoil(16, True)
-                'StnRed2Red
-                modbusClient.WriteSingleCoil(17, True)
-                'StnRed3Red
-                modbusClient.WriteSingleCoil(18, True)
-                'StnRed1Amb
-                modbusClient.WriteSingleCoil(19, True)
-                'StnRed2Amb
-                modbusClient.WriteSingleCoil(20, True)
-                'StnRed3Amb
-                modbusClient.WriteSingleCoil(21, True)
-                'StnBlue1Blue
-                modbusClient.WriteSingleCoil(22, True)
-                'StnBlue2Blue
-                modbusClient.WriteSingleCoil(23, True)
-                'StnBlue3Blue
-                modbusClient.WriteSingleCoil(24, True)
-                'StnBlue1Amb
-                modbusClient.WriteSingleCoil(25, True)
-                'StnBlue2Amb
-                modbusClient.WriteSingleCoil(26, True)
-                'StnBlue3Amb
-                modbusClient.WriteSingleCoil(27, True)
+        'handles the alliance station light testing'
+        If DS_Light_Test = True Then
 
-            Threading.Thread.Sleep(5000)
 
-            'StnRed1Red
-            modbusClient.WriteSingleCoil(16, False)
-                'StnRed2Red
-                modbusClient.WriteSingleCoil(17, False)
-                'StnRed3Red
-                modbusClient.WriteSingleCoil(18, False)
-                'StnRed1Amb
-                modbusClient.WriteSingleCoil(19, False)
-                'StnRed2Amb
-                modbusClient.WriteSingleCoil(20, False)
-                'StnRed3Amb
-                modbusClient.WriteSingleCoil(21, False)
-                'StnBlue1Blue
-                modbusClient.WriteSingleCoil(22, False)
-                'StnBlue2Blue
-                modbusClient.WriteSingleCoil(23, False)
-                'StnBlue3Blue
-                modbusClient.WriteSingleCoil(24, False)
-                'StnBlue1Amb
-                modbusClient.WriteSingleCoil(25, False)
-                'StnBlue2Amb
-                modbusClient.WriteSingleCoil(26, False)
-                'StnBlue3Amb
-                modbusClient.WriteSingleCoil(27, False)
-            End If
+        End If
 
-            'handles the team lights'
-            If Red1Ready Then
-                modbusClient.WriteSingleCoil(32, True)
-            Else : modbusClient.WriteSingleCoil(32, False)
-            End If
 
-            If Red2Ready Then
-                modbusClient.WriteSingleCoil(33, True)
-            Else : modbusClient.WriteSingleCoil(33, False)
-            End If
 
-            If Red3Ready Then
-                modbusClient.WriteSingleCoil(34, True)
-            Else : modbusClient.WriteSingleCoil(34, False)
-            End If
-
-            If Blue1Ready Then
-                modbusClient.WriteSingleCoil(35, True)
-            Else : modbusClient.WriteSingleCoil(35, False)
-            End If
-
-            If Blue2Ready Then
-                modbusClient.WriteSingleCoil(36, True)
-            Else : modbusClient.WriteSingleCoil(36, False)
-            End If
-
-            If Blue3Ready Then
-                modbusClient.WriteSingleCoil(37, True)
-            Else : modbusClient.WriteSingleCoil(37, False)
-            End If
-
-            'Sends the team numbers to the ViewMarq Displays via PLC
-            modbusClient.WriteSingleRegister(10, RedT1)
+        'Sends the team numbers to the ViewMarq Displays via PLC
+        modbusClient.WriteSingleRegister(10, RedT1)
             modbusClient.WriteSingleRegister(11, RedT2)
             modbusClient.WriteSingleRegister(12, RedT3)
             modbusClient.WriteSingleRegister(13, BlueT1)
@@ -337,25 +206,18 @@ Public Class PLC_Comms_Server
 
         'Releases the magnets on the Cargoship'
         If CargoshipEnabled = False Then
-            modbusClient.WriteSingleCoil(40, True)
-            modbusClient.WriteSingleCoil(41, True)
-            modbusClient.WriteSingleCoil(42, False)
-            modbusClient.WriteSingleCoil(43, False)
+            modbusClient.WriteSingleCoil(8, False)
         End If
 
         'Enables the magnets on the Cargoships'
         If CargoshipEnabled = True Then
-            modbusClient.WriteSingleCoil(40, False)
-            modbusClient.WriteSingleCoil(41, False)
-            modbusClient.WriteSingleCoil(42, True)
-            modbusClient.WriteSingleCoil(43, True)
+            modbusClient.WriteSingleCoil(8, True)
         End If
 
         If SandstormActive = True Then
-            modbusClient.WriteSingleCoil(44, False)
+            'modbusClient.WriteSingleCoil(0, True)
         Else
-            modbusClient.WriteSingleCoil(44, True)
-            Threading.Thread.Sleep(2000)
+
             SandstormActive = True
         End If
 
@@ -363,8 +225,7 @@ Public Class PLC_Comms_Server
     Public Shared Sub handleCoils()
         Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 49)
 
-        PLC_Field_Reset = readCoils(47)
-        PLC_Field_Volunteers = readCoils(48)
+
 
     End Sub
     Public Shared Sub handleEstops()
@@ -380,32 +241,32 @@ Public Class PLC_Comms_Server
 
         'Estops Red 1'
         If PLC_Estop_Red1 = False Then
-                Red1DS.Estop = False
-            End If
+            Red1DS.Estop = True
+        End If
 
             'Estops Red 2'
             If PLC_Estop_Red2 = False Then
-                Red2DS.Estop = False
-            End If
+            Red2DS.Estop = True
+        End If
 
             'Estops Red 3'
             If PLC_Estop_Red3 = False Then
-                Red3DS.Estop = False
-            End If
+            Red3DS.Estop = True
+        End If
 
             'Estops Blue 1'
             If PLC_Estop_Blue1 = False Then
-                Blue1DS.Estop = False
-            End If
+            Blue1DS.Estop = True
+        End If
 
         'Estops Blue 2'
         If PLC_Estop_Blue2 = False Then
-            Blue2DS.Estop = False
+            Blue2DS.Estop = True
         End If
 
         'Estops Blue 3'
         If PLC_Estop_Blue3 = False Then
-            Blue3DS.Estop = False
+            Blue3DS.Estop = True
         End If
 
         If Field_Estop = True Then
@@ -415,45 +276,16 @@ Public Class PLC_Comms_Server
             Blue1DS.Estop = True
             Blue2DS.Estop = True
             Blue3DS.Estop = True
-            ' modbusClient.WriteSingleCoil(19, True)
-            ' modbusClient.WriteSingleCoil(20, True)
-            ' modbusClient.WriteSingleCoil(21, True)
-            ' modbusClient.WriteSingleCoil(25, True)
-            ' modbusClient.WriteSingleCoil(26, True)
-            ' modbusClient.WriteSingleCoil(27, True)
         End If
 
         If PLC_Reset = True Then
-            modbusClient.WriteSingleCoil(0, True)
-            modbusClient.WriteSingleCoil(1, True)
-            modbusClient.WriteSingleCoil(2, True)
-            modbusClient.WriteSingleCoil(3, True)
-            modbusClient.WriteSingleCoil(4, True)
-            modbusClient.WriteSingleCoil(5, True)
-            modbusClient.WriteSingleCoil(6, True)
-            modbusClient.WriteSingleCoil(7, True)
+
         End If
 
     End Sub
 
     Public Shared Sub abortedMatch()
-        ' If Match_Aborted = True Then
-        'modbusClient.WriteSingleCoil(0, False)
-        'modbusClient.WriteSingleCoil(1, False)
-        'modbusClient.WriteSingleCoil(2, False)
-        'modbusClient.WriteSingleCoil(3, False)
-        'modbusClient.WriteSingleCoil(4, False)
-        'modbusClient.WriteSingleCoil(5, False)
-        'modbusClient.WriteSingleCoil(6, False)
-        ' Else
-        'modbusClient.WriteSingleCoil(0, True)
-        'modbusClient.WriteSingleCoil(1, True)
-        'modbusClient.WriteSingleCoil(2, True)
-        'modbusClient.WriteSingleCoil(3, True)
-        'modbusClient.WriteSingleCoil(4, True)
-        'modbusClient.WriteSingleCoil(5, True)
-        'modbusClient.WriteSingleCoil(6, True)
-        ' End If
+
     End Sub
 
     Public Shared Sub handleFieldEstop()
@@ -463,13 +295,7 @@ Public Class PLC_Comms_Server
 
         If PLC_Estop_Field = False Then
             Field_Estop = True
-            modbusClient.WriteSingleCoil(7, False)
-            modbusClient.WriteSingleCoil(1, False)
-            modbusClient.WriteSingleCoil(2, False)
-            modbusClient.WriteSingleCoil(3, False)
-            modbusClient.WriteSingleCoil(4, False)
-            modbusClient.WriteSingleCoil(5, False)
-            modbusClient.WriteSingleCoil(6, False)
+
         End If
 
 

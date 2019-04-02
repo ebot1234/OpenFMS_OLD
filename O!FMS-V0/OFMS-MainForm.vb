@@ -12,12 +12,12 @@ Public Class Main_Panel
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
     Dim i As Integer = 0
 
-    Public Shared Red1_Bypass As Boolean = False
-    Public Shared Red2_Bypass As Boolean = False
-    Public Shared Red3_Bypass As Boolean = False
-    Public Shared Blue1_Bypass As Boolean = False
-    Public Shared Blue2_Bypass As Boolean = False
-    Public Shared Blue3_Bypass As Boolean = False
+    Public Shared Red1Bypass
+    Public Shared Red2Bypass
+    Public Shared Red3Bypass
+    Public Shared Blue1Bypass
+    Public Shared Blue2Bypass
+    Public Shared Blue3Bypass
 
     'Red Scoring Varibles'
     Public Shared RedScore As Integer
@@ -68,9 +68,18 @@ Public Class Main_Panel
         'MessageBox.Show("Data Saved")
 
         resetScore()
-        Match_Aborted = False
+        resetUI()
         Field_Estop = False
 
+    End Sub
+
+    Sub resetUI()
+        Red1Bypass = False
+        Red2Bypass = False
+        Red3Bypass = False
+        Blue1Bypass = False
+        Blue2Bypass = False
+        Blue3Bypass = False
     End Sub
 
     Public Sub ExecuteQuery(query As String)
@@ -231,6 +240,36 @@ Public Class Main_Panel
         Else : B3Robot.FillColor = System.Drawing.Color.Red
         End If
 
+        If Red1Bypass = True Then
+            R1DS.FillColor = Color.Blue
+            R1Robot.FillColor = Color.Blue
+        End If
+
+        If Red2Bypass = True Then
+            R2DS.FillColor = Color.Blue
+            R2Robot.FillColor = Color.Blue
+        End If
+
+        If Red3Bypass = True Then
+            R3DS.FillColor = Color.Blue
+            R3Robot.FillColor = Color.Blue
+        End If
+
+        If Blue1Bypass = True Then
+            B1DS.FillColor = Color.Blue
+            B1Robot.FillColor = Color.Blue
+        End If
+
+        If Blue2Bypass = True Then
+            B2DS.FillColor = Color.Blue
+            B2Robot.FillColor = Color.Blue
+        End If
+
+        If Blue3Bypass = True Then
+            B3DS.FillColor = Color.Blue
+            B3Robot.FillColor = Color.Blue
+        End If
+
         'Match Mode
         If PLC_Match_Timer = 0 Then
             PLC_Match_Mode = 0
@@ -250,7 +289,7 @@ Public Class Main_Panel
         AudianceDisplay.RedScoreLbl.Text = RedScore
         AudianceDisplay.BlueScoreLbl.Text = BlueScore
 
-        If Field_Estop = True Or Match_Aborted = True Then
+        If Field_Estop = True Then
             HandleAbortedMatch()
         End If
 
@@ -402,7 +441,7 @@ Public Class Main_Panel
     End Sub
 
     Private Sub AbortMatch_btn_Click(sender As Object, e As EventArgs) Handles AbortMatch_btn.Click
-        Match_Aborted = True
+        'Match_Aborted = True
         HandleAbortedMatch()
         Field.updateField(MatchEnums.AbortMatch)
         MatchMessages.Text = "Match Aborted"
@@ -440,7 +479,7 @@ Public Class Main_Panel
     End Sub
 
     Private Sub DSLightTestBtn_Click(sender As Object, e As EventArgs) Handles DSLightTestBtn.Click
-        Alliance_Light_Test = True
+        'Alliance_Light_Test = True
     End Sub
 
     Private Sub ScoringTableLightTestBtn_Click(sender As Object, e As EventArgs) Handles ScoringTableLightTestBtn.Click
@@ -477,27 +516,33 @@ Public Class Main_Panel
     End Sub
 
     Private Sub RBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass1.CheckedChanged
-        Red1_Bypass = True
+        Red1DS.Dispose()
+        Red1Bypass = True
     End Sub
 
     Private Sub RBypass2_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass2.CheckedChanged
-        Red2_Bypass = True
+        Red2DS.Dispose()
+        Red2Bypass = True
     End Sub
 
     Private Sub RBypass3_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass3.CheckedChanged
-        Red3_Bypass = True
+        Red3DS.Dispose()
+        Red3Bypass = True
     End Sub
 
     Private Sub BBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass1.CheckedChanged
-        Blue1_Bypass = True
+        Blue1DS.Dispose()
+        Blue1Bypass = True
     End Sub
 
     Private Sub BBypass2_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass2.CheckedChanged
-        Blue2_Bypass = True
+        Blue2DS.Dispose()
+        Blue2Bypass = True
     End Sub
 
     Private Sub BBypass3_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass3.CheckedChanged
-        Blue3_Bypass = True
+        Blue3DS.Dispose()
+        Blue3Bypass = True
     End Sub
 
     'Manual Scoring Area'
