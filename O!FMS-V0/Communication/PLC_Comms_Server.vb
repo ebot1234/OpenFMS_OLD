@@ -146,7 +146,6 @@ Public Class PLC_Comms_Server
         If Red1Ready = True And Red2Ready = True And Red3Ready = True And Blue1Ready = True And Blue2Ready = True And Blue3Ready = True Then
             modbusClient.WriteSingleCoil(10, True)
             Field_Ready = True
-
         Else
             modbusClient.WriteSingleCoil(10, False)
             Field_Ready = False
@@ -171,16 +170,16 @@ Public Class PLC_Comms_Server
 
         End If
 
-            If Match_Stop = True Then
+        If Match_Stop = True Then
 
         End If
 
-            If PLC_Reset = True Then
+        If PLC_Reset = True Then
 
         End If
 
-            'handles the scoring table light testing'
-            If Scoring_Light_Test = True Then
+        'handles the scoring table light testing'
+        If Scoring_Light_Test = True Then
             modbusClient.WriteSingleCoil(11, True)
         End If
 
@@ -194,11 +193,11 @@ Public Class PLC_Comms_Server
 
         'Sends the team numbers to the ViewMarq Displays via PLC
         modbusClient.WriteSingleRegister(10, RedT1)
-            modbusClient.WriteSingleRegister(11, RedT2)
-            modbusClient.WriteSingleRegister(12, RedT3)
-            modbusClient.WriteSingleRegister(13, BlueT1)
-            modbusClient.WriteSingleRegister(14, BlueT2)
-            modbusClient.WriteSingleRegister(15, BlueT3)
+        modbusClient.WriteSingleRegister(11, RedT2)
+        modbusClient.WriteSingleRegister(12, RedT3)
+        modbusClient.WriteSingleRegister(13, BlueT1)
+        modbusClient.WriteSingleRegister(14, BlueT2)
+        modbusClient.WriteSingleRegister(15, BlueT3)
 
     End Sub
 
