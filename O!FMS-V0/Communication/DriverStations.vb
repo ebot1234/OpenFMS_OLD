@@ -134,6 +134,7 @@ Public Class DriverStations
         'Unused byte or unknown'
         data(4) = 0
         'Alliance Station byte, TODO add map of alliance stations'
+        '0 = r1, 1 = r2, 2 = r3, 3 = b1, 4 = b2, 5 = b3'
         data(5) = allianceStation
 
         'driver station match type is practice for right now'
