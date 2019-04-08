@@ -168,7 +168,7 @@ Public Class Main_Panel
         End If
         If PLC_Estop_Red2 = True Then
             R2Estop.FillColor = System.Drawing.Color.Red
-        Else : R2Estop.FillColor = System.Drawing.Color.Green
+        Else : R2Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
         If PLC_Estop_Red3 = True Then
             R3Estop.FillColor = System.Drawing.Color.Red
