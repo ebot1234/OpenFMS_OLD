@@ -239,33 +239,33 @@ Public Class PLC_Comms_Server
         PLC_Estop_Blue3 = readCoils(5) '6'
 
         'Estops Red 1'
-        If PLC_Estop_Red1 = False Then
+        If PLC_Estop_Red1 = True Then
             Red1DS.Estop = True
             MessageBox.Show("Red 1 Estopped")
         End If
 
-            'Estops Red 2'
-            If PLC_Estop_Red2 = False Then
+        'Estops Red 2'
+        If PLC_Estop_Red2 = True Then
             Red2DS.Estop = True
         End If
 
-            'Estops Red 3'
-            If PLC_Estop_Red3 = False Then
+        'Estops Red 3'
+        If PLC_Estop_Red3 = True Then
             Red3DS.Estop = True
         End If
 
-            'Estops Blue 1'
-            If PLC_Estop_Blue1 = False Then
+        'Estops Blue 1'
+        If PLC_Estop_Blue1 = True Then
             Blue1DS.Estop = True
         End If
 
         'Estops Blue 2'
-        If PLC_Estop_Blue2 = False Then
+        If PLC_Estop_Blue2 = True Then
             Blue2DS.Estop = True
         End If
 
         'Estops Blue 3'
-        If PLC_Estop_Blue3 = False Then
+        If PLC_Estop_Blue3 = True Then
             Blue3DS.Estop = True
         End If
     End Sub
@@ -275,13 +275,12 @@ Public Class PLC_Comms_Server
     End Sub
 
     Public Shared Sub handleFieldEstop()
-        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 1)
+        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 7)
 
-        PLC_Estop_Field = readCoils(0)
+        PLC_Estop_Field = readCoils(7)
 
-        If PLC_Estop_Field = False Then
+        If PLC_Estop_Field = True Then
             Field_Estop = True
-
         End If
 
 
