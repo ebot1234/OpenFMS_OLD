@@ -58,7 +58,6 @@ Public Class PLC_Comms_Server
     Public Shared CargoshipEnabled
     Public Shared CargoshipReleased
     Public Shared SandstormUp
-
     Public Shared Match_Start
     Public Shared Match_Stop
     Public Shared Field_Ready
@@ -69,6 +68,7 @@ Public Class PLC_Comms_Server
     Public Shared Blue1Ready
     Public Shared Blue2Ready
     Public Shared Blue3Ready
+    Public Shared Custom_Message
 
 
     'Alliance Station Lights
@@ -195,12 +195,16 @@ Public Class PLC_Comms_Server
 
 
         'Sends the team numbers to the ViewMarq Displays via PLC
-        modbusClient.WriteSingleRegister(10, RedT1)
-        modbusClient.WriteSingleRegister(11, RedT2)
-        modbusClient.WriteSingleRegister(12, RedT3)
-        modbusClient.WriteSingleRegister(13, BlueT1)
-        modbusClient.WriteSingleRegister(14, BlueT2)
-        modbusClient.WriteSingleRegister(15, BlueT3)
+        modbusClient.WriteSingleRegister(66, RedT1)
+        modbusClient.WriteSingleRegister(67, RedT2)
+        modbusClient.WriteSingleRegister(68, RedT3)
+        modbusClient.WriteSingleRegister(69, BlueT1)
+        modbusClient.WriteSingleRegister(71, BlueT2)
+        modbusClient.WriteSingleRegister(72, BlueT3)
+
+        'Sends the time and a custom message to the ViewMarq Displays via PLC
+        modbusClient.WriteSingleRegister(73, PLC_Match_Timer)
+        modbusClient.WriteSingleRegister(74, Custom_Message)
 
     End Sub
 

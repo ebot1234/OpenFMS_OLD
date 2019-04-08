@@ -158,8 +158,6 @@ Public Class Main_Panel
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
         Ctime.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-        'Convert match mode timer to PLC Timer'
-        ' PLCTimer.Text = PLC_Match_Timer
 
         'Estops
         If PLC_Estop_Red1 = True Then
