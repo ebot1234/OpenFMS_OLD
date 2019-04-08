@@ -127,6 +127,8 @@ Public Class Main_Panel
             MessageBox.Show("Not Loaded")
         End If
 
+
+
         RedT1 = RedTeam1.Text
         RedT2 = RedTeam2.Text
         RedT3 = RedTeam3.Text
@@ -161,29 +163,29 @@ Public Class Main_Panel
 
         'Estops
         If PLC_Estop_Red1 = True Then
-            R1Estop.FillColor = System.Drawing.Color.LimeGreen
-        Else : R1Estop.FillColor = System.Drawing.Color.Gray
+            R1Estop.FillColor = System.Drawing.Color.Red
+        Else : R1Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
         If PLC_Estop_Red2 = True Then
-            R2Estop.FillColor = System.Drawing.Color.LimeGreen
-        Else : R2Estop.FillColor = System.Drawing.Color.Gray
+            R2Estop.FillColor = System.Drawing.Color.Red
+        Else : R2Estop.FillColor = System.Drawing.Color.Green
         End If
         If PLC_Estop_Red3 = True Then
-            R3Estop.FillColor = System.Drawing.Color.LimeGreen
-        Else : R3Estop.FillColor = System.Drawing.Color.Gray
+            R3Estop.FillColor = System.Drawing.Color.Red
+        Else : R3Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
 
         If PLC_Estop_Blue1 = True Then
-            B1Estop.FillColor = System.Drawing.Color.LimeGreen
-        Else : B1Estop.FillColor = System.Drawing.Color.Gray
+            B1Estop.FillColor = System.Drawing.Color.Red
+        Else : B1Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
         If PLC_Estop_Blue2 = True Then
-            B2Estop.FillColor = System.Drawing.Color.LimeGreen
-        Else : B2Estop.FillColor = System.Drawing.Color.Gray
+            B2Estop.FillColor = System.Drawing.Color.Red
+        Else : B2Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
         If PLC_Estop_Blue3 = True Then
-            B3Estop.FillColor = System.Drawing.Color.LimeGreen
-        Else : B3Estop.FillColor = System.Drawing.Color.Gray
+            B3Estop.FillColor = System.Drawing.Color.Red
+        Else : B3Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
 
         'Driver Stations (DS) Linked
@@ -456,7 +458,6 @@ Public Class Main_Panel
                 TeleTimer.Stop()
                 EndGameTimer.Stop()
                 matchTimerLbl.Text = 0
-                fieldStatus = MatchEnums.AbortMatch
                 Field.updateField(MatchEnums.AbortMatch)
             End If
         End If
@@ -726,5 +727,14 @@ Public Class Main_Panel
         AudianceDisplay.BlueTeam1lbl.Text = BlueTeam1.Text
         AudianceDisplay.BlueTeam2.Text = BlueTeam2.Text
         AudianceDisplay.BlueTeam3.Text = BlueTeam3.Text
+    End Sub
+
+    Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
+        modbusClient.WriteSingleCoil(0, True)
+    End Sub
+
+    Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
+        modbusClient.WriteSingleCoil(0, False)
+
     End Sub
 End Class

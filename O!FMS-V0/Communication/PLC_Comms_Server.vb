@@ -57,7 +57,7 @@ Public Class PLC_Comms_Server
     'Data Sent from FMS Software to PLC
     Public Shared CargoshipEnabled
     Public Shared CargoshipReleased
-    Public Shared SandstormActive
+    Public Shared SandstormUp
 
     Public Shared Match_Start
     Public Shared Match_Stop
@@ -105,7 +105,8 @@ Public Class PLC_Comms_Server
     'Teams number varibles
     Public Shared RedT1, RedT2, RedT3, BlueT1, BlueT2, BlueT3
 
-    Public Shared modbusClient As New EasyModbus.ModbusClient("127.0.0.1", 502)
+    Public Shared modbusClient As New EasyModbus.ModbusClient("192.168.1.4", 502)
+    'Public Shared modbusClient As New EasyModbus.ModbusClient("127.0.0.1, 502")
 
     Public Shared Sub ConnectPLC()
         modbusClient.Connect()
@@ -113,7 +114,7 @@ Public Class PLC_Comms_Server
     End Sub
 
     Public Shared Sub DisconnectPLC()
-        MessageBox.Show("PLC is disconnecting!")
+        MessageBox.Show("PLC is disconnecting.")
         modbusClient.Disconnect()
     End Sub
 
@@ -153,7 +154,8 @@ Public Class PLC_Comms_Server
     End Sub
 
     Public Shared Sub handleRegisters()
-        Dim readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 7)
+        'Reads holding registers from address 1 to 8 on the PLC'
+        Dim readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 8)
         PLC_Match_Timer = readHoldingRegisters(0)
         PLC_Match_Mode = readHoldingRegisters(1)
         PLC_RedScore = readHoldingRegisters(2)
@@ -191,6 +193,7 @@ Public Class PLC_Comms_Server
 
 
 
+
         'Sends the team numbers to the ViewMarq Displays via PLC
         modbusClient.WriteSingleRegister(10, RedT1)
         modbusClient.WriteSingleRegister(11, RedT2)
@@ -213,11 +216,8 @@ Public Class PLC_Comms_Server
             modbusClient.WriteSingleCoil(8, True)
         End If
 
-        If SandstormActive = True Then
+        If SandstormUp = True Then
             'modbusClient.WriteSingleCoil(0, True)
-        Else
-
-            SandstormActive = True
         End If
 
     End Sub
@@ -228,19 +228,20 @@ Public Class PLC_Comms_Server
 
     End Sub
     Public Shared Sub handleEstops()
-        'Reads and sets the Estops for teams'
+        'Reads the coils from PLC address 1 to 7'
         Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 7)
 
-        PLC_Estop_Red1 = readCoils(1)
-        PLC_Estop_Red2 = readCoils(2)
-        PLC_Estop_Red3 = readCoils(3)
-        PLC_Estop_Blue1 = readCoils(4)
-        PLC_Estop_Blue2 = readCoils(5)
-        PLC_Estop_Blue3 = readCoils(6)
+        PLC_Estop_Red1 = readCoils(0) '1'
+        PLC_Estop_Red2 = readCoils(1) '2'
+        PLC_Estop_Red3 = readCoils(2) '3'
+        PLC_Estop_Blue1 = readCoils(3) '4'
+        PLC_Estop_Blue2 = readCoils(4) '5'
+        PLC_Estop_Blue3 = readCoils(5) '6'
 
         'Estops Red 1'
         If PLC_Estop_Red1 = False Then
             Red1DS.Estop = True
+            MessageBox.Show("Red 1 Estopped")
         End If
 
             'Estops Red 2'
@@ -267,20 +268,6 @@ Public Class PLC_Comms_Server
         If PLC_Estop_Blue3 = False Then
             Blue3DS.Estop = True
         End If
-
-        If Field_Estop = True Then
-            Red1DS.Estop = True
-            Red2DS.Estop = True
-            Red3DS.Estop = True
-            Blue1DS.Estop = True
-            Blue2DS.Estop = True
-            Blue3DS.Estop = True
-        End If
-
-        If PLC_Reset = True Then
-
-        End If
-
     End Sub
 
     Public Shared Sub abortedMatch()

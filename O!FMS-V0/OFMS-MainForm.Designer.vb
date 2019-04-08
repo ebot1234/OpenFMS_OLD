@@ -27,6 +27,9 @@ Partial Class Main_Panel
         Me.MatchNum = New System.Windows.Forms.TextBox()
         Me.Save_btn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button29 = New System.Windows.Forms.Button()
+        Me.Button28 = New System.Windows.Forms.Button()
+        Me.Button27 = New System.Windows.Forms.Button()
         Me.Red3Sur = New System.Windows.Forms.Label()
         Me.Red2Sur = New System.Windows.Forms.Label()
         Me.Red1Sur = New System.Windows.Forms.Label()
@@ -64,6 +67,9 @@ Partial Class Main_Panel
         Me.StartMatch_btn = New System.Windows.Forms.Button()
         Me.AbortMatch_btn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button32 = New System.Windows.Forms.Button()
+        Me.Button31 = New System.Windows.Forms.Button()
+        Me.Button30 = New System.Windows.Forms.Button()
         Me.Blue3Sur = New System.Windows.Forms.Label()
         Me.Blue2Sur = New System.Windows.Forms.Label()
         Me.Blue1Sur = New System.Windows.Forms.Label()
@@ -158,12 +164,6 @@ Partial Class Main_Panel
         Me.BlueScoreLbl = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.MatchListTableAdapter1 = New O_FMS_V0._O_FMSDataSet1TableAdapters.MatchListTableAdapter()
-        Me.Button27 = New System.Windows.Forms.Button()
-        Me.Button28 = New System.Windows.Forms.Button()
-        Me.Button30 = New System.Windows.Forms.Button()
-        Me.Button31 = New System.Windows.Forms.Button()
-        Me.Button32 = New System.Windows.Forms.Button()
-        Me.Button29 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -230,6 +230,33 @@ Partial Class Main_Panel
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(336, 174)
         Me.Panel1.TabIndex = 11
+        '
+        'Button29
+        '
+        Me.Button29.Location = New System.Drawing.Point(236, 95)
+        Me.Button29.Name = "Button29"
+        Me.Button29.Size = New System.Drawing.Size(75, 46)
+        Me.Button29.TabIndex = 32
+        Me.Button29.Text = "Red 3 Estop"
+        Me.Button29.UseVisualStyleBackColor = True
+        '
+        'Button28
+        '
+        Me.Button28.Location = New System.Drawing.Point(121, 93)
+        Me.Button28.Name = "Button28"
+        Me.Button28.Size = New System.Drawing.Size(75, 48)
+        Me.Button28.TabIndex = 31
+        Me.Button28.Text = "Red 2 Estop"
+        Me.Button28.UseVisualStyleBackColor = True
+        '
+        'Button27
+        '
+        Me.Button27.Location = New System.Drawing.Point(14, 94)
+        Me.Button27.Name = "Button27"
+        Me.Button27.Size = New System.Drawing.Size(75, 47)
+        Me.Button27.TabIndex = 30
+        Me.Button27.Text = "Red 1 Estop"
+        Me.Button27.UseVisualStyleBackColor = True
         '
         'Red3Sur
         '
@@ -609,6 +636,33 @@ Partial Class Main_Panel
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(346, 174)
         Me.Panel2.TabIndex = 20
+        '
+        'Button32
+        '
+        Me.Button32.Location = New System.Drawing.Point(249, 95)
+        Me.Button32.Name = "Button32"
+        Me.Button32.Size = New System.Drawing.Size(75, 46)
+        Me.Button32.TabIndex = 35
+        Me.Button32.Text = "Blue 3 Estop"
+        Me.Button32.UseVisualStyleBackColor = True
+        '
+        'Button31
+        '
+        Me.Button31.Location = New System.Drawing.Point(132, 95)
+        Me.Button31.Name = "Button31"
+        Me.Button31.Size = New System.Drawing.Size(75, 46)
+        Me.Button31.TabIndex = 34
+        Me.Button31.Text = "Blue 2 Estop"
+        Me.Button31.UseVisualStyleBackColor = True
+        '
+        'Button30
+        '
+        Me.Button30.Location = New System.Drawing.Point(18, 95)
+        Me.Button30.Name = "Button30"
+        Me.Button30.Size = New System.Drawing.Size(75, 46)
+        Me.Button30.TabIndex = 33
+        Me.Button30.Text = "Blue 1 Estop"
+        Me.Button30.UseVisualStyleBackColor = True
         '
         'Blue3Sur
         '
@@ -1505,60 +1559,6 @@ Partial Class Main_Panel
         'MatchListTableAdapter1
         '
         Me.MatchListTableAdapter1.ClearBeforeFill = True
-        '
-        'Button27
-        '
-        Me.Button27.Location = New System.Drawing.Point(14, 94)
-        Me.Button27.Name = "Button27"
-        Me.Button27.Size = New System.Drawing.Size(75, 47)
-        Me.Button27.TabIndex = 30
-        Me.Button27.Text = "Red 1 Estop"
-        Me.Button27.UseVisualStyleBackColor = True
-        '
-        'Button28
-        '
-        Me.Button28.Location = New System.Drawing.Point(121, 93)
-        Me.Button28.Name = "Button28"
-        Me.Button28.Size = New System.Drawing.Size(75, 48)
-        Me.Button28.TabIndex = 31
-        Me.Button28.Text = "Red 2 Estop"
-        Me.Button28.UseVisualStyleBackColor = True
-        '
-        'Button30
-        '
-        Me.Button30.Location = New System.Drawing.Point(18, 95)
-        Me.Button30.Name = "Button30"
-        Me.Button30.Size = New System.Drawing.Size(75, 46)
-        Me.Button30.TabIndex = 33
-        Me.Button30.Text = "Blue 1 Estop"
-        Me.Button30.UseVisualStyleBackColor = True
-        '
-        'Button31
-        '
-        Me.Button31.Location = New System.Drawing.Point(132, 95)
-        Me.Button31.Name = "Button31"
-        Me.Button31.Size = New System.Drawing.Size(75, 46)
-        Me.Button31.TabIndex = 34
-        Me.Button31.Text = "Blue 2 Estop"
-        Me.Button31.UseVisualStyleBackColor = True
-        '
-        'Button32
-        '
-        Me.Button32.Location = New System.Drawing.Point(249, 95)
-        Me.Button32.Name = "Button32"
-        Me.Button32.Size = New System.Drawing.Size(75, 46)
-        Me.Button32.TabIndex = 35
-        Me.Button32.Text = "Blue 3 Estop"
-        Me.Button32.UseVisualStyleBackColor = True
-        '
-        'Button29
-        '
-        Me.Button29.Location = New System.Drawing.Point(236, 95)
-        Me.Button29.Name = "Button29"
-        Me.Button29.Size = New System.Drawing.Size(75, 46)
-        Me.Button29.TabIndex = 32
-        Me.Button29.Text = "Red 3 Estop"
-        Me.Button29.UseVisualStyleBackColor = True
         '
         'Main_Panel
         '

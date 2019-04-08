@@ -155,7 +155,6 @@ Public Class Field
                 ResetPLC()
                 fieldStatus = MatchEnums.PreMatch
                 CargoshipEnabled = True
-                SandstormActive = True
                 SendDS(Auto:=True, Enabled:=False)
             Case MatchEnums.SandStorm
                 status = True
@@ -165,7 +164,6 @@ Public Class Field
             Case MatchEnums.TeleOp
                 fieldStatus = MatchEnums.TeleOp
                 CargoshipEnabled = False
-                SandstormActive = False
                 SendDS(Auto:=False, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_resume, AudioPlayMode.Background)
             Case MatchEnums.EndGameWarning
