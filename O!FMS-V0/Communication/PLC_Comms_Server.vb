@@ -10,7 +10,7 @@ Public Class PLC_Comms_Server
     Public Shared isPlcConnected = False
     Public Shared Field_Estop As Boolean = False
 
-    'Estops bidirectional communications
+    'Estops bidirectional communications for status not controlling the lights'
     Public Shared PLC_Estop_Red1
     Public Shared PLC_Estop_Red2
     Public Shared PLC_Estop_Red3
@@ -18,6 +18,15 @@ Public Class PLC_Comms_Server
     Public Shared PLC_Estop_Blue2
     Public Shared PLC_Estop_Blue3
     Public Shared PLC_Estop_Field
+
+    'Light bits for the Estops'
+    Public Shared Red_1_Estop
+    Public Shared Red_2_Estop
+    Public Shared Red_3_Estop
+    Public Shared Blue_1_Estop
+    Public Shared Blue_2_Estop
+    Public Shared Blue_3_Estop
+    Public Shared Field_Estop_Bit
 
     'Driver Station Linked (Pulled from DS & Sent to PLC)
     Public Shared DS_Linked_Red1
@@ -48,20 +57,25 @@ Public Class PLC_Comms_Server
     Public Shared PLC_BlueScore
     Public Shared PLC_Match_Timer
     Public Shared PLC_Match_Mode
-    Public Shared PLC_RedPen_Ref
-    Public Shared PLC_BluePen_Ref
+    Public Shared PLC_Red_Foul
+    Public Shared PLC_Red_Tech
+    Public Shared PLC_Blue_Foul
+    Public Shared PLC_Blue_Tech
     Public Shared PLC_Field_Reset
     Public Shared PLC_Field_Volunteers
 
-
-    'Data Sent from FMS Software to PLC
+    'Game Varibles'
     Public Shared CargoshipEnabled
     Public Shared CargoshipReleased
     Public Shared SandstormUp
+
+    'Data Sent from FMS Software to PLC
     Public Shared Match_Start
     Public Shared Match_Stop
     Public Shared Field_Ready
     Public Shared PLC_Reset
+
+    'Driver Station Statuses'
     Public Shared Red1Ready
     Public Shared Red2Ready
     Public Shared Red3Ready
@@ -154,14 +168,15 @@ Public Class PLC_Comms_Server
     End Sub
 
     Public Shared Sub handleRegisters()
-        'Reads holding registers from address 1 to 8 on the PLC'
-        Dim readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 8)
-        PLC_Match_Timer = readHoldingRegisters(0)
-        PLC_Match_Mode = readHoldingRegisters(1)
-        PLC_RedScore = readHoldingRegisters(2)
-        PLC_BlueScore = readHoldingRegisters(3)
-        PLC_RedPen_Ref = readHoldingRegisters(5)
-        PLC_BluePen_Ref = readHoldingRegisters(6)
+        'Reads the scores and other registers from the PLC'
+        Dim readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 74)
+
+        PLC_RedScore = readHoldingRegisters(60)
+        PLC_Red_Foul = readHoldingRegisters(63)
+        PLC_Red_Tech = readHoldingRegisters(62)
+        PLC_BlueScore = readHoldingRegisters(61)
+        PLC_Blue_Foul = readHoldingRegisters(65)
+        PLC_Blue_Tech = readHoldingRegisters(64)
 
     End Sub
 
@@ -226,7 +241,13 @@ Public Class PLC_Comms_Server
 
     End Sub
     Public Shared Sub handleCoils()
-        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 49)
+        If Main_Panel.Red1_Estop = True Then
+            modbusClient.WriteSingleCoil(20, True)
+        End If
+
+        If Main_Panel.Red1_Estop = True Then
+            modbusClient.WriteSingleCoil(21, True)
+        End If
 
 
 

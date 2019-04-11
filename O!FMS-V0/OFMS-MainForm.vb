@@ -18,6 +18,12 @@ Public Class Main_Panel
     Public Shared Blue1Bypass
     Public Shared Blue2Bypass
     Public Shared Blue3Bypass
+    Public Shared Red1_Estop
+    Public Shared Red2_Estop
+    Public Shared Red3_Estop
+    Public Shared Blue1_Estop
+    Public Shared Blue2_Estop
+    Public Shared Blue3_Estop
 
     'Red Scoring Varibles'
     Public Shared RedScore As Integer
@@ -728,11 +734,10 @@ Public Class Main_Panel
     End Sub
 
     Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
-        modbusClient.WriteSingleCoil(0, True)
+        Red1_Estop = True
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
-        modbusClient.WriteSingleCoil(0, False)
-
+        Red2_Estop = True
     End Sub
 End Class
