@@ -83,7 +83,7 @@ Public Class Switch
     End Function
 
     Public Shared Function replaceVlan(teamNumber As String, vlan As Integer)
-        'Determines the team number ip address format for use with the Access Point command'
+        'Determines the team number ip address format for use with the command'
         Select Case (teamNumber.Length)
             Case 4
                 teamNumber = teamNumber.Substring(0, 2) + "." + teamNumber.Substring(2, 2)
