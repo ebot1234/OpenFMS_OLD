@@ -74,7 +74,7 @@ Public Class AccessPoint
         End If
     End Sub
 
-    Public Shared Sub configureAdminWifi(ap As AccessPoint)
+    Public Shared Sub configureAdminWifi()
         Dim disabled = 0
 
         If AccessPoint.adminChannel = 0 Then

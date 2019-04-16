@@ -27,7 +27,6 @@ Public Class Switch
         Public Shared address As String
         Public Shared port As Integer
         Public Shared password As String
-        Public Shared mutex As New Mutex
     End Structure
 
     'The DS will try to connect to this address
@@ -38,12 +37,6 @@ Public Class Switch
     End Function
 
     Public Shared Function configureTeamEthernet(red1 As String, red2 As String, red3 As String, blue1 As String, blue2 As String, blue3 As String)
-
-        'Determines what new VLANs are needed'
-        Dim oldTeamVlans = getTeamVlans()
-        If oldTeamVlans Is Nothing Then
-            MessageBox.Show("No VLANs Avalible")
-        End If
 
         'Sets the Vlans command for each team in the match'
         replaceVlan(red1, Red1VLAN)
@@ -78,10 +71,6 @@ Public Class Switch
         Return 0
     End Function
 
-    Public Shared Function getTeamVlans()
-        Return 0
-    End Function
-
     Public Shared Function replaceVlan(teamNumber As String, vlan As Integer)
         'Determines the team number ip address format for use with the command'
         Select Case (teamNumber.Length)
@@ -96,8 +85,6 @@ Public Class Switch
             Case Else
                 MessageBox.Show(String.Format("Team: {0} doesn't work to short or long", teamNumber))
         End Select
-
-        Dim oldTeamVlans = getTeamVlans()
 
         If teamNumber = 0 Then
             MessageBox.Show("Team is nothing, can't configure the switch")
