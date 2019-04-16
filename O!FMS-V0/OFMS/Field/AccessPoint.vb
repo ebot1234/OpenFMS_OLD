@@ -18,11 +18,6 @@ Public Class AccessPoint
         Public Shared initalStatusFetched As Boolean
     End Structure
 
-    Structure TeamWifiStatus
-        Public Shared TeamId As Integer
-        Public Shared RadioLinked As Boolean
-    End Structure
-
     Structure sshOutput
         Public Shared output As String
         Public Shared err As ErrObject
@@ -56,8 +51,8 @@ Public Class AccessPoint
         command(4) = "commit wireless"
 
         Dim wifiCommand
-        wifiCommand = String.Format("uci batch <<ENDCONFIG && wifi radio1" & vbNewLine & "{0}" & vbNewLine & "ENDCONFIG" & vbNewLine, command)
-        RunCommand(command)
+        wifiCommand = String.Format("uci batch <<ENDCONFIG && wifi radio1" & vbNewLine & "{0}" & vbNewLine & "ENDCONFIG" & vbNewLine, command, vbNewLine)
+        RunCommand(wifiCommand)
     End Sub
 
     Public Shared Function generateAccessPointConfig(team As Team)
@@ -73,23 +68,23 @@ Public Class AccessPoint
 
     'This function creates the team id and WPA key part of the UCI Batch command for the Access Point
     Public Shared Function createTeamCommands(position As Integer, WpaKey As String, teamNumber As String)
-        Dim commands(5) As String
+        Dim commands As String
 
         If teamNumber = 0 Then
-            commands(0) = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position)
-            commands(1) = String.Format("set wireless.@wifi-iface[{0}].ssid='no-team-{1}'", position, position)
-            commands(2) = String.Format("set wireless.@wifi-iface[{0}].key='no-team-{1}'", position, position)
-            commands(3) = "commit wireless"
+            commands = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position) +
+                    String.Format("set wireless.@wifi-iface[{0}].ssid='no-team-{1}'", position, position) +
+                    String.Format("set wireless.@wifi-iface[{0}].key='no-team-{1}'", position, position) +
+                    "commit wireless"
 
         Else
             If Len(teamNumber) < 8 Or Len(WpaKey) > 63 Then
                 MessageBox.Show("Invalid team WPA Key for: {0}", teamNumber)
             End If
 
-            commands(0) = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position)
-            commands(1) = String.Format("set wireless.@wifi-iface[{0}].ssid='no-team-{1}'", position, teamNumber)
-            commands(2) = String.Format("set wireless.@wifi-iface[{0}].key='no-team-{1}'", position, WpaKey)
-            commands(3) = "commit wireless" & vbNewLine
+            commands = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position) +
+            String.Format("set wireless.@wifi-iface[{0}].ssid='no-team-{1}'", position, teamNumber) +
+            String.Format("set wireless.@wifi-iface[{0}].key='no-team-{1}'", position, WpaKey) +
+            "commit wireless" & vbNewLine
 
         End If
 
