@@ -1,14 +1,4 @@
-﻿Imports Renci.SshNet
-Imports O_FMS_V0.Team_Networks
-Imports System.IO
-Imports System.Net.Dns
-Imports O_FMS_V0.PLC_Comms_Server
-Imports System.Text
-Imports System
-
-
-
-
+﻿
 Public Class AccessPoint
     Public Shared accessPointSshPort As Integer = 22
     Public Shared accessPointConnectTimeoutSec = 1
@@ -66,12 +56,44 @@ Public Class AccessPoint
         command(4) = "commit wireless"
 
         Dim wifiCommand
-        wifiCommand = String.Format("uci batch <<ENDCONFIG && wifi radio1\n{0}\nENDCONFIG\n", command)
+        wifiCommand = String.Format("uci batch <<ENDCONFIG && wifi radio1" & vbNewLine & "{0}" & vbNewLine & "ENDCONFIG" & vbNewLine, command)
         RunCommand(command)
     End Sub
 
     Public Shared Function generateAccessPointConfig(team As Team)
-        Return team
+        Dim commands = createTeamCommands(1, "Add WPA Key", Main_Panel.RedTeam1.Text) +
+            createTeamCommands(2, "", Main_Panel.RedTeam2.Text) +
+            createTeamCommands(3, "", Main_Panel.RedTeam3.Text) +
+            createTeamCommands(4, "", Main_Panel.BlueTeam1.Text) +
+            createTeamCommands(5, "", Main_Panel.BlueTeam2.Text) +
+            createTeamCommands(6, "", Main_Panel.BlueTeam3.Text)
+
+        Return commands
+    End Function
+
+    'This function creates the team id and WPA key part of the UCI Batch command for the Access Point
+    Public Shared Function createTeamCommands(position As Integer, WpaKey As String, teamNumber As String)
+        Dim commands(5) As String
+
+        If teamNumber = 0 Then
+            commands(0) = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position)
+            commands(1) = String.Format("set wireless.@wifi-iface[{0}].ssid='no-team-{1}'", position, position)
+            commands(2) = String.Format("set wireless.@wifi-iface[{0}].key='no-team-{1}'", position, position)
+            commands(3) = "commit wireless"
+
+        Else
+            If Len(teamNumber) < 8 Or Len(WpaKey) > 63 Then
+                MessageBox.Show("Invalid team WPA Key for: {0}", teamNumber)
+            End If
+
+            commands(0) = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position)
+            commands(1) = String.Format("set wireless.@wifi-iface[{0}].ssid='no-team-{1}'", position, teamNumber)
+            commands(2) = String.Format("set wireless.@wifi-iface[{0}].key='no-team-{1}'", position, WpaKey)
+            commands(3) = "commit wireless" & vbNewLine
+
+        End If
+
+        Return commands
     End Function
 
     Public Shared Sub handleTeamWifiConfiguration(teams As Team)
@@ -81,7 +103,7 @@ Public Class AccessPoint
             MessageBox.Show(String.Format("Failed to configure wifi: {0}", config))
         End If
 
-        Dim command = String.Format("uci batch <<ENDCONFIG && wifi radio0\n%s\nENDCONFIG\n", config)
+        Dim command = String.Format("uci batch <<ENDCONFIG && wifi radio0" & vbNewLine & "{0}" & vbNewLine & "ENDCONFIG" & vbNewLine, config)
         Dim attemptCount = 1
 
         Do
