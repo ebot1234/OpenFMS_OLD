@@ -25,8 +25,6 @@ Public Class AccessPoint
         Public Shared teamChannel As Integer
         Public Shared adminChannel As String
         Public Shared adminWpaKey As String
-        Public Shared configRequestChan(6) As Team
-        Public Shared TeamWifiStatuses(6) As TeamWifiStatus
         Public Shared initalStatusFetched As Boolean
     End Structure
 
@@ -50,28 +48,7 @@ Public Class AccessPoint
         adminChannel = AccessPoint.adminChannel
         adminWpaKey = AccessPoint.adminWpaKey
 
-        If AccessPoint.configRequestChan Is Nothing Then
-            AccessPoint.configRequestChan(0) = accessPointRequestBufferSize
-            AccessPoint.configRequestChan(1) = accessPointRequestBufferSize
-            AccessPoint.configRequestChan(2) = accessPointRequestBufferSize
-            AccessPoint.configRequestChan(3) = accessPointRequestBufferSize
-            AccessPoint.configRequestChan(4) = accessPointRequestBufferSize
-            AccessPoint.configRequestChan(5) = accessPointRequestBufferSize
-        End If
 
-    End Sub
-    Public Shared Sub configureTeamWifi(red1 As Team, red2 As Team, red3 As Team, blue1 As Team, blue2 As Team, blue3 As Team)
-
-        If AccessPoint.configRequestChan(0) Is red1 And AccessPoint.configRequestChan(3) Is blue1 Then
-            MessageBox.Show("Wifi buffer full!!!")
-        Else
-            AccessPoint.configRequestChan(0) = red1
-            AccessPoint.configRequestChan(1) = red2
-            AccessPoint.configRequestChan(2) = red3
-            AccessPoint.configRequestChan(3) = blue1
-            AccessPoint.configRequestChan(4) = blue2
-            AccessPoint.configRequestChan(5) = blue3
-        End If
     End Sub
 
     Public Shared Sub configureAdminWifi()
