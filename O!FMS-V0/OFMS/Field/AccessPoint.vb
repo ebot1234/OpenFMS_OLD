@@ -1,4 +1,5 @@
-﻿
+﻿Imports Renci.SshNet
+
 Public Class AccessPoint
     Public Shared accessPointSshPort As Integer = 22
     Public Shared accessPointConnectTimeoutSec = 1
@@ -19,8 +20,7 @@ Public Class AccessPoint
     End Structure
 
     Structure sshOutput
-        Public Shared output As String
-        Public Shared err As ErrObject
+        Public Shared output As SshCommand
     End Structure
 
 
@@ -43,19 +43,19 @@ Public Class AccessPoint
             disabled = 1
         End If
 
-        Dim command(5) As String
-        command(0) = String.Format("set wireless.radio0.channel='{0}'", AccessPoint.teamChannel)
-        command(1) = String.Format("set wireless.radio1.disabled='{0}'", disabled)
-        command(2) = String.Format("set wireless.radio.1.channel='{0}'", AccessPoint.adminChannel)
-        command(3) = String.Format("set wireless.@wifi-iface[0].key='{0}'", AccessPoint.adminWpaKey)
-        command(4) = "commit wireless"
+        Dim command As String
+        command = String.Format("set wireless.radio0.channel='{0}'", AccessPoint.teamChannel) +
+        String.Format("set wireless.radio1.disabled='{0}'", disabled) +
+        String.Format("set wireless.radio.1.channel='{0}'", AccessPoint.adminChannel) +
+        String.Format("set wireless.@wifi-iface[0].key='{0}'", AccessPoint.adminWpaKey) +
+        "commit wireless"
 
         Dim wifiCommand
         wifiCommand = String.Format("uci batch <<ENDCONFIG && wifi radio1" & vbNewLine & "{0}" & vbNewLine & "ENDCONFIG" & vbNewLine, command, vbNewLine)
         RunCommand(wifiCommand)
     End Sub
 
-    Public Shared Function generateAccessPointConfig(team As Team)
+    Public Shared Function generateAccessPointConfig()
         Dim commands = createTeamCommands(1, "Add WPA Key", Main_Panel.RedTeam1.Text) +
             createTeamCommands(2, "", Main_Panel.RedTeam2.Text) +
             createTeamCommands(3, "", Main_Panel.RedTeam3.Text) +
@@ -91,8 +91,8 @@ Public Class AccessPoint
         Return commands
     End Function
 
-    Public Shared Sub handleTeamWifiConfiguration(teams As Team)
-        Dim config = generateAccessPointConfig(teams)
+    Public Shared Sub handleTeamWifiConfiguration()
+        Dim config = generateAccessPointConfig()
 
         If config IsNot Nothing Then
             MessageBox.Show(String.Format("Failed to configure wifi: {0}", config))
@@ -101,22 +101,21 @@ Public Class AccessPoint
         Dim command = String.Format("uci batch <<ENDCONFIG && wifi radio0" & vbNewLine & "{0}" & vbNewLine & "ENDCONFIG" & vbNewLine, config)
         Dim attemptCount = 1
 
+        'loops forever until confguration of the AP is correct for the match'
         Do
-            Dim err = RunTeamCommand(command)
+            Dim status = RunTeamCommand(command)
             Threading.Thread.Sleep(accessPointCommandTimeoutSec * 1000)
 
-            If err Is Nothing Then
-                err = updateTeamStatuses()
-                If err Is Nothing And configIsCorrectForTeams(teams) Then
-                    MessageBox.Show("Correctly configured wifi for teams, yay!")
-                    Return
-                End If
+            If status Is Nothing Then
+                MessageBox.Show("Access Point configured correctly for the match")
+                Exit Do
             End If
 
             If err IsNot Nothing Then
                 MessageBox.Show("Error team wifi is not configured")
             End If
 
+            'Shows the retries in a message box'
             MessageBox.Show(String.Format("Wifi is still wrong after {0} attempts", attemptCount))
             attemptCount = attemptCount + 1
         Loop
@@ -128,14 +127,28 @@ Public Class AccessPoint
     End Sub
 
     Public Shared Function RunTeamCommand(command As String)
-        Return 0
+        Dim sshClient As SshClient
+        Dim sshConnectionInfo As PasswordConnectionInfo
+
+        sshConnectionInfo = New PasswordConnectionInfo(AccessPoint.address, AccessPoint.username, AccessPoint.password)
+        sshClient = New SshClient(sshConnectionInfo)
+
+        'Checks if the client is being used if so exits the function'
+        If Not sshClient Is Nothing AndAlso sshClient.IsConnected Then
+            Exit Function
+        End If
+
+        sshClient.Connect()
+
+
+
     End Function
 
     Public Shared Function updateTeamStatuses()
         Return 0
     End Function
 
-    Public Shared Function configIsCorrectForTeams(teams As Team) As Boolean
+    Public Shared Function configIsCorrectForTeams()
         'Dim team = 0
 
         'If AccessPoint.initalStatusFetched = False Then
