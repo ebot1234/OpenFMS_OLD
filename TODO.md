@@ -1,17 +1,29 @@
-To-Do list for OFMS:
+## To-Do list for OFMS 2019 Release:
 
-Add 2019 automated scoring
+- Add 2019 automated scoring...Almost Done
 
-Add 2019 manual scoring
+- Add 2019 game sounds
 
-Check if DS connect to OFMS
+- Add 2019 manual scoring...Done
 
-Add 2019 rocket leds
+- Add match posting to SQL
 
-Add match schedule to SQL 
+- Add ranking display and ability to calcualte rankings
 
-Test the Modbus communication for PLC scoring
+- Check if DS connect to OFMS
 
-Create team adder via form 
+- Add 2019 rocket leds (using Arduino with DMX controllable lights)
 
-Add BlueAllianceAPI to the team adder
+- Add match schedule to SQL 
+
+- Test the Modbus communication for PLC scoring
+
+- Write Access Point and Switch configurations...Almost Done
+
+- Generate WPA Keys for teams
+
+- Create team adder via form...Working on that
+
+- Add BlueAllianceAPI to the team adder
+
+- Create a release of software for 2019
