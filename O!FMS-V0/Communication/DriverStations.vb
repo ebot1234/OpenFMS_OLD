@@ -10,6 +10,7 @@ Public Class DriverStations
     Public packetCount As Integer = 0
     Public DSUpdSendPort As Int32 = 1121
     Public DSUdpReceivePort As Int32 = 1160
+    Public Bypassed As Boolean = False
     Public Auto As Boolean = False
     Public Enabled As Boolean = False
     Public Estop As Boolean = False
@@ -20,6 +21,8 @@ Public Class DriverStations
     Public tcpClient As TcpClient
     Public udpClient As UdpClient
     Public TeamNum As Integer
+    Dim IpEnd As IPEndPoint = New IPEndPoint(IPAddress.Parse("10.0.100.5"), 1750)
+    Dim dsListener As TcpListener
 
     Public Sub newDriverStationConnection(teamNumber As String, allianceStationNumber As Integer)
         TeamNum = Convert.ToInt32(teamNumber)
@@ -46,6 +49,7 @@ Public Class DriverStations
 
         Dim sendDataThread As New Thread(AddressOf sendPacketDS)
         sendDataThread.Start()
+
     End Sub
 
     Public Sub robotPing(stationNumber As Integer)
@@ -130,6 +134,7 @@ Public Class DriverStations
         'Unused byte or unknown'
         data(4) = 0
         'Alliance Station byte, TODO add map of alliance stations'
+        '0 = r1, 1 = r2, 2 = r3, 3 = b1, 4 = b2, 5 = b3'
         data(5) = allianceStation
 
         'driver station match type is practice for right now'
@@ -167,14 +172,16 @@ Public Class DriverStations
     End Function
 
     Public Sub ListenToDS()
-        Dim IpEnd = New IPEndPoint(IPAddress.Parse("10.0.100.5"), 1750)
-        Dim dsListener = New TcpListener(IpEnd)
-        Dim listen As Boolean = False
+        Dim listen As Boolean
+
         Try
+            Dim port As Int32 = 1750
+            Dim FMS_Address As IPAddress = IPAddress.Parse("10.0.100.5")
+            dsListener = New TcpListener(FMS_Address, port)
             dsListener.Start()
             listen = True
-        Catch ex As Exception
-            MessageBox.Show("Ds Listener not started set network card to 10.0.100.5 for driver stations")
+        Catch ex As SocketException
+            MessageBox.Show(ex.ToString)
             listen = False
         End Try
 
@@ -214,33 +221,6 @@ Public Class DriverStations
 
     End Sub
 
-    Public Function generateGameStringPacket()
-        Dim gameString = Encoding.ASCII.GetBytes(gamedatause)
-        Dim packet(gameString.Length + 4) As Byte
-
-        packet(0) = 0 'size'
-        packet(1) = gameString.Length + 2
-        packet(2) = 28 'type'
-        packet(3) = gameString.Length
-
-        Dim i As Integer = 0
-
-        If i < gameString.Length Then
-            packet(i + 4) = gameString(i)
-            i = i + 1
-        End If
-
-        Return packet
-    End Function
-
-    Public Sub sendGameDataPacket(gameData As String)
-        If tcpClient IsNot Nothing Then
-            Dim packet(generateGameStringPacket) As Byte
-            tcpClient.GetStream.Write(packet, 0, packet.Length)
-        End If
-
-    End Sub
-
     Public Sub Dispose()
         If udpClient IsNot Nothing Then
             udpClient.Close()
@@ -253,6 +233,13 @@ Public Class DriverStations
         Else
             'Do nothing since it is nothing'
         End If
+
+        If dsListener IsNot Nothing Then
+            dsListener.Stop()
+        Else
+            'Do nothing since it is nothing
+        End If
+
     End Sub
 
 End Class

@@ -4,41 +4,31 @@ OFMS is a re-implentation of FIRST's FMS for controlling robots in an event. Thi
 
 ## PLC Integration:
 
-We use Automation Direct's FMS Hardware, which consits of a DoMore BRX PLC and many remote network cards to control inputs and outputs of the field.
+We use Automation Direct's FMS Hardware, which consits of a DoMore BRX PLC and many remote network cards to control inputs and outputs of the field. Just like the Allen-Bradley hardware the Offical Field uses, our hardware is only half as much money and works the same.
 
 
 
 ## Scoring: 
 
-Scoring is handled by Automation Directs BRX PLC series and for the offseasons the sensors are provided by FIRST on the offical field for each year. 
+OFMS has the capabilites to use either automated PLC scoring or manual scoring. The automated scoring  is handled by Automation Direct's BRX PLC series and has the ability to have touchscreens for the referees. The manual scoring has the ability to scoring everything from year to year but is controlled by the scorekeeper/FMS operator.
 
 
 
 ## Networking:
 
-OFMS requires you to use the Linksys 1900ACS by: Cisco and a Cisco 3500 series L3 Switch. The 1900ACS is flashed with the FIRST 2017 VLAN configuration for OpenWRT. The Cisco switch is configured for VLANs and reconfigured at the beginning of each match, to provide extra security for the teams.
+OFMS uses two items to make the field networking safe for teams and robots for gameplay. First we use the Linksys 1900ACS Router that came into play in 2017, FIRST SteamWorks. It runs the OpenWRT software FIRST modified for FRC use. The second item is a Cisco Catalyst 3500-series Layer 3 managed switch, which allows us to reconfigure every match team specific VLANs to ensure safe and fair gameplay.
 
 
 
 ## Field Lighting:
 
-The field lighting for each year will use an Arduino and a WS2812 LED Pixel strips. Each year this will change along with the game so stay tuned for changes.
-
-
-
-## Release Info:
-
-We will try to release a pre-release version for the pre-season for week zero scrimmages and an offical release for each years off-seasons.
-Note the pre-release version will not have automated scoring. You will have to use the built-in manual scoring system.
+The field lighting for each year will use an Arduino Uno and WS2812 LED Pixel strips. Each year this will change along with the game so stay tuned for changes.
 
 
 ## PLC and Field Lighting Programs:
 
-The PLC programs are programmed in Automation Direct's free programming software availible on their website:
-https://support.automationdirect.com/products/domore.html
-The OFMS PLC program is changed every year and will included in each years release.
-The Arudino programs are programmed in Arduino's desktop IDE which is also free at their website:
-https://www.arduino.cc/en/Main/Software
-The OFMS Led program is also changed each year and will be included in each years release.
+Both the PLC and the field lighting controller (arduino) is included in the release of each year. Detailed instructions on how to write the programs to the PLC and arduino is comming soon to the WIKI. 
 
+## Feature Requests:
 
+If you want to request features you can do so by using the issues tab in the repository.

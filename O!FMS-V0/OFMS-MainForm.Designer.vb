@@ -27,21 +27,16 @@ Partial Class Main_Panel
         Me.MatchNum = New System.Windows.Forms.TextBox()
         Me.Save_btn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.RedAllianceHang = New System.Windows.Forms.TextBox()
+        Me.Button29 = New System.Windows.Forms.Button()
+        Me.Button28 = New System.Windows.Forms.Button()
+        Me.Button27 = New System.Windows.Forms.Button()
         Me.Red3Sur = New System.Windows.Forms.Label()
         Me.Red2Sur = New System.Windows.Forms.Label()
         Me.Red1Sur = New System.Windows.Forms.Label()
-        Me.PWRTimerLbl = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.RedScore = New System.Windows.Forms.Label()
-        Me.RedPen = New System.Windows.Forms.TextBox()
-        Me.RPLC_Score = New System.Windows.Forms.Label()
         Me.RBypass3 = New System.Windows.Forms.CheckBox()
         Me.RDQ3 = New System.Windows.Forms.CheckBox()
         Me.RBypass2 = New System.Windows.Forms.CheckBox()
@@ -49,11 +44,8 @@ Partial Class Main_Panel
         Me.RedVolt3 = New System.Windows.Forms.Label()
         Me.RedVolt2 = New System.Windows.Forms.Label()
         Me.RedVolt1 = New System.Windows.Forms.Label()
-        Me.RedLevitate = New System.Windows.Forms.Label()
-        Me.REDBoost = New System.Windows.Forms.Label()
         Me.RBypass1 = New System.Windows.Forms.CheckBox()
         Me.RDQ1 = New System.Windows.Forms.CheckBox()
-        Me.REDForce = New System.Windows.Forms.Label()
         Me.RedTeam3 = New System.Windows.Forms.Label()
         Me.RedTeam2 = New System.Windows.Forms.Label()
         Me.RedTeam1 = New System.Windows.Forms.Label()
@@ -64,69 +56,10 @@ Partial Class Main_Panel
         Me.R2Estop = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.R2Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.R2DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RLev = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RBoost = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RForce = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.R1Estop = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.R1Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.R1DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.MatchDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MatchTimeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Blue1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Blue1DQDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue1VoltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Blue1EstopDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue1RLDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue1DSDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue1BypassDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Blue2DQDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue2VoltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Blue2EstopDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue2RLDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue2DSDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue2BypassDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue3DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Blue3DQDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue3VoltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Blue3EstopDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue3RLDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue3DSDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Blue3BypassDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Red1DQDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red1VoltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Red1EstopDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red1RLDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red1DSDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red1BypassDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Red2DQDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red2VoltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Red2EstopDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red2RLDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red2DSDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red2BypassDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red3DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Red3DQDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red3VoltDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Red3EstopDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red3RLDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red3DSDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Red3BypassDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.BluescoreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BluepenDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BlueForceDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.BlueLevitateDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.BlueBoostDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.RedscoreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RedpenDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RedForceDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.RedLevitateDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.RedBoostDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.SwitchScaleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FMSMasterBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me._O_FMSDataSet = New O_FMS_V0._O_FMSDataSet()
@@ -134,22 +67,17 @@ Partial Class Main_Panel
         Me.StartMatch_btn = New System.Windows.Forms.Button()
         Me.AbortMatch_btn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.BlueAllianceHang = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Button32 = New System.Windows.Forms.Button()
+        Me.Button31 = New System.Windows.Forms.Button()
+        Me.Button30 = New System.Windows.Forms.Button()
         Me.Blue3Sur = New System.Windows.Forms.Label()
         Me.Blue2Sur = New System.Windows.Forms.Label()
         Me.Blue1Sur = New System.Windows.Forms.Label()
-        Me.PowerUpTimerBluelbl = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.BlueScore = New System.Windows.Forms.Label()
-        Me.BluePen = New System.Windows.Forms.TextBox()
-        Me.BPLC_Score = New System.Windows.Forms.Label()
         Me.BBypass3 = New System.Windows.Forms.CheckBox()
         Me.BDQ3 = New System.Windows.Forms.CheckBox()
         Me.BBypass2 = New System.Windows.Forms.CheckBox()
@@ -157,11 +85,8 @@ Partial Class Main_Panel
         Me.BlueVolt3 = New System.Windows.Forms.Label()
         Me.BlueVolt2 = New System.Windows.Forms.Label()
         Me.BlueVolt1 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.BBypass1 = New System.Windows.Forms.CheckBox()
         Me.BDQ1 = New System.Windows.Forms.CheckBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.BlueTeam3 = New System.Windows.Forms.Label()
         Me.BlueTeam2 = New System.Windows.Forms.Label()
         Me.BlueTeam1 = New System.Windows.Forms.Label()
@@ -172,20 +97,16 @@ Partial Class Main_Panel
         Me.B2Estop = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.B2Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.B2DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.BLev = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.BBoost = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.BForce = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.B1Estop = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.B1Robot = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.B1DS = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.FMSMasterTableAdapter = New O_FMS_V0._O_FMSDataSetTableAdapters.FMSMasterTableAdapter()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Ctime = New System.Windows.Forms.Label()
         Me.Pre_Start_btn = New System.Windows.Forms.Button()
         Me.matchTimerLbl = New System.Windows.Forms.Label()
         Me.MatchMessages = New System.Windows.Forms.Label()
-        Me.ScaleSwitch = New System.Windows.Forms.Label()
+        Me.SandStormMessage = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.WarmUpTimer = New System.Windows.Forms.Timer(Me.components)
         Me.AutoTimer = New System.Windows.Forms.Timer(Me.components)
@@ -201,14 +122,65 @@ Partial Class Main_Panel
         Me.DSLightTestBtn = New System.Windows.Forms.Button()
         Me.ScoringTableLightTestBtn = New System.Windows.Forms.Button()
         Me.ConnectPLCBtn = New System.Windows.Forms.Button()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.RedScoreLbl = New System.Windows.Forms.Label()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
+        Me.Button26 = New System.Windows.Forms.Button()
+        Me.Button25 = New System.Windows.Forms.Button()
+        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
+        Me.Button24 = New System.Windows.Forms.Button()
+        Me.Button23 = New System.Windows.Forms.Button()
+        Me.Button22 = New System.Windows.Forms.Button()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.Button21 = New System.Windows.Forms.Button()
+        Me.Button20 = New System.Windows.Forms.Button()
+        Me.Button19 = New System.Windows.Forms.Button()
+        Me.Button18 = New System.Windows.Forms.Button()
+        Me.Button17 = New System.Windows.Forms.Button()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.BlueScoreLbl = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.MatchListTableAdapter1 = New O_FMS_V0._O_FMSDataSet1TableAdapters.MatchListTableAdapter()
         Me.Panel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._O_FMSDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox13.SuspendLayout()
+        Me.GroupBox12.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
         Me.SuspendLayout()
         '
         'MatchNum
@@ -220,7 +192,7 @@ Partial Class Main_Panel
         '
         'Save_btn
         '
-        Me.Save_btn.Location = New System.Drawing.Point(473, 532)
+        Me.Save_btn.Location = New System.Drawing.Point(383, 208)
         Me.Save_btn.Name = "Save_btn"
         Me.Save_btn.Size = New System.Drawing.Size(149, 23)
         Me.Save_btn.TabIndex = 10
@@ -230,21 +202,16 @@ Partial Class Main_Panel
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.MediumTurquoise
-        Me.Panel1.Controls.Add(Me.Label21)
-        Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.RedAllianceHang)
+        Me.Panel1.Controls.Add(Me.Button29)
+        Me.Panel1.Controls.Add(Me.Button28)
+        Me.Panel1.Controls.Add(Me.Button27)
         Me.Panel1.Controls.Add(Me.Red3Sur)
         Me.Panel1.Controls.Add(Me.Red2Sur)
         Me.Panel1.Controls.Add(Me.Red1Sur)
-        Me.Panel1.Controls.Add(Me.PWRTimerLbl)
         Me.Panel1.Controls.Add(Me.Label16)
         Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.RedScore)
-        Me.Panel1.Controls.Add(Me.RedPen)
-        Me.Panel1.Controls.Add(Me.RPLC_Score)
         Me.Panel1.Controls.Add(Me.RBypass3)
         Me.Panel1.Controls.Add(Me.RDQ3)
         Me.Panel1.Controls.Add(Me.RBypass2)
@@ -252,11 +219,8 @@ Partial Class Main_Panel
         Me.Panel1.Controls.Add(Me.RedVolt3)
         Me.Panel1.Controls.Add(Me.RedVolt2)
         Me.Panel1.Controls.Add(Me.RedVolt1)
-        Me.Panel1.Controls.Add(Me.RedLevitate)
-        Me.Panel1.Controls.Add(Me.REDBoost)
         Me.Panel1.Controls.Add(Me.RBypass1)
         Me.Panel1.Controls.Add(Me.RDQ1)
-        Me.Panel1.Controls.Add(Me.REDForce)
         Me.Panel1.Controls.Add(Me.RedTeam3)
         Me.Panel1.Controls.Add(Me.RedTeam2)
         Me.Panel1.Controls.Add(Me.RedTeam1)
@@ -264,33 +228,35 @@ Partial Class Main_Panel
         Me.Panel1.ForeColor = System.Drawing.Color.Black
         Me.Panel1.Location = New System.Drawing.Point(24, 57)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(336, 257)
+        Me.Panel1.Size = New System.Drawing.Size(336, 174)
         Me.Panel1.TabIndex = 11
         '
-        'Label21
+        'Button29
         '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(179, 228)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(61, 13)
-        Me.Label21.TabIndex = 32
-        Me.Label21.Text = "Red Score:"
+        Me.Button29.Location = New System.Drawing.Point(236, 95)
+        Me.Button29.Name = "Button29"
+        Me.Button29.Size = New System.Drawing.Size(75, 46)
+        Me.Button29.TabIndex = 32
+        Me.Button29.Text = "Red 3 Estop"
+        Me.Button29.UseVisualStyleBackColor = True
         '
-        'Label9
+        'Button28
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(167, 205)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(70, 13)
-        Me.Label9.TabIndex = 31
-        Me.Label9.Text = "Red Hanging"
+        Me.Button28.Location = New System.Drawing.Point(121, 93)
+        Me.Button28.Name = "Button28"
+        Me.Button28.Size = New System.Drawing.Size(75, 48)
+        Me.Button28.TabIndex = 31
+        Me.Button28.Text = "Red 2 Estop"
+        Me.Button28.UseVisualStyleBackColor = True
         '
-        'RedAllianceHang
+        'Button27
         '
-        Me.RedAllianceHang.Location = New System.Drawing.Point(247, 198)
-        Me.RedAllianceHang.Name = "RedAllianceHang"
-        Me.RedAllianceHang.Size = New System.Drawing.Size(44, 20)
-        Me.RedAllianceHang.TabIndex = 30
+        Me.Button27.Location = New System.Drawing.Point(14, 94)
+        Me.Button27.Name = "Button27"
+        Me.Button27.Size = New System.Drawing.Size(75, 47)
+        Me.Button27.TabIndex = 30
+        Me.Button27.Text = "Red 1 Estop"
+        Me.Button27.UseVisualStyleBackColor = True
         '
         'Red3Sur
         '
@@ -318,15 +284,6 @@ Partial Class Main_Panel
         Me.Red1Sur.Size = New System.Drawing.Size(14, 13)
         Me.Red1Sur.TabIndex = 27
         Me.Red1Sur.Text = "S"
-        '
-        'PWRTimerLbl
-        '
-        Me.PWRTimerLbl.AutoSize = True
-        Me.PWRTimerLbl.Location = New System.Drawing.Point(17, 179)
-        Me.PWRTimerLbl.Name = "PWRTimerLbl"
-        Me.PWRTimerLbl.Size = New System.Drawing.Size(80, 13)
-        Me.PWRTimerLbl.TabIndex = 26
-        Me.PWRTimerLbl.Text = "Power Up Time"
         '
         'Label16
         '
@@ -373,40 +330,6 @@ Partial Class Main_Panel
         Me.Label5.Size = New System.Drawing.Size(35, 13)
         Me.Label5.TabIndex = 24
         Me.Label5.Text = "Robot"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(176, 179)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(65, 13)
-        Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Red Penalty"
-        '
-        'RedScore
-        '
-        Me.RedScore.AutoSize = True
-        Me.RedScore.Location = New System.Drawing.Point(246, 228)
-        Me.RedScore.Name = "RedScore"
-        Me.RedScore.Size = New System.Drawing.Size(13, 13)
-        Me.RedScore.TabIndex = 18
-        Me.RedScore.Text = "0"
-        '
-        'RedPen
-        '
-        Me.RedPen.Location = New System.Drawing.Point(247, 172)
-        Me.RedPen.Name = "RedPen"
-        Me.RedPen.Size = New System.Drawing.Size(44, 20)
-        Me.RedPen.TabIndex = 17
-        '
-        'RPLC_Score
-        '
-        Me.RPLC_Score.AutoSize = True
-        Me.RPLC_Score.Location = New System.Drawing.Point(246, 145)
-        Me.RPLC_Score.Name = "RPLC_Score"
-        Me.RPLC_Score.Size = New System.Drawing.Size(58, 13)
-        Me.RPLC_Score.TabIndex = 16
-        Me.RPLC_Score.Text = "PLC Score"
         '
         'RBypass3
         '
@@ -471,24 +394,6 @@ Partial Class Main_Panel
         Me.RedVolt1.TabIndex = 9
         Me.RedVolt1.Text = "Voltage"
         '
-        'RedLevitate
-        '
-        Me.RedLevitate.AutoSize = True
-        Me.RedLevitate.Location = New System.Drawing.Point(3, 150)
-        Me.RedLevitate.Name = "RedLevitate"
-        Me.RedLevitate.Size = New System.Drawing.Size(73, 13)
-        Me.RedLevitate.TabIndex = 8
-        Me.RedLevitate.Text = "Levitate Used"
-        '
-        'REDBoost
-        '
-        Me.REDBoost.AutoSize = True
-        Me.REDBoost.Location = New System.Drawing.Point(3, 100)
-        Me.REDBoost.Name = "REDBoost"
-        Me.REDBoost.Size = New System.Drawing.Size(62, 13)
-        Me.REDBoost.TabIndex = 7
-        Me.REDBoost.Text = "Boost Used"
-        '
         'RBypass1
         '
         Me.RBypass1.AutoSize = True
@@ -506,15 +411,6 @@ Partial Class Main_Panel
         Me.RDQ1.Size = New System.Drawing.Size(15, 14)
         Me.RDQ1.TabIndex = 4
         Me.RDQ1.UseVisualStyleBackColor = True
-        '
-        'REDForce
-        '
-        Me.REDForce.AutoSize = True
-        Me.REDForce.Location = New System.Drawing.Point(4, 125)
-        Me.REDForce.Name = "REDForce"
-        Me.REDForce.Size = New System.Drawing.Size(62, 13)
-        Me.REDForce.TabIndex = 3
-        Me.REDForce.Text = "Force Used"
         '
         'RedTeam3
         '
@@ -554,8 +450,8 @@ Partial Class Main_Panel
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.R3Estop, Me.R3Robot, Me.R3DS, Me.R2Estop, Me.R2Robot, Me.R2DS, Me.RLev, Me.RBoost, Me.RForce, Me.R1Estop, Me.R1Robot, Me.R1DS})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(336, 257)
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.R3Estop, Me.R3Robot, Me.R3DS, Me.R2Estop, Me.R2Robot, Me.R2DS, Me.R1Estop, Me.R1Robot, Me.R1DS})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(336, 174)
         Me.ShapeContainer1.TabIndex = 5
         Me.ShapeContainer1.TabStop = False
         '
@@ -625,39 +521,6 @@ Partial Class Main_Panel
         Me.R2DS.Name = "R2DS"
         Me.R2DS.Size = New System.Drawing.Size(18, 17)
         '
-        'RLev
-        '
-        Me.RLev.BackColor = System.Drawing.Color.Yellow
-        Me.RLev.BorderWidth = 2
-        Me.RLev.CornerRadius = 1
-        Me.RLev.FillColor = System.Drawing.Color.LimeGreen
-        Me.RLev.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.RLev.Location = New System.Drawing.Point(80, 145)
-        Me.RLev.Name = "RLev"
-        Me.RLev.Size = New System.Drawing.Size(18, 17)
-        '
-        'RBoost
-        '
-        Me.RBoost.BackColor = System.Drawing.Color.Yellow
-        Me.RBoost.BorderWidth = 2
-        Me.RBoost.CornerRadius = 1
-        Me.RBoost.FillColor = System.Drawing.Color.LimeGreen
-        Me.RBoost.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.RBoost.Location = New System.Drawing.Point(80, 95)
-        Me.RBoost.Name = "RBoost"
-        Me.RBoost.Size = New System.Drawing.Size(18, 17)
-        '
-        'RForce
-        '
-        Me.RForce.BackColor = System.Drawing.Color.Yellow
-        Me.RForce.BorderWidth = 2
-        Me.RForce.CornerRadius = 1
-        Me.RForce.FillColor = System.Drawing.Color.LimeGreen
-        Me.RForce.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.RForce.Location = New System.Drawing.Point(80, 120)
-        Me.RForce.Name = "RForce"
-        Me.RForce.Size = New System.Drawing.Size(18, 17)
-        '
         'R1Estop
         '
         Me.R1Estop.BackColor = System.Drawing.Color.Yellow
@@ -700,347 +563,6 @@ Partial Class Main_Panel
         Me.Label10.TabIndex = 14
         Me.Label10.Text = "MATCH #"
         '
-        'DataGridView1
-        '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MatchDataGridViewTextBoxColumn, Me.MatchTimeDataGridViewTextBoxColumn, Me.Blue1DataGridViewTextBoxColumn, Me.Blue1DQDataGridViewCheckBoxColumn, Me.Blue1VoltDataGridViewTextBoxColumn, Me.Blue1EstopDataGridViewCheckBoxColumn, Me.Blue1RLDataGridViewCheckBoxColumn, Me.Blue1DSDataGridViewCheckBoxColumn, Me.Blue1BypassDataGridViewCheckBoxColumn, Me.Blue2DataGridViewTextBoxColumn, Me.Blue2DQDataGridViewCheckBoxColumn, Me.Blue2VoltDataGridViewTextBoxColumn, Me.Blue2EstopDataGridViewCheckBoxColumn, Me.Blue2RLDataGridViewCheckBoxColumn, Me.Blue2DSDataGridViewCheckBoxColumn, Me.Blue2BypassDataGridViewCheckBoxColumn, Me.Blue3DataGridViewTextBoxColumn, Me.Blue3DQDataGridViewCheckBoxColumn, Me.Blue3VoltDataGridViewTextBoxColumn, Me.Blue3EstopDataGridViewCheckBoxColumn, Me.Blue3RLDataGridViewCheckBoxColumn, Me.Blue3DSDataGridViewCheckBoxColumn, Me.Blue3BypassDataGridViewCheckBoxColumn, Me.Red1DataGridViewTextBoxColumn, Me.Red1DQDataGridViewCheckBoxColumn, Me.Red1VoltDataGridViewTextBoxColumn, Me.Red1EstopDataGridViewCheckBoxColumn, Me.Red1RLDataGridViewCheckBoxColumn, Me.Red1DSDataGridViewCheckBoxColumn, Me.Red1BypassDataGridViewCheckBoxColumn, Me.Red2DataGridViewTextBoxColumn, Me.Red2DQDataGridViewCheckBoxColumn, Me.Red2VoltDataGridViewTextBoxColumn, Me.Red2EstopDataGridViewCheckBoxColumn, Me.Red2RLDataGridViewCheckBoxColumn, Me.Red2DSDataGridViewCheckBoxColumn, Me.Red2BypassDataGridViewCheckBoxColumn, Me.Red3DataGridViewTextBoxColumn, Me.Red3DQDataGridViewCheckBoxColumn, Me.Red3VoltDataGridViewTextBoxColumn, Me.Red3EstopDataGridViewCheckBoxColumn, Me.Red3RLDataGridViewCheckBoxColumn, Me.Red3DSDataGridViewCheckBoxColumn, Me.Red3BypassDataGridViewCheckBoxColumn, Me.BluescoreDataGridViewTextBoxColumn, Me.BluepenDataGridViewTextBoxColumn, Me.BlueForceDataGridViewCheckBoxColumn, Me.BlueLevitateDataGridViewCheckBoxColumn, Me.BlueBoostDataGridViewCheckBoxColumn, Me.RedscoreDataGridViewTextBoxColumn, Me.RedpenDataGridViewTextBoxColumn, Me.RedForceDataGridViewCheckBoxColumn, Me.RedLevitateDataGridViewCheckBoxColumn, Me.RedBoostDataGridViewCheckBoxColumn, Me.SwitchScaleDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.FMSMasterBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 349)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(868, 177)
-        Me.DataGridView1.TabIndex = 15
-        '
-        'MatchDataGridViewTextBoxColumn
-        '
-        Me.MatchDataGridViewTextBoxColumn.DataPropertyName = "Match"
-        Me.MatchDataGridViewTextBoxColumn.HeaderText = "Match"
-        Me.MatchDataGridViewTextBoxColumn.Name = "MatchDataGridViewTextBoxColumn"
-        '
-        'MatchTimeDataGridViewTextBoxColumn
-        '
-        Me.MatchTimeDataGridViewTextBoxColumn.DataPropertyName = "MatchTime"
-        Me.MatchTimeDataGridViewTextBoxColumn.HeaderText = "MatchTime"
-        Me.MatchTimeDataGridViewTextBoxColumn.Name = "MatchTimeDataGridViewTextBoxColumn"
-        '
-        'Blue1DataGridViewTextBoxColumn
-        '
-        Me.Blue1DataGridViewTextBoxColumn.DataPropertyName = "Blue1"
-        Me.Blue1DataGridViewTextBoxColumn.HeaderText = "Blue1"
-        Me.Blue1DataGridViewTextBoxColumn.Name = "Blue1DataGridViewTextBoxColumn"
-        '
-        'Blue1DQDataGridViewCheckBoxColumn
-        '
-        Me.Blue1DQDataGridViewCheckBoxColumn.DataPropertyName = "Blue1DQ"
-        Me.Blue1DQDataGridViewCheckBoxColumn.HeaderText = "Blue1DQ"
-        Me.Blue1DQDataGridViewCheckBoxColumn.Name = "Blue1DQDataGridViewCheckBoxColumn"
-        '
-        'Blue1VoltDataGridViewTextBoxColumn
-        '
-        Me.Blue1VoltDataGridViewTextBoxColumn.DataPropertyName = "Blue1Volt"
-        Me.Blue1VoltDataGridViewTextBoxColumn.HeaderText = "Blue1Volt"
-        Me.Blue1VoltDataGridViewTextBoxColumn.Name = "Blue1VoltDataGridViewTextBoxColumn"
-        '
-        'Blue1EstopDataGridViewCheckBoxColumn
-        '
-        Me.Blue1EstopDataGridViewCheckBoxColumn.DataPropertyName = "Blue1Estop"
-        Me.Blue1EstopDataGridViewCheckBoxColumn.HeaderText = "Blue1Estop"
-        Me.Blue1EstopDataGridViewCheckBoxColumn.Name = "Blue1EstopDataGridViewCheckBoxColumn"
-        '
-        'Blue1RLDataGridViewCheckBoxColumn
-        '
-        Me.Blue1RLDataGridViewCheckBoxColumn.DataPropertyName = "Blue1RL"
-        Me.Blue1RLDataGridViewCheckBoxColumn.HeaderText = "Blue1RL"
-        Me.Blue1RLDataGridViewCheckBoxColumn.Name = "Blue1RLDataGridViewCheckBoxColumn"
-        '
-        'Blue1DSDataGridViewCheckBoxColumn
-        '
-        Me.Blue1DSDataGridViewCheckBoxColumn.DataPropertyName = "Blue1DS"
-        Me.Blue1DSDataGridViewCheckBoxColumn.HeaderText = "Blue1DS"
-        Me.Blue1DSDataGridViewCheckBoxColumn.Name = "Blue1DSDataGridViewCheckBoxColumn"
-        '
-        'Blue1BypassDataGridViewCheckBoxColumn
-        '
-        Me.Blue1BypassDataGridViewCheckBoxColumn.DataPropertyName = "Blue1Bypass"
-        Me.Blue1BypassDataGridViewCheckBoxColumn.HeaderText = "Blue1Bypass"
-        Me.Blue1BypassDataGridViewCheckBoxColumn.Name = "Blue1BypassDataGridViewCheckBoxColumn"
-        '
-        'Blue2DataGridViewTextBoxColumn
-        '
-        Me.Blue2DataGridViewTextBoxColumn.DataPropertyName = "Blue2"
-        Me.Blue2DataGridViewTextBoxColumn.HeaderText = "Blue2"
-        Me.Blue2DataGridViewTextBoxColumn.Name = "Blue2DataGridViewTextBoxColumn"
-        '
-        'Blue2DQDataGridViewCheckBoxColumn
-        '
-        Me.Blue2DQDataGridViewCheckBoxColumn.DataPropertyName = "Blue2DQ"
-        Me.Blue2DQDataGridViewCheckBoxColumn.HeaderText = "Blue2DQ"
-        Me.Blue2DQDataGridViewCheckBoxColumn.Name = "Blue2DQDataGridViewCheckBoxColumn"
-        '
-        'Blue2VoltDataGridViewTextBoxColumn
-        '
-        Me.Blue2VoltDataGridViewTextBoxColumn.DataPropertyName = "Blue2Volt"
-        Me.Blue2VoltDataGridViewTextBoxColumn.HeaderText = "Blue2Volt"
-        Me.Blue2VoltDataGridViewTextBoxColumn.Name = "Blue2VoltDataGridViewTextBoxColumn"
-        '
-        'Blue2EstopDataGridViewCheckBoxColumn
-        '
-        Me.Blue2EstopDataGridViewCheckBoxColumn.DataPropertyName = "Blue2Estop"
-        Me.Blue2EstopDataGridViewCheckBoxColumn.HeaderText = "Blue2Estop"
-        Me.Blue2EstopDataGridViewCheckBoxColumn.Name = "Blue2EstopDataGridViewCheckBoxColumn"
-        '
-        'Blue2RLDataGridViewCheckBoxColumn
-        '
-        Me.Blue2RLDataGridViewCheckBoxColumn.DataPropertyName = "Blue2RL"
-        Me.Blue2RLDataGridViewCheckBoxColumn.HeaderText = "Blue2RL"
-        Me.Blue2RLDataGridViewCheckBoxColumn.Name = "Blue2RLDataGridViewCheckBoxColumn"
-        '
-        'Blue2DSDataGridViewCheckBoxColumn
-        '
-        Me.Blue2DSDataGridViewCheckBoxColumn.DataPropertyName = "Blue2DS"
-        Me.Blue2DSDataGridViewCheckBoxColumn.HeaderText = "Blue2DS"
-        Me.Blue2DSDataGridViewCheckBoxColumn.Name = "Blue2DSDataGridViewCheckBoxColumn"
-        '
-        'Blue2BypassDataGridViewCheckBoxColumn
-        '
-        Me.Blue2BypassDataGridViewCheckBoxColumn.DataPropertyName = "Blue2Bypass"
-        Me.Blue2BypassDataGridViewCheckBoxColumn.HeaderText = "Blue2Bypass"
-        Me.Blue2BypassDataGridViewCheckBoxColumn.Name = "Blue2BypassDataGridViewCheckBoxColumn"
-        '
-        'Blue3DataGridViewTextBoxColumn
-        '
-        Me.Blue3DataGridViewTextBoxColumn.DataPropertyName = "Blue3"
-        Me.Blue3DataGridViewTextBoxColumn.HeaderText = "Blue3"
-        Me.Blue3DataGridViewTextBoxColumn.Name = "Blue3DataGridViewTextBoxColumn"
-        '
-        'Blue3DQDataGridViewCheckBoxColumn
-        '
-        Me.Blue3DQDataGridViewCheckBoxColumn.DataPropertyName = "Blue3DQ"
-        Me.Blue3DQDataGridViewCheckBoxColumn.HeaderText = "Blue3DQ"
-        Me.Blue3DQDataGridViewCheckBoxColumn.Name = "Blue3DQDataGridViewCheckBoxColumn"
-        '
-        'Blue3VoltDataGridViewTextBoxColumn
-        '
-        Me.Blue3VoltDataGridViewTextBoxColumn.DataPropertyName = "Blue3Volt"
-        Me.Blue3VoltDataGridViewTextBoxColumn.HeaderText = "Blue3Volt"
-        Me.Blue3VoltDataGridViewTextBoxColumn.Name = "Blue3VoltDataGridViewTextBoxColumn"
-        '
-        'Blue3EstopDataGridViewCheckBoxColumn
-        '
-        Me.Blue3EstopDataGridViewCheckBoxColumn.DataPropertyName = "Blue3Estop"
-        Me.Blue3EstopDataGridViewCheckBoxColumn.HeaderText = "Blue3Estop"
-        Me.Blue3EstopDataGridViewCheckBoxColumn.Name = "Blue3EstopDataGridViewCheckBoxColumn"
-        '
-        'Blue3RLDataGridViewCheckBoxColumn
-        '
-        Me.Blue3RLDataGridViewCheckBoxColumn.DataPropertyName = "Blue3RL"
-        Me.Blue3RLDataGridViewCheckBoxColumn.HeaderText = "Blue3RL"
-        Me.Blue3RLDataGridViewCheckBoxColumn.Name = "Blue3RLDataGridViewCheckBoxColumn"
-        '
-        'Blue3DSDataGridViewCheckBoxColumn
-        '
-        Me.Blue3DSDataGridViewCheckBoxColumn.DataPropertyName = "Blue3DS"
-        Me.Blue3DSDataGridViewCheckBoxColumn.HeaderText = "Blue3DS"
-        Me.Blue3DSDataGridViewCheckBoxColumn.Name = "Blue3DSDataGridViewCheckBoxColumn"
-        '
-        'Blue3BypassDataGridViewCheckBoxColumn
-        '
-        Me.Blue3BypassDataGridViewCheckBoxColumn.DataPropertyName = "Blue3Bypass"
-        Me.Blue3BypassDataGridViewCheckBoxColumn.HeaderText = "Blue3Bypass"
-        Me.Blue3BypassDataGridViewCheckBoxColumn.Name = "Blue3BypassDataGridViewCheckBoxColumn"
-        '
-        'Red1DataGridViewTextBoxColumn
-        '
-        Me.Red1DataGridViewTextBoxColumn.DataPropertyName = "Red1"
-        Me.Red1DataGridViewTextBoxColumn.HeaderText = "Red1"
-        Me.Red1DataGridViewTextBoxColumn.Name = "Red1DataGridViewTextBoxColumn"
-        '
-        'Red1DQDataGridViewCheckBoxColumn
-        '
-        Me.Red1DQDataGridViewCheckBoxColumn.DataPropertyName = "Red1DQ"
-        Me.Red1DQDataGridViewCheckBoxColumn.HeaderText = "Red1DQ"
-        Me.Red1DQDataGridViewCheckBoxColumn.Name = "Red1DQDataGridViewCheckBoxColumn"
-        '
-        'Red1VoltDataGridViewTextBoxColumn
-        '
-        Me.Red1VoltDataGridViewTextBoxColumn.DataPropertyName = "Red1Volt"
-        Me.Red1VoltDataGridViewTextBoxColumn.HeaderText = "Red1Volt"
-        Me.Red1VoltDataGridViewTextBoxColumn.Name = "Red1VoltDataGridViewTextBoxColumn"
-        '
-        'Red1EstopDataGridViewCheckBoxColumn
-        '
-        Me.Red1EstopDataGridViewCheckBoxColumn.DataPropertyName = "Red1Estop"
-        Me.Red1EstopDataGridViewCheckBoxColumn.HeaderText = "Red1Estop"
-        Me.Red1EstopDataGridViewCheckBoxColumn.Name = "Red1EstopDataGridViewCheckBoxColumn"
-        '
-        'Red1RLDataGridViewCheckBoxColumn
-        '
-        Me.Red1RLDataGridViewCheckBoxColumn.DataPropertyName = "Red1RL"
-        Me.Red1RLDataGridViewCheckBoxColumn.HeaderText = "Red1RL"
-        Me.Red1RLDataGridViewCheckBoxColumn.Name = "Red1RLDataGridViewCheckBoxColumn"
-        '
-        'Red1DSDataGridViewCheckBoxColumn
-        '
-        Me.Red1DSDataGridViewCheckBoxColumn.DataPropertyName = "Red1DS"
-        Me.Red1DSDataGridViewCheckBoxColumn.HeaderText = "Red1DS"
-        Me.Red1DSDataGridViewCheckBoxColumn.Name = "Red1DSDataGridViewCheckBoxColumn"
-        '
-        'Red1BypassDataGridViewCheckBoxColumn
-        '
-        Me.Red1BypassDataGridViewCheckBoxColumn.DataPropertyName = "Red1Bypass"
-        Me.Red1BypassDataGridViewCheckBoxColumn.HeaderText = "Red1Bypass"
-        Me.Red1BypassDataGridViewCheckBoxColumn.Name = "Red1BypassDataGridViewCheckBoxColumn"
-        '
-        'Red2DataGridViewTextBoxColumn
-        '
-        Me.Red2DataGridViewTextBoxColumn.DataPropertyName = "Red2"
-        Me.Red2DataGridViewTextBoxColumn.HeaderText = "Red2"
-        Me.Red2DataGridViewTextBoxColumn.Name = "Red2DataGridViewTextBoxColumn"
-        '
-        'Red2DQDataGridViewCheckBoxColumn
-        '
-        Me.Red2DQDataGridViewCheckBoxColumn.DataPropertyName = "Red2DQ"
-        Me.Red2DQDataGridViewCheckBoxColumn.HeaderText = "Red2DQ"
-        Me.Red2DQDataGridViewCheckBoxColumn.Name = "Red2DQDataGridViewCheckBoxColumn"
-        '
-        'Red2VoltDataGridViewTextBoxColumn
-        '
-        Me.Red2VoltDataGridViewTextBoxColumn.DataPropertyName = "Red2Volt"
-        Me.Red2VoltDataGridViewTextBoxColumn.HeaderText = "Red2Volt"
-        Me.Red2VoltDataGridViewTextBoxColumn.Name = "Red2VoltDataGridViewTextBoxColumn"
-        '
-        'Red2EstopDataGridViewCheckBoxColumn
-        '
-        Me.Red2EstopDataGridViewCheckBoxColumn.DataPropertyName = "Red2Estop"
-        Me.Red2EstopDataGridViewCheckBoxColumn.HeaderText = "Red2Estop"
-        Me.Red2EstopDataGridViewCheckBoxColumn.Name = "Red2EstopDataGridViewCheckBoxColumn"
-        '
-        'Red2RLDataGridViewCheckBoxColumn
-        '
-        Me.Red2RLDataGridViewCheckBoxColumn.DataPropertyName = "Red2RL"
-        Me.Red2RLDataGridViewCheckBoxColumn.HeaderText = "Red2RL"
-        Me.Red2RLDataGridViewCheckBoxColumn.Name = "Red2RLDataGridViewCheckBoxColumn"
-        '
-        'Red2DSDataGridViewCheckBoxColumn
-        '
-        Me.Red2DSDataGridViewCheckBoxColumn.DataPropertyName = "Red2DS"
-        Me.Red2DSDataGridViewCheckBoxColumn.HeaderText = "Red2DS"
-        Me.Red2DSDataGridViewCheckBoxColumn.Name = "Red2DSDataGridViewCheckBoxColumn"
-        '
-        'Red2BypassDataGridViewCheckBoxColumn
-        '
-        Me.Red2BypassDataGridViewCheckBoxColumn.DataPropertyName = "Red2Bypass"
-        Me.Red2BypassDataGridViewCheckBoxColumn.HeaderText = "Red2Bypass"
-        Me.Red2BypassDataGridViewCheckBoxColumn.Name = "Red2BypassDataGridViewCheckBoxColumn"
-        '
-        'Red3DataGridViewTextBoxColumn
-        '
-        Me.Red3DataGridViewTextBoxColumn.DataPropertyName = "Red3"
-        Me.Red3DataGridViewTextBoxColumn.HeaderText = "Red3"
-        Me.Red3DataGridViewTextBoxColumn.Name = "Red3DataGridViewTextBoxColumn"
-        '
-        'Red3DQDataGridViewCheckBoxColumn
-        '
-        Me.Red3DQDataGridViewCheckBoxColumn.DataPropertyName = "Red3DQ"
-        Me.Red3DQDataGridViewCheckBoxColumn.HeaderText = "Red3DQ"
-        Me.Red3DQDataGridViewCheckBoxColumn.Name = "Red3DQDataGridViewCheckBoxColumn"
-        '
-        'Red3VoltDataGridViewTextBoxColumn
-        '
-        Me.Red3VoltDataGridViewTextBoxColumn.DataPropertyName = "Red3Volt"
-        Me.Red3VoltDataGridViewTextBoxColumn.HeaderText = "Red3Volt"
-        Me.Red3VoltDataGridViewTextBoxColumn.Name = "Red3VoltDataGridViewTextBoxColumn"
-        '
-        'Red3EstopDataGridViewCheckBoxColumn
-        '
-        Me.Red3EstopDataGridViewCheckBoxColumn.DataPropertyName = "Red3Estop"
-        Me.Red3EstopDataGridViewCheckBoxColumn.HeaderText = "Red3Estop"
-        Me.Red3EstopDataGridViewCheckBoxColumn.Name = "Red3EstopDataGridViewCheckBoxColumn"
-        '
-        'Red3RLDataGridViewCheckBoxColumn
-        '
-        Me.Red3RLDataGridViewCheckBoxColumn.DataPropertyName = "Red3RL"
-        Me.Red3RLDataGridViewCheckBoxColumn.HeaderText = "Red3RL"
-        Me.Red3RLDataGridViewCheckBoxColumn.Name = "Red3RLDataGridViewCheckBoxColumn"
-        '
-        'Red3DSDataGridViewCheckBoxColumn
-        '
-        Me.Red3DSDataGridViewCheckBoxColumn.DataPropertyName = "Red3DS"
-        Me.Red3DSDataGridViewCheckBoxColumn.HeaderText = "Red3DS"
-        Me.Red3DSDataGridViewCheckBoxColumn.Name = "Red3DSDataGridViewCheckBoxColumn"
-        '
-        'Red3BypassDataGridViewCheckBoxColumn
-        '
-        Me.Red3BypassDataGridViewCheckBoxColumn.DataPropertyName = "Red3Bypass"
-        Me.Red3BypassDataGridViewCheckBoxColumn.HeaderText = "Red3Bypass"
-        Me.Red3BypassDataGridViewCheckBoxColumn.Name = "Red3BypassDataGridViewCheckBoxColumn"
-        '
-        'BluescoreDataGridViewTextBoxColumn
-        '
-        Me.BluescoreDataGridViewTextBoxColumn.DataPropertyName = "Bluescore"
-        Me.BluescoreDataGridViewTextBoxColumn.HeaderText = "Bluescore"
-        Me.BluescoreDataGridViewTextBoxColumn.Name = "BluescoreDataGridViewTextBoxColumn"
-        '
-        'BluepenDataGridViewTextBoxColumn
-        '
-        Me.BluepenDataGridViewTextBoxColumn.DataPropertyName = "bluepen"
-        Me.BluepenDataGridViewTextBoxColumn.HeaderText = "bluepen"
-        Me.BluepenDataGridViewTextBoxColumn.Name = "BluepenDataGridViewTextBoxColumn"
-        '
-        'BlueForceDataGridViewCheckBoxColumn
-        '
-        Me.BlueForceDataGridViewCheckBoxColumn.DataPropertyName = "BlueForce"
-        Me.BlueForceDataGridViewCheckBoxColumn.HeaderText = "BlueForce"
-        Me.BlueForceDataGridViewCheckBoxColumn.Name = "BlueForceDataGridViewCheckBoxColumn"
-        '
-        'BlueLevitateDataGridViewCheckBoxColumn
-        '
-        Me.BlueLevitateDataGridViewCheckBoxColumn.DataPropertyName = "BlueLevitate"
-        Me.BlueLevitateDataGridViewCheckBoxColumn.HeaderText = "BlueLevitate"
-        Me.BlueLevitateDataGridViewCheckBoxColumn.Name = "BlueLevitateDataGridViewCheckBoxColumn"
-        '
-        'BlueBoostDataGridViewCheckBoxColumn
-        '
-        Me.BlueBoostDataGridViewCheckBoxColumn.DataPropertyName = "BlueBoost"
-        Me.BlueBoostDataGridViewCheckBoxColumn.HeaderText = "BlueBoost"
-        Me.BlueBoostDataGridViewCheckBoxColumn.Name = "BlueBoostDataGridViewCheckBoxColumn"
-        '
-        'RedscoreDataGridViewTextBoxColumn
-        '
-        Me.RedscoreDataGridViewTextBoxColumn.DataPropertyName = "Redscore"
-        Me.RedscoreDataGridViewTextBoxColumn.HeaderText = "Redscore"
-        Me.RedscoreDataGridViewTextBoxColumn.Name = "RedscoreDataGridViewTextBoxColumn"
-        '
-        'RedpenDataGridViewTextBoxColumn
-        '
-        Me.RedpenDataGridViewTextBoxColumn.DataPropertyName = "redpen"
-        Me.RedpenDataGridViewTextBoxColumn.HeaderText = "redpen"
-        Me.RedpenDataGridViewTextBoxColumn.Name = "RedpenDataGridViewTextBoxColumn"
-        '
-        'RedForceDataGridViewCheckBoxColumn
-        '
-        Me.RedForceDataGridViewCheckBoxColumn.DataPropertyName = "RedForce"
-        Me.RedForceDataGridViewCheckBoxColumn.HeaderText = "RedForce"
-        Me.RedForceDataGridViewCheckBoxColumn.Name = "RedForceDataGridViewCheckBoxColumn"
-        '
-        'RedLevitateDataGridViewCheckBoxColumn
-        '
-        Me.RedLevitateDataGridViewCheckBoxColumn.DataPropertyName = "RedLevitate"
-        Me.RedLevitateDataGridViewCheckBoxColumn.HeaderText = "RedLevitate"
-        Me.RedLevitateDataGridViewCheckBoxColumn.Name = "RedLevitateDataGridViewCheckBoxColumn"
-        '
-        'RedBoostDataGridViewCheckBoxColumn
-        '
-        Me.RedBoostDataGridViewCheckBoxColumn.DataPropertyName = "RedBoost"
-        Me.RedBoostDataGridViewCheckBoxColumn.HeaderText = "RedBoost"
-        Me.RedBoostDataGridViewCheckBoxColumn.Name = "RedBoostDataGridViewCheckBoxColumn"
-        '
-        'SwitchScaleDataGridViewTextBoxColumn
-        '
-        Me.SwitchScaleDataGridViewTextBoxColumn.DataPropertyName = "SwitchScale"
-        Me.SwitchScaleDataGridViewTextBoxColumn.HeaderText = "SwitchScale"
-        Me.SwitchScaleDataGridViewTextBoxColumn.Name = "SwitchScaleDataGridViewTextBoxColumn"
-        '
         'FMSMasterBindingSource
         '
         Me.FMSMasterBindingSource.DataMember = "FMSMaster"
@@ -1067,7 +589,7 @@ Partial Class Main_Panel
         '
         'StartMatch_btn
         '
-        Me.StartMatch_btn.Location = New System.Drawing.Point(423, 143)
+        Me.StartMatch_btn.Location = New System.Drawing.Point(423, 123)
         Me.StartMatch_btn.Name = "StartMatch_btn"
         Me.StartMatch_btn.Size = New System.Drawing.Size(75, 23)
         Me.StartMatch_btn.TabIndex = 17
@@ -1076,7 +598,7 @@ Partial Class Main_Panel
         '
         'AbortMatch_btn
         '
-        Me.AbortMatch_btn.Location = New System.Drawing.Point(423, 172)
+        Me.AbortMatch_btn.Location = New System.Drawing.Point(423, 152)
         Me.AbortMatch_btn.Name = "AbortMatch_btn"
         Me.AbortMatch_btn.Size = New System.Drawing.Size(75, 23)
         Me.AbortMatch_btn.TabIndex = 18
@@ -1086,22 +608,17 @@ Partial Class Main_Panel
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.MediumTurquoise
-        Me.Panel2.Controls.Add(Me.Label22)
-        Me.Panel2.Controls.Add(Me.BlueAllianceHang)
-        Me.Panel2.Controls.Add(Me.Label20)
+        Me.Panel2.Controls.Add(Me.Button32)
+        Me.Panel2.Controls.Add(Me.Button31)
+        Me.Panel2.Controls.Add(Me.Button30)
         Me.Panel2.Controls.Add(Me.Blue3Sur)
         Me.Panel2.Controls.Add(Me.Blue2Sur)
         Me.Panel2.Controls.Add(Me.Blue1Sur)
-        Me.Panel2.Controls.Add(Me.PowerUpTimerBluelbl)
         Me.Panel2.Controls.Add(Me.Label17)
         Me.Panel2.Controls.Add(Me.Label18)
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.Label13)
         Me.Panel2.Controls.Add(Me.Label14)
-        Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.BlueScore)
-        Me.Panel2.Controls.Add(Me.BluePen)
-        Me.Panel2.Controls.Add(Me.BPLC_Score)
         Me.Panel2.Controls.Add(Me.BBypass3)
         Me.Panel2.Controls.Add(Me.BDQ3)
         Me.Panel2.Controls.Add(Me.BBypass2)
@@ -1109,44 +626,43 @@ Partial Class Main_Panel
         Me.Panel2.Controls.Add(Me.BlueVolt3)
         Me.Panel2.Controls.Add(Me.BlueVolt2)
         Me.Panel2.Controls.Add(Me.BlueVolt1)
-        Me.Panel2.Controls.Add(Me.Label8)
-        Me.Panel2.Controls.Add(Me.Label11)
         Me.Panel2.Controls.Add(Me.BBypass1)
         Me.Panel2.Controls.Add(Me.BDQ1)
-        Me.Panel2.Controls.Add(Me.Label12)
         Me.Panel2.Controls.Add(Me.BlueTeam3)
         Me.Panel2.Controls.Add(Me.BlueTeam2)
         Me.Panel2.Controls.Add(Me.BlueTeam1)
         Me.Panel2.Controls.Add(Me.ShapeContainer2)
         Me.Panel2.Location = New System.Drawing.Point(550, 57)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(346, 257)
+        Me.Panel2.Size = New System.Drawing.Size(346, 174)
         Me.Panel2.TabIndex = 20
         '
-        'Label22
+        'Button32
         '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(178, 228)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(62, 13)
-        Me.Label22.TabIndex = 35
-        Me.Label22.Text = "Blue Score:"
+        Me.Button32.Location = New System.Drawing.Point(249, 95)
+        Me.Button32.Name = "Button32"
+        Me.Button32.Size = New System.Drawing.Size(75, 46)
+        Me.Button32.TabIndex = 35
+        Me.Button32.Text = "Blue 3 Estop"
+        Me.Button32.UseVisualStyleBackColor = True
         '
-        'BlueAllianceHang
+        'Button31
         '
-        Me.BlueAllianceHang.Location = New System.Drawing.Point(247, 198)
-        Me.BlueAllianceHang.Name = "BlueAllianceHang"
-        Me.BlueAllianceHang.Size = New System.Drawing.Size(44, 20)
-        Me.BlueAllianceHang.TabIndex = 34
+        Me.Button31.Location = New System.Drawing.Point(132, 95)
+        Me.Button31.Name = "Button31"
+        Me.Button31.Size = New System.Drawing.Size(75, 46)
+        Me.Button31.TabIndex = 34
+        Me.Button31.Text = "Blue 2 Estop"
+        Me.Button31.UseVisualStyleBackColor = True
         '
-        'Label20
+        'Button30
         '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(176, 205)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(71, 13)
-        Me.Label20.TabIndex = 33
-        Me.Label20.Text = "Blue Hanging"
+        Me.Button30.Location = New System.Drawing.Point(18, 95)
+        Me.Button30.Name = "Button30"
+        Me.Button30.Size = New System.Drawing.Size(75, 46)
+        Me.Button30.TabIndex = 33
+        Me.Button30.Text = "Blue 1 Estop"
+        Me.Button30.UseVisualStyleBackColor = True
         '
         'Blue3Sur
         '
@@ -1174,15 +690,6 @@ Partial Class Main_Panel
         Me.Blue1Sur.Size = New System.Drawing.Size(14, 13)
         Me.Blue1Sur.TabIndex = 30
         Me.Blue1Sur.Text = "S"
-        '
-        'PowerUpTimerBluelbl
-        '
-        Me.PowerUpTimerBluelbl.AutoSize = True
-        Me.PowerUpTimerBluelbl.Location = New System.Drawing.Point(32, 179)
-        Me.PowerUpTimerBluelbl.Name = "PowerUpTimerBluelbl"
-        Me.PowerUpTimerBluelbl.Size = New System.Drawing.Size(80, 13)
-        Me.PowerUpTimerBluelbl.TabIndex = 28
-        Me.PowerUpTimerBluelbl.Text = "Power Up Time"
         '
         'Label17
         '
@@ -1241,40 +748,6 @@ Partial Class Main_Panel
         Me.Label14.Size = New System.Drawing.Size(22, 13)
         Me.Label14.TabIndex = 25
         Me.Label14.Text = "DS"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(176, 179)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(66, 13)
-        Me.Label2.TabIndex = 19
-        Me.Label2.Text = "Blue Penalty"
-        '
-        'BlueScore
-        '
-        Me.BlueScore.AutoSize = True
-        Me.BlueScore.Location = New System.Drawing.Point(246, 228)
-        Me.BlueScore.Name = "BlueScore"
-        Me.BlueScore.Size = New System.Drawing.Size(13, 13)
-        Me.BlueScore.TabIndex = 18
-        Me.BlueScore.Text = "0"
-        '
-        'BluePen
-        '
-        Me.BluePen.Location = New System.Drawing.Point(247, 172)
-        Me.BluePen.Name = "BluePen"
-        Me.BluePen.Size = New System.Drawing.Size(44, 20)
-        Me.BluePen.TabIndex = 17
-        '
-        'BPLC_Score
-        '
-        Me.BPLC_Score.AutoSize = True
-        Me.BPLC_Score.Location = New System.Drawing.Point(246, 145)
-        Me.BPLC_Score.Name = "BPLC_Score"
-        Me.BPLC_Score.Size = New System.Drawing.Size(58, 13)
-        Me.BPLC_Score.TabIndex = 16
-        Me.BPLC_Score.Text = "PLC Score"
         '
         'BBypass3
         '
@@ -1339,24 +812,6 @@ Partial Class Main_Panel
         Me.BlueVolt1.TabIndex = 9
         Me.BlueVolt1.Text = "Voltage"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(3, 150)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(73, 13)
-        Me.Label8.TabIndex = 8
-        Me.Label8.Text = "Levitate Used"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(3, 100)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(62, 13)
-        Me.Label11.TabIndex = 7
-        Me.Label11.Text = "Boost Used"
-        '
         'BBypass1
         '
         Me.BBypass1.AutoSize = True
@@ -1374,15 +829,6 @@ Partial Class Main_Panel
         Me.BDQ1.Size = New System.Drawing.Size(15, 14)
         Me.BDQ1.TabIndex = 4
         Me.BDQ1.UseVisualStyleBackColor = True
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(4, 125)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(62, 13)
-        Me.Label12.TabIndex = 3
-        Me.Label12.Text = "Force Used"
         '
         'BlueTeam3
         '
@@ -1422,8 +868,8 @@ Partial Class Main_Panel
         Me.ShapeContainer2.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer2.Name = "ShapeContainer2"
-        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.B3Estop, Me.B3Robot, Me.B3DS, Me.B2Estop, Me.B2Robot, Me.B2DS, Me.BLev, Me.BBoost, Me.BForce, Me.B1Estop, Me.B1Robot, Me.B1DS})
-        Me.ShapeContainer2.Size = New System.Drawing.Size(346, 257)
+        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.B3Estop, Me.B3Robot, Me.B3DS, Me.B2Estop, Me.B2Robot, Me.B2DS, Me.B1Estop, Me.B1Robot, Me.B1DS})
+        Me.ShapeContainer2.Size = New System.Drawing.Size(346, 174)
         Me.ShapeContainer2.TabIndex = 5
         Me.ShapeContainer2.TabStop = False
         '
@@ -1493,39 +939,6 @@ Partial Class Main_Panel
         Me.B2DS.Name = "B2DS"
         Me.B2DS.Size = New System.Drawing.Size(18, 17)
         '
-        'BLev
-        '
-        Me.BLev.BackColor = System.Drawing.Color.Yellow
-        Me.BLev.BorderWidth = 2
-        Me.BLev.CornerRadius = 1
-        Me.BLev.FillColor = System.Drawing.Color.LimeGreen
-        Me.BLev.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.BLev.Location = New System.Drawing.Point(80, 145)
-        Me.BLev.Name = "BLev"
-        Me.BLev.Size = New System.Drawing.Size(18, 17)
-        '
-        'BBoost
-        '
-        Me.BBoost.BackColor = System.Drawing.Color.Yellow
-        Me.BBoost.BorderWidth = 2
-        Me.BBoost.CornerRadius = 1
-        Me.BBoost.FillColor = System.Drawing.Color.LimeGreen
-        Me.BBoost.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.BBoost.Location = New System.Drawing.Point(80, 95)
-        Me.BBoost.Name = "BBoost"
-        Me.BBoost.Size = New System.Drawing.Size(18, 17)
-        '
-        'BForce
-        '
-        Me.BForce.BackColor = System.Drawing.Color.Yellow
-        Me.BForce.BorderWidth = 2
-        Me.BForce.CornerRadius = 1
-        Me.BForce.FillColor = System.Drawing.Color.LimeGreen
-        Me.BForce.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.BForce.Location = New System.Drawing.Point(80, 120)
-        Me.BForce.Name = "BForce"
-        Me.BForce.Size = New System.Drawing.Size(18, 17)
-        '
         'B1Estop
         '
         Me.B1Estop.BackColor = System.Drawing.Color.Yellow
@@ -1563,15 +976,6 @@ Partial Class Main_Panel
         '
         Me.FMSMasterTableAdapter.ClearBeforeFill = True
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(406, 217)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(116, 13)
-        Me.Label3.TabIndex = 21
-        Me.Label3.Text = "Scale/Switch Positions"
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -1593,7 +997,7 @@ Partial Class Main_Panel
         '
         'Pre_Start_btn
         '
-        Me.Pre_Start_btn.Location = New System.Drawing.Point(423, 114)
+        Me.Pre_Start_btn.Location = New System.Drawing.Point(423, 91)
         Me.Pre_Start_btn.Name = "Pre_Start_btn"
         Me.Pre_Start_btn.Size = New System.Drawing.Size(75, 23)
         Me.Pre_Start_btn.TabIndex = 25
@@ -1604,7 +1008,7 @@ Partial Class Main_Panel
         '
         Me.matchTimerLbl.AutoSize = True
         Me.matchTimerLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.matchTimerLbl.Location = New System.Drawing.Point(447, 75)
+        Me.matchTimerLbl.Location = New System.Drawing.Point(447, 64)
         Me.matchTimerLbl.Name = "matchTimerLbl"
         Me.matchTimerLbl.Size = New System.Drawing.Size(25, 25)
         Me.matchTimerLbl.TabIndex = 26
@@ -1614,39 +1018,32 @@ Partial Class Main_Panel
         'MatchMessages
         '
         Me.MatchMessages.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MatchMessages.Location = New System.Drawing.Point(392, 19)
+        Me.MatchMessages.Location = New System.Drawing.Point(393, 12)
         Me.MatchMessages.Name = "MatchMessages"
         Me.MatchMessages.Size = New System.Drawing.Size(139, 20)
         Me.MatchMessages.TabIndex = 27
         Me.MatchMessages.Text = "Match Not Started"
         Me.MatchMessages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'ScaleSwitch
+        'SandStormMessage
         '
-        Me.ScaleSwitch.Location = New System.Drawing.Point(427, 236)
-        Me.ScaleSwitch.Name = "ScaleSwitch"
-        Me.ScaleSwitch.Size = New System.Drawing.Size(71, 13)
-        Me.ScaleSwitch.TabIndex = 28
-        Me.ScaleSwitch.Text = "Scale/Switch"
-        Me.ScaleSwitch.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.SandStormMessage.Location = New System.Drawing.Point(427, 236)
+        Me.SandStormMessage.Name = "SandStormMessage"
+        Me.SandStormMessage.Size = New System.Drawing.Size(71, 13)
+        Me.SandStormMessage.TabIndex = 28
+        Me.SandStormMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label19
         '
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(439, 56)
+        Me.Label19.Location = New System.Drawing.Point(439, 42)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(43, 16)
         Me.Label19.TabIndex = 29
         Me.Label19.Text = "Timer"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'WarmUpTimer
-        '
-        '
         'AutoTimer
-        '
-        '
-        'PauseTimer
         '
         '
         'TeleTimer
@@ -1745,27 +1142,445 @@ Partial Class Main_Panel
         Me.ConnectPLCBtn.Text = "Connect PLC"
         Me.ConnectPLCBtn.UseVisualStyleBackColor = True
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.BackColor = System.Drawing.Color.Red
+        Me.GroupBox3.Controls.Add(Me.GroupBox9)
+        Me.GroupBox3.Controls.Add(Me.Label1)
+        Me.GroupBox3.Controls.Add(Me.RedScoreLbl)
+        Me.GroupBox3.Controls.Add(Me.GroupBox8)
+        Me.GroupBox3.Controls.Add(Me.GroupBox7)
+        Me.GroupBox3.Controls.Add(Me.GroupBox6)
+        Me.GroupBox3.Controls.Add(Me.GroupBox4)
+        Me.GroupBox3.Location = New System.Drawing.Point(24, 237)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(443, 316)
+        Me.GroupBox3.TabIndex = 36
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Red Scoring"
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.Button13)
+        Me.GroupBox9.Controls.Add(Me.Button12)
+        Me.GroupBox9.Location = New System.Drawing.Point(229, 148)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(200, 149)
+        Me.GroupBox9.TabIndex = 43
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Penalties"
+        '
+        'Button13
+        '
+        Me.Button13.Location = New System.Drawing.Point(101, 19)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(75, 35)
+        Me.Button13.TabIndex = 1
+        Me.Button13.Text = "Foul"
+        Me.Button13.UseVisualStyleBackColor = True
+        '
+        'Button12
+        '
+        Me.Button12.Location = New System.Drawing.Point(7, 20)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(75, 34)
+        Me.Button12.TabIndex = 0
+        Me.Button12.Text = "Tech Foul"
+        Me.Button12.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(26, 25)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(94, 20)
+        Me.Label1.TabIndex = 42
+        Me.Label1.Text = "Total Score:"
+        '
+        'RedScoreLbl
+        '
+        Me.RedScoreLbl.AutoSize = True
+        Me.RedScoreLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RedScoreLbl.Location = New System.Drawing.Point(126, 25)
+        Me.RedScoreLbl.Name = "RedScoreLbl"
+        Me.RedScoreLbl.Size = New System.Drawing.Size(18, 20)
+        Me.RedScoreLbl.TabIndex = 41
+        Me.RedScoreLbl.Text = "0"
+        '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.Button11)
+        Me.GroupBox8.Controls.Add(Me.Button7)
+        Me.GroupBox8.Controls.Add(Me.Button6)
+        Me.GroupBox8.Controls.Add(Me.Button5)
+        Me.GroupBox8.Controls.Add(Me.Button4)
+        Me.GroupBox8.Controls.Add(Me.Button3)
+        Me.GroupBox8.Location = New System.Drawing.Point(14, 145)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(200, 152)
+        Me.GroupBox8.TabIndex = 40
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Habitat"
+        '
+        'Button11
+        '
+        Me.Button11.Location = New System.Drawing.Point(7, 100)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(75, 33)
+        Me.Button11.TabIndex = 5
+        Me.Button11.Text = "All Climb"
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(107, 100)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(75, 33)
+        Me.Button7.TabIndex = 4
+        Me.Button7.Text = "HAB 3 Climb"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(107, 59)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 35)
+        Me.Button6.TabIndex = 3
+        Me.Button6.Text = "HAB 2 Climb"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(107, 19)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 34)
+        Me.Button5.TabIndex = 2
+        Me.Button5.Text = "HAB 1 Climb"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(6, 59)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 34)
+        Me.Button4.TabIndex = 1
+        Me.Button4.Text = "HAB 2 Sandstorm"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(7, 15)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 42)
+        Me.Button3.TabIndex = 0
+        Me.Button3.Text = "HAB 1 Sandstorm"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.Button10)
+        Me.GroupBox7.Controls.Add(Me.Button9)
+        Me.GroupBox7.Controls.Add(Me.Button8)
+        Me.GroupBox7.Location = New System.Drawing.Point(229, 47)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(200, 95)
+        Me.GroupBox7.TabIndex = 39
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Rocket"
+        '
+        'Button10
+        '
+        Me.Button10.Location = New System.Drawing.Point(62, 53)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(75, 36)
+        Me.Button10.TabIndex = 2
+        Me.Button10.Text = "Completed Rocket"
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(119, 13)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(75, 34)
+        Me.Button9.TabIndex = 1
+        Me.Button9.Text = "Hatch"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(5, 13)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(75, 34)
+        Me.Button8.TabIndex = 0
+        Me.Button8.Text = "Cargo"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.Button2)
+        Me.GroupBox6.Controls.Add(Me.Button1)
+        Me.GroupBox6.Location = New System.Drawing.Point(14, 48)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(200, 94)
+        Me.GroupBox6.TabIndex = 38
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Cargoship"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(107, 21)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 37)
+        Me.Button2.TabIndex = 1
+        Me.Button2.Text = "Hatch"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(7, 20)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 38)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Cargo"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Location = New System.Drawing.Point(446, 0)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(200, 100)
+        Me.GroupBox4.TabIndex = 37
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "GroupBox4"
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.BackColor = System.Drawing.Color.Blue
+        Me.GroupBox5.Controls.Add(Me.GroupBox13)
+        Me.GroupBox5.Controls.Add(Me.GroupBox12)
+        Me.GroupBox5.Controls.Add(Me.GroupBox11)
+        Me.GroupBox5.Controls.Add(Me.GroupBox10)
+        Me.GroupBox5.Controls.Add(Me.BlueScoreLbl)
+        Me.GroupBox5.Controls.Add(Me.Label2)
+        Me.GroupBox5.Location = New System.Drawing.Point(470, 237)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(426, 316)
+        Me.GroupBox5.TabIndex = 37
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Blue Scoring"
+        '
+        'GroupBox13
+        '
+        Me.GroupBox13.Controls.Add(Me.Button26)
+        Me.GroupBox13.Controls.Add(Me.Button25)
+        Me.GroupBox13.Location = New System.Drawing.Point(212, 148)
+        Me.GroupBox13.Name = "GroupBox13"
+        Me.GroupBox13.Size = New System.Drawing.Size(200, 149)
+        Me.GroupBox13.TabIndex = 5
+        Me.GroupBox13.TabStop = False
+        Me.GroupBox13.Text = "Penalties"
+        '
+        'Button26
+        '
+        Me.Button26.Location = New System.Drawing.Point(105, 19)
+        Me.Button26.Name = "Button26"
+        Me.Button26.Size = New System.Drawing.Size(75, 35)
+        Me.Button26.TabIndex = 1
+        Me.Button26.Text = "Foul"
+        Me.Button26.UseVisualStyleBackColor = True
+        '
+        'Button25
+        '
+        Me.Button25.Location = New System.Drawing.Point(12, 19)
+        Me.Button25.Name = "Button25"
+        Me.Button25.Size = New System.Drawing.Size(75, 35)
+        Me.Button25.TabIndex = 0
+        Me.Button25.Text = "Tech Foul"
+        Me.Button25.UseVisualStyleBackColor = True
+        '
+        'GroupBox12
+        '
+        Me.GroupBox12.Controls.Add(Me.Button24)
+        Me.GroupBox12.Controls.Add(Me.Button23)
+        Me.GroupBox12.Controls.Add(Me.Button22)
+        Me.GroupBox12.Location = New System.Drawing.Point(212, 48)
+        Me.GroupBox12.Name = "GroupBox12"
+        Me.GroupBox12.Size = New System.Drawing.Size(200, 94)
+        Me.GroupBox12.TabIndex = 4
+        Me.GroupBox12.TabStop = False
+        Me.GroupBox12.Text = "Rocket"
+        '
+        'Button24
+        '
+        Me.Button24.Location = New System.Drawing.Point(59, 52)
+        Me.Button24.Name = "Button24"
+        Me.Button24.Size = New System.Drawing.Size(75, 35)
+        Me.Button24.TabIndex = 2
+        Me.Button24.Text = "Completed Rocket"
+        Me.Button24.UseVisualStyleBackColor = True
+        '
+        'Button23
+        '
+        Me.Button23.Location = New System.Drawing.Point(105, 12)
+        Me.Button23.Name = "Button23"
+        Me.Button23.Size = New System.Drawing.Size(75, 35)
+        Me.Button23.TabIndex = 1
+        Me.Button23.Text = "Hatch"
+        Me.Button23.UseVisualStyleBackColor = True
+        '
+        'Button22
+        '
+        Me.Button22.Location = New System.Drawing.Point(8, 12)
+        Me.Button22.Name = "Button22"
+        Me.Button22.Size = New System.Drawing.Size(75, 35)
+        Me.Button22.TabIndex = 0
+        Me.Button22.Text = "Cargo"
+        Me.Button22.UseVisualStyleBackColor = True
+        '
+        'GroupBox11
+        '
+        Me.GroupBox11.Controls.Add(Me.Button21)
+        Me.GroupBox11.Controls.Add(Me.Button20)
+        Me.GroupBox11.Controls.Add(Me.Button19)
+        Me.GroupBox11.Controls.Add(Me.Button18)
+        Me.GroupBox11.Controls.Add(Me.Button17)
+        Me.GroupBox11.Controls.Add(Me.Button16)
+        Me.GroupBox11.Location = New System.Drawing.Point(6, 148)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(200, 149)
+        Me.GroupBox11.TabIndex = 3
+        Me.GroupBox11.TabStop = False
+        Me.GroupBox11.Text = "Habitat"
+        '
+        'Button21
+        '
+        Me.Button21.Location = New System.Drawing.Point(120, 97)
+        Me.Button21.Name = "Button21"
+        Me.Button21.Size = New System.Drawing.Size(75, 33)
+        Me.Button21.TabIndex = 5
+        Me.Button21.Text = "HAB 3 Climb"
+        Me.Button21.UseVisualStyleBackColor = True
+        '
+        'Button20
+        '
+        Me.Button20.Location = New System.Drawing.Point(119, 56)
+        Me.Button20.Name = "Button20"
+        Me.Button20.Size = New System.Drawing.Size(75, 37)
+        Me.Button20.TabIndex = 4
+        Me.Button20.Text = "HAB 2 Climb"
+        Me.Button20.UseVisualStyleBackColor = True
+        '
+        'Button19
+        '
+        Me.Button19.Location = New System.Drawing.Point(119, 16)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(75, 38)
+        Me.Button19.TabIndex = 3
+        Me.Button19.Text = "HAB 1 Climb"
+        Me.Button19.UseVisualStyleBackColor = True
+        '
+        'Button18
+        '
+        Me.Button18.Location = New System.Drawing.Point(6, 97)
+        Me.Button18.Name = "Button18"
+        Me.Button18.Size = New System.Drawing.Size(75, 33)
+        Me.Button18.TabIndex = 2
+        Me.Button18.Text = "All Climb"
+        Me.Button18.UseVisualStyleBackColor = True
+        '
+        'Button17
+        '
+        Me.Button17.Location = New System.Drawing.Point(6, 56)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(75, 37)
+        Me.Button17.TabIndex = 1
+        Me.Button17.Text = "HAB 2 Sandstorm"
+        Me.Button17.UseVisualStyleBackColor = True
+        '
+        'Button16
+        '
+        Me.Button16.Location = New System.Drawing.Point(6, 16)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(75, 38)
+        Me.Button16.TabIndex = 0
+        Me.Button16.Text = "HAB 1 Sandstorm"
+        Me.Button16.UseVisualStyleBackColor = True
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.Button15)
+        Me.GroupBox10.Controls.Add(Me.Button14)
+        Me.GroupBox10.Location = New System.Drawing.Point(6, 48)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(200, 94)
+        Me.GroupBox10.TabIndex = 2
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Cargoship"
+        '
+        'Button15
+        '
+        Me.Button15.Location = New System.Drawing.Point(120, 20)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(75, 36)
+        Me.Button15.TabIndex = 1
+        Me.Button15.Text = "Hatch"
+        Me.Button15.UseVisualStyleBackColor = True
+        '
+        'Button14
+        '
+        Me.Button14.Location = New System.Drawing.Point(6, 19)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(75, 36)
+        Me.Button14.TabIndex = 0
+        Me.Button14.Text = "Cargo"
+        Me.Button14.UseVisualStyleBackColor = True
+        '
+        'BlueScoreLbl
+        '
+        Me.BlueScoreLbl.AutoSize = True
+        Me.BlueScoreLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BlueScoreLbl.Location = New System.Drawing.Point(122, 25)
+        Me.BlueScoreLbl.Name = "BlueScoreLbl"
+        Me.BlueScoreLbl.Size = New System.Drawing.Size(18, 20)
+        Me.BlueScoreLbl.TabIndex = 1
+        Me.BlueScoreLbl.Text = "0"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(22, 25)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(94, 20)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Total Score:"
+        '
+        'MatchListTableAdapter1
+        '
+        Me.MatchListTableAdapter1.ClearBeforeFill = True
+        '
         'Main_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1235, 565)
+        Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.ScaleSwitch)
+        Me.Controls.Add(Me.SandStormMessage)
         Me.Controls.Add(Me.MatchMessages)
         Me.Controls.Add(Me.matchTimerLbl)
         Me.Controls.Add(Me.Pre_Start_btn)
         Me.Controls.Add(Me.Ctime)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.AbortMatch_btn)
         Me.Controls.Add(Me.StartMatch_btn)
         Me.Controls.Add(Me.MatchLoad_Btn)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Save_btn)
         Me.Controls.Add(Me.MatchNum)
@@ -1776,7 +1591,6 @@ Partial Class Main_Panel
         Me.Text = "Main_Panel"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me._O_FMSDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1784,6 +1598,18 @@ Partial Class Main_Panel
         Me.Panel2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        Me.GroupBox13.ResumeLayout(False)
+        Me.GroupBox12.ResumeLayout(False)
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox10.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1791,36 +1617,23 @@ Partial Class Main_Panel
     Friend WithEvents MatchNum As System.Windows.Forms.TextBox
     Friend WithEvents Save_btn As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents REDForce As System.Windows.Forms.Label
     Friend WithEvents RedTeam3 As System.Windows.Forms.Label
     Friend WithEvents RedTeam2 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents MatchLoad_Btn As System.Windows.Forms.Button
     Friend WithEvents StartMatch_btn As System.Windows.Forms.Button
-    Friend WithEvents AbortMatch_btn As System.Windows.Forms.Button
     Friend WithEvents RBypass1 As System.Windows.Forms.CheckBox
     Friend WithEvents RDQ1 As System.Windows.Forms.CheckBox
-    Friend WithEvents RedLevitate As System.Windows.Forms.Label
-    Friend WithEvents REDBoost As System.Windows.Forms.Label
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents _O_FMSDataSet As O_FMS_V0._O_FMSDataSet
     Friend WithEvents RedVolt3 As System.Windows.Forms.Label
     Friend WithEvents RedVolt2 As System.Windows.Forms.Label
     Friend WithEvents RedVolt1 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents RedScore As System.Windows.Forms.Label
-    Friend WithEvents RedPen As System.Windows.Forms.TextBox
-    Friend WithEvents RPLC_Score As System.Windows.Forms.Label
     Friend WithEvents RBypass3 As System.Windows.Forms.CheckBox
     Friend WithEvents RDQ3 As System.Windows.Forms.CheckBox
     Friend WithEvents RBypass2 As System.Windows.Forms.CheckBox
     Friend WithEvents RDQ2 As System.Windows.Forms.CheckBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents BlueScore As System.Windows.Forms.Label
-    Friend WithEvents BluePen As System.Windows.Forms.TextBox
-    Friend WithEvents BPLC_Score As System.Windows.Forms.Label
     Friend WithEvents BBypass3 As System.Windows.Forms.CheckBox
     Friend WithEvents BDQ3 As System.Windows.Forms.CheckBox
     Friend WithEvents BBypass2 As System.Windows.Forms.CheckBox
@@ -1828,72 +1641,13 @@ Partial Class Main_Panel
     Friend WithEvents BlueVolt3 As System.Windows.Forms.Label
     Friend WithEvents BlueVolt2 As System.Windows.Forms.Label
     Friend WithEvents BlueVolt1 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents BBypass1 As System.Windows.Forms.CheckBox
     Friend WithEvents BDQ1 As System.Windows.Forms.CheckBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents BlueTeam3 As System.Windows.Forms.Label
     Friend WithEvents BlueTeam2 As System.Windows.Forms.Label
     Friend WithEvents BlueTeam1 As System.Windows.Forms.Label
     Friend WithEvents FMSMasterBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents FMSMasterTableAdapter As O_FMS_V0._O_FMSDataSetTableAdapters.FMSMasterTableAdapter
-    Friend WithEvents MatchDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents MatchTimeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Blue1DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Blue1DQDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue1VoltDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Blue1EstopDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue1RLDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue1DSDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue1BypassDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue2DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Blue2DQDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue2VoltDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Blue2EstopDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue2RLDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue2DSDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue2BypassDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue3DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Blue3DQDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue3VoltDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Blue3EstopDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue3RLDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue3DSDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Blue3BypassDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red1DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Red1DQDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red1VoltDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Red1EstopDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red1RLDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red1DSDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red1BypassDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red2DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Red2DQDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red2VoltDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Red2EstopDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red2RLDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red2DSDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red2BypassDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red3DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Red3DQDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red3VoltDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Red3EstopDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red3RLDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red3DSDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents Red3BypassDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents BluescoreDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BluepenDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BlueForceDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents BlueLevitateDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents BlueBoostDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents RedscoreDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents RedpenDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents RedForceDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents RedLevitateDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents RedBoostDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents SwitchScaleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
@@ -1912,9 +1666,6 @@ Partial Class Main_Panel
     Private WithEvents R1Estop As PowerPacks.RectangleShape
     Private WithEvents R1Robot As PowerPacks.RectangleShape
     Private WithEvents R1DS As PowerPacks.RectangleShape
-    Private WithEvents RLev As PowerPacks.RectangleShape
-    Private WithEvents RBoost As PowerPacks.RectangleShape
-    Private WithEvents RForce As PowerPacks.RectangleShape
     Private WithEvents R3Estop As PowerPacks.RectangleShape
     Private WithEvents R3Robot As PowerPacks.RectangleShape
     Private WithEvents R3DS As PowerPacks.RectangleShape
@@ -1928,43 +1679,81 @@ Partial Class Main_Panel
     Private WithEvents B2Estop As PowerPacks.RectangleShape
     Private WithEvents B2Robot As PowerPacks.RectangleShape
     Private WithEvents B2DS As PowerPacks.RectangleShape
-    Private WithEvents BLev As PowerPacks.RectangleShape
-    Private WithEvents BBoost As PowerPacks.RectangleShape
-    Private WithEvents BForce As PowerPacks.RectangleShape
     Private WithEvents B1Estop As PowerPacks.RectangleShape
     Private WithEvents B1Robot As PowerPacks.RectangleShape
     Private WithEvents B1DS As PowerPacks.RectangleShape
     Friend WithEvents Pre_Start_btn As Button
     Friend WithEvents matchTimerLbl As Label
     Friend WithEvents MatchMessages As Label
-    Friend WithEvents ScaleSwitch As Label
+    Friend WithEvents SandStormMessage As Label
     Friend WithEvents Label19 As Label
-    Friend WithEvents PWRTimerLbl As Label
-    Friend WithEvents PowerUpTimerBluelbl As Label
     Friend WithEvents Red1Sur As System.Windows.Forms.Label
     Friend WithEvents Red3Sur As System.Windows.Forms.Label
     Friend WithEvents Red2Sur As System.Windows.Forms.Label
     Friend WithEvents Blue3Sur As System.Windows.Forms.Label
     Friend WithEvents Blue2Sur As System.Windows.Forms.Label
     Friend WithEvents Blue1Sur As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents RedAllianceHang As System.Windows.Forms.TextBox
-    Friend WithEvents BlueAllianceHang As System.Windows.Forms.TextBox
-    Friend WithEvents Label20 As System.Windows.Forms.Label
     Public WithEvents WarmUpTimer As Timer
-    Friend WithEvents AutoTimer As Timer
-    Friend WithEvents PauseTimer As Timer
-    Friend WithEvents TeleTimer As Timer
-    Friend WithEvents EndGameTimer As Timer
     Friend WithEvents MatchPlay As Button
     Friend WithEvents FinalScoreBtn As Button
     Friend WithEvents PreMatchBtn As Button
-    Friend WithEvents Label21 As Label
-    Friend WithEvents Label22 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents ConnectPLCBtn As Button
     Friend WithEvents LedPatternTestBtn As Button
     Friend WithEvents DSLightTestBtn As Button
     Friend WithEvents ScoringTableLightTestBtn As Button
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents GroupBox8 As GroupBox
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents MatchListTableAdapter1 As _O_FMSDataSet1TableAdapters.MatchListTableAdapter
+    Friend WithEvents Label1 As Label
+    Friend WithEvents RedScoreLbl As Label
+    Friend WithEvents GroupBox9 As GroupBox
+    Friend WithEvents Button13 As Button
+    Friend WithEvents Button12 As Button
+    Friend WithEvents Button11 As Button
+    Friend WithEvents Button10 As Button
+    Friend WithEvents Button9 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents BlueScoreLbl As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents GroupBox13 As GroupBox
+    Friend WithEvents GroupBox12 As GroupBox
+    Friend WithEvents GroupBox11 As GroupBox
+    Friend WithEvents GroupBox10 As GroupBox
+    Friend WithEvents Button26 As Button
+    Friend WithEvents Button25 As Button
+    Friend WithEvents Button24 As Button
+    Friend WithEvents Button23 As Button
+    Friend WithEvents Button22 As Button
+    Friend WithEvents Button21 As Button
+    Friend WithEvents Button20 As Button
+    Friend WithEvents Button19 As Button
+    Friend WithEvents Button18 As Button
+    Friend WithEvents Button17 As Button
+    Friend WithEvents Button16 As Button
+    Friend WithEvents Button15 As Button
+    Friend WithEvents Button14 As Button
+    Public WithEvents AbortMatch_btn As Button
+    Public WithEvents AutoTimer As Timer
+    Public WithEvents PauseTimer As Timer
+    Public WithEvents TeleTimer As Timer
+    Public WithEvents EndGameTimer As Timer
+    Friend WithEvents Button28 As Button
+    Friend WithEvents Button27 As Button
+    Friend WithEvents Button32 As Button
+    Friend WithEvents Button31 As Button
+    Friend WithEvents Button30 As Button
+    Friend WithEvents Button29 As Button
 End Class

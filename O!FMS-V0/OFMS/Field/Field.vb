@@ -1,11 +1,13 @@
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.RandomString
-Imports O_FMS_V0.Lighting
+Imports O_FMS_V0.Main_Panel
 Imports System.Threading
+
 
 
 Public Class Field
     Public Shared status As Boolean = False
+    Public Shared sandstorm As Boolean = False
     'PLC Field Types'
     Public Shared FieldReset As Boolean
     Public Shared Volunteers As Boolean
@@ -17,36 +19,56 @@ Public Class Field
     Public Shared Blue2DS As New DriverStations
     Public Shared Blue3DS As New DriverStations
     'Led Controllers'
-    Public Shared ScaleLeds As New Lighting
-    Public Shared RedSwitchLeds As New Lighting
-    Public Shared BlueSwitchLeds As New Lighting
-    '2018 timing'
-    Public Shared WarmUpTime As Integer = 4
-    Public Shared AutoTime As Integer = 15
-    Public Shared PauseTime As Integer = 3
+    'TODO Add new light controllers
+
+    '2019 timing'
+    Public Shared SandStormTime As Integer = 15
     Public Shared TeleTime As Integer = 135
-    Public Shared EndgameTime As Integer = 30
+    Public Shared EndgameWarningTime As Integer = 30
+    Public Shared EndGameTime As Integer = 20
     Public Shared GameTime As Integer = 0
 
     Public Shared fieldStatus
+
     'Match Type enums'
     Public Enum MatchEnums
         PreMatch
-        WarmUp
-        Auto
-        Pause
+        SandStorm
         TeleOp
+        EndGameWarning
         EndGame
         PostMatch
         AbortMatch
     End Enum
 
-
     Public Shared Sub HandleDSConnections()
         'Starts the TCP connection threads for finding driver stations'
         Red1DS.ListenToDS()
+        'Red2DS.ListenToDS()
+        'Red3DS.ListenToDS()
+        'Blue1DS.ListenToDS()
+        'Blue2DS.ListenToDS()
+        'Blue3DS.ListenToDS()
         'Pings and starts control for the driver station'
-        ' Red1DS.newDriverStationConnection(Main_Panel.RedTeam1.Text, 0)
+        'Red1DS.newDriverStationConnection(Main_Panel.RedTeam1.Text, 0)
+        'Red2DS.newDriverStationConnection(Main_Panel.RedTeam2.Text, 1)
+        'Red3DS.newDriverStationConnection(Main_Panel.RedTeam3.Text, 2)
+        'Blue1DS.newDriverStationConnection(Main_Panel.BlueTeam1.Text, 3)
+        'Blue2DS.newDriverStationConnection(Main_Panel.BlueTeam2.Text, 4)
+        'Blue3DS.newDriverStationConnection(Main_Panel.BlueTeam3.Text, 5)
+    End Sub
+
+    Public Shared Sub handlePLC()
+        Do While (True)
+            checkAlliances()
+            handleCoils()
+            handleEstops()
+            handleFieldOuputs()
+            handleGameOutputs()
+            handleRegisters()
+            abortedMatch()
+            handleFieldEstop()
+        Loop
     End Sub
 
     Public Shared Sub DisposeDS()
@@ -56,54 +78,7 @@ Public Class Field
         Blue1DS.Dispose()
         Blue2DS.Dispose()
         Blue3DS.Dispose()
-
     End Sub
-
-    Public Shared Sub handleSwitchLeds()
-        Dim pre As Integer = 0
-        Dim warm As Integer = 0
-
-        Do While (True)
-            If fieldStatus = MatchEnums.PreMatch Then
-                If pre < 1 Then
-                    setModeScale("G")
-                    status = False
-                    pre = pre + 1
-                End If
-
-            ElseIf fieldStatus = MatchEnums.WarmUp Then
-                If warm < 1 Then
-                    If gamedatause = "LRL" Then
-                        setModeScale("1")
-                    ElseIf gamedatause = "RRR" Then
-                        setModeScale("2")
-                    ElseIf gamedatause = "LLL" Then
-                        setModeScale("3")
-                    ElseIf gamedatause = "RLR" Then
-                        setModeScale("4")
-                    End If
-                    warm = warm + 1
-                End If
-            End If
-
-            If status = True Then
-                If PLC_BlueScaleOwned = True Then
-                    setModeScale("B")
-                ElseIf PLC_RedScaleOwned = True Then
-                    setModeScale("R")
-                ElseIf PLC_RedScaleOwned = False And PLC_BlueScaleOwned = False Then
-                    setModeScale("N")
-                ElseIf PLC_BlueSWOwned = True Then
-
-                End If
-
-            End If
-
-
-
-        Loop
-    End Sub
-
 
     Public Shared Function SendDS(Auto As Boolean, Enabled As Boolean)
         If Auto = True Then
@@ -173,32 +148,29 @@ Public Class Field
         Select Case (MatchEnums)
 
             Case MatchEnums.PreMatch
+                DisposeDS()
                 status = False
                 My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
                 PLC_Reset = True
-                Match_PreStart = True
+                ResetPLC()
                 fieldStatus = MatchEnums.PreMatch
+                CargoshipEnabled = True
                 SendDS(Auto:=True, Enabled:=False)
-            Case MatchEnums.WarmUp
-                SendDS(Auto:=True, Enabled:=False)
-                GameDataGen()
-                Match_Start = True
-                fieldStatus = MatchEnums.WarmUp
-                SendDS(Auto:=True, Enabled:=False)
-                My.Computer.Audio.Play(My.Resources.match_warmup, AudioPlayMode.Background)
-            Case MatchEnums.Auto
+            Case MatchEnums.SandStorm
                 status = True
-                fieldStatus = MatchEnums.Auto
+                fieldStatus = MatchEnums.SandStorm
                 SendDS(Auto:=True, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_start, AudioPlayMode.Background)
-            Case MatchEnums.Pause
-                fieldStatus = MatchEnums.Pause
-                SendDS(Auto:=False, Enabled:=False)
-                My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
             Case MatchEnums.TeleOp
                 fieldStatus = MatchEnums.TeleOp
+                CargoshipEnabled = False
                 SendDS(Auto:=False, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_resume, AudioPlayMode.Background)
+            Case MatchEnums.EndGameWarning
+                fieldStatus = MatchEnums.EndGameWarning
+                SendDS(Auto:=False, Enabled:=True)
+                'Add EndGameWarning'
+                My.Computer.Audio.Play(My.Resources.match_levitate, AudioPlayMode.Background)
             Case MatchEnums.EndGame
                 fieldStatus = MatchEnums.EndGame
                 SendDS(Auto:=False, Enabled:=True)
@@ -212,11 +184,12 @@ Public Class Field
                 status = False
             Case MatchEnums.AbortMatch
                 fieldStatus = MatchEnums.AbortMatch
+                My.Computer.Audio.Play(My.Resources.fog_blast, AudioPlayMode.Background)
                 SendDS(Auto:=False, Enabled:=False)
                 Match_Stop = True
-                Thread.Sleep(50)
                 DisposeDS()
                 status = False
+
             Case Else
                 MatchEnums = MatchEnums.PreMatch
         End Select
