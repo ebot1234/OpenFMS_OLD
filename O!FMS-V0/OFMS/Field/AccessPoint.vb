@@ -19,10 +19,6 @@ Public Class AccessPoint
         Public Shared initalStatusFetched As Boolean
     End Structure
 
-    Structure sshOutput
-        Public Shared output As SshCommand
-    End Structure
-
 
     Public Shared Sub SetSettings(address As String, password As String, username As String, teamChannel As Integer,
                                           adminChannel As Integer, adminWpaKey As String)
@@ -32,7 +28,6 @@ Public Class AccessPoint
         teamChannel = AccessPoint.teamChannel
         adminChannel = AccessPoint.adminChannel
         adminWpaKey = AccessPoint.adminWpaKey
-
 
     End Sub
 
@@ -100,16 +95,13 @@ Public Class AccessPoint
 
         'loops forever until confguration of the AP is correct for the match'
         Do
-            Dim status = RunTeamCommand(command)
+            Dim status = RunCommand(command)
             Threading.Thread.Sleep(accessPointCommandTimeoutSec * 1000)
 
+            'might need to check this'
             If status Is Nothing Then
                 MessageBox.Show("Access Point configured correctly for the match")
                 Exit Do
-            End If
-
-            If err IsNot Nothing Then
-                MessageBox.Show("Error team wifi is not configured")
             End If
 
             'Shows the retries in a message box'
@@ -119,11 +111,7 @@ Public Class AccessPoint
 
     End Sub
 
-    Public Shared Sub RunCommand(command() As String)
-
-    End Sub
-
-    Public Shared Function RunTeamCommand(command As String)
+    Public Shared Function RunCommand(command As String)
         Dim sshClient As SshClient
         Dim sshConnectionInfo As PasswordConnectionInfo
 
@@ -138,29 +126,17 @@ Public Class AccessPoint
         sshClient.Connect()
 
 
+        If sshClient.IsConnected Then
+            sshClient.RunCommand(command)
+        Else
+            MessageBox.Show("Access Point is not connected via SSH")
+        End If
 
-    End Function
+        sshClient.Disconnect()
 
-    Public Shared Function updateTeamStatuses()
         Return 0
     End Function
 
-    Public Shared Function configIsCorrectForTeams()
-        'Dim team = 0
-
-        'If AccessPoint.initalStatusFetched = False Then
-        '    Return False
-        'End If
-
-        'For Each team In teams
-        '    Dim exspectedTeamId = 0
-
-        '    If team Then
-
-        '    End If
-        'Next
-        Return 0
-    End Function
 
     'Public Shared red1Vlan = 10
     'Public Shared red2Vlan = 20

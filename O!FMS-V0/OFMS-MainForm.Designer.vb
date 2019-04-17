@@ -164,6 +164,7 @@ Partial Class Main_Panel
         Me.BlueScoreLbl = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.MatchListTableAdapter1 = New O_FMS_V0._O_FMSDataSet1TableAdapters.MatchListTableAdapter()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Panel1.SuspendLayout()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1756,4 +1757,5 @@ Partial Class Main_Panel
     Friend WithEvents Button31 As Button
     Friend WithEvents Button30 As Button
     Friend WithEvents Button29 As Button
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 End Class

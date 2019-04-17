@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.Field
-
+Imports O_FMS_V0.AccessPoint
 
 
 Public Class Main_Panel
@@ -59,6 +59,8 @@ Public Class Main_Panel
         Me.WindowState = FormWindowState.Normal
         resetScore()
         scoreHandler.Start()
+
+        SetSettings("10.0.100.1", "OFMS", "OFMS", 12, 5, "ofmsrocks")
     End Sub
 
 
