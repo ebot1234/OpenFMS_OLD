@@ -192,6 +192,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Public ReadOnly Property match_warning_1() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("match-warning-1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Public ReadOnly Property ofms_logo() As System.Drawing.Bitmap

@@ -44,14 +44,14 @@ Public Class AccessPoint
         End If
 
         Dim command As String
-        command = String.Format("set wireless.radio0.channel='{0}'", AccessPoint.teamChannel) +
-        String.Format("set wireless.radio1.disabled='{0}'", disabled) +
-        String.Format("set wireless.radio.1.channel='{0}'", AccessPoint.adminChannel) +
-        String.Format("set wireless.@wifi-iface[0].key='{0}'", AccessPoint.adminWpaKey) +
+        command = String.Format("set wireless.radio0.channel='{0}'", AccessPoint.teamChannel) & vbNewLine &
+        String.Format("set wireless.radio1.disabled='{0}'", disabled) & vbNewLine &
+        String.Format("set wireless.radio.1.channel='{0}'", AccessPoint.adminChannel) & vbNewLine &
+        String.Format("set wireless.@wifi-iface[0].key='{0}'", AccessPoint.adminWpaKey) & vbNewLine &
         "commit wireless"
 
         Dim wifiCommand
-        wifiCommand = String.Format("uci batch <<ENDCONFIG && wifi radio1" & vbNewLine & "{0}" & vbNewLine & "ENDCONFIG" & vbNewLine, command, vbNewLine)
+        wifiCommand = String.Format("uci batch <<ENDCONFIG && wifi radio1" & vbNewLine & "{0}" & vbNewLine & "ENDCONFIG", command)
         RunCommand(wifiCommand)
     End Sub
 
@@ -70,20 +70,17 @@ Public Class AccessPoint
     Public Shared Function createTeamCommands(position As Integer, WpaKey As String, teamNumber As String)
         Dim commands As String
 
-        If teamNumber = 0 Then
-            commands = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position) +
-                    String.Format("set wireless.@wifi-iface[{0}].ssid='no-team-{1}'", position, position) +
-                    String.Format("set wireless.@wifi-iface[{0}].key='no-team-{1}'", position, position) +
-                    "commit wireless"
+        If teamNumber.Length = 0 Then
+            commands = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position) & vbNewLine &
+                    String.Format("set wireless.@wifi-iface[{0}].ssid='no-team-{1}'", position, position) & vbNewLine &
+                    String.Format("set wireless.@wifi-iface[{0}].key='no-team-{1}'", position, position) & vbNewLine &
+                    "commit wireless" & vbNewLine
 
         Else
-            If Len(teamNumber) < 8 Or Len(WpaKey) > 63 Then
-                MessageBox.Show("Invalid team WPA Key for: {0}", teamNumber)
-            End If
 
-            commands = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position) +
-            String.Format("set wireless.@wifi-iface[{0}].ssid='no-team-{1}'", position, teamNumber) +
-            String.Format("set wireless.@wifi-iface[{0}].key='no-team-{1}'", position, WpaKey) +
+            commands = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position) & vbNewLine &
+            String.Format("set wireless.@wifi-iface[{0}].ssid='{1}'", position, teamNumber) & vbNewLine &
+            String.Format("set wireless.@wifi-iface[{0}].key='{1}'", position, WpaKey) & vbNewLine &
             "commit wireless" & vbNewLine
 
         End If
@@ -94,7 +91,7 @@ Public Class AccessPoint
     Public Shared Sub handleTeamWifiConfiguration()
         Dim config = generateAccessPointConfig()
 
-        If config IsNot Nothing Then
+        If config Is Nothing Then
             MessageBox.Show(String.Format("Failed to configure wifi: {0}", config))
         End If
 
@@ -116,7 +113,7 @@ Public Class AccessPoint
             End If
 
             'Shows the retries in a message box'
-            MessageBox.Show(String.Format("Wifi is still wrong after {0} attempts", attemptCount))
+            MessageBox.Show("Wifi configuration failed retrying!!!")
             attemptCount = attemptCount + 1
         Loop
 

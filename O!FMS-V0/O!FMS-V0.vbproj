@@ -66,9 +66,8 @@
     <Reference Include="Rebex.Networking, Version=3.5.6874.0, Culture=neutral, PublicKeyToken=1c4638788972655d, processorArchitecture=MSIL">
       <HintPath>..\packages\Rebex.Networking.3.5.6874\lib\net40\Rebex.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="Renci.SshNet, Version=2013.4.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SSH.NET.2013.4.7\lib\net40\Renci.SshNet.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
@@ -258,6 +257,8 @@
     <Content Include="ofms logo.ico" />
     <Content Include="OFMS\Field\APTemplate.txt" />
     <Content Include="OFMS\Sounds\fog-blast.wav" />
+    <None Include="Resources\Comet-SoundBible.com-1256431940.wav" />
+    <None Include="Resources\CometSound.mp3" />
     <None Include="Resources\FinalScore.png" />
     <None Include="Resources\FirstPowerUpLogo.png" />
     <None Include="Resources\Pre-Match_Image.jpg" />
