@@ -194,3 +194,5 @@ C:\Users\ellen.estep.one\Desktop\OFMS\OFMS\O!FMS-V0\obj\Debug\O!FMS-V0.vbproj.Co
 C:\Users\ellen.estep.one\Desktop\OFMS\OFMS\O!FMS-V0\obj\Debug\O!FMS-V0.exe
 C:\Users\ellen.estep.one\Desktop\OFMS\OFMS\O!FMS-V0\obj\Debug\O!FMS-V0.xml
 C:\Users\ellen.estep.one\Desktop\OFMS\OFMS\O!FMS-V0\obj\Debug\O!FMS-V0.pdb
+C:\Users\ellen.estep.one\Desktop\OFMS\OFMS\O!FMS-V0\bin\Debug\ScriptingTelnet.dll
+C:\Users\ellen.estep.one\Desktop\OFMS\OFMS\O!FMS-V0\bin\Debug\ScriptingTelnet.pdb
