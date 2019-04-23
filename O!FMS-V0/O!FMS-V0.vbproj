@@ -57,8 +57,8 @@
       <HintPath>..\packages\LiteGuard.1.1.0\lib\net35\LiteGuard.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="PrimS.Telnet, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telnet.0.9.0-beta0001\lib\net45\PrimS.Telnet.dll</HintPath>
+    <Reference Include="PrimS.Telnet, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telnet.0.8.3\lib\net45\PrimS.Telnet.dll</HintPath>
     </Reference>
     <Reference Include="Rebex.Common, Version=2.5.6874.0, Culture=neutral, PublicKeyToken=1c4638788972655d, processorArchitecture=MSIL">
       <HintPath>..\packages\Rebex.Common.2.5.6874\lib\net40\Rebex.Common.dll</HintPath>
@@ -69,9 +69,9 @@
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
-    <Reference Include="ScriptingTelnet">
-      <HintPath>..\..\..\Telnet Lib\bin\Debug\ScriptingTelnet.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+    <Reference Include="ScriptingTelnet, Version=1.0.7025.21098, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ScriptingTelnet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />

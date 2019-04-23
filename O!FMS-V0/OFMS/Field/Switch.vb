@@ -1,7 +1,6 @@
-﻿Imports objActiveSolutions.ScriptingTelnet
+﻿Imports Renci.SshNet
 Imports System.Threading
-Imports System.Net.Sockets
-Imports System.Text
+Imports System.IO
 
 Public Class Switch
     Public Shared Red1 As String
@@ -11,8 +10,8 @@ Public Class Switch
     Public Shared Blue2 As String
     Public Shared Blue3 As String
 
-    'port for telneting the switch'
-    Public Shared switchTelnetPort As Integer = 23
+    'port for SSHing the switch'
+    Public Shared switchSshPort As Integer = 23
 
     Public Shared Red1VLAN = 10
     Public Shared Red2VLAN = 20
@@ -24,18 +23,18 @@ Public Class Switch
     Public Shared addTeamVlanCommand = ""
     Public Shared returnedData
 
+    Public Shared Reader As StreamReader
+    Public Shared Writer As StreamWriter
+
     Structure Switch
         Public Shared address As String
         Public Shared port As Integer
         Public Shared password As String
+        Public Shared timeOut As Integer
     End Structure
 
     'The DS will try to connect to this address
     Public Shared ServerIpAddress As String = "10.0.100.5"
-
-    Public Shared Function newSwitch(address As String, password As String)
-        Return Switch.address = address And Switch.port = switchTelnetPort And Switch.password = password
-    End Function
 
     Public Shared Function configureTeamEthernet(red1 As String, red2 As String, red3 As String, blue1 As String, blue2 As String, blue3 As String)
 
@@ -59,8 +58,8 @@ Public Class Switch
                                                        "no access-list 1{7}" & vbNewLine &
                                                        "interface Vlan{8}" & vbNewLine & "no ip address" & vbNewLine &
                                                        "no access-list 1{9}" & vbNewLine &
-                                                       "interface Vlan{10}" & vbNewLine & "no ip address" & vbNewLine & "
-                                                       no access-list 1{11}" & vbNewLine, Red1VLAN, Red1VLAN,
+                                                       "interface Vlan{10}" & vbNewLine & "no ip address" & vbNewLine &
+                                                       "no access-list 1{11}" & vbNewLine, Red1VLAN, Red1VLAN,
                                                         Red2VLAN, Red2VLAN, Red3VLAN, Red3VLAN, Blue1VLAN, Blue1VLAN, Blue2VLAN, Blue2VLAN,
                                                         Blue3VLAN, Blue3VLAN)
 
@@ -87,7 +86,7 @@ Public Class Switch
                 MessageBox.Show(String.Format("Team: {0} doesn't work to short or long", teamNumber))
         End Select
 
-        If teamNumber = 0 Then
+        If teamNumber.Length = 0 Then
             MessageBox.Show("Team is nothing, can't configure the switch")
         End If
         'add vlan checking before command?'
@@ -107,33 +106,39 @@ Public Class Switch
 
         Return addTeamVlanCommand
     End Function
-
+    'Sends the commands via ssh'
     Public Shared Function runCommand(command As String)
-        Dim client As New TcpClient()
-        'Connects to the switch'
-        client.Connect(ServerIpAddress, Switch.port)
-        'setup a network stream'
-        Dim NetworkStream As NetworkStream = client.GetStream()
-        'Checks if the network stream can transport data'
-        If NetworkStream.CanWrite Then
-            'Format the string for username and password'
-            Dim commandString As String = String.Format("{0}" & vbNewLine & "enable" & vbNewLine & "{1}" & vbNewLine & "terminal length 0" & vbNewLine & "{2}exit" & vbNewLine, Switch.password, Switch.password, command)
-            Dim networkByte As [Byte]() = Encoding.ASCII.GetBytes(commandString)
-            NetworkStream.Write(networkByte, 0, networkByte.Length)
-        End If
-
-        NetworkStream.Flush()
-
-        If NetworkStream.CanRead Then
-            Dim returnedByte(client.ReceiveBufferSize) As Byte
-            NetworkStream.Read(returnedByte, 0, CInt(client.ReceiveBufferSize))
-            returnedData = Encoding.ASCII.GetString(returnedByte)
-        End If
-
-        Return returnedData
+        Try
+            Using client = New SshClient(Switch.address, "OFMS", "OFMS")
+                Using ss As ShellStream = client.CreateShellStream("dumb", 80, 24, 800, 600, 1024)
+                    sendCommand(command, ss)
+                End Using
+                client.Disconnect()
+            End Using
+        Catch ex As Exception
+            Dim errorString As String = String.Format("SSH Problems {0}", command)
+            MessageBox.Show(errorString)
+        End Try
+        Return 0
     End Function
 
     Public Shared Function runConfigCommand(command As String)
         Return runCommand(String.Format("config terminal" & vbNewLine & "{0}send" & vbNewLine & "copy running-config startup-config" & vbNewLine & vbNewLine, command))
+    End Function
+
+    Public Shared Function sendCommand(cmd As String, s As ShellStream) As String
+        Try
+            Reader = New StreamReader(s)
+            Writer = New StreamWriter(s)
+            Writer.AutoFlush = True
+            Writer.WriteLine(cmd)
+            While s.Length = 0
+                Thread.Sleep(500)
+            End While
+        Catch ex As Exception
+            Dim errorString As String = String.Format("Error sending commands to the switch. {0}", cmd)
+            MessageBox.Show(errorString)
+        End Try
+        Return Reader.ReadToEnd()
     End Function
 End Class

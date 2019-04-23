@@ -2,6 +2,7 @@
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.Field
 Imports O_FMS_V0.AccessPoint
+Imports O_FMS_V0.Switch
 
 
 Public Class Main_Panel
@@ -60,7 +61,9 @@ Public Class Main_Panel
         resetScore()
         scoreHandler.Start()
 
+        'Sets the settings for the AP and Switch'
         SetSettings("10.0.100.1", "OFMS", "OFMS", 12, 5, "ofmsrocks")
+        Switch.Switch.address = "10.0.100.2"
     End Sub
 
 
