@@ -132,7 +132,7 @@ Public Class Main_Panel
             'Updates the audience display with match number'
             AudianceDisplay.MatchNumb.Text = MatchNum.Text
 
-            'Updates the audience display with match type
+            handleTeamWifiConfiguration()
             MessageBox.Show("Data Loaded")
 
         Else

@@ -13,6 +13,7 @@ Public Class AccessPoint
 
     Public Shared Reader As StreamReader
     Public Shared Writer As StreamWriter
+    Public Shared wpakey
 
     Structure AccessPoint
         Public Shared address As String
@@ -55,15 +56,14 @@ Public Class AccessPoint
         wifiCommand = String.Format("uci batch <<ENDCONFIG && wifi radio1" & vbNewLine & "{0}" & vbNewLine & "ENDCONFIG", command)
         RunCommand(wifiCommand)
     End Sub
-
+    'This builds the access points commmands for the teams'
     Public Shared Function generateAccessPointConfig()
-        Dim commands = createTeamCommands(1, "Add WPA Key", Main_Panel.RedTeam1.Text) +
-            createTeamCommands(2, "", Main_Panel.RedTeam2.Text) +
-            createTeamCommands(3, "", Main_Panel.RedTeam3.Text) +
-            createTeamCommands(4, "", Main_Panel.BlueTeam1.Text) +
-            createTeamCommands(5, "", Main_Panel.BlueTeam2.Text) +
-            createTeamCommands(6, "", Main_Panel.BlueTeam3.Text)
-
+        Dim commands = createTeamCommands(1, getTeamWPA(Main_Panel.RedTeam1.Text), Main_Panel.RedTeam1.Text) +
+            createTeamCommands(2, getTeamWPA(Main_Panel.RedTeam2.Text), Main_Panel.RedTeam2.Text) +
+            createTeamCommands(3, getTeamWPA(Main_Panel.RedTeam3.Text), Main_Panel.RedTeam3.Text) +
+            createTeamCommands(4, getTeamWPA(Main_Panel.BlueTeam1.Text), Main_Panel.BlueTeam1.Text) +
+            createTeamCommands(5, getTeamWPA(Main_Panel.BlueTeam2.Text), Main_Panel.BlueTeam2.Text) +
+            createTeamCommands(6, getTeamWPA(Main_Panel.BlueTeam3.Text), Main_Panel.BlueTeam3.Text) + "commit wireless"
         Return commands
     End Function
 
@@ -74,15 +74,15 @@ Public Class AccessPoint
         If teamNumber.Length = 0 Then
             commands = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position) & vbNewLine &
                     String.Format("set wireless.@wifi-iface[{0}].ssid='no-team-{1}'", position, position) & vbNewLine &
-                    String.Format("set wireless.@wifi-iface[{0}].key='no-team-{1}'", position, position) & vbNewLine &
-                    "commit wireless" & vbNewLine
+                    String.Format("set wireless.@wifi-iface[{0}].key='no-team-{1}'", position, position) & vbNewLine
+
 
         Else
 
             commands = String.Format("set wireless.@wifi-iface[{0}].disabled='0'", position) & vbNewLine &
             String.Format("set wireless.@wifi-iface[{0}].ssid='{1}'", position, teamNumber) & vbNewLine &
-            String.Format("set wireless.@wifi-iface[{0}].key='{1}'", position, WpaKey) & vbNewLine &
-            "commit wireless" & vbNewLine
+            String.Format("set wireless.@wifi-iface[{0}].key='{1}'", position, WpaKey) & vbNewLine
+
 
         End If
 
@@ -99,21 +99,8 @@ Public Class AccessPoint
         Dim command = String.Format("uci batch <<ENDCONFIG && wifi radio0" & vbNewLine & "{0}" & vbNewLine & "ENDCONFIG" & vbNewLine, config)
         Dim attemptCount = 1
 
-        'loops forever until confguration of the AP is correct for the match'
-        Do
-            Dim status = RunCommand(command)
-            Threading.Thread.Sleep(accessPointCommandTimeoutSec * 1000)
-
-            'might need to check this'
-            If status Is Nothing Then
-                MessageBox.Show("Access Point configured correctly for the match")
-                Exit Do
-            End If
-
-            'Shows the retries in a message box'
-            MessageBox.Show("Wifi configuration failed retrying!!!")
-            attemptCount = attemptCount + 1
-        Loop
+        RunCommand(command)
+        Thread.Sleep(accessPointConnectTimeoutSec * 1000)
 
     End Sub
 
@@ -146,9 +133,34 @@ Public Class AccessPoint
         Return Reader.ReadToEnd()
     End Function
 
+    'This grabs the wpa key from SQL from a team number'
     Public Shared Function getTeamWPA(teamNumber As String) As String
         Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
-        Dim selectData As New SqlCommand()
+        Dim data As String = String.Format("Select wpakey From team Where Id= {0}", teamNumber)
+        Dim selectData As New SqlCommand(data, connection)
+        'selectData.Parameters.Add("@Id", SqlDbType.Int)
+        Dim adapter As New SqlDataAdapter(selectData)
+        Dim table As New DataTable()
+        adapter.Fill(table)
+
+        If table.Rows.Count > 0 Then
+            wpakey = table.Rows(0)(0)
+        End If
+
+        Return wpakey
+    End Function
+
+    Public Shared Function generateWpaKey()
+        Dim iLength As Integer = 8
+        Dim rdm As New Random()
+        Dim allowChrs() As Char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ0123456789".ToCharArray()
+        Dim sResult As String = ""
+
+        For i As Integer = 0 To iLength - 1
+            sResult += allowChrs(rdm.Next(0, allowChrs.Length))
+        Next
+
+        Return sResult
     End Function
 
     'Public Shared red1Vlan = 10
