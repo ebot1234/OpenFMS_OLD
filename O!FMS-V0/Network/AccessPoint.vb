@@ -1,4 +1,7 @@
 ﻿Imports Renci.SshNet
+Imports System.Data.SqlClient
+Imports System.Threading
+Imports System.IO
 
 Public Class AccessPoint
     Public Shared accessPointSshPort As Integer = 22
@@ -7,6 +10,9 @@ Public Class AccessPoint
     Public Shared accessPointRetryCount = 2
     Public Shared accessPointRequestBufferSize = 10
     Public Shared accessPointPollPeriodSecond = 5
+
+    Public Shared Reader As StreamReader
+    Public Shared Writer As StreamWriter
 
     Structure AccessPoint
         Public Shared address As String
@@ -112,31 +118,38 @@ Public Class AccessPoint
     End Sub
 
     Public Shared Function RunCommand(command As String)
-        Dim sshClient As SshClient
-        Dim sshConnectionInfo As PasswordConnectionInfo
-
-        sshConnectionInfo = New PasswordConnectionInfo(AccessPoint.address, AccessPoint.username, AccessPoint.password)
-        sshClient = New SshClient(sshConnectionInfo)
-
-        'Checks if the client is being used if so exits the function'
-        If Not sshClient Is Nothing AndAlso sshClient.IsConnected Then
-            Exit Function
-        End If
-
-        sshClient.Connect()
-
-
-        If sshClient.IsConnected Then
-            sshClient.RunCommand(command)
-        Else
-            MessageBox.Show("Access Point is not connected via SSH")
-        End If
-
-        sshClient.Disconnect()
-
+        Try
+            Using client = New SshClient(AccessPoint.address, AccessPoint.username, AccessPoint.password)
+                Using ss As ShellStream = client.CreateShellStream("dumb", 80, 24, 800, 600, 1024)
+                    sendCommand(command, ss)
+                End Using
+                client.Disconnect()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error running the ssh send command")
+        End Try
         Return 0
     End Function
 
+    Public Shared Function sendCommand(cmd As String, s As ShellStream)
+        Try
+            Reader = New StreamReader(s)
+            Writer = New StreamWriter(s)
+            Writer.AutoFlush = True
+            Writer.WriteLine(cmd)
+            While s.Length = 0
+                Thread.Sleep(500)
+            End While
+        Catch ex As Exception
+            MessageBox.Show("Error sending commands to the switch")
+        End Try
+        Return Reader.ReadToEnd()
+    End Function
+
+    Public Shared Function getTeamWPA(teamNumber As String) As String
+        Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
+        Dim selectData As New SqlCommand()
+    End Function
 
     'Public Shared red1Vlan = 10
     'Public Shared red2Vlan = 20

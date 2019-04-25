@@ -134,6 +134,7 @@ Public Class Main_Panel
 
             'Updates the audience display with match type
             MessageBox.Show("Data Loaded")
+
         Else
             MessageBox.Show("Not Loaded")
         End If
