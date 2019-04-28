@@ -17,19 +17,9 @@ Public Class Schedule_Generator
     Public Shared connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
 
     Public Shared Sub Team_list_gen()
-        Dim selectQuery As New SqlCommand("Select team FROM teaminfo", connection)
-
-        ' Dim myConnectDB As System.Data.SqlClient.SqlConnection
-        ' Dim myConnectStr As String
-        ' Dim mySQLCommand As System.Data.SqlClient.SqlCommand
-
-        'Connection to my SQL Server database
-        ' myConnectStr = "data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true"
-        ' myConnectDB = New System.Data.SqlClient.SqlConnection(myConnectStr)
+        Dim selectQuery As New SqlCommand("Select Id FROM teaminfo", connection)
 
         connection.Open()
-        ' SQL Select statement to read data from the desired table
-        ' mySQLCommand = New System.Data.SqlClient.SqlCommand("Select team FROM teaminfo;", myConnectDB)
 
         Dim myReader As SqlDataReader = selectQuery.ExecuteReader()
         Dim fileName As String = "C:\OFMS\Teams.txt"
@@ -47,6 +37,7 @@ Public Class Schedule_Generator
         Loop
         myReader.Close()
         outputStream.Close()
+        connection.Close()
         'teamlistdone = True
     End Sub
     Public Shared Sub File_Convert()
@@ -58,7 +49,7 @@ Public Class Schedule_Generator
         Dim PlaceHolder(j)
 
 
-        Dim selectQuery As New SqlCommand("Select team FROM teaminfo", connection)
+        Dim selectQuery As New SqlCommand("Select Id FROM teaminfo", connection)
         selectQuery.Parameters.Add("team", SqlDbType.Int).Value = teams
         Dim adapter As New SqlDataAdapter(selectQuery)
         Dim table As New DataTable()
@@ -70,10 +61,41 @@ Public Class Schedule_Generator
 
 
         MessageBox.Show("Converted File to CSV")
-        Matchgen()
+        'Matchgen()
 
     End Sub
 
+    Shared Function getMatches() As DataTable
+        Dim table As New DataTable
+
+        table.Columns.Add("MatchNum", GetType(String))
+        table.Columns.Add("Blue1", GetType(String))
+        table.Columns.Add("B1Sur", GetType(String))
+        table.Columns.Add("Blue2", GetType(String))
+        table.Columns.Add("B2ur", GetType(String))
+        table.Columns.Add("Blue3", GetType(String))
+        table.Columns.Add("B3Sur", GetType(String))
+        table.Columns.Add("Red1", GetType(String))
+        table.Columns.Add("R1Sur", GetType(String))
+        table.Columns.Add("Red2", GetType(String))
+        table.Columns.Add("R2Sur", GetType(String))
+        table.Columns.Add("Red3", GetType(String))
+        table.Columns.Add("R3Sur", GetType(String))
+
+        Dim FileName As String = "C:\OFMS\matches.txt"
+        Dim Stream As StreamReader = New StreamReader(FileName)
+        Dim lines = File.ReadAllLines(FileName)
+        Dim line As String
+
+        For Each line In lines
+            table.Rows.Add(line.Split(" "))
+        Next
+
+        Dim query As String = "INSERT INTO matches ([Match], [Blue1], [B1Sur], [Blue2], [B2Sur], [Blue3], [B3Sur], [Red1], [R1Sur], [Red2], [R2Sur], [Red3], [R3Sur])  VALUES (Match, Blue1, B1Sur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur)"
+
+
+        Return table
+    End Function
 
     Public Shared Sub Matchgen()
         Dim table As New DataTable()
@@ -104,17 +126,17 @@ Public Class Schedule_Generator
             table.Rows.Add(parser.ReadFields())
         Loop
 
-        Dim strSql As String = "INSERT INTO matchlist ([Match], [Blue1], [B1Sur], [Blue2], [B2Sur], [Blue3], [B3Sur], [Red1], [R1Sur], [Red2], [R2Sur], [Red3], [R3Sur])  VALUES (Match, Blue1, B1Sur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur)"
+        Dim strSql As String = "INSERT INTO matches ([Match], [Blue1], [B1Sur], [Blue2], [B2Sur], [Blue3], [B3Sur], [Red1], [R1Sur], [Red2], [R2Sur], [Red3], [R3Sur])  VALUES (Match, Blue1, B1Sur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur)"
 
-        Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
+        Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
         Dim cmd As New SqlClient.SqlCommand(strSql, connection)
         ' With cmd.Parameters
-        ' .Add("Match", SqlDbType.Int, 8, "Match")
+        '.Add("Match", SqlDbType.Int, 8, "Match")
         '.Add("Blue1", SqlDbType.Int, 8, "Blue1")
         '.Add("B1Sur", SqlDbType.Int, 8, "B1Sur")
-        ' .Add("Blue2", SqlDbType.Int, 8, "Blue2")
+        '.Add("Blue2", SqlDbType.Int, 8, "Blue2")
         '.Add("B2Sur", SqlDbType.Int, 8, "B2Sur")
-        '  .Add("Blue3", SqlDbType.Int, 8, "Blue3")
+        '.Add("Blue3", SqlDbType.Int, 8, "Blue3")
         '.Add("B3Sur", SqlDbType.Int, 8, "B3Sur")
         '.Add("Red1", SqlDbType.Int, 8, "Red1")
         '.Add("R1Sur", SqlDbType.Int, 8, "R1Sur")
@@ -172,10 +194,10 @@ Public Class Schedule_Generator
 
 
             '--Create SQL query
-            Dim strSql As String = "INSERT INTO MatchList (Match, Blue1, BlSur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur) VALUES (@Match, @Blue1, @BlSur, @Blue2, @B2Sur, @Blue3, @B3Sur, @Red1, @R1Sur, @Red2, @R2Sur, @Red3, @R3Sur)"
+            Dim strSql As String = "INSERT INTO matches (Match, Blue1, BlSur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur) VALUES (@Match, @Blue1, @BlSur, @Blue2, @B2Sur, @Blue3, @B3Sur, @Red1, @R1Sur, @Red2, @R2Sur, @Red3, @R3Sur)"
 
 
-            Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
+            Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
 
             Using connection
 
@@ -198,11 +220,8 @@ Public Class Schedule_Generator
 
                 Dim adapter As New SqlClient.SqlDataAdapter()
                 adapter.InsertCommand = cmd
-
-                '--Update the original SQL table from the datatable
-                Dim iRowsInserted = Convert.ToInt32(table.ToString(strSql))
-
-                'executeCommand(cmd.ToString())
+                adapter.Update(table)
+                executeCommand(adapter.ToString())
 
 
             End Using

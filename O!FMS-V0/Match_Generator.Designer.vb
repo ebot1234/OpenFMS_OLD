@@ -24,7 +24,6 @@ Partial Class Match_Generator
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ScheduleGeneratorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Directory = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -34,19 +33,18 @@ Partial Class Match_Generator
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.NumTeamsBox = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.NumTeamsBox = New System.Windows.Forms.TextBox()
         Me.NumRoundsBox = New System.Windows.Forms.TextBox()
+        Me.ScheduleGeneratorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SchedulesDT = New System.Windows.Forms.DataGridView()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ScheduleGeneratorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.ScheduleGeneratorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SchedulesDT, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ScheduleGeneratorBindingSource
-        '
-        Me.ScheduleGeneratorBindingSource.DataSource = GetType(O_FMS_V0.Schedule_Generator)
         '
         'Directory
         '
@@ -139,6 +137,13 @@ Partial Class Match_Generator
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Teams List"
         '
+        'NumTeamsBox
+        '
+        Me.NumTeamsBox.Location = New System.Drawing.Point(6, 61)
+        Me.NumTeamsBox.Name = "NumTeamsBox"
+        Me.NumTeamsBox.Size = New System.Drawing.Size(100, 20)
+        Me.NumTeamsBox.TabIndex = 14
+        '
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(12, 291)
@@ -167,13 +172,6 @@ Partial Class Match_Generator
         Me.Button3.Text = "Generate Schedule"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'NumTeamsBox
-        '
-        Me.NumTeamsBox.Location = New System.Drawing.Point(6, 61)
-        Me.NumTeamsBox.Name = "NumTeamsBox"
-        Me.NumTeamsBox.Size = New System.Drawing.Size(100, 20)
-        Me.NumTeamsBox.TabIndex = 14
-        '
         'NumRoundsBox
         '
         Me.NumRoundsBox.Location = New System.Drawing.Point(18, 138)
@@ -181,11 +179,24 @@ Partial Class Match_Generator
         Me.NumRoundsBox.Size = New System.Drawing.Size(100, 20)
         Me.NumRoundsBox.TabIndex = 14
         '
+        'ScheduleGeneratorBindingSource
+        '
+        Me.ScheduleGeneratorBindingSource.DataSource = GetType(O_FMS_V0.Schedule_Generator)
+        '
+        'SchedulesDT
+        '
+        Me.SchedulesDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.SchedulesDT.Location = New System.Drawing.Point(205, 329)
+        Me.SchedulesDT.Name = "SchedulesDT"
+        Me.SchedulesDT.Size = New System.Drawing.Size(603, 169)
+        Me.SchedulesDT.TabIndex = 15
+        '
         'Match_Generator
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(820, 502)
+        Me.Controls.Add(Me.SchedulesDT)
         Me.Controls.Add(Me.NumRoundsBox)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label6)
@@ -199,9 +210,10 @@ Partial Class Match_Generator
         Me.Name = "Match_Generator"
         Me.Text = "Match_Generator"
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ScheduleGeneratorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.ScheduleGeneratorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SchedulesDT, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -223,4 +235,5 @@ Partial Class Match_Generator
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents NumTeamsBox As TextBox
     Friend WithEvents NumRoundsBox As TextBox
+    Friend WithEvents SchedulesDT As DataGridView
 End Class

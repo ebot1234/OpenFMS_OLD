@@ -35,6 +35,7 @@ Partial Class TeamAdder
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TeamsInfo = New System.Windows.Forms.DataGridView()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.TeamsInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -153,11 +154,21 @@ Partial Class TeamAdder
         Me.TeamsInfo.Size = New System.Drawing.Size(467, 345)
         Me.TeamsInfo.TabIndex = 10
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(142, 211)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(187, 73)
+        Me.Button3.TabIndex = 11
+        Me.Button3.Text = "Generate Schedules"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'TeamAdder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(972, 345)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.TeamsInfo)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button2)
@@ -191,4 +202,5 @@ Partial Class TeamAdder
     Friend WithEvents Label5 As Label
     Friend WithEvents TeamsInfo As DataGridView
     Friend WithEvents GenerateWpaKeyBtn As Button
+    Friend WithEvents Button3 As Button
 End Class

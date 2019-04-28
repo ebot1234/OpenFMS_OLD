@@ -73,9 +73,11 @@ Public Class Match_Generator
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        'File_Convert()
-        Matches_to_SQL()
-        MessageBox.Show("Matches added to Match List")
+        File_Convert()
+        'Matches_to_SQL()
+        'MessageBox.Show("Matches added to Match List")
+        SchedulesDT.DataSource = getMatches()
+        'Matches_to_SQL()
     End Sub
 
 

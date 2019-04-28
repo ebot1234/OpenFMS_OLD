@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports O_FMS_V0.AccessPoint
 Imports O_FMS_V0.Tba
+
 Public Class TeamAdder
 
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
@@ -55,4 +56,8 @@ Public Class TeamAdder
         End Using
         Return teamTable
     End Function
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Match_Generator.Show()
+    End Sub
 End Class
