@@ -13,7 +13,7 @@ Public Class Tba
         Return teamNum
     End Function
 
-    Public Function getTeam(team As String, command As String)
+    Shared Function getTeam(team As String)
 
         Dim request As HttpWebRequest
         Dim response As HttpWebResponse = Nothing
