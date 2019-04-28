@@ -4,6 +4,8 @@ Imports System.IO
 
 Public Class Tba
 
+    Public Shared TBA_Auth_Key As String = "Lat8J29zc3UrMOy8X4TSnreTqitAE9oMUvOqmpgXgPR0B6k4k96kh7UCiMjEy2Kg"
+
     Shared teamNum
     Shared statusCode As HttpStatusCode = HttpStatusCode.BadRequest
     Shared Function formatTeam(number As String)
@@ -12,7 +14,10 @@ Public Class Tba
     End Function
 
     'gets data from the Blue Alliance via JSON and HTTP GET request'
-    Public Function getTeam(team As String, command As String)
+
+
+
+    Public Function getTbaTeam(team As String, command As String)
 
         Dim request As HttpWebRequest
         Dim response As HttpWebResponse = Nothing
@@ -23,12 +28,11 @@ Public Class Tba
 
         Try
 
+            request = DirectCast(WebRequest.Create(requestAddress), HttpWebRequest)
+            request.Headers.Set("X-TBA-Auth-Key", TBA_Auth_Key)
 
             response = DirectCast(request.GetResponse(), HttpWebResponse)
             reader = New StreamReader(response.GetResponseStream())
-
-            request = DirectCast(WebRequest.Create(requestAddress), HttpWebRequest)
-            request.Headers.Set("X-TBA-Auth-Key", "Lat8J29zc3UrMOy8X4TSnreTqitAE9oMUvOqmpgXgPR0B6k4k96kh7UCiMjEy2Kg")
 
             Dim rawresp As String
             rawresp = reader.ReadToEnd()
