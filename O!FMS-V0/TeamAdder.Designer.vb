@@ -34,6 +34,8 @@ Partial Class TeamAdder
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.TeamsInfo = New System.Windows.Forms.DataGridView()
+        CType(Me.TeamsInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -60,7 +62,7 @@ Partial Class TeamAdder
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape2, Me.LineShape1})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(579, 154)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(972, 345)
         Me.ShapeContainer1.TabIndex = 2
         Me.ShapeContainer1.TabStop = False
         '
@@ -120,7 +122,7 @@ Partial Class TeamAdder
         '
         Me.Button1.Location = New System.Drawing.Point(370, 94)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(110, 32)
+        Me.Button1.Size = New System.Drawing.Size(110, 27)
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "Add Team"
         Me.Button1.UseVisualStyleBackColor = True
@@ -137,17 +139,26 @@ Partial Class TeamAdder
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(143, 132)
+        Me.Label5.Location = New System.Drawing.Point(139, 124)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(186, 13)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "(You can only add one team at a time)"
         '
+        'TeamsInfo
+        '
+        Me.TeamsInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.TeamsInfo.Location = New System.Drawing.Point(505, 0)
+        Me.TeamsInfo.Name = "TeamsInfo"
+        Me.TeamsInfo.Size = New System.Drawing.Size(467, 345)
+        Me.TeamsInfo.TabIndex = 10
+        '
         'TeamAdder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(579, 154)
+        Me.ClientSize = New System.Drawing.Size(972, 345)
+        Me.Controls.Add(Me.TeamsInfo)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -160,6 +171,7 @@ Partial Class TeamAdder
         Me.Controls.Add(Me.ShapeContainer1)
         Me.Name = "TeamAdder"
         Me.Text = "Event Manager"
+        CType(Me.TeamsInfo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -177,4 +189,6 @@ Partial Class TeamAdder
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Label5 As Label
+    Friend WithEvents TeamsInfo As DataGridView
+    Friend WithEvents GenerateWpaKeyBtn As Button
 End Class

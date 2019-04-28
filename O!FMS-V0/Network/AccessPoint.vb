@@ -13,7 +13,7 @@ Public Class AccessPoint
 
     Public Shared Reader As StreamReader
     Public Shared Writer As StreamWriter
-    Public Shared wpakey
+    Public Shared wpakey As String
 
     Structure AccessPoint
         Public Shared address As String
@@ -135,8 +135,8 @@ Public Class AccessPoint
 
     'This grabs the wpa key from SQL from a team number'
     Public Shared Function getTeamWPA(teamNumber As String) As String
-        Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
-        Dim data As String = String.Format("Select wpakey From team Where Id= {0}", teamNumber)
+        Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
+        Dim data As String = String.Format("Select wpakey From teaminfo Where Id= {0}", teamNumber)
         Dim selectData As New SqlCommand(data, connection)
         'selectData.Parameters.Add("@Id", SqlDbType.Int)
         Dim adapter As New SqlDataAdapter(selectData)
@@ -162,6 +162,15 @@ Public Class AccessPoint
 
         Return sResult
     End Function
+
+
+    Public Shared Sub ExecuteQuery(query As String)
+        Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
+        Dim command As New SqlCommand(query, connection)
+        connection.Open()
+        command.ExecuteNonQuery()
+        connection.Close()
+    End Sub
 
     'Public Shared red1Vlan = 10
     'Public Shared red2Vlan = 20

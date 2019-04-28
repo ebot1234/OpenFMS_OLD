@@ -14,7 +14,7 @@ Public Class Schedule_Generator
     'Public Shared fullpath = dir() & "\Teams.txt"
     Public Shared lineCount As Int16 = File.ReadLines("C:\OFMS\teams.txt").Count
     Public Shared matchDir As String = "C:\OFMS\matches.txt"
-    Public Shared connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
+    Public Shared connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
 
     Public Shared Sub Team_list_gen()
         Dim selectQuery As New SqlCommand("Select team FROM teaminfo", connection)

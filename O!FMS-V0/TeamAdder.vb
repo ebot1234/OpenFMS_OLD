@@ -1,15 +1,25 @@
 ﻿Imports System.Data.SqlClient
-
+Imports O_FMS_V0.AccessPoint
+Imports O_FMS_V0.Tba
 Public Class TeamAdder
 
-    Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
+    Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
+    Dim teamInfo As String = ""
+    Dim teamNumber As String = ""
+
 
     'Add teams button to sql'
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim insertTeam As String = "INSERT INTO teaminfo ([Team]) VALUES('" & TextBox2.Text & "')"
+        wpakey = generateWpaKey()
+        teamNumber = formatTeam(TextBox2.Text)
+        teamInfo = getTeam(teamNumber)
+
+        Dim insertTeam As String = "INSERT INTO teaminfo ([Id], [Wpa], [Name]) VALUES('" & TextBox2.Text & "', '" & wpakey & "', '" & teamInfo & "')"
 
         ExecuteQuery(insertTeam)
-        MessageBox.Show("Team Added")
+        TextBox2.Text = ""
+
+        TeamsInfo.DataSource = displayTeams(Nothing)
     End Sub
 
     Public Sub ExecuteQuery(query As String)
@@ -19,4 +29,30 @@ Public Class TeamAdder
         connection.Close()
     End Sub
 
+    Function displayTeams(ByVal ParamArray arrParam() As SqlParameter)
+        Dim query As String = "SELECT * FROM teaminfo"
+        Dim teamTable As DataTable
+        'opens the connection'
+        Using connection
+            connection.Open()
+            'defines the sql command'
+            Using cmd = New SqlCommand
+                cmd.Connection = connection
+                cmd.CommandType = CommandType.Text
+                cmd.CommandText = query
+                'handles the parameter'
+                If arrParam IsNot Nothing Then
+                    For Each param As SqlParameter In arrParam
+                        cmd.Parameters.Add(param)
+                    Next
+                End If
+                'Fills the data table'
+                Using da As New SqlDataAdapter(cmd)
+                    teamTable = New DataTable
+                    da.Fill(teamTable)
+                End Using
+            End Using
+        End Using
+        Return teamTable
+    End Function
 End Class

@@ -10,7 +10,7 @@ Public Class Main_Panel
     Dim DriverStation As New Threading.Thread(AddressOf HandleDSConnections)
     Public Shared PLC_Thread As New Threading.Thread(AddressOf handlePLC)
     Dim scoreHandler As New Threading.Thread(AddressOf updateScores)
-    Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=O!FMS; Integrated Security = true")
+    Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
     Dim i As Integer = 0
 
     Public Shared Red1Bypass
