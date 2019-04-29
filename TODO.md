@@ -4,13 +4,9 @@
 
 - Add 2019 game sounds
 
-- Add 2019 manual scoring...Done
-
 - Add match posting to SQL
 
 - Add ranking display and ability to calcualte rankings
-
-- Check if DS connect to OFMS
 
 - Add 2019 rocket leds (using Arduino with DMX controllable lights)
 
@@ -18,15 +14,9 @@
 
 - Test the Modbus communication for PLC scoring
 
-- Write Access Point and Switch configurations...Done
-
-- Generate WPA Keys for teams...Done
-
 - Create team adder via form...Almost Done
 
-- Add BlueAllianceAPI to the team adder...Done
-
-- Create a release of software for 2019
+- Add match publishing to SQL and the Blue Alliance API
 
 ## Needs Testing:
 - Driver Station and Robot comms with O!FMS
