@@ -18,12 +18,21 @@
 
 - Test the Modbus communication for PLC scoring
 
-- Write Access Point and Switch configurations...Almost Done
+- Write Access Point and Switch configurations...Done
 
-- Generate WPA Keys for teams
+- Generate WPA Keys for teams...Done
 
-- Create team adder via form...Working on that
+- Create team adder via form...Almost Done
 
-- Add BlueAllianceAPI to the team adder
+- Add BlueAllianceAPI to the team adder...Done
 
 - Create a release of software for 2019
+
+## Needs Testing:
+- Driver Station and Robot comms with O!FMS
+- Automated Scoring via PLC/O!FMS
+- Basic PLC controlled tasks (Ex. DS/Scoring lights, Estop buttons, etc.)
+- Led testing with Arduino leds
+- Test gameflow with PLC values, DS commands, Access Point and Switch commands. 
+- Test Access Point configuration before match.
+- Test Switch configuration before match.
