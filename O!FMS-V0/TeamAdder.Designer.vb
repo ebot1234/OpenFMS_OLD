@@ -36,6 +36,10 @@ Partial Class TeamAdder
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TeamsInfo = New System.Windows.Forms.DataGridView()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.LineShape3 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.DeleteBtn = New System.Windows.Forms.Button()
         CType(Me.TeamsInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -62,7 +66,7 @@ Partial Class TeamAdder
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape2, Me.LineShape1})
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape3, Me.LineShape2, Me.LineShape1})
         Me.ShapeContainer1.Size = New System.Drawing.Size(972, 345)
         Me.ShapeContainer1.TabIndex = 2
         Me.ShapeContainer1.TabStop = False
@@ -156,18 +160,55 @@ Partial Class TeamAdder
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(142, 211)
+        Me.Button3.Location = New System.Drawing.Point(144, 260)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(187, 73)
         Me.Button3.TabIndex = 11
         Me.Button3.Text = "Generate Schedules"
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(3, 153)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(171, 20)
+        Me.Label6.TabIndex = 12
+        Me.Label6.Text = "Delete Selected Team:"
+        '
+        'LineShape3
+        '
+        Me.LineShape3.Name = "LineShape3"
+        Me.LineShape3.X1 = 504
+        Me.LineShape3.X2 = 2
+        Me.LineShape3.Y1 = 144
+        Me.LineShape3.Y2 = 145
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(181, 153)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(144, 20)
+        Me.TextBox3.TabIndex = 13
+        '
+        'DeleteBtn
+        '
+        Me.DeleteBtn.Location = New System.Drawing.Point(370, 153)
+        Me.DeleteBtn.Name = "DeleteBtn"
+        Me.DeleteBtn.Size = New System.Drawing.Size(110, 23)
+        Me.DeleteBtn.TabIndex = 14
+        Me.DeleteBtn.Text = "Delete Team"
+        Me.DeleteBtn.UseVisualStyleBackColor = True
+        '
         'TeamAdder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(972, 345)
+        Me.Controls.Add(Me.DeleteBtn)
+        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.TeamsInfo)
         Me.Controls.Add(Me.Label5)
@@ -203,4 +244,8 @@ Partial Class TeamAdder
     Friend WithEvents TeamsInfo As DataGridView
     Friend WithEvents GenerateWpaKeyBtn As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents LineShape3 As PowerPacks.LineShape
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents DeleteBtn As Button
 End Class

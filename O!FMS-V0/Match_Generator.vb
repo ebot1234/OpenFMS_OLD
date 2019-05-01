@@ -19,7 +19,7 @@ Public Class Match_Generator
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Team_list_gen()
+        Team_list_gen(TeamListDir.Text)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -31,10 +31,6 @@ Public Class Match_Generator
         End If
 
 
-        If lineCount = NumTeamsBox.Text Then
-
-        Else : MessageBox.Show("Teams List Count doesn't match selected # of Teams")
-        End If
         If matchQuality.Text = "Fair" Then
             Quality = "-f"
         ElseIf matchQuality.Text = "Good" Then
@@ -73,11 +69,7 @@ Public Class Match_Generator
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        File_Convert()
-        'Matches_to_SQL()
-        'MessageBox.Show("Matches added to Match List")
         SchedulesDT.DataSource = getMatches()
-        'Matches_to_SQL()
     End Sub
 
 

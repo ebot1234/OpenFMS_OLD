@@ -24,7 +24,7 @@ Partial Class Match_Generator
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Directory = New System.Windows.Forms.TextBox()
+        Me.TeamListDir = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -46,14 +46,14 @@ Partial Class Match_Generator
         CType(Me.SchedulesDT, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Directory
+        'TeamListDir
         '
-        Me.Directory.AllowDrop = True
-        Me.Directory.Location = New System.Drawing.Point(6, 16)
-        Me.Directory.Name = "Directory"
-        Me.Directory.Size = New System.Drawing.Size(177, 20)
-        Me.Directory.TabIndex = 0
-        Me.Directory.Text = "C:\OFMS"
+        Me.TeamListDir.AllowDrop = True
+        Me.TeamListDir.Location = New System.Drawing.Point(6, 16)
+        Me.TeamListDir.Name = "TeamListDir"
+        Me.TeamListDir.Size = New System.Drawing.Size(177, 20)
+        Me.TeamListDir.TabIndex = 0
+        Me.TeamListDir.Text = "C:\OFMS"
         '
         'Label1
         '
@@ -127,7 +127,7 @@ Partial Class Match_Generator
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.NumTeamsBox)
-        Me.GroupBox1.Controls.Add(Me.Directory)
+        Me.GroupBox1.Controls.Add(Me.TeamListDir)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 41)
@@ -221,7 +221,7 @@ Partial Class Match_Generator
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents ScheduleGeneratorBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Directory As System.Windows.Forms.TextBox
+    Friend WithEvents TeamListDir As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label

@@ -59,5 +59,13 @@ Public Class TeamAdder
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Match_Generator.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub DeleteBtn_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
+        Dim deleteQuery As String = String.Format("Delete From teaminfo Where Id= {0}", TextBox3.Text)
+        ExecuteQuery(deleteQuery)
+        Dim data As String = String.Format("Deleted Team:{0}", TextBox3.Text)
+        MessageBox.Show(data)
     End Sub
 End Class
