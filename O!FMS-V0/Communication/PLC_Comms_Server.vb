@@ -1,4 +1,4 @@
-﻿Imports EasyModbus.ModbusClient
+﻿Imports O_FMS_V0.Lighting
 Imports O_FMS_V0.Field
 Imports O_FMS_V0.Main_Panel
 
@@ -68,6 +68,10 @@ Public Class PLC_Comms_Server
     Public Shared CargoshipEnabled
     Public Shared CargoshipReleased
     Public Shared SandstormUp
+    Public Shared RedRocket1
+    Public Shared RedRocket2
+    Public Shared BlueRocket1
+    Public Shared BlueRocket2
 
     'Data Sent from FMS Software to PLC
     Public Shared Match_Start
@@ -307,8 +311,35 @@ Public Class PLC_Comms_Server
         If PLC_Estop_Field = True Then
             Field_Estop = True
         End If
-
-
-
     End Sub
+
+    Public Shared Sub handleLighting()
+        'Handles the lighting to what the match state is in'
+        If fieldStatus = MatchEnums.PreMatch Then
+            setModeRocketNear("G")
+            setModeRocketFar("G")
+        ElseIf fieldStatus = MatchEnums.PostMatch Then
+            setModeRocketFar("O")
+            setModeRocketNear("O")
+        End If
+        'Changes the lighting to what the PLC returns'
+        If RedRocket1 = True Then
+            setModeRocketFar("R")
+        ElseIf RedRocket2 = True Then
+            setModeRocketNear("R")
+        ElseIf BlueRocket1 = True Then
+            setModeRocketFar("B")
+        ElseIf BlueRocket2 Then
+            setModeRocketNear("B")
+        End If
+        'Turns the field to purple if volunteers can enter or green for teams'
+        If PLC_Field_Volunteers = True Then
+            setModeRocketNear("P")
+            setModeRocketFar("P")
+        ElseIf PLC_Field_Reset = True Then
+            setModeRocketNear("G")
+            setModeRocketFar("G")
+        End If
+    End Sub
+
 End Class

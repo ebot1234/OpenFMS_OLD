@@ -390,6 +390,13 @@ Public Class Main_Panel
             DriverStation.Abort()
         End If
 
+        If Field.handleLighting IsNot Nothing Then
+            Field.handleLighting.Abort()
+        Else
+            Field.handleLighting.Start()
+        End If
+
+
         DriverStation = New Threading.Thread(AddressOf HandleDSConnections)
         DriverStation.Start()
         updateField(MatchEnums.PreMatch)

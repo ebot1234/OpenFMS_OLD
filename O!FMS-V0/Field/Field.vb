@@ -30,6 +30,8 @@ Public Class Field
 
     Public Shared fieldStatus
 
+    Public Shared handleLighting As New Thread(AddressOf PLC_Comms_Server.handleLighting)
+
     'Match Type enums'
     Public Enum MatchEnums
         PreMatch
@@ -170,7 +172,7 @@ Public Class Field
                 fieldStatus = MatchEnums.EndGameWarning
                 SendDS(Auto:=False, Enabled:=True)
                 'Add EndGameWarning'
-                My.Computer.Audio.Play(My.Resources.match_levitate, AudioPlayMode.Background)
+                My.Computer.Audio.Play(My.Resources.match_warning_1, AudioPlayMode.Background)
             Case MatchEnums.EndGame
                 fieldStatus = MatchEnums.EndGame
                 SendDS(Auto:=False, Enabled:=True)
