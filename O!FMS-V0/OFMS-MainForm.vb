@@ -102,7 +102,7 @@ Public Class Main_Panel
 
     Public Sub MatchLoad_Btn_Click(sender As Object, e As EventArgs) Handles MatchLoad_Btn.Click
 
-        Dim selectQuery As New SqlCommand("Select Match, Blue1, B1Sur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur FROM MatchList where Match= @Matchnum", connection)
+        Dim selectQuery As New SqlCommand("Select Match, Blue1, B1Sur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur FROM matches where Match= @Matchnum", connection)
         selectQuery.Parameters.Add("@Matchnum", SqlDbType.Int).Value = MatchNum.Text
         Dim adapter As New SqlDataAdapter(selectQuery)
         Dim table As New DataTable()

@@ -136,7 +136,7 @@ Public Class AccessPoint
     'This grabs the wpa key from SQL from a team number'
     Public Shared Function getTeamWPA(teamNumber As String) As String
         Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
-        Dim data As String = String.Format("Select wpakey From teaminfo Where Id= {0}", teamNumber)
+        Dim data As String = String.Format("Select Wpa From teaminfo Where Id= {0}", teamNumber)
         Dim selectData As New SqlCommand(data, connection)
         'selectData.Parameters.Add("@Id", SqlDbType.Int)
         Dim adapter As New SqlDataAdapter(selectData)

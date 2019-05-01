@@ -68,7 +68,7 @@ Public Class Schedule_Generator
     Shared Function getMatches() As DataTable
         Dim table As New DataTable
 
-        table.Columns.Add("MatchNum", GetType(String))
+        table.Columns.Add("Match", GetType(String))
         table.Columns.Add("Blue1", GetType(String))
         table.Columns.Add("B1Sur", GetType(String))
         table.Columns.Add("Blue2", GetType(String))
@@ -91,11 +91,53 @@ Public Class Schedule_Generator
             table.Rows.Add(line.Split(" "))
         Next
 
-        Dim query As String = "INSERT INTO matches ([Match], [Blue1], [B1Sur], [Blue2], [B2Sur], [Blue3], [B3Sur], [Red1], [R1Sur], [Red2], [R2Sur], [Red3], [R3Sur])  VALUES (Match, Blue1, B1Sur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur)"
+        'match table varibles'
+        Dim amount As Integer = 0
+        Dim matchNum As String
+        Dim blue1 As String
+        Dim b1Sur As String
+        Dim blue2 As String
+        Dim b2Sur As String
+        Dim blue3 As String
+        Dim b3Sur As String
+        Dim red1 As String
+        Dim r1Sur As String
+        Dim red2 As String
+        Dim r2Sur As String
+        Dim red3 As String
+        Dim r3Sur As String
 
+        For Each row In table.Rows
+            matchNum = table.Rows(amount)(0).ToString()
+            blue1 = table.Rows(amount)(1).ToString()
+            b1Sur = table.Rows(amount)(2).ToString()
+            blue2 = table.Rows(amount)(3).ToString()
+            b2Sur = table.Rows(amount)(4).ToString()
+            blue3 = table.Rows(amount)(5).ToString()
+            b3Sur = table.Rows(amount)(6).ToString()
+            red1 = table.Rows(amount)(7).ToString()
+            r1Sur = table.Rows(amount)(8).ToString()
+            red2 = table.Rows(amount)(9).ToString()
+            r2Sur = table.Rows(amount)(10).ToString()
+            red3 = table.Rows(amount)(11).ToString()
+            r3Sur = table.Rows(amount)(12).ToString()
+
+            Dim query As String = "INSERT INTO matches ([Match], [Blue1], [B1Sur], [Blue2], [B2Sur], [Blue3], [B3Sur], [Red1], [R1Sur], [Red2], [R2Sur], [Red3], [R3Sur])  VALUES ('" & matchNum & "', '" & blue1 & "', '" & b1Sur & "', '" & blue2 & "', '" & b2Sur & "', '" & blue3 & "', '" & b3Sur & "', '" & red1 & "', '" & r1Sur & "', '" & red2 & "', '" & r2Sur & "', '" & red3 & "', '" & r3Sur & "')"
+            ExecuteQuery(query)
+
+            amount = amount + 1
+        Next
 
         Return table
     End Function
+
+
+    Shared Sub ExecuteQuery(query As String)
+        Dim command As New SqlCommand(query, connection)
+        connection.Open()
+        command.ExecuteNonQuery()
+        connection.Close()
+    End Sub
 
     Public Shared Sub Matchgen()
         Dim table As New DataTable()
