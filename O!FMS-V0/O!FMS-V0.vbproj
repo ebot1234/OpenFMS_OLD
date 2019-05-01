@@ -117,6 +117,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Communication\DriverStations.vb" />
+    <Compile Include="Field\Rankings.vb" />
     <Compile Include="Game\Field Lighting\Lighting.vb" />
     <Compile Include="Game\Timing.vb" />
     <Compile Include="Match_Generator.Designer.vb">
@@ -125,18 +126,11 @@
     <Compile Include="Match_Generator.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MD5.Designer.vb">
-      <DependentUpon>MD5.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MD5.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Network\AccessPoint.vb" />
     <Compile Include="Field\Field.vb" />
     <Compile Include="Field\Match.vb" />
     <Compile Include="Network\Switch.vb" />
     <Compile Include="Field\Team.vb" />
-    <Compile Include="Field\Team_Networks.vb" />
     <Compile Include="Field\ViewMarqUpdater.vb" />
     <Compile Include="Other\CRC.vb" />
     <Compile Include="Communication\PLC_Comms_Server.vb" />
@@ -163,6 +157,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Game\RandomString.vb" />
+    <Compile Include="Communication\FieldMonitor.vb" />
     <Compile Include="PLC_Tester.Designer.vb">
       <DependentUpon>PLC_Tester.vb</DependentUpon>
     </Compile>
@@ -206,9 +201,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Match_Generator.resx">
       <DependentUpon>Match_Generator.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MD5.resx">
-      <DependentUpon>MD5.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OFMS-MainForm.resx">
       <DependentUpon>OFMS-MainForm.vb</DependentUpon>
