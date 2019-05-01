@@ -1,10 +1,15 @@
 ﻿Imports Newtonsoft.Json.Linq
 Imports System.Net
 Imports System.IO
+Imports System.Security.Cryptography
+Imports System.Text
 
 Public Class Tba
 
     Public Shared TBA_Auth_Key As String = "Lat8J29zc3UrMOy8X4TSnreTqitAE9oMUvOqmpgXgPR0B6k4k96kh7UCiMjEy2Kg"
+    Public Shared event_code As String = ""
+    Public Shared secretId As String = ""
+    Public Shared secret As String = ""
 
     Shared teamNum
 
@@ -43,4 +48,16 @@ Public Class Tba
 
         Return results
     End Function
+
+
+    Shared Function MD5(ByRef strText As String) As String
+        Dim MD5Service As New MD5CryptoServiceProvider
+        Dim bytes() As Byte = MD5Service.ComputeHash(Encoding.ASCII.GetBytes(strText))
+        Dim s As String = ""
+        For Each By As Byte In bytes
+            s += By.ToString("x2")
+        Next
+        Return s
+    End Function
+
 End Class
