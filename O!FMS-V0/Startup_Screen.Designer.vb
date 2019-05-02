@@ -59,7 +59,7 @@ Partial Class Startup_Screen
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(128, 50)
         Me.Button1.TabIndex = 3
-        Me.Button1.Text = "Main Panel Only"
+        Me.Button1.Text = "Event Setup"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
@@ -68,34 +68,34 @@ Partial Class Startup_Screen
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(128, 50)
         Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Audiance Panel Only"
+        Me.Button2.Text = "Qualification Matches"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(33, 193)
+        Me.Button3.Location = New System.Drawing.Point(33, 191)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(128, 50)
+        Me.Button3.Size = New System.Drawing.Size(128, 57)
         Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Full Program"
+        Me.Button3.Text = "Elimination Matches"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button5
         '
         Me.Button5.Location = New System.Drawing.Point(33, 125)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(128, 62)
+        Me.Button5.Size = New System.Drawing.Size(128, 60)
         Me.Button5.TabIndex = 7
-        Me.Button5.Text = "Match Generation Panel Only"
+        Me.Button5.Text = "Elimination Matches Setup"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(659, 39)
+        Me.Button4.Location = New System.Drawing.Point(33, 293)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.Size = New System.Drawing.Size(128, 53)
         Me.Button4.TabIndex = 8
-        Me.Button4.Text = "Utillites"
+        Me.Button4.Text = "Audience Display Only"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Startup_Screen
