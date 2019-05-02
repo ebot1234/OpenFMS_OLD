@@ -7,11 +7,15 @@ Imports System.Text
 Public Class Tba
 
     Public Shared TBA_Auth_Key As String = "Lat8J29zc3UrMOy8X4TSnreTqitAE9oMUvOqmpgXgPR0B6k4k96kh7UCiMjEy2Kg"
-    Public Shared event_code As String = ""
-    Public Shared secretId As String = ""
     Public Shared secret As String = ""
 
     Shared teamNum
+
+    Public Structure client
+        Public Shared eventCode As String
+        Public Shared secretId As String
+        Public Shared secret As String
+    End Structure
 
     Shared Function formatTeam(number As String)
         teamNum = String.Format("frc{0}", number)
@@ -50,14 +54,54 @@ Public Class Tba
     End Function
 
 
-    Shared Function MD5(ByRef strText As String) As String
-        Dim MD5Service As New MD5CryptoServiceProvider
-        Dim bytes() As Byte = MD5Service.ComputeHash(Encoding.ASCII.GetBytes(strText))
-        Dim s As String = ""
-        For Each By As Byte In bytes
-            s += By.ToString("x2")
+    Shared Function postRequest(resource As String, action As String, body As Byte())
+        Dim request As HttpWebRequest = Nothing
+        Dim results As String = ""
+
+        Dim path As String = String.Format("https://www.thebluealliance/api/trusted/v1/event/{0}/{1}/{2}", client.eventCode, resource, action)
+
+        Using hash As MD5 = MD5.Create()
+            Dim Md5String1 As String = Encoding.ASCII.GetString(body)
+            Dim Md5String2 As String = GetHash(client.secret + path)
+            Dim signature As String = String.Format("{0}", Md5String2 + Md5String1)
+
+
+            request = DirectCast(WebRequest.Create(path), HttpWebRequest)
+            request.ContentType = "application/json"
+            request.ContentLength = body.Length
+            request.Method = "POST"
+            request.Headers.Add("X-TBA-Auth-Id", client.secretId)
+            request.Headers.Add("X-TBA-Auth-Sig", signature)
+
+            Dim stream = request.GetRequestStream()
+            stream.Write(body, 0, body.Length())
+
+            Dim response = request.GetResponse().GetResponseStream()
+
+            Dim reader As New StreamReader(response)
+            results = reader.ReadToEnd()
+            reader.Close()
+            response.Close()
+        End Using
+
+        Return results
+
+    End Function
+
+    Shared Function GetHash(strToHash As String) As String
+
+        Dim md5Obj As New System.Security.Cryptography.MD5CryptoServiceProvider
+        Dim bytesToHash() As Byte = System.Text.Encoding.ASCII.GetBytes(strToHash)
+
+        bytesToHash = md5Obj.ComputeHash(bytesToHash)
+        Dim strResult As New StringBuilder
+
+        For Each b As Byte In bytesToHash
+            strResult.Append(b.ToString("x2"))
         Next
-        Return s
+
+        Return strResult.ToString
+
     End Function
 
 End Class
