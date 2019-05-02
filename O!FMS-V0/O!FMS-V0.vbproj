@@ -110,6 +110,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllianceMaker.Designer.vb">
+      <DependentUpon>AllianceMaker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AllianceMaker.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AudianceDisplay.Designer.vb">
       <DependentUpon>AudianceDisplay.vb</DependentUpon>
     </Compile>
@@ -196,6 +202,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AllianceMaker.resx">
+      <DependentUpon>AllianceMaker.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AudianceDisplay.resx">
       <DependentUpon>AudianceDisplay.vb</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +275,8 @@
     <Content Include="ofms logo.ico" />
     <Content Include="Network\APTemplate.txt" />
     <Content Include="OFMS\Sounds\fog-blast.wav" />
+    <None Include="Resources\launch-FRC-insta-100.jpg" />
+    <None Include="Resources\FIRST-DestDeepSpace-logo_one-color-sponsor.png" />
     <None Include="Resources\Comet-SoundBible.com-1256431940.wav" />
     <None Include="Resources\CometSound.mp3" />
     <None Include="Resources\FinalScore.png" />

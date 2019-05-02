@@ -1,4 +1,4 @@
-﻿
+﻿Imports O_FMS_V0.Main_Panel
 
 Public Class Startup_Screen
 
@@ -20,6 +20,6 @@ Public Class Startup_Screen
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        'Add alliance maker'
+        AllianceMaker.Show()
     End Sub
 End Class

@@ -13,6 +13,8 @@ Public Class Main_Panel
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
     Dim i As Integer = 0
 
+    Public Shared ElimMode As Boolean = False
+
     Public Shared Red1Bypass
     Public Shared Red2Bypass
     Public Shared Red3Bypass
@@ -64,6 +66,15 @@ Public Class Main_Panel
         'Sets the settings for the AP and Switch'
         SetSettings("10.0.100.1", "OFMS", "OFMS", 12, 5, "ofmsrocks")
         Switch.Switch.address = "10.0.100.2"
+
+        If ElimMode = True Then
+            Label10.Hide()
+            MatchNum.Hide()
+            MatchLoad_Btn.Hide()
+            AudianceDisplay.Label1.Text = "Elimination Match"
+        Else
+            AudianceDisplay.Label1.Text = "Qualification Match"
+        End If
     End Sub
 
 
@@ -131,6 +142,8 @@ Public Class Main_Panel
 
             'Updates the audience display with match number'
             AudianceDisplay.MatchNumb.Text = MatchNum.Text
+
+
 
             handleTeamWifiConfiguration()
             MessageBox.Show("Data Loaded")

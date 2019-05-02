@@ -202,7 +202,7 @@ Partial Class Main_Panel
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.MediumTurquoise
+        Me.Panel1.BackColor = System.Drawing.Color.Red
         Me.Panel1.Controls.Add(Me.Button29)
         Me.Panel1.Controls.Add(Me.Button28)
         Me.Panel1.Controls.Add(Me.Button27)
@@ -608,7 +608,7 @@ Partial Class Main_Panel
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.MediumTurquoise
+        Me.Panel2.BackColor = System.Drawing.Color.Blue
         Me.Panel2.Controls.Add(Me.Button32)
         Me.Panel2.Controls.Add(Me.Button31)
         Me.Panel2.Controls.Add(Me.Button30)

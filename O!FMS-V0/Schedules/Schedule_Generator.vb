@@ -15,6 +15,7 @@ Public Class Schedule_Generator
     Public Shared lineCount As Int16 = File.ReadLines("C:\OFMS\teams.txt").Count
     Public Shared matchDir As String = "C:\OFMS\matches.txt"
     Public Shared connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
+    Public Shared name As String = ""
 
     'This generates the team list for matches'
     Public Shared Sub Team_list_gen(filePath As String)
@@ -121,5 +122,19 @@ Public Class Schedule_Generator
         command.ExecuteNonQuery()
         connection.Close()
     End Sub
+
+    Shared Function getTeamName(teamNumber As String)
+        Dim selectQuery As String = String.Format("Select name From teaminfo Where Id={0}", teamNumber)
+        Dim selectData As New SqlCommand(selectQuery, connection)
+        Dim adapter As New SqlDataAdapter(selectData)
+        Dim table As New DataTable()
+        adapter.Fill(table)
+
+        If table.Rows.Count > 0 Then
+            name = table.Rows(0)(0)
+        End If
+
+        Return Name
+    End Function
 
 End Class
