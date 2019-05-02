@@ -53,7 +53,7 @@ Public Class Tba
         Return results
     End Function
 
-
+    'This posts anything you need to the blue alliance api'
     Shared Function postRequest(resource As String, action As String, body As Byte())
         Dim request As HttpWebRequest = Nothing
         Dim results As String = ""
