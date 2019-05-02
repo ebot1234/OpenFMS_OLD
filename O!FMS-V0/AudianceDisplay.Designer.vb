@@ -31,6 +31,7 @@ Partial Class AudianceDisplay
         Me.BlueTeam1lbl = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PreStartPanel = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BlueTeamsLbl = New System.Windows.Forms.Label()
         Me.RedTeamsLbl = New System.Windows.Forms.Label()
         Me.Red2Lbl = New System.Windows.Forms.Label()
@@ -57,15 +58,20 @@ Partial Class AudianceDisplay
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.PreStartPanel.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FirstLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RedScorePanel.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.PrestartCover.SuspendLayout()
         CType(Me.FinalScoreBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MatchNumb
@@ -149,6 +155,12 @@ Partial Class AudianceDisplay
         Me.PreStartPanel.BackColor = System.Drawing.Color.White
         Me.PreStartPanel.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.Pre_Match_Image
         Me.PreStartPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PreStartPanel.Controls.Add(Me.Label13)
+        Me.PreStartPanel.Controls.Add(Me.Label12)
+        Me.PreStartPanel.Controls.Add(Me.Label11)
+        Me.PreStartPanel.Controls.Add(Me.Label10)
+        Me.PreStartPanel.Controls.Add(Me.Label9)
+        Me.PreStartPanel.Controls.Add(Me.Label8)
         Me.PreStartPanel.Controls.Add(Me.PictureBox1)
         Me.PreStartPanel.Controls.Add(Me.BlueTeamsLbl)
         Me.PreStartPanel.Controls.Add(Me.RedTeamsLbl)
@@ -162,6 +174,17 @@ Partial Class AudianceDisplay
         Me.PreStartPanel.Name = "PreStartPanel"
         Me.PreStartPanel.Size = New System.Drawing.Size(1369, 515)
         Me.PreStartPanel.TabIndex = 0
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.FRC_Destination_Deepspace
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Location = New System.Drawing.Point(766, 29)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(507, 438)
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
         '
         'BlueTeamsLbl
         '
@@ -444,16 +467,71 @@ Partial Class AudianceDisplay
         Me.Label7.TabIndex = 19
         Me.Label7.Text = "Team Name"
         '
-        'PictureBox1
+        'Label8
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.FRC_Destination_Deepspace
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(766, 29)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(507, 438)
-        Me.PictureBox1.TabIndex = 9
-        Me.PictureBox1.TabStop = False
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(198, 162)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(66, 24)
+        Me.Label8.TabIndex = 10
+        Me.Label8.Text = "Label8"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(198, 233)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(66, 24)
+        Me.Label9.TabIndex = 11
+        Me.Label9.Text = "Label9"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(198, 323)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(76, 24)
+        Me.Label10.TabIndex = 12
+        Me.Label10.Text = "Label10"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(560, 162)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(76, 24)
+        Me.Label11.TabIndex = 13
+        Me.Label11.Text = "Label11"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(560, 240)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(76, 24)
+        Me.Label12.TabIndex = 14
+        Me.Label12.Text = "Label12"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(560, 323)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(76, 24)
+        Me.Label13.TabIndex = 15
+        Me.Label13.Text = "Label13"
         '
         'AudianceDisplay
         '
@@ -490,6 +568,7 @@ Partial Class AudianceDisplay
         Me.Panel1.ResumeLayout(False)
         Me.PreStartPanel.ResumeLayout(False)
         Me.PreStartPanel.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FirstLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RedScorePanel.ResumeLayout(False)
         Me.RedScorePanel.PerformLayout()
@@ -498,7 +577,6 @@ Partial Class AudianceDisplay
         Me.PrestartCover.ResumeLayout(False)
         Me.PrestartCover.PerformLayout()
         CType(Me.FinalScoreBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -538,4 +616,10 @@ Partial Class AudianceDisplay
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label8 As Label
 End Class

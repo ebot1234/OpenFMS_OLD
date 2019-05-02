@@ -140,10 +140,30 @@ Public Class Main_Panel
             AudianceDisplay.BlueTeam2.Text = table.Rows(0)(3).ToString
             AudianceDisplay.BlueTeam3.Text = table.Rows(0)(5).ToString
 
+            'Updates the team numbers for the pre-match screen'
+            AudianceDisplay.RedTeam1lbl.Text = RedTeam1.Text
+            AudianceDisplay.Red2Lbl.Text = RedTeam2.Text
+            AudianceDisplay.Red3Lbl.Text = RedTeam3.Text
+            AudianceDisplay.Blue1Lbl.Text = BlueTeam1.Text
+            AudianceDisplay.Blue2Lbl.Text = BlueTeam2.Text
+            AudianceDisplay.BlueTeam3.Text = BlueTeam3.Text
+
             'Updates the audience display with match number'
             AudianceDisplay.MatchNumb.Text = MatchNum.Text
+            'Updates the audience displays team names'
+            AudianceDisplay.Label2.Text = Schedule_Generator.getTeamName(RedTeam1.Text)
+            AudianceDisplay.Label4.Text = Schedule_Generator.getTeamName(RedTeam2.Text)
+            AudianceDisplay.Label3.Text = Schedule_Generator.getTeamName(RedTeam3.Text)
+            AudianceDisplay.Label7.Text = Schedule_Generator.getTeamName(BlueTeam1.Text)
+            AudianceDisplay.Label6.Text = Schedule_Generator.getTeamName(BlueTeam2.Text)
+            AudianceDisplay.Label5.Text = Schedule_Generator.getTeamName(BlueTeam3.Text)
 
-
+            AudianceDisplay.Label8.Text = AudianceDisplay.Label2.Text
+            AudianceDisplay.Label9.Text = AudianceDisplay.Label4.Text
+            AudianceDisplay.Label10.Text = AudianceDisplay.Label3.Text
+            AudianceDisplay.Label11.Text = AudianceDisplay.Label7.Text
+            AudianceDisplay.Label12.Text = AudianceDisplay.Label6.Text
+            AudianceDisplay.Label13.Text = AudianceDisplay.Label5.Text
 
             handleTeamWifiConfiguration()
             MessageBox.Show("Data Loaded")

@@ -42,14 +42,14 @@ O!FMS-V0
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:O_FMS_V0.My.Resources.Resources.FirstPowerUpLogo">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
 <member name="P:O_FMS_V0.My.Resources.Resources.fog_blast">
 <summary>
   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
+<member name="P:O_FMS_V0.My.Resources.Resources.FRC_Destination_Deepspace">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:O_FMS_V0.My.Resources.Resources.match_boost">

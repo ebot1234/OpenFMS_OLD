@@ -197,3 +197,4 @@ C:\Users\ellen.estep.one\Desktop\OFMS\OFMS\O!FMS-V0\obj\Debug\O!FMS-V0.pdb
 C:\Users\ellen.estep.one\Desktop\OFMS\OFMS\O!FMS-V0\bin\Debug\ScriptingTelnet.dll
 C:\Users\ellen.estep.one\Desktop\OFMS\OFMS\O!FMS-V0\bin\Debug\Newtonsoft.Json.dll
 C:\Users\ellen.estep.one\Desktop\OFMS\OFMS\O!FMS-V0\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ellen.estep.one\Desktop\OFMS\OFMS\O!FMS-V0\obj\Debug\O_FMS_V0.AllianceMaker.resources
