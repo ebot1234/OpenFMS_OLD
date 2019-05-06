@@ -87,7 +87,8 @@ Partial Class AudianceDisplay
         '
         'RedTeam1
         '
-        Me.RedTeam1.AutoSize = True
+        Me.RedTeam1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RedTeam1.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.RedTeam1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RedTeam1.Location = New System.Drawing.Point(3, 570)
@@ -95,10 +96,12 @@ Partial Class AudianceDisplay
         Me.RedTeam1.Size = New System.Drawing.Size(148, 31)
         Me.RedTeam1.TabIndex = 2
         Me.RedTeam1.Text = "RedTeam1"
+        Me.RedTeam1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'RedTeam2lbl
         '
-        Me.RedTeam2lbl.AutoSize = True
+        Me.RedTeam2lbl.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RedTeam2lbl.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.RedTeam2lbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RedTeam2lbl.Location = New System.Drawing.Point(3, 600)
@@ -106,10 +109,12 @@ Partial Class AudianceDisplay
         Me.RedTeam2lbl.Size = New System.Drawing.Size(148, 31)
         Me.RedTeam2lbl.TabIndex = 3
         Me.RedTeam2lbl.Text = "RedTeam2"
+        Me.RedTeam2lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'RedTeam3
         '
-        Me.RedTeam3.AutoSize = True
+        Me.RedTeam3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RedTeam3.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.RedTeam3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RedTeam3.Location = New System.Drawing.Point(3, 631)
@@ -117,21 +122,25 @@ Partial Class AudianceDisplay
         Me.RedTeam3.Size = New System.Drawing.Size(148, 31)
         Me.RedTeam3.TabIndex = 4
         Me.RedTeam3.Text = "RedTeam3"
+        Me.RedTeam3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Timerlbl
         '
-        Me.Timerlbl.AutoSize = True
+        Me.Timerlbl.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Timerlbl.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.Timerlbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Timerlbl.Location = New System.Drawing.Point(658, 589)
+        Me.Timerlbl.Location = New System.Drawing.Point(622, 590)
         Me.Timerlbl.Name = "Timerlbl"
-        Me.Timerlbl.Size = New System.Drawing.Size(68, 73)
+        Me.Timerlbl.Size = New System.Drawing.Size(190, 73)
         Me.Timerlbl.TabIndex = 5
         Me.Timerlbl.Text = "0"
         Me.Timerlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BlueTeam1lbl
         '
+        Me.BlueTeam1lbl.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BlueTeam1lbl.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.BlueTeam1lbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BlueTeam1lbl.Location = New System.Drawing.Point(1216, 570)
@@ -139,7 +148,7 @@ Partial Class AudianceDisplay
         Me.BlueTeam1lbl.Size = New System.Drawing.Size(152, 31)
         Me.BlueTeam1lbl.TabIndex = 6
         Me.BlueTeam1lbl.Text = "BlueTeam1"
-        Me.BlueTeam1lbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BlueTeam1lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel1
         '
@@ -155,8 +164,10 @@ Partial Class AudianceDisplay
         Me.PreStartPanel.BackColor = System.Drawing.Color.White
         Me.PreStartPanel.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.Pre_Match_Image
         Me.PreStartPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PreStartPanel.Controls.Add(Me.PrestartCover)
         Me.PreStartPanel.Controls.Add(Me.Label13)
         Me.PreStartPanel.Controls.Add(Me.Label12)
+        Me.PreStartPanel.Controls.Add(Me.FinalScoreBox)
         Me.PreStartPanel.Controls.Add(Me.Label11)
         Me.PreStartPanel.Controls.Add(Me.Label10)
         Me.PreStartPanel.Controls.Add(Me.Label9)
@@ -342,6 +353,8 @@ Partial Class AudianceDisplay
         '
         'BlueTeam3
         '
+        Me.BlueTeam3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BlueTeam3.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.BlueTeam3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BlueTeam3.Location = New System.Drawing.Point(1217, 632)
@@ -349,10 +362,12 @@ Partial Class AudianceDisplay
         Me.BlueTeam3.Size = New System.Drawing.Size(152, 31)
         Me.BlueTeam3.TabIndex = 8
         Me.BlueTeam3.Text = "BlueTeam3"
-        Me.BlueTeam3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BlueTeam3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BlueTeam2
         '
+        Me.BlueTeam2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BlueTeam2.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.BlueTeam2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BlueTeam2.Location = New System.Drawing.Point(1217, 601)
@@ -360,7 +375,7 @@ Partial Class AudianceDisplay
         Me.BlueTeam2.Size = New System.Drawing.Size(152, 31)
         Me.BlueTeam2.TabIndex = 9
         Me.BlueTeam2.Text = "BlueTeam2"
-        Me.BlueTeam2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BlueTeam2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'FirstLogo
         '
@@ -376,31 +391,35 @@ Partial Class AudianceDisplay
         '
         'RedScoreLbl
         '
-        Me.RedScoreLbl.AutoSize = True
+        Me.RedScoreLbl.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RedScoreLbl.BackColor = System.Drawing.Color.Red
         Me.RedScoreLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RedScoreLbl.Location = New System.Drawing.Point(51, 35)
+        Me.RedScoreLbl.Location = New System.Drawing.Point(3, 26)
         Me.RedScoreLbl.Name = "RedScoreLbl"
-        Me.RedScoreLbl.Size = New System.Drawing.Size(68, 73)
+        Me.RedScoreLbl.Size = New System.Drawing.Size(154, 73)
         Me.RedScoreLbl.TabIndex = 11
         Me.RedScoreLbl.Text = "0"
+        Me.RedScoreLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BlueScoreLbl
         '
-        Me.BlueScoreLbl.AutoSize = True
+        Me.BlueScoreLbl.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BlueScoreLbl.BackColor = System.Drawing.Color.Blue
         Me.BlueScoreLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BlueScoreLbl.Location = New System.Drawing.Point(51, 34)
+        Me.BlueScoreLbl.Location = New System.Drawing.Point(3, 26)
         Me.BlueScoreLbl.Name = "BlueScoreLbl"
-        Me.BlueScoreLbl.Size = New System.Drawing.Size(68, 73)
+        Me.BlueScoreLbl.Size = New System.Drawing.Size(154, 73)
         Me.BlueScoreLbl.TabIndex = 12
         Me.BlueScoreLbl.Text = "0"
+        Me.BlueScoreLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'RedScorePanel
         '
         Me.RedScorePanel.BackColor = System.Drawing.Color.Red
         Me.RedScorePanel.Controls.Add(Me.RedScoreLbl)
-        Me.RedScorePanel.Location = New System.Drawing.Point(448, 564)
+        Me.RedScorePanel.Location = New System.Drawing.Point(459, 564)
         Me.RedScorePanel.Name = "RedScorePanel"
         Me.RedScorePanel.Size = New System.Drawing.Size(160, 139)
         Me.RedScorePanel.TabIndex = 13
@@ -430,8 +449,7 @@ Partial Class AudianceDisplay
         Me.PrestartCover.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.PrestartCover.Controls.Add(Me.WinningAlliance)
         Me.PrestartCover.Controls.Add(Me.Winner)
-        Me.PrestartCover.Controls.Add(Me.FinalScoreBox)
-        Me.PrestartCover.Location = New System.Drawing.Point(1, 518)
+        Me.PrestartCover.Location = New System.Drawing.Point(39, 253)
         Me.PrestartCover.Name = "PrestartCover"
         Me.PrestartCover.Size = New System.Drawing.Size(1368, 185)
         Me.PrestartCover.TabIndex = 14
@@ -461,77 +479,89 @@ Partial Class AudianceDisplay
         '
         Me.FinalScoreBox.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.FinalScore
         Me.FinalScoreBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.FinalScoreBox.Location = New System.Drawing.Point(-1, 0)
+        Me.FinalScoreBox.Location = New System.Drawing.Point(12, 204)
         Me.FinalScoreBox.Name = "FinalScoreBox"
-        Me.FinalScoreBox.Size = New System.Drawing.Size(1368, 182)
+        Me.FinalScoreBox.Size = New System.Drawing.Size(1368, 185)
         Me.FinalScoreBox.TabIndex = 0
         Me.FinalScoreBox.TabStop = False
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
+        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(167, 570)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(162, 31)
+        Me.Label2.Size = New System.Drawing.Size(289, 31)
         Me.Label2.TabIndex = 14
         Me.Label2.Text = "Team Name"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label3
         '
-        Me.Label3.AutoSize = True
+        Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(167, 632)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(162, 31)
+        Me.Label3.Size = New System.Drawing.Size(289, 31)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Team Name"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
+        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(167, 601)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(162, 31)
+        Me.Label4.Size = New System.Drawing.Size(289, 31)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "Team Name"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label5
         '
-        Me.Label5.AutoSize = True
+        Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(994, 632)
+        Me.Label5.Location = New System.Drawing.Point(978, 632)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(162, 31)
+        Me.Label5.Size = New System.Drawing.Size(233, 31)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Team Name"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label6
         '
-        Me.Label6.AutoSize = True
+        Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(994, 601)
+        Me.Label6.Location = New System.Drawing.Point(978, 601)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(162, 31)
+        Me.Label6.Size = New System.Drawing.Size(232, 31)
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "Team Name"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label7
         '
-        Me.Label7.AutoSize = True
+        Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(994, 570)
+        Me.Label7.Location = New System.Drawing.Point(978, 570)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(162, 31)
+        Me.Label7.Size = New System.Drawing.Size(232, 31)
         Me.Label7.TabIndex = 19
         Me.Label7.Text = "Team Name"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'AudianceDisplay
         '
@@ -541,7 +571,6 @@ Partial Class AudianceDisplay
         Me.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.ScoreBoard
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1370, 705)
-        Me.Controls.Add(Me.PrestartCover)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
@@ -571,9 +600,7 @@ Partial Class AudianceDisplay
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FirstLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RedScorePanel.ResumeLayout(False)
-        Me.RedScorePanel.PerformLayout()
         Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.PrestartCover.ResumeLayout(False)
         Me.PrestartCover.PerformLayout()
         CType(Me.FinalScoreBox, System.ComponentModel.ISupportInitialize).EndInit()
@@ -610,7 +637,6 @@ Partial Class AudianceDisplay
     Friend WithEvents WinningAlliance As Label
     Friend WithEvents Winner As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
@@ -622,4 +648,5 @@ Partial Class AudianceDisplay
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents Label3 As Label
 End Class
