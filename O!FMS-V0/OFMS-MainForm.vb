@@ -498,6 +498,10 @@ Public Class Main_Panel
         Field.updateField(MatchEnums.AbortMatch)
         MatchMessages.Text = "Match Aborted"
         DriverStation.Abort()
+        AutoTimer.Stop()
+        TeleTimer.Stop()
+        EndGameTimer.Stop()
+        matchTimerLbl.Text = 0
     End Sub
 
     Public Sub HandleAbortedMatch()

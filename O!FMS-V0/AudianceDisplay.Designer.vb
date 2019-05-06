@@ -31,6 +31,12 @@ Partial Class AudianceDisplay
         Me.BlueTeam1lbl = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PreStartPanel = New System.Windows.Forms.Panel()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BlueTeamsLbl = New System.Windows.Forms.Label()
         Me.RedTeamsLbl = New System.Windows.Forms.Label()
@@ -58,12 +64,6 @@ Partial Class AudianceDisplay
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.PreStartPanel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -174,6 +174,72 @@ Partial Class AudianceDisplay
         Me.PreStartPanel.Name = "PreStartPanel"
         Me.PreStartPanel.Size = New System.Drawing.Size(1369, 515)
         Me.PreStartPanel.TabIndex = 0
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(550, 316)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(110, 31)
+        Me.Label13.TabIndex = 15
+        Me.Label13.Text = "Label13"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(550, 240)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(110, 31)
+        Me.Label12.TabIndex = 14
+        Me.Label12.Text = "Label12"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(548, 155)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(110, 31)
+        Me.Label11.TabIndex = 13
+        Me.Label11.Text = "Label11"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(188, 316)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(110, 31)
+        Me.Label10.TabIndex = 12
+        Me.Label10.Text = "Label10"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(188, 233)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(95, 31)
+        Me.Label9.TabIndex = 11
+        Me.Label9.Text = "Label9"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(188, 155)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(95, 31)
+        Me.Label8.TabIndex = 10
+        Me.Label8.Text = "Label8"
         '
         'PictureBox1
         '
@@ -353,7 +419,7 @@ Partial Class AudianceDisplay
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(994, 525)
+        Me.Label1.Location = New System.Drawing.Point(882, 525)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(156, 31)
         Me.Label1.TabIndex = 0
@@ -365,7 +431,7 @@ Partial Class AudianceDisplay
         Me.PrestartCover.Controls.Add(Me.WinningAlliance)
         Me.PrestartCover.Controls.Add(Me.Winner)
         Me.PrestartCover.Controls.Add(Me.FinalScoreBox)
-        Me.PrestartCover.Location = New System.Drawing.Point(0, 518)
+        Me.PrestartCover.Location = New System.Drawing.Point(1, 518)
         Me.PrestartCover.Name = "PrestartCover"
         Me.PrestartCover.Size = New System.Drawing.Size(1368, 185)
         Me.PrestartCover.TabIndex = 14
@@ -395,7 +461,7 @@ Partial Class AudianceDisplay
         '
         Me.FinalScoreBox.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.FinalScore
         Me.FinalScoreBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.FinalScoreBox.Location = New System.Drawing.Point(1, 0)
+        Me.FinalScoreBox.Location = New System.Drawing.Point(-1, 0)
         Me.FinalScoreBox.Name = "FinalScoreBox"
         Me.FinalScoreBox.Size = New System.Drawing.Size(1368, 182)
         Me.FinalScoreBox.TabIndex = 0
@@ -466,72 +532,6 @@ Partial Class AudianceDisplay
         Me.Label7.Size = New System.Drawing.Size(162, 31)
         Me.Label7.TabIndex = 19
         Me.Label7.Text = "Team Name"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(198, 162)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(66, 24)
-        Me.Label8.TabIndex = 10
-        Me.Label8.Text = "Label8"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(198, 233)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(66, 24)
-        Me.Label9.TabIndex = 11
-        Me.Label9.Text = "Label9"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(198, 323)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(76, 24)
-        Me.Label10.TabIndex = 12
-        Me.Label10.Text = "Label10"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(560, 162)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(76, 24)
-        Me.Label11.TabIndex = 13
-        Me.Label11.Text = "Label11"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(560, 240)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(76, 24)
-        Me.Label12.TabIndex = 14
-        Me.Label12.Text = "Label12"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(560, 323)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(76, 24)
-        Me.Label13.TabIndex = 15
-        Me.Label13.Text = "Label13"
         '
         'AudianceDisplay
         '
