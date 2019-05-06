@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports O_FMS_V0.Tba
+Imports O_FMS_V0.Main_Panel
 
 Public Class AllianceMaker
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
@@ -46,7 +47,7 @@ Public Class AllianceMaker
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         SaveAlliance(TextBox4.Text, TextBox7.Text, TextBox10.Text, TextBox26.Text, 8, 0)
-
+        ElimMode = True
     End Sub
 
 

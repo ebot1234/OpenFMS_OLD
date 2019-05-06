@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports O_FMS_V0.Main_Panel
+
 
 Public Class Elimanation_Matches
     Shared connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
@@ -26,7 +28,7 @@ Public Class Elimanation_Matches
         Return team1 & team2 & team3
     End Function
 
-    Shared Sub updateElimanationMatches(match_num As Integer, alliance_num As Integer, red_wins As Integer, blue_wins As Integer)
+    Shared Sub updateQuarterFinalMatches(match_num As Integer, blue_wins As Integer, red_wins As Integer)
         'This builds the matches for the quarterfinals'
         If match_num = 1 Then
             buildElimanationMatch(1, 8, 1, "Quarterfinal")
@@ -44,7 +46,7 @@ Public Class Elimanation_Matches
             buildElimanationMatch(4, 5, 4, "Quarterfinal")
         End If
 
-
+ 
     End Sub
 
     Shared Sub buildElimanationMatch(alliance1 As Integer, alliance2 As Integer, match_num As Integer, match_type As String)
