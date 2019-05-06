@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class AllianceMaker
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class AllianceMaker
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -56,6 +56,21 @@ Partial Class AllianceMaker
         Me.TextBox24 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.TextBox26 = New System.Windows.Forms.TextBox()
+        Me.TextBox27 = New System.Windows.Forms.TextBox()
+        Me.TextBox28 = New System.Windows.Forms.TextBox()
+        Me.TextBox29 = New System.Windows.Forms.TextBox()
+        Me.TextBox30 = New System.Windows.Forms.TextBox()
+        Me.TextBox31 = New System.Windows.Forms.TextBox()
+        Me.TextBox32 = New System.Windows.Forms.TextBox()
+        Me.TextBox33 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -126,7 +141,7 @@ Partial Class AllianceMaker
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(60, 13)
         Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Alliance #1"
+        Me.Label3.Text = "Alliance #8"
         '
         'TextBox7
         '
@@ -156,7 +171,7 @@ Partial Class AllianceMaker
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(60, 13)
         Me.Label4.TabIndex = 9
-        Me.Label4.Text = "Alliance #1"
+        Me.Label4.Text = "Alliance #7"
         '
         'TextBox10
         '
@@ -186,7 +201,7 @@ Partial Class AllianceMaker
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(60, 13)
         Me.Label5.TabIndex = 13
-        Me.Label5.Text = "Alliance #1"
+        Me.Label5.Text = "Alliance #6"
         '
         'TextBox13
         '
@@ -216,7 +231,7 @@ Partial Class AllianceMaker
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(60, 13)
         Me.Label6.TabIndex = 17
-        Me.Label6.Text = "Alliance #1"
+        Me.Label6.Text = "Alliance #5"
         '
         'TextBox16
         '
@@ -246,7 +261,7 @@ Partial Class AllianceMaker
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(60, 13)
         Me.Label7.TabIndex = 21
-        Me.Label7.Text = "Alliance #1"
+        Me.Label7.Text = "Alliance #4"
         '
         'TextBox19
         '
@@ -276,7 +291,7 @@ Partial Class AllianceMaker
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(60, 13)
         Me.Label8.TabIndex = 25
-        Me.Label8.Text = "Alliance #1"
+        Me.Label8.Text = "Alliance #3"
         '
         'TextBox22
         '
@@ -306,22 +321,156 @@ Partial Class AllianceMaker
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(60, 13)
         Me.Label9.TabIndex = 29
-        Me.Label9.Text = "Alliance #1"
+        Me.Label9.Text = "Alliance #2"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(189, 335)
+        Me.Button1.Location = New System.Drawing.Point(542, 43)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(140, 23)
+        Me.Button1.Size = New System.Drawing.Size(88, 23)
         Me.Button1.TabIndex = 33
-        Me.Button1.Text = "Add Alliances to database"
+        Me.Button1.Text = "Save Alliance"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(542, 78)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(88, 23)
+        Me.Button2.TabIndex = 34
+        Me.Button2.Text = "Save Alliance"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(542, 113)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(88, 23)
+        Me.Button3.TabIndex = 35
+        Me.Button3.Text = "Save Alliance"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(542, 144)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(88, 23)
+        Me.Button4.TabIndex = 36
+        Me.Button4.Text = "Save Alliance"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(542, 183)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(88, 23)
+        Me.Button5.TabIndex = 37
+        Me.Button5.Text = "Save Alliance"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(542, 221)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(88, 23)
+        Me.Button6.TabIndex = 38
+        Me.Button6.Text = "Save Alliance"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(542, 258)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(88, 23)
+        Me.Button7.TabIndex = 39
+        Me.Button7.Text = "Save Alliance"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(542, 287)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(88, 23)
+        Me.Button8.TabIndex = 40
+        Me.Button8.Text = "Save Alliance"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'TextBox26
+        '
+        Me.TextBox26.Location = New System.Drawing.Point(436, 289)
+        Me.TextBox26.Name = "TextBox26"
+        Me.TextBox26.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox26.TabIndex = 42
+        '
+        'TextBox27
+        '
+        Me.TextBox27.Location = New System.Drawing.Point(436, 259)
+        Me.TextBox27.Name = "TextBox27"
+        Me.TextBox27.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox27.TabIndex = 43
+        '
+        'TextBox28
+        '
+        Me.TextBox28.Location = New System.Drawing.Point(436, 223)
+        Me.TextBox28.Name = "TextBox28"
+        Me.TextBox28.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox28.TabIndex = 44
+        '
+        'TextBox29
+        '
+        Me.TextBox29.Location = New System.Drawing.Point(436, 185)
+        Me.TextBox29.Name = "TextBox29"
+        Me.TextBox29.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox29.TabIndex = 45
+        '
+        'TextBox30
+        '
+        Me.TextBox30.Location = New System.Drawing.Point(436, 151)
+        Me.TextBox30.Name = "TextBox30"
+        Me.TextBox30.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox30.TabIndex = 46
+        '
+        'TextBox31
+        '
+        Me.TextBox31.Location = New System.Drawing.Point(436, 115)
+        Me.TextBox31.Name = "TextBox31"
+        Me.TextBox31.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox31.TabIndex = 47
+        '
+        'TextBox32
+        '
+        Me.TextBox32.Location = New System.Drawing.Point(436, 78)
+        Me.TextBox32.Name = "TextBox32"
+        Me.TextBox32.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox32.TabIndex = 48
+        '
+        'TextBox33
+        '
+        Me.TextBox33.Location = New System.Drawing.Point(436, 45)
+        Me.TextBox33.Name = "TextBox33"
+        Me.TextBox33.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox33.TabIndex = 49
         '
         'AllianceMaker
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(551, 370)
+        Me.ClientSize = New System.Drawing.Size(655, 370)
+        Me.Controls.Add(Me.TextBox33)
+        Me.Controls.Add(Me.TextBox32)
+        Me.Controls.Add(Me.TextBox31)
+        Me.Controls.Add(Me.TextBox30)
+        Me.Controls.Add(Me.TextBox29)
+        Me.Controls.Add(Me.TextBox28)
+        Me.Controls.Add(Me.TextBox27)
+        Me.Controls.Add(Me.TextBox26)
+        Me.Controls.Add(Me.Button8)
+        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.Button6)
+        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox22)
         Me.Controls.Add(Me.TextBox23)
@@ -397,4 +546,19 @@ Partial Class AllianceMaker
     Friend WithEvents TextBox24 As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents TextBox26 As TextBox
+    Friend WithEvents TextBox27 As TextBox
+    Friend WithEvents TextBox28 As TextBox
+    Friend WithEvents TextBox29 As TextBox
+    Friend WithEvents TextBox30 As TextBox
+    Friend WithEvents TextBox31 As TextBox
+    Friend WithEvents TextBox32 As TextBox
+    Friend WithEvents TextBox33 As TextBox
 End Class
