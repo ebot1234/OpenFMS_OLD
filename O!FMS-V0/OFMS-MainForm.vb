@@ -2,7 +2,7 @@
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.Field
 Imports O_FMS_V0.AccessPoint
-Imports O_FMS_V0.Switch
+Imports O_FMS_V0.Elimanation_Matches
 
 
 Public Class Main_Panel
@@ -27,6 +27,9 @@ Public Class Main_Panel
     Public Shared Blue1_Estop
     Public Shared Blue2_Estop
     Public Shared Blue3_Estop
+
+    Public Shared alliance_num1
+    Public Shared alliance_num2
 
     'Red Scoring Varibles'
     Public Shared RedScore As Integer
@@ -67,14 +70,6 @@ Public Class Main_Panel
         SetSettings("10.0.100.1", "OFMS", "OFMS", 12, 5, "ofmsrocks")
         Switch.Switch.address = "10.0.100.2"
 
-        If ElimMode = True Then
-            Label10.Hide()
-            MatchNum.Hide()
-            MatchLoad_Btn.Hide()
-            AudianceDisplay.Label1.Text = "Elimination Match"
-        Else
-            AudianceDisplay.Label1.Text = "Qualification Match"
-        End If
     End Sub
 
 
@@ -89,9 +84,26 @@ Public Class Main_Panel
 
         'MessageBox.Show("Data Saved")
 
+        Dim red_winner = False
+        Dim blue_winner = False
+
+        If BlueScore < RedScore Then
+            red_winner = True
+        Else
+            blue_winner = True
+        End If
+
         resetScore()
         resetUI()
         Field_Estop = False
+
+
+        If ElimMode = True Then
+            If red_winner = True Then
+                getElimantionResults(MatchNum.Text, True, False, alliance_num2, alliance_num1)
+            End If
+
+        End If
 
     End Sub
 
@@ -112,68 +124,130 @@ Public Class Main_Panel
     End Sub
 
     Public Sub MatchLoad_Btn_Click(sender As Object, e As EventArgs) Handles MatchLoad_Btn.Click
+        If ElimMode = False Then
+            Dim selectQuery As New SqlCommand("Select Match, Blue1, B1Sur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur FROM matches where Match= @Matchnum", connection)
+            selectQuery.Parameters.Add("@Matchnum", SqlDbType.Int).Value = MatchNum.Text
+            Dim adapter As New SqlDataAdapter(selectQuery)
+            Dim table As New DataTable()
+            adapter.Fill(table)
+            If table.Rows.Count() > 0 Then
+                RedTeam1.Text = table.Rows(0)(7).ToString()
+                Red1Sur.Text = table.Rows(0)(8).ToString()
+                RedTeam2.Text = table.Rows(0)(9).ToString()
+                Red2Sur.Text = table.Rows(0)(10).ToString()
+                RedTeam3.Text = table.Rows(0)(11).ToString()
+                Red3Sur.Text = table.Rows(0)(12).ToString()
+                BlueTeam1.Text = table.Rows(0)(1).ToString()
+                Blue1Sur.Text = table.Rows(0)(2).ToString()
+                BlueTeam2.Text = table.Rows(0)(3).ToString()
+                Blue2Sur.Text = table.Rows(0)(4).ToString()
+                BlueTeam3.Text = table.Rows(0)(5).ToString()
+                Blue3Sur.Text = table.Rows(0)(6).ToString()
 
-        Dim selectQuery As New SqlCommand("Select Match, Blue1, B1Sur, Blue2, B2Sur, Blue3, B3Sur, Red1, R1Sur, Red2, R2Sur, Red3, R3Sur FROM matches where Match= @Matchnum", connection)
-        selectQuery.Parameters.Add("@Matchnum", SqlDbType.Int).Value = MatchNum.Text
-        Dim adapter As New SqlDataAdapter(selectQuery)
-        Dim table As New DataTable()
-        adapter.Fill(table)
-        If table.Rows.Count() > 0 Then
-            RedTeam1.Text = table.Rows(0)(7).ToString()
-            Red1Sur.Text = table.Rows(0)(8).ToString()
-            RedTeam2.Text = table.Rows(0)(9).ToString()
-            Red2Sur.Text = table.Rows(0)(10).ToString()
-            RedTeam3.Text = table.Rows(0)(11).ToString()
-            Red3Sur.Text = table.Rows(0)(12).ToString()
-            BlueTeam1.Text = table.Rows(0)(1).ToString()
-            Blue1Sur.Text = table.Rows(0)(2).ToString()
-            BlueTeam2.Text = table.Rows(0)(3).ToString()
-            Blue2Sur.Text = table.Rows(0)(4).ToString()
-            BlueTeam3.Text = table.Rows(0)(5).ToString()
-            Blue3Sur.Text = table.Rows(0)(6).ToString()
 
-            'updates the audience display with team numbers'
-            AudianceDisplay.RedTeam1.Text = table.Rows(0)(7).ToString
-            AudianceDisplay.RedTeam2lbl.Text = table.Rows(0)(9).ToString
-            AudianceDisplay.RedTeam3.Text = table.Rows(0)(11).ToString
-            AudianceDisplay.BlueTeam1lbl.Text = table.Rows(0)(1).ToString
-            AudianceDisplay.BlueTeam2.Text = table.Rows(0)(3).ToString
-            AudianceDisplay.BlueTeam3.Text = table.Rows(0)(5).ToString
 
-            'Updates the team numbers for the pre-match screen'
-            AudianceDisplay.RedTeam1lbl.Text = RedTeam1.Text
-            AudianceDisplay.Red2Lbl.Text = RedTeam2.Text
-            AudianceDisplay.Red3Lbl.Text = RedTeam3.Text
-            AudianceDisplay.Blue1Lbl.Text = BlueTeam1.Text
-            AudianceDisplay.Blue2Lbl.Text = BlueTeam2.Text
-            AudianceDisplay.BlueTeam3.Text = BlueTeam3.Text
 
-            'Updates the audience display with match number'
-            AudianceDisplay.MatchNumb.Text = MatchNum.Text
-            'Updates the audience displays team names'
-            AudianceDisplay.Label2.Text = Schedule_Generator.getTeamName(RedTeam1.Text)
-            AudianceDisplay.Label4.Text = Schedule_Generator.getTeamName(RedTeam2.Text)
-            AudianceDisplay.Label3.Text = Schedule_Generator.getTeamName(RedTeam3.Text)
-            AudianceDisplay.Label7.Text = Schedule_Generator.getTeamName(BlueTeam1.Text)
-            AudianceDisplay.Label6.Text = Schedule_Generator.getTeamName(BlueTeam2.Text)
-            AudianceDisplay.Label5.Text = Schedule_Generator.getTeamName(BlueTeam3.Text)
+                'updates the audience display with team numbers'
+                AudianceDisplay.RedTeam1.Text = table.Rows(0)(7).ToString
+                AudianceDisplay.RedTeam2lbl.Text = table.Rows(0)(9).ToString
+                AudianceDisplay.RedTeam3.Text = table.Rows(0)(11).ToString
+                AudianceDisplay.BlueTeam1lbl.Text = table.Rows(0)(1).ToString
+                AudianceDisplay.BlueTeam2.Text = table.Rows(0)(3).ToString
+                AudianceDisplay.BlueTeam3.Text = table.Rows(0)(5).ToString
 
-            AudianceDisplay.Label8.Text = AudianceDisplay.Label2.Text
-            AudianceDisplay.Label9.Text = AudianceDisplay.Label4.Text
-            AudianceDisplay.Label10.Text = AudianceDisplay.Label3.Text
-            AudianceDisplay.Label11.Text = AudianceDisplay.Label7.Text
-            AudianceDisplay.Label12.Text = AudianceDisplay.Label6.Text
-            AudianceDisplay.Label13.Text = AudianceDisplay.Label5.Text
+                'Updates the team numbers for the pre-match screen'
+                AudianceDisplay.RedTeam1lbl.Text = RedTeam1.Text
+                AudianceDisplay.Red2Lbl.Text = RedTeam2.Text
+                AudianceDisplay.Red3Lbl.Text = RedTeam3.Text
+                AudianceDisplay.Blue1Lbl.Text = BlueTeam1.Text
+                AudianceDisplay.Blue2Lbl.Text = BlueTeam2.Text
+                AudianceDisplay.BlueTeam3.Text = BlueTeam3.Text
 
-            handleTeamWifiConfiguration()
-            MessageBox.Show("Data Loaded")
+                'Updates the audience display with match number'
+                AudianceDisplay.MatchNumb.Text = MatchNum.Text
+                'Updates the audience displays team names'
+                AudianceDisplay.Label2.Text = Schedule_Generator.getTeamName(RedTeam1.Text)
+                AudianceDisplay.Label4.Text = Schedule_Generator.getTeamName(RedTeam2.Text)
+                AudianceDisplay.Label3.Text = Schedule_Generator.getTeamName(RedTeam3.Text)
+                AudianceDisplay.Label7.Text = Schedule_Generator.getTeamName(BlueTeam1.Text)
+                AudianceDisplay.Label6.Text = Schedule_Generator.getTeamName(BlueTeam2.Text)
+                AudianceDisplay.Label5.Text = Schedule_Generator.getTeamName(BlueTeam3.Text)
 
-        Else
-            MessageBox.Show("Not Loaded")
+                AudianceDisplay.Label8.Text = AudianceDisplay.Label2.Text
+                AudianceDisplay.Label9.Text = AudianceDisplay.Label4.Text
+                AudianceDisplay.Label10.Text = AudianceDisplay.Label3.Text
+                AudianceDisplay.Label11.Text = AudianceDisplay.Label7.Text
+                AudianceDisplay.Label12.Text = AudianceDisplay.Label6.Text
+                AudianceDisplay.Label13.Text = AudianceDisplay.Label5.Text
+
+                handleTeamWifiConfiguration()
+                MessageBox.Show("Data Loaded")
+
+            Else
+                MessageBox.Show("Not Loaded")
+            End If
         End If
 
+        'Handles the match pulling during the elimanation matches'
+        If ElimMode = True Then
+            Dim selectQuery As New SqlCommand("Select red1, red2, red3, blue1, blue2, blue3, match, type From elimanation Where match = @MatchNum", connection)
+            selectQuery.Parameters.Add("@Matchnum", SqlDbType.Int).Value = MatchNum.Text
+            Dim adapter As New SqlDataAdapter(selectQuery)
+            Dim table As New DataTable()
+            adapter.Fill(table)
 
+            If table.Rows.Count() > 0 Then
+                RedTeam1.Text = table.Rows(0)(0)
+                RedTeam2.Text = table.Rows(0)(1)
+                RedTeam3.Text = table.Rows(0)(2)
+                BlueTeam1.Text = table.Rows(0)(3)
+                BlueTeam2.Text = table.Rows(0)(4)
+                BlueTeam3.Text = table.Rows(0)(5)
+                AudianceDisplay.Label1.Text = "Elimantion Matches"
 
+                'updates the audience display with team numbers'
+                AudianceDisplay.RedTeam1.Text = table.Rows(0)(0).ToString
+                AudianceDisplay.RedTeam2lbl.Text = table.Rows(0)(1).ToString
+                AudianceDisplay.RedTeam3.Text = table.Rows(0)(2).ToString
+                AudianceDisplay.BlueTeam1lbl.Text = table.Rows(0)(3).ToString
+                AudianceDisplay.BlueTeam2.Text = table.Rows(0)(4).ToString
+                AudianceDisplay.BlueTeam3.Text = table.Rows(0)(5).ToString
+
+                'Updates the team numbers for the pre-match screen'
+                AudianceDisplay.RedTeam1lbl.Text = RedTeam1.Text
+                AudianceDisplay.Red2Lbl.Text = RedTeam2.Text
+                AudianceDisplay.Red3Lbl.Text = RedTeam3.Text
+                AudianceDisplay.Blue1Lbl.Text = BlueTeam1.Text
+                AudianceDisplay.Blue2Lbl.Text = BlueTeam2.Text
+                AudianceDisplay.BlueTeam3.Text = BlueTeam3.Text
+
+                'Updates the audience display with match number'
+                AudianceDisplay.MatchNumb.Text = MatchNum.Text
+                'Updates the audience displays team names'
+                AudianceDisplay.Label2.Text = Schedule_Generator.getTeamName(RedTeam1.Text)
+                AudianceDisplay.Label4.Text = Schedule_Generator.getTeamName(RedTeam2.Text)
+                AudianceDisplay.Label3.Text = Schedule_Generator.getTeamName(RedTeam3.Text)
+                AudianceDisplay.Label7.Text = Schedule_Generator.getTeamName(BlueTeam1.Text)
+                AudianceDisplay.Label6.Text = Schedule_Generator.getTeamName(BlueTeam2.Text)
+                AudianceDisplay.Label5.Text = Schedule_Generator.getTeamName(BlueTeam3.Text)
+
+                AudianceDisplay.Label8.Text = AudianceDisplay.Label2.Text
+                AudianceDisplay.Label9.Text = AudianceDisplay.Label4.Text
+                AudianceDisplay.Label10.Text = AudianceDisplay.Label3.Text
+                AudianceDisplay.Label11.Text = AudianceDisplay.Label7.Text
+                AudianceDisplay.Label12.Text = AudianceDisplay.Label6.Text
+                AudianceDisplay.Label13.Text = AudianceDisplay.Label5.Text
+
+                handleTeamWifiConfiguration()
+                MessageBox.Show("Data Loaded")
+
+            Else
+                MessageBox.Show("Not Loaded")
+
+            End If
+        End If
+
+        'updates the PLC team numbers'
         RedT1 = RedTeam1.Text
         RedT2 = RedTeam2.Text
         RedT3 = RedTeam3.Text
