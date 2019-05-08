@@ -84,26 +84,12 @@ Public Class Main_Panel
 
         'MessageBox.Show("Data Saved")
 
-        Dim red_winner = False
-        Dim blue_winner = False
-
-        If BlueScore < RedScore Then
-            red_winner = True
-        Else
-            blue_winner = True
-        End If
-
         resetScore()
         resetUI()
         Field_Estop = False
 
 
-        If ElimMode = True Then
-            If red_winner = True Then
-                getElimantionResults(MatchNum.Text, True, False, alliance_num2, alliance_num1)
-            End If
 
-        End If
 
     End Sub
 

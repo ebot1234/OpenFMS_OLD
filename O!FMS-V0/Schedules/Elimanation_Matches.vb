@@ -205,7 +205,6 @@ Public Class Elimanation_Matches
         End If
 
         'calculate the second semifinal rounds'
-
         '2nd and 3rd'
         If QF3_win = 2 And QF4_win = 3 And round = 1 Then
             buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal")
