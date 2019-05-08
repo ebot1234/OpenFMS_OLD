@@ -15,11 +15,17 @@ Public Class Elimanation_Matches
 
     Shared blue_wins
     Shared red_wins
+    Shared wins
+
+    Shared QF1_win
+    Shared QF2_win
+    Shared QF3_win
+    Shared QF4_win
 
 
     'This gets the teams from each alliances from the database'
     Shared Function getAllianceTeam(alliance_num As Integer, team_num As String, place As Integer)
-        Dim query As String = String.Format("Select ([{0}]) From alliances Where rank= {0}", team_num, alliance_num)
+        Dim query As String = String.Format("Select {0} From alliances Where rank= {0}", team_num, alliance_num)
         Dim selectData As New SqlCommand(query, connection)
         Dim adapter As New SqlDataAdapter(selectData)
         Dim table As New DataTable()
@@ -32,29 +38,12 @@ Public Class Elimanation_Matches
         Return team
     End Function
 
-    Shared Sub updateQuarterFinalMatches(match_num As Integer, blue_wins As Integer, red_wins As Integer)
-        'This builds the matches for the quarterfinals'
-        If match_num = 1 Then
-            buildElimanationMatch(1, 8, 1, "Quarterfinal")
-        End If
-
-        If match_num = 2 Then
-            buildElimanationMatch(2, 7, 2, "Quarterfinal")
-        End If
-
-        If match_num = 3 Then
-            buildElimanationMatch(3, 6, 3, "Quarterfinal")
-        End If
-
-        If match_num = 4 Then
-            buildElimanationMatch(4, 5, 4, "Quarterfinal")
-        End If
-
-
-    End Sub
-
+    'This is called once to create the first 4 elimanation matches'
     Shared Sub createFirstMatches()
-
+        buildElimanationMatch(1, 8, 1, "Quarterfinal")
+        buildElimanationMatch(4, 5, 2, "Quarterfinal")
+        buildElimanationMatch(2, 7, 3, "Quarterfinal")
+        buildElimanationMatch(3, 6, 4, "Quarterfinal")
     End Sub
 
     'This builds and saves the match'
@@ -76,23 +65,139 @@ Public Class Elimanation_Matches
 
     'This gets the match results and figures out the next needed match'
     Shared Sub getElimantionResults(match_num As Integer, red_win As Integer, blue_win As Integer, blue_alliance As Integer, red_alliance As Integer)
-        Dim saveAllianceQuery As String = ""
+        Dim prev_red_wins = getWins(red_alliance)
+        Dim prev_blue_wins = getWins(blue_alliance)
 
-        If match_num = 0 Then
-            MessageBox.Show("You still need to play the first match")
-        End If
+        'This calculates the total wins'
+        red_wins = red_win + prev_red_wins
+        blue_wins = blue_win + prev_blue_wins
 
-        If match_num = 1 Then
-            'saves the wins to the alliance DB'
-            If blue_win = 1 Then
-                saveAllianceQuery = "UPDATE alliances SET wins = '" & blue_win & "' WHERE rank = '" & blue_alliance & "'"
-                executeQuery(saveAllianceQuery)
-
-            ElseIf blue_win = 2 Then
-                saveAllianceQuery = "UPDATE alliances SET wins = '" & blue_win & "' WHERE rank = '" & blue_alliance & "'"
-                executeQuery(saveAllianceQuery)
+        'Calculate 2nd round wins and replays'
+        If red_alliance = 1 And blue_alliance = 8 Then
+            'if the red team won the 1st then play again'
+            If red_wins = 1 And blue_wins = 0 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 5, "Quarterfinal")
+                'creates a second round'
+            ElseIf red_wins = 0 And blue_wins = 1 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 5, "Quarterfinal")
+                'No rematch since the red team won all matches'
+            ElseIf red_wins = 2 And blue_wins = 0 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                'No rematch since blue team won all matches'
+            ElseIf red_wins = 0 And blue_wins = 2 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+            ElseIf red_wins = 1 And blue_wins = 1 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 9, "Quarterfinal")
             End If
         End If
+
+        If red_alliance = 4 And blue_alliance = 5 Then
+            'if the red team won the 1st then play again'
+            If red_wins = 1 And blue_wins = 0 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 6, "Quarterfinal")
+                'creates a second round'
+            ElseIf red_wins = 0 And blue_wins = 1 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 6, "Quarterfinal")
+                'No rematch since the red team won all matches'
+            ElseIf red_wins = 2 And blue_wins = 0 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                'No rematch since blue team won all matches'
+            ElseIf red_wins = 0 And blue_wins = 2 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+            ElseIf red_wins = 1 And blue_wins = 1 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 10, "Quarterfinal")
+            End If
+        End If
+
+        If red_alliance = 2 And blue_alliance = 7 Then
+            'if the red team won the 1st then play again'
+            If red_wins = 1 And blue_wins = 0 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 7, "Quarterfinal")
+                'creates a second round'
+            ElseIf red_wins = 0 And blue_wins = 1 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 7, "Quarterfinal")
+                'No rematch since the red team won all matches'
+            ElseIf red_wins = 2 And blue_wins = 0 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                'No rematch since blue team won all matches'
+            ElseIf red_wins = 0 And blue_wins = 2 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+            ElseIf red_wins = 1 And blue_wins = 1 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 11, "Quarterfinal")
+            End If
+        End If
+
+        If red_alliance = 3 And blue_alliance = 6 Then
+            'if the red team won the 1st then play again'
+            If red_wins = 1 And blue_wins = 0 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 8, "Quarterfinal")
+                'creates a second round'
+            ElseIf red_wins = 0 And blue_wins = 1 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 8, "Quarterfinal")
+                'No rematch since the red team won all matches'
+            ElseIf red_wins = 2 And blue_wins = 0 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                'No rematch since blue team won all matches'
+            ElseIf red_wins = 0 And blue_wins = 2 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+            ElseIf red_wins = 1 And blue_wins = 1 Then
+                publishWins(red_wins, red_alliance)
+                publishWins(blue_wins, blue_alliance)
+                buildElimanationMatch(red_alliance, blue_alliance, 11, "Quarterfinal")
+            End If
+        End If
+
+        'Calculate the thrid round'
+
+    End Sub
+
+    Shared Function getWins(rank As Integer)
+        Dim getAllianceWins As String = Format("SELECT wins FROM alliances Where rank = {0}", rank)
+        Dim selectData As New SqlCommand(getAllianceWins, connection)
+        Dim adapter As New SqlDataAdapter(selectData)
+        Dim table As New DataTable()
+        adapter.Fill(table)
+
+        If table.Rows.Count > 0 Then
+            wins = table.Rows(0)(0)
+        End If
+
+        Return wins
+    End Function
+
+    Shared Sub publishWins(wins As Integer, alliance As Integer)
+        Dim publish As String = String.Format("UPDATE alliances SET wins = {0} WHERE rank = {1}", wins, alliance)
+        executeQuery(publish)
     End Sub
 
     Shared Sub executeQuery(query As String)
