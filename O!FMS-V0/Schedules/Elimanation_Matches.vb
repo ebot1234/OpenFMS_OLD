@@ -64,7 +64,7 @@ Public Class Elimanation_Matches
     End Sub
 
     'This gets the match results and figures out the next needed match'
-    Shared Sub getElimantionResults(match_num As Integer, red_win As Integer, blue_win As Integer, blue_alliance As Integer, red_alliance As Integer)
+    Shared Sub getElimantionResults(match_num As Integer, red_win As Integer, blue_win As Integer, blue_alliance As Integer, red_alliance As Integer, round As Integer)
         Dim prev_red_wins = getWins(red_alliance)
         Dim prev_blue_wins = getWins(blue_alliance)
 
@@ -185,8 +185,43 @@ Public Class Elimanation_Matches
             End If
         End If
 
-        'Calculate the semifinal rounds'
+        'Calculate the first semifinal rounds'
 
+        '1st and 4th alliance'
+        If QF1_win = 1 And QF2_win = 4 And round = 1 Then
+            buildElimanationMatch(QF1_win, QF2_win, 1, "Semifinal")
+        End If
+        '8th and 5th alliance'
+        If QF1_win = 8 And QF2_win = 5 And round = 1 Then
+            buildElimanationMatch(QF1_win, QF2_win, 1, "Semifinal")
+        End If
+        '1st and 5th alliance'
+        If QF1_win = 1 And QF2_win = 5 And round = 1 Then
+            buildElimanationMatch(QF1_win, QF2_win, 1, "Semifinal")
+        End If
+        ''8th and 5th alliance'
+        If QF1_win = 8 And QF2_win = 4 And round = 1 Then
+            buildElimanationMatch(QF1_win, QF2_win, 1, "Semifinal")
+        End If
+
+        'calculate the second semifinal rounds'
+
+        '2nd and 3rd'
+        If QF3_win = 2 And QF4_win = 3 And round = 1 Then
+            buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal")
+        End If
+        '2nd and 6th'
+        If QF3_win = 2 And QF4_win = 6 And round = 1 Then
+            buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal")
+        End If
+        '7th and 3rd'
+        If QF3_win = 7 And QF4_win = 3 And round = 1 Then
+            buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal")
+        End If
+        '7th and 6th'
+        If QF3_win = 7 And QF4_win = 6 And round = 1 Then
+            buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal")
+        End If
     End Sub
 
     Shared Function getWins(rank As Integer)
