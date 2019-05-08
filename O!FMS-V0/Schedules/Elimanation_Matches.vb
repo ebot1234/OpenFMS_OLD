@@ -72,7 +72,7 @@ Public Class Elimanation_Matches
         red_wins = red_win + prev_red_wins
         blue_wins = blue_win + prev_blue_wins
 
-        'Calculate 2nd round wins and replays'
+        'calculates the quarterfinal rounds'
         If red_alliance = 1 And blue_alliance = 8 Then
             'if the red team won the 1st then play again'
             If red_wins = 1 And blue_wins = 0 Then
@@ -88,10 +88,12 @@ Public Class Elimanation_Matches
             ElseIf red_wins = 2 And blue_wins = 0 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
+                QF1_win = red_alliance
                 'No rematch since blue team won all matches'
             ElseIf red_wins = 0 And blue_wins = 2 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
+                QF1_win = blue_alliance
             ElseIf red_wins = 1 And blue_wins = 1 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
@@ -114,10 +116,12 @@ Public Class Elimanation_Matches
             ElseIf red_wins = 2 And blue_wins = 0 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
+                QF1_win = red_alliance
                 'No rematch since blue team won all matches'
             ElseIf red_wins = 0 And blue_wins = 2 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
+                QF1_win = blue_alliance
             ElseIf red_wins = 1 And blue_wins = 1 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
@@ -140,10 +144,12 @@ Public Class Elimanation_Matches
             ElseIf red_wins = 2 And blue_wins = 0 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
+                QF1_win = red_alliance
                 'No rematch since blue team won all matches'
             ElseIf red_wins = 0 And blue_wins = 2 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
+                QF1_win = blue_alliance
             ElseIf red_wins = 1 And blue_wins = 1 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
@@ -166,10 +172,12 @@ Public Class Elimanation_Matches
             ElseIf red_wins = 2 And blue_wins = 0 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
+                QF1_win = red_alliance
                 'No rematch since blue team won all matches'
             ElseIf red_wins = 0 And blue_wins = 2 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
+                QF1_win = blue_alliance
             ElseIf red_wins = 1 And blue_wins = 1 Then
                 publishWins(red_wins, red_alliance)
                 publishWins(blue_wins, blue_alliance)
@@ -177,7 +185,7 @@ Public Class Elimanation_Matches
             End If
         End If
 
-        'Calculate the thrid round'
+        'Calculate the semifinal rounds'
 
     End Sub
 
