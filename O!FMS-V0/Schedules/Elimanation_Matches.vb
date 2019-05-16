@@ -22,17 +22,27 @@ Public Class Elimanation_Matches
     Shared QF3_win
     Shared QF4_win
 
+    Shared SF1_Tie_breaker As Boolean = False
+    Shared SF2_Tie_breaker As Boolean = False
+
+    Shared SF1_Win
+    Shared SF2_Win
+
+    Shared F_Win
+    Shared F_Tie_Breaker
+
+
 
     'This gets the teams from each alliances from the database'
-    Shared Function getAllianceTeam(alliance_num As Integer, team_num As String, place As Integer)
-        Dim query As String = String.Format("Select {0} From alliances Where rank= {0}", team_num, alliance_num)
+    Shared Function getAllianceTeam(alliance_num As Integer, team_num As String)
+        Dim query As String = String.Format("Select {0} From alliances Where rank= {1}", team_num, alliance_num)
         Dim selectData As New SqlCommand(query, connection)
         Dim adapter As New SqlDataAdapter(selectData)
         Dim table As New DataTable()
         adapter.Fill(table)
 
         If table.Rows.Count > 0 Then
-            team = table.Rows(0)(place)
+            team = table.Rows(0)(0)
         End If
 
         Return team
@@ -49,17 +59,17 @@ Public Class Elimanation_Matches
     'This builds and saves the match'
     Shared Sub buildElimanationMatch(alliance1 As Integer, alliance2 As Integer, match_num As Integer, match_type As String)
         'This gets an alliance'
-        team1 = getAllianceTeam(alliance1, "team1", 1)
-        team2 = getAllianceTeam(alliance1, "team2", 2)
-        team3 = getAllianceTeam(alliance1, "team3", 3)
+        team1 = getAllianceTeam(alliance1, "team1")
+        team2 = getAllianceTeam(alliance1, "team2")
+        team3 = getAllianceTeam(alliance1, "team3")
 
         'This gets the other alliance'
-        team4 = getAllianceTeam(alliance2, "team1", 1)
-        team5 = getAllianceTeam(alliance2, "team2", 2)
-        team6 = getAllianceTeam(alliance2, "team3", 3)
+        team4 = getAllianceTeam(alliance2, "team1")
+        team5 = getAllianceTeam(alliance2, "team2")
+        team6 = getAllianceTeam(alliance2, "team3")
 
         'Build and save the match'
-        Dim saveQuery As String = "INSERT INTO elimanation ([red1], [red2], [red3], [blue1], [blue2], [blue3], [match], [type], [rank1], [rank2]) VALUES ('" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "', '" & match_num & "', '" & match_type & "')"
+        Dim saveQuery As String = "INSERT INTO elimanation ([red1], [red2], [red3], [blue1], [blue2], [blue3], [match], [type]) VALUES ('" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "', '" & match_num & "', '" & match_type & "')"
         executeQuery(saveQuery)
     End Sub
 
@@ -220,6 +230,145 @@ Public Class Elimanation_Matches
         '7th and 6th'
         If QF3_win = 7 And QF4_win = 6 And round = 1 Then
             buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal")
+        End If
+
+        'builds more matches if there are any match repeats
+        If SF1_Tie_breaker = True Then
+            buildElimanationMatch(QF1_win, QF2_win, 1, "Semifinal Tie Breaker")
+        End If
+
+        If SF2_Tie_breaker = True Then
+            buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal Tie Breaker")
+        End If
+
+        'Generates the 1st round elimanation matches (final)
+        If SF1_Win = 1 And SF2_Win = 2 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 1 And SF2_Win = 7 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 1 And SF2_Win = 3 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 1 And SF2_Win = 6 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 8 And SF2_Win = 2 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 8 And SF2_Win = 7 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 8 And SF2_Win = 3 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 8 And SF2_Win = 6 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 4 And SF2_Win = 2 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 4 And SF2_Win = 7 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 4 And SF2_Win = 3 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 4 And SF2_Win = 6 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 5 And SF2_Win = 2 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 5 And SF2_Win = 7 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 5 And SF2_Win = 3 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 5 And SF2_Win = 6 And round = 2 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        'Generates the second round (final)
+        If SF1_Win = 1 And SF2_Win = 2 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 1 And SF2_Win = 7 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 1 And SF2_Win = 3 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 1 And SF2_Win = 6 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 8 And SF2_Win = 2 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 8 And SF2_Win = 7 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 8 And SF2_Win = 3 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 8 And SF2_Win = 6 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 4 And SF2_Win = 2 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 4 And SF2_Win = 7 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 4 And SF2_Win = 3 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 4 And SF2_Win = 6 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 5 And SF2_Win = 2 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 5 And SF2_Win = 7 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 5 And SF2_Win = 3 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
+        End If
+
+        If SF1_Win = 5 And SF2_Win = 6 And round = 3 Then
+            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
         End If
     End Sub
 

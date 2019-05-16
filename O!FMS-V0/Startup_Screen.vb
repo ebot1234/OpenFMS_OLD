@@ -12,7 +12,7 @@ Public Class Startup_Screen
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Main_Panel.Show()
-        'Add the main panel switching to elim mode'
+        ElimMode = True
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click

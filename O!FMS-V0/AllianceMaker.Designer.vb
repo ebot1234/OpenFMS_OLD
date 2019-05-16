@@ -71,6 +71,7 @@ Partial Class AllianceMaker
         Me.TextBox31 = New System.Windows.Forms.TextBox()
         Me.TextBox32 = New System.Windows.Forms.TextBox()
         Me.TextBox33 = New System.Windows.Forms.TextBox()
+        Me.Button9 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -451,11 +452,22 @@ Partial Class AllianceMaker
         Me.TextBox33.Size = New System.Drawing.Size(100, 20)
         Me.TextBox33.TabIndex = 49
         '
+        'Button9
+        '
+        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.Location = New System.Drawing.Point(183, 336)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(273, 49)
+        Me.Button9.TabIndex = 50
+        Me.Button9.Text = "Create Elimation Matches"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
         'AllianceMaker
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(655, 370)
+        Me.ClientSize = New System.Drawing.Size(655, 397)
+        Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.TextBox33)
         Me.Controls.Add(Me.TextBox32)
         Me.Controls.Add(Me.TextBox31)
@@ -561,4 +573,5 @@ Partial Class AllianceMaker
     Friend WithEvents TextBox31 As TextBox
     Friend WithEvents TextBox32 As TextBox
     Friend WithEvents TextBox33 As TextBox
+    Friend WithEvents Button9 As Button
 End Class

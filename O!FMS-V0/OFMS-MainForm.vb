@@ -88,7 +88,10 @@ Public Class Main_Panel
         resetUI()
         Field_Estop = False
 
-
+        If ElimMode = True Then
+            Dim insertQuery As String = "INSERT INTO elimanationResults([red1], [red2], [red3], [blue1], [blue2], [blue3], [match], [type], [redscore], [bluescore]) VALUES('" & RedTeam1.Text & "', '" & RedTeam2.Text & "', '" & RedTeam3.Text & "', '" & BlueTeam1.Text & "', '" & BlueTeam2.Text & "', '" & BlueTeam3.Text & "', '" & MatchNum.Text & "', '" & AudianceDisplay.Label1.Text & "', '" & RedScore.ToString & "', '" & BlueScore.ToString & "')"
+            ExecuteQuery(insertQuery)
+        End If
 
 
     End Sub
@@ -189,7 +192,7 @@ Public Class Main_Panel
                 BlueTeam1.Text = table.Rows(0)(3)
                 BlueTeam2.Text = table.Rows(0)(4)
                 BlueTeam3.Text = table.Rows(0)(5)
-                AudianceDisplay.Label1.Text = "Elimantion Matches"
+                AudianceDisplay.Label1.Text = table.Rows(0)(7)
 
                 'updates the audience display with team numbers'
                 AudianceDisplay.RedTeam1.Text = table.Rows(0)(0).ToString
