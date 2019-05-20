@@ -41,6 +41,7 @@ Public Class Field
         EndGame
         PostMatch
         AbortMatch
+        Complete
     End Enum
 
     Public Shared Sub HandleDSConnections()

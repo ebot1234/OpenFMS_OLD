@@ -50,6 +50,6 @@ Public Class AllianceMaker
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        createFirstMatches()
+        'createFirstMatches()
     End Sub
 End Class

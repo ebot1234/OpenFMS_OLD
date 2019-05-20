@@ -53,6 +53,10 @@ Public Class Main_Panel
     Public Shared BlueClimbScore As Integer
     Public Shared BlueRankingPoints As Integer
 
+    Public Shared redWin
+    Public Shared blueWin
+    Public Shared tie
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
         Timer1.Interval = 1000 '1 seconds
@@ -91,11 +95,28 @@ Public Class Main_Panel
         If ElimMode = True Then
             Dim insertQuery As String = "INSERT INTO elimanationResults([red1], [red2], [red3], [blue1], [blue2], [blue3], [match], [type], [redscore], [bluescore]) VALUES('" & RedTeam1.Text & "', '" & RedTeam2.Text & "', '" & RedTeam3.Text & "', '" & BlueTeam1.Text & "', '" & BlueTeam2.Text & "', '" & BlueTeam3.Text & "', '" & MatchNum.Text & "', '" & AudianceDisplay.Label1.Text & "', '" & RedScore.ToString & "', '" & BlueScore.ToString & "')"
             ExecuteQuery(insertQuery)
+
+
         End If
 
 
     End Sub
+    Sub calculateWinner()
+        'If the blue wins
+        If RedScore < BlueScore Then
+            blueWin = 1
+        End If
 
+        'if red wins
+        If RedScore > BlueScore Then
+            redWin = 1
+        End If
+
+        If RedScore = BlueScore Then
+            blueWin = 1
+            redWin = 1
+        End If
+    End Sub
     Sub resetUI()
         Red1Bypass = False
         Red2Bypass = False

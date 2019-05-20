@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Imports O_FMS_V0.Main_Panel
+Imports O_FMS_V0.Match
 
 
 Public Class Elimanation_Matches
@@ -34,343 +34,174 @@ Public Class Elimanation_Matches
 
 
     'This gets the teams from each alliances from the database'
-    Shared Function getAllianceTeam(alliance_num As Integer, team_num As String)
-        Dim query As String = String.Format("Select {0} From alliances Where rank= {1}", team_num, alliance_num)
+    Shared Function getAllianceTeam(alliance_num As Integer, team_placement As Integer)
+        Dim query As String = String.Format("Select * From alliances Where rank= {0}", alliance_num)
         Dim selectData As New SqlCommand(query, connection)
         Dim adapter As New SqlDataAdapter(selectData)
         Dim table As New DataTable()
         adapter.Fill(table)
 
         If table.Rows.Count > 0 Then
-            team = table.Rows(0)(0)
+            team = table.Rows(0)(team_placement)
         End If
 
         Return team
     End Function
 
-    'This is called once to create the first 4 elimanation matches'
-    Shared Sub createFirstMatches()
-        buildElimanationMatch(1, 8, 1, "Quarterfinal")
-        buildElimanationMatch(4, 5, 2, "Quarterfinal")
-        buildElimanationMatch(2, 7, 3, "Quarterfinal")
-        buildElimanationMatch(3, 6, 4, "Quarterfinal")
+    Public Shared Function buildElimanationMatch(round As Integer, group As Integer, numAlliances As Integer)
+        If numAlliances < 2 Then
+            MessageBox.Show("Too little alliances")
+        End If
+
+        Dim redAlliance(3) As Integer
+        Dim blueAlliance(3) As Integer
+
+        If numAlliances < 4 * round Then
+            Dim matchups() As Integer = {1, 16, 8, 9, 4, 13, 5, 12, 2, 15, 7, 10, 3, 14, 6, 11}
+            Dim factor = Len(matchups) / round
+            Dim redAllianceNumber = matchups((group - 1) * factor)
+            Dim blueAllianceNumber = matchups((group - 1) * factor + factor / 2)
+            Dim numDirectAlliances = 4 * round - numAlliances
+
+            If redAllianceNumber <= numDirectAlliances Then
+                redAlliance(0) = getAllianceTeam(redAllianceNumber, 1)
+                redAlliance(1) = getAllianceTeam(redAllianceNumber, 2)
+                redAlliance(2) = getAllianceTeam(redAllianceNumber, 3)
+            End If
+
+            If blueAllianceNumber <= numDirectAlliances Then
+                blueAlliance(0) = getAllianceTeam(blueAllianceNumber, 1)
+                blueAlliance(1) = getAllianceTeam(blueAllianceNumber, 2)
+                blueAlliance(2) = getAllianceTeam(blueAllianceNumber, 3)
+            End If
+        End If
+
+        If Len(redAlliance) = 0 Then
+            redAlliance = buildElimanationMatch(round * 2, group * 2 - 1, numAlliances)
+        End If
+
+        If Len(blueAlliance) = 0 Then
+            blueAlliance = buildElimanationMatch(round * 2, group * 2 - 1, numAlliances)
+        End If
+
+
+        If Len(redAlliance) = 0 And Len(blueAlliance) = 0 Then
+            Return Nothing
+        End If
+
+        Dim redWins As Integer
+        Dim blueWins As Integer
+        Dim numIncomplete As Integer
+        'Fix this ties definition'
+        Dim ties As Integer
+        Dim matches = GetMatchesByElimGroup(round, group)
+
+        If matches IsNot Nothing Then
+            Return Nothing
+        End If
+        'fix this defiinition
+        Dim unplayedMatches
+
+        For Each Match In matches
+            If Field.fieldStatus <> Field.MatchEnums.Complete Then
+                If Len(redAlliance) <> 0 Then
+                    positionRedTeams(redAlliance)
+                    'Save Match'
+                End If
+
+                If Len(blueAlliance) <> 0 Then
+                    positionBlueTeams(blueAlliance)
+                    'Save Match'
+                End If
+
+                unplayedMatches = Match
+                numIncomplete += 1
+            End If
+
+            reorderTeams(team1, team2, team3, redAlliance)
+            reorderTeams(team4, team5, team6, blueAlliance)
+
+            Select Case Match.Winner
+                Case "R"
+                    redWins += 1
+                Case "B"
+                    blueWins += 1
+                Case "T"
+                    ties = Match
+                Case Else
+                    MessageBox.Show("Match has no winner this is a problem")
+            End Select
+        Next
+
+        If redWins = 2 Or blueWins = 2 Then
+            For Each Match In unplayedMatches
+                'Delete Match'  
+
+                If redWins = 2 Then
+                    Return redAlliance
+                Else
+                    Return blueAlliance
+                End If
+            Next
+        End If
+
+        If Len(matches) = 0 Or Len(ties) = 0 And numIncomplete = 0 Then
+            If Len(redAlliance) = 0 Then
+                redAlliance = {0, 0, 0}
+            ElseIf Len(blueAlliance) = 0 Then
+                blueAlliance = {0, 0, 0}
+            End If
+
+            If Len(redAlliance) < 3 Or Len(blueAlliance) < 3 Then
+                MessageBox.Show("An alliance must have at least 3 teams")
+            End If
+
+            If Len(matches) < 1 Then
+                'Create match'
+            End If
+
+            If Len(matches) < 2 Then
+                'Create match
+            End If
+
+            If Len(matches) < 3 Then
+                'Create match
+            End If
+        End If
+
+        If numIncomplete = 0 Then
+            For index As Integer = 0 To ties
+                'Create match CreateMatch(createMatch(roundName, round, group, len(matches)+index+1, redAlliance, blueAlliance))
+            Next
+        End If
+
+        Return Nothing
+    End Function
+
+    Public Shared Sub positionRedTeams(alliance() As Integer)
+        team1 = alliance(0)
+        team2 = alliance(1)
+        team3 = alliance(2)
     End Sub
 
-    'This builds and saves the match'
-    Shared Sub buildElimanationMatch(alliance1 As Integer, alliance2 As Integer, match_num As Integer, match_type As String)
-        'This gets an alliance'
-        team1 = getAllianceTeam(alliance1, "team1")
-        team2 = getAllianceTeam(alliance1, "team2")
-        team3 = getAllianceTeam(alliance1, "team3")
-
-        'This gets the other alliance'
-        team4 = getAllianceTeam(alliance2, "team1")
-        team5 = getAllianceTeam(alliance2, "team2")
-        team6 = getAllianceTeam(alliance2, "team3")
-
-        'Build and save the match'
-        Dim saveQuery As String = "INSERT INTO elimanation ([red1], [red2], [red3], [blue1], [blue2], [blue3], [match], [type]) VALUES ('" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "', '" & match_num & "', '" & match_type & "')"
-        executeQuery(saveQuery)
+    Public Shared Sub positionBlueTeams(alliance() As Integer)
+        team4 = alliance(0)
+        team5 = alliance(1)
+        team6 = alliance(2)
     End Sub
 
-    'This gets the match results and figures out the next needed match'
-    Shared Sub getElimantionResults(match_num As Integer, red_win As Integer, blue_win As Integer, blue_alliance As Integer, red_alliance As Integer, round As Integer)
-        Dim prev_red_wins = getWins(red_alliance)
-        Dim prev_blue_wins = getWins(blue_alliance)
+    Public Shared Sub createMatch(roundName As String, round As Integer, group As Integer, instance As Integer, redAlliance() As Integer, blueAlliance() As Integer)
+        Dim matchs = 
 
-        'This calculates the total wins'
-        red_wins = red_win + prev_red_wins
-        blue_wins = blue_win + prev_blue_wins
-
-        'calculates the quarterfinal rounds'
-        If red_alliance = 1 And blue_alliance = 8 Then
-            'if the red team won the 1st then play again'
-            If red_wins = 1 And blue_wins = 0 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 5, "Quarterfinal")
-                'creates a second round'
-            ElseIf red_wins = 0 And blue_wins = 1 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 5, "Quarterfinal")
-                'No rematch since the red team won all matches'
-            ElseIf red_wins = 2 And blue_wins = 0 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                QF1_win = red_alliance
-                'No rematch since blue team won all matches'
-            ElseIf red_wins = 0 And blue_wins = 2 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                QF1_win = blue_alliance
-            ElseIf red_wins = 1 And blue_wins = 1 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 9, "Quarterfinal")
-            End If
-        End If
-
-        If red_alliance = 4 And blue_alliance = 5 Then
-            'if the red team won the 1st then play again'
-            If red_wins = 1 And blue_wins = 0 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 6, "Quarterfinal")
-                'creates a second round'
-            ElseIf red_wins = 0 And blue_wins = 1 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 6, "Quarterfinal")
-                'No rematch since the red team won all matches'
-            ElseIf red_wins = 2 And blue_wins = 0 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                QF1_win = red_alliance
-                'No rematch since blue team won all matches'
-            ElseIf red_wins = 0 And blue_wins = 2 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                QF1_win = blue_alliance
-            ElseIf red_wins = 1 And blue_wins = 1 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 10, "Quarterfinal")
-            End If
-        End If
-
-        If red_alliance = 2 And blue_alliance = 7 Then
-            'if the red team won the 1st then play again'
-            If red_wins = 1 And blue_wins = 0 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 7, "Quarterfinal")
-                'creates a second round'
-            ElseIf red_wins = 0 And blue_wins = 1 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 7, "Quarterfinal")
-                'No rematch since the red team won all matches'
-            ElseIf red_wins = 2 And blue_wins = 0 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                QF1_win = red_alliance
-                'No rematch since blue team won all matches'
-            ElseIf red_wins = 0 And blue_wins = 2 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                QF1_win = blue_alliance
-            ElseIf red_wins = 1 And blue_wins = 1 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 11, "Quarterfinal")
-            End If
-        End If
-
-        If red_alliance = 3 And blue_alliance = 6 Then
-            'if the red team won the 1st then play again'
-            If red_wins = 1 And blue_wins = 0 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 8, "Quarterfinal")
-                'creates a second round'
-            ElseIf red_wins = 0 And blue_wins = 1 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 8, "Quarterfinal")
-                'No rematch since the red team won all matches'
-            ElseIf red_wins = 2 And blue_wins = 0 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                QF1_win = red_alliance
-                'No rematch since blue team won all matches'
-            ElseIf red_wins = 0 And blue_wins = 2 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                QF1_win = blue_alliance
-            ElseIf red_wins = 1 And blue_wins = 1 Then
-                publishWins(red_wins, red_alliance)
-                publishWins(blue_wins, blue_alliance)
-                buildElimanationMatch(red_alliance, blue_alliance, 11, "Quarterfinal")
-            End If
-        End If
-
-        'Calculate the first semifinal rounds'
-
-        '1st and 4th alliance'
-        If QF1_win = 1 And QF2_win = 4 And round = 1 Then
-            buildElimanationMatch(QF1_win, QF2_win, 1, "Semifinal")
-        End If
-        '8th and 5th alliance'
-        If QF1_win = 8 And QF2_win = 5 And round = 1 Then
-            buildElimanationMatch(QF1_win, QF2_win, 1, "Semifinal")
-        End If
-        '1st and 5th alliance'
-        If QF1_win = 1 And QF2_win = 5 And round = 1 Then
-            buildElimanationMatch(QF1_win, QF2_win, 1, "Semifinal")
-        End If
-        ''8th and 5th alliance'
-        If QF1_win = 8 And QF2_win = 4 And round = 1 Then
-            buildElimanationMatch(QF1_win, QF2_win, 1, "Semifinal")
-        End If
-
-        'calculate the second semifinal rounds'
-        '2nd and 3rd'
-        If QF3_win = 2 And QF4_win = 3 And round = 1 Then
-            buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal")
-        End If
-        '2nd and 6th'
-        If QF3_win = 2 And QF4_win = 6 And round = 1 Then
-            buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal")
-        End If
-        '7th and 3rd'
-        If QF3_win = 7 And QF4_win = 3 And round = 1 Then
-            buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal")
-        End If
-        '7th and 6th'
-        If QF3_win = 7 And QF4_win = 6 And round = 1 Then
-            buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal")
-        End If
-
-        'builds more matches if there are any match repeats
-        If SF1_Tie_breaker = True Then
-            buildElimanationMatch(QF1_win, QF2_win, 1, "Semifinal Tie Breaker")
-        End If
-
-        If SF2_Tie_breaker = True Then
-            buildElimanationMatch(QF3_win, QF4_win, 2, "Semifinal Tie Breaker")
-        End If
-
-        'Generates the 1st round elimanation matches (final)
-        If SF1_Win = 1 And SF2_Win = 2 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 1 And SF2_Win = 7 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 1 And SF2_Win = 3 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 1 And SF2_Win = 6 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 8 And SF2_Win = 2 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 8 And SF2_Win = 7 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 8 And SF2_Win = 3 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 8 And SF2_Win = 6 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 4 And SF2_Win = 2 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 4 And SF2_Win = 7 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 4 And SF2_Win = 3 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 4 And SF2_Win = 6 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 5 And SF2_Win = 2 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 5 And SF2_Win = 7 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 5 And SF2_Win = 3 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 5 And SF2_Win = 6 And round = 2 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        'Generates the second round (final)
-        If SF1_Win = 1 And SF2_Win = 2 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 1 And SF2_Win = 7 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 1 And SF2_Win = 3 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 1 And SF2_Win = 6 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 8 And SF2_Win = 2 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 8 And SF2_Win = 7 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 8 And SF2_Win = 3 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 8 And SF2_Win = 6 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 4 And SF2_Win = 2 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 4 And SF2_Win = 7 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 4 And SF2_Win = 3 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 4 And SF2_Win = 6 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 5 And SF2_Win = 2 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 5 And SF2_Win = 7 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 5 And SF2_Win = 3 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
-
-        If SF1_Win = 5 And SF2_Win = 6 And round = 3 Then
-            buildElimanationMatch(SF1_Win, SF2_Win, 1, "Finals Match")
-        End If
     End Sub
+
+    Public Shared Function reorderTeams(t1 As Integer, t2 As Integer, t3 As Integer, alliance() As Integer)
+        Return 0
+    End Function
+
+    Shared Function GetMatchesByElimGroup(round As Integer, group As String)
+
+    End Function
 
     Shared Function getWins(rank As Integer)
         Dim getAllianceWins As String = Format("SELECT wins FROM alliances Where rank = {0}", rank)

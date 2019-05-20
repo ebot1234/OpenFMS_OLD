@@ -21,7 +21,7 @@ Public Class Match
     Public Blue3IsSurragate As Boolean
     Public Status As String
     Public StartedAt As DateTime
-    Public Winner As String
+    Public Shared Winner As String
     Public GameSpecificData As String
 
     Public ElimRoundNames As String = 1 = "F" & 2 = "SF" & 4 = "QF" & 8 = "EF"
