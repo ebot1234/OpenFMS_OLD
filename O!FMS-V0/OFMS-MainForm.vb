@@ -56,6 +56,9 @@ Public Class Main_Panel
     Public Shared redWin
     Public Shared blueWin
     Public Shared tie
+    Public Shared alliance1
+    Public Shared alliance2
+    Public Shared type
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
@@ -93,7 +96,8 @@ Public Class Main_Panel
         Field_Estop = False
 
         If ElimMode = True Then
-            Dim insertQuery As String = "INSERT INTO elimanationResults([red1], [red2], [red3], [blue1], [blue2], [blue3], [match], [type], [redscore], [bluescore]) VALUES('" & RedTeam1.Text & "', '" & RedTeam2.Text & "', '" & RedTeam3.Text & "', '" & BlueTeam1.Text & "', '" & BlueTeam2.Text & "', '" & BlueTeam3.Text & "', '" & MatchNum.Text & "', '" & AudianceDisplay.Label1.Text & "', '" & RedScore.ToString & "', '" & BlueScore.ToString & "')"
+            calculateWinner()
+            Dim insertQuery As String = "INSERT INTO elimanationResults([alliance1], [alliance2], [round], [type], [red1], [red2], [red3], [blue1], [blue2], [blue3], [redscore], [bluescore]) VALUES('" & alliance1 & "', '" & alliance2 & "', '" & MatchNum.Text & "', '" & type & "', '" & RedTeam1.Text & "', '" & RedTeam2.Text & "', '" & RedTeam3.Text & "', '" & BlueTeam1.Text & "', '" & BlueTeam2.Text & "', '" & BlueTeam3.Text & "', '" & MatchNum.Text & "', '" & AudianceDisplay.Label1.Text & "', '" & RedScore.ToString & "', '" & BlueScore.ToString & "')"
             ExecuteQuery(insertQuery)
 
 
