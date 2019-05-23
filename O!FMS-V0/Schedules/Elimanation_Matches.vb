@@ -19,7 +19,10 @@ Public Class Elimanation_Matches
     Shared alliance2Num
     Shared round
     Shared type
-
+    Shared QF1_Winner
+    Shared QF2_Winner
+    Shared QF3_Winner
+    Shared QF4_Winner
 
     'This gets the teams from each alliances from the database'
     Shared Function getAllianceTeam(alliance_num As Integer, team_placement As Integer)
@@ -36,66 +39,64 @@ Public Class Elimanation_Matches
         Return team
     End Function
 
-    Public Shared Sub updateElimanationMatches(Tie As Boolean)
-        Dim getQuery As String = "SELECT * FROM ElimanationResults"
-        Dim selectData As New SqlCommand(getQuery, connection)
+    Shared Function getUnplayedMatches()
+        Dim match = ""
+        Dim query As String = "SELECT * FROM ElimanationResults Where Status = Complete"
+        Dim selectData As New SqlCommand(query, connection)
         Dim adapter As New SqlDataAdapter(selectData)
         Dim table As New DataTable()
         adapter.Fill(table)
 
         If table.Rows.Count > 0 Then
-            alliance1Num = table.Rows(0)(0)
-            alliance2Num = table.Rows(0)(1)
-            round = table.Rows(0)(2)
-            type = table.Rows(0)(3)
+            match = table.Rows(0)(11)
         End If
 
-        'This switches for the next round of QF matches'
-        If type = "QF" And round = 4 Then
-            If alliance1Num = 3 And alliance2Num = 6 Then
-                alliance1Num = 1 And alliance2Num = 8
-            End If
+        Return match
+    End Function
+
+    'This creates all the first elimanation matches to start the elimanation matches'
+    Public Shared Sub createFirstElimanationMatches()
+        buildQuarterFinalMatch(1, "QF-1", 1, 8)
+        buildQuarterFinalMatch(2, "QF-2", 2, 7)
+        buildQuarterFinalMatch(3, "QF-3", 3, 6)
+        buildQuarterFinalMatch(4, "QF-4", 4, 5)
+        buildQuarterFinalMatch(5, "QF-5", 1, 8)
+        buildQuarterFinalMatch(6, "QF-6", 2, 7)
+        buildQuarterFinalMatch(7, "QF-7", 3, 6)
+        buildQuarterFinalMatch(8, "QF-8", 4, 5)
+    End Sub
+
+    Public Shared Sub updateQuarterFinalMatches()
+        Dim alliance1Wins = getWins(1)
+        Dim alliance2Wins = getWins(2)
+        Dim alliance3Wins = getWins(3)
+        Dim alliance4Wins = getWins(4)
+        Dim alliance5Wins = getWins(5)
+        Dim alliance6Wins = getWins(6)
+        Dim alliance7Wins = getWins(7)
+        Dim alliance8Wins = getWins(8)
+
+        If alliance1Wins > alliance2Wins Then
+
         End If
 
-        'This increments the round number to match the next match
-        round = round + 1
-
-            'This switches between the match types from the tie and round values
-            If type = "QF" And round > 8 And Tie = True Then
-                round = round - 8
-                type = "QF-Tie"
-            End If
-
-            If type = "SF" And round > 4 And Tie = True Then
-                round = round - 4
-                type = "SF-Tie"
-            End If
-
-            If type = "F" And round > 2 And Tie = True Then
-                round = round - 2
-                type = "F-Tie"
-            End If
-
-            buildElimanationMatch(round, type, alliance1Num, alliance2Num)
     End Sub
 
-    Public Shared Sub buildElimanationMatch(round As Integer, type As String, alliance1 As Integer, alliance2 As Integer)
-        'This switches between the match type
-        Select Case type
-            Case "QF"
-                buildQuarterFinalMatch(round, type, alliance1, alliance2)
-            Case "QF-Tie"
-                buildQuarterFinalMatch(round, type, alliance1, alliance2)
-            Case "SF"
-                buildSemifinalMatch(round, type, alliance1, alliance2)
-            Case "SF-Tie"
-                buildSemifinalMatch(round, type, alliance1, alliance2)
-            Case "F"
-                buildFinalMatch(round, type, alliance1, alliance2)
-            Case "F-Tie"
-                buildFinalMatch(round, type, alliance1, alliance2)
-        End Select
-    End Sub
+    Public Shared Function getWins(alliance1 As Integer)
+        Dim wins As Integer = 0
+        Dim getQuery As String = String.Format("SELECT ([Wins]) FROM alliances Where alliance = {0}", alliance1)
+        Dim selectQuery As New SqlCommand(getQuery, connection)
+        Dim adpater As New SqlDataAdapter(selectQuery)
+        Dim table As New DataTable()
+        adpater.Fill(table)
+
+        If table.Rows.Count > 0 Then
+            wins = table.Rows(0)(0)
+        End If
+
+        Return wins
+    End Function
+
 
     Public Shared Sub buildFinalMatch(round As Integer, type As String, alliance1 As Integer, alliance2 As Integer)
         team1 = getAllianceTeam(alliance1, 1)
@@ -106,12 +107,7 @@ Public Class Elimanation_Matches
         team6 = getAllianceTeam(alliance2, 3)
 
         Dim insertQuery As String = ""
-
-        If round > 2 Then
-            insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES (Final Tiebreaker, '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
-        Else
-            insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES (Final, '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
-        End If
+        insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
 
         executeQuery(insertQuery)
     End Sub
@@ -125,12 +121,7 @@ Public Class Elimanation_Matches
         team6 = getAllianceTeam(alliance2, 3)
 
         Dim insertQuery As String = ""
-
-        If round > 4 Then
-            insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES (Semifinal Tiebreaker, '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
-        Else
-            insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES (Semifinal, '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
-        End If
+        insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
 
         executeQuery(insertQuery)
     End Sub
@@ -144,73 +135,15 @@ Public Class Elimanation_Matches
         team6 = getAllianceTeam(alliance2, 3)
 
         Dim insertQuery As String = ""
-
-        If type = "QF-Tie" Then
-            insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES (Quarterfinal Tiebreaker, '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
-        Else
-            insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES (Quarterfinal, '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
-        End If
+        insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
 
         executeQuery(insertQuery)
     End Sub
-
-    Public Shared Sub positionRedTeams(alliance() As Integer)
-        team1 = alliance(0)
-        team2 = alliance(1)
-        team3 = alliance(2)
-    End Sub
-
-    Public Shared Sub positionBlueTeams(alliance() As Integer)
-        team4 = alliance(0)
-        team5 = alliance(1)
-        team6 = alliance(2)
-    End Sub
-
-    Public Shared Function GetMatchesByElimGroup(group As Integer, round As Integer)
-        Dim selectQuery As String = String.Format("SELECT match FROM elimanation Where group = {0}", group)
-        'return the result of the query from elim match progress table
-    End Function
-
-    Public Shared Sub createMatch(roundName As Integer, round As Integer, group As Integer, instance As Integer, redAlliance() As Integer, blueAlliance() As Integer)
-        If round = -1 Then
-            round = "Tie Breaker"
-        End If
-
-        positionRedTeams(redAlliance)
-        positionBlueTeams(blueAlliance)
-
-        Dim insertQuery As String = String.Format("INSERT INTO elimanation ([round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES ('" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')")
-        executeQuery(insertQuery)
-    End Sub
-
-    Public Shared Function reorderTeams(t1 As Integer, t2 As Integer, t3 As Integer, alliance() As Integer)
-        Return 0
-    End Function
 
     Shared Sub publishWins(wins As Integer, alliance As Integer)
         Dim publish As String = String.Format("UPDATE alliances SET wins = {0} WHERE rank = {1}", wins, alliance)
         executeQuery(publish)
     End Sub
-
-    Shared Function getUnplayedMatches()
-        Dim amount = 0
-        Dim result As String = ""
-        Dim getQuery As String = String.Format("SELECT Match From elimanation")
-        Dim selectData As New SqlCommand(getQuery, connection)
-        Dim adapter As New SqlDataAdapter(selectData)
-        Dim table As New DataTable()
-        adapter.Fill(table)
-
-        If table.Rows.Count > 0 Then
-            For Each row In table.Rows
-                result = table.Rows(amount)(0)
-                amount = amount + 1
-            Next
-
-        End If
-
-        Return result
-    End Function
 
     Shared Sub executeQuery(query As String)
         Dim command As New SqlCommand(query, connection)

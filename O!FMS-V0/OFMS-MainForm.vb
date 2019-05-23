@@ -96,31 +96,51 @@ Public Class Main_Panel
         Field_Estop = False
 
         If ElimMode = True Then
-            calculateWinner()
-            Dim insertQuery As String = "INSERT INTO elimanationResults([alliance1], [alliance2], [round], [type], [red1], [red2], [red3], [blue1], [blue2], [blue3], [redscore], [bluescore]) VALUES('" & alliance1 & "', '" & alliance2 & "', '" & MatchNum.Text & "', '" & type & "', '" & RedTeam1.Text & "', '" & RedTeam2.Text & "', '" & RedTeam3.Text & "', '" & BlueTeam1.Text & "', '" & BlueTeam2.Text & "', '" & BlueTeam3.Text & "', '" & MatchNum.Text & "', '" & AudianceDisplay.Label1.Text & "', '" & RedScore.ToString & "', '" & BlueScore.ToString & "')"
+            Dim insertQuery As String = "INSERT INTO ElimanationResults([alliance1], [alliance2], [round], [type], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES('" & alliance1 & "', '" & alliance2 & "', '" & MatchNum.Text & "', '" & type & "', '" & RedTeam1.Text & "', '" & RedTeam2.Text & "', '" & RedTeam3.Text & "', '" & BlueTeam1.Text & "', '" & BlueTeam2.Text & "', '" & BlueTeam3.Text & "', '" & MatchNum.Text & "', '" & AudianceDisplay.Label1.Text & "')"
             ExecuteQuery(insertQuery)
+
+            Dim winner = calculateWinner()
+            'This updates the wins in the alliances columns'
+            Dim insertWins As String = ""
+            If winner = "Red" Then
+                Dim amount = getWins(alliance1) + 1
+                insertWins = "UPDATE alliances SET wins = '" & amount & "' Where rank = '" & alliance1 & "')"
+                ExecuteQuery(insertQuery)
+            ElseIf winner = "Blue" Then
+                Dim amount = getWins(alliance2) + 1
+                insertWins = "UPDATE alliances SET wins = '" & amount & "' Where rank = '" & alliance2 & "')"
+                ExecuteQuery(insertQuery)
+            ElseIf winner = "tie" Then
+                Dim amount1 = getWins(alliance1)
+                Dim amount2 = getWins(alliance2)
+                insertWins = "UPDATE alliances SET wins = '" & amount1 & "' Where rank = '" & alliance1 & "')"
+                ExecuteQuery(insertQuery)
+                insertWins = "UPDATE alliances SET wins = '" & amount2 & "' Where rank = '" & alliance2 & "')"
+                ExecuteQuery(insertQuery)
+            End If
 
 
         End If
 
-
     End Sub
-    Sub calculateWinner()
+    Function calculateWinner()
+        Dim winner = ""
         'If the blue wins
         If RedScore < BlueScore Then
-            blueWin = 1
+            winner = "Blue"
         End If
 
         'if red wins
         If RedScore > BlueScore Then
-            redWin = 1
+            winner = "Red"
+        End If
+        'if there is a tie
+        If RedScore = BlueScore Then
+            winner = "Tie"
         End If
 
-        If RedScore = BlueScore Then
-            blueWin = 1
-            redWin = 1
-        End If
-    End Sub
+        Return winner
+    End Function
     Sub resetUI()
         Red1Bypass = False
         Red2Bypass = False
