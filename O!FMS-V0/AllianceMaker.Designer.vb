@@ -459,7 +459,7 @@ Partial Class AllianceMaker
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(273, 49)
         Me.Button9.TabIndex = 50
-        Me.Button9.Text = "Create Elimation Matches"
+        Me.Button9.Text = "Create Elimination Matches"
         Me.Button9.UseVisualStyleBackColor = True
         '
         'AllianceMaker

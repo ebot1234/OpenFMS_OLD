@@ -2,7 +2,7 @@
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.Field
 Imports O_FMS_V0.AccessPoint
-Imports O_FMS_V0.Elimanation_Matches
+Imports O_FMS_V0.Elimination_Matches
 
 
 Public Class Main_Panel
@@ -119,9 +119,19 @@ Public Class Main_Panel
                 ExecuteQuery(insertQuery)
             End If
 
+            If MatchNum.Text = 8 And type = "QF-8" Then
+                updateQuarterFinalMatches(9)
+            End If
+
+            If MatchNum.Text = 4 And type = "SF-4" Then
+                updateSemifinalMatches(5)
+            End If
+
+            If MatchNum.Text = 2 And type = "F-2" Then
+                updateFinalMatches(3)
+            End If
 
         End If
-
     End Sub
     Function calculateWinner()
         Dim winner = ""
