@@ -56,9 +56,9 @@ Public Class Main_Panel
     Public Shared redWin
     Public Shared blueWin
     Public Shared tie
-    Public Shared alliance1
-    Public Shared alliance2
-    Public Shared type
+    Public Shared alliance1 As String
+    Public Shared alliance2 As String
+    Public Shared type As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
@@ -91,47 +91,49 @@ Public Class Main_Panel
 
         'MessageBox.Show("Data Saved")
 
-        resetScore()
-        resetUI()
-        Field_Estop = False
-
         If ElimMode = True Then
-            Dim insertQuery As String = "INSERT INTO ElimanationResults([alliance1], [alliance2], [round], [type], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES('" & alliance1 & "', '" & alliance2 & "', '" & MatchNum.Text & "', '" & type & "', '" & RedTeam1.Text & "', '" & RedTeam2.Text & "', '" & RedTeam3.Text & "', '" & BlueTeam1.Text & "', '" & BlueTeam2.Text & "', '" & BlueTeam3.Text & "', '" & MatchNum.Text & "', '" & AudianceDisplay.Label1.Text & "')"
+            Dim insertQuery As String = "INSERT INTO ElimanationResults([alliance1], [alliance2], [round], [type], [red1], [red2], [red3], [blue1], [blue2], [blue3], [redscore], [bluescore]) VALUES('" & alliance1 & "', '" & alliance2 & "', '" & MatchNum.Text & "', '" & type & "', '" & RedTeam1.Text & "', '" & RedTeam2.Text & "', '" & RedTeam3.Text & "', '" & BlueTeam1.Text & "', '" & BlueTeam2.Text & "', '" & BlueTeam3.Text & "', '" & RedScoreLbl.Text & "', '" & BlueScoreLbl.Text & "')"
             ExecuteQuery(insertQuery)
 
             Dim winner = calculateWinner()
             'This updates the wins in the alliances columns'
             Dim insertWins As String = ""
             If winner = "Red" Then
-                Dim amount = getWins(alliance1) + 1
-                insertWins = "UPDATE alliances SET wins = '" & amount & "' Where rank = '" & alliance1 & "')"
-                ExecuteQuery(insertQuery)
+                Dim amount = getWins(alliance1)
+                amount = amount + 1
+                insertWins = "UPDATE alliances SET wins = '" & amount & "' Where rank = '" & alliance1 & "'"
+                ExecuteQuery(insertWins)
             ElseIf winner = "Blue" Then
-                Dim amount = getWins(alliance2) + 1
-                insertWins = "UPDATE alliances SET wins = '" & amount & "' Where rank = '" & alliance2 & "')"
-                ExecuteQuery(insertQuery)
+                Dim amount = getWins(alliance2)
+                amount = amount + 1
+                insertWins = "UPDATE alliances SET wins = '" & amount & "' Where rank = '" & alliance2 & "'"
+                ExecuteQuery(insertWins)
             ElseIf winner = "tie" Then
                 Dim amount1 = getWins(alliance1)
                 Dim amount2 = getWins(alliance2)
-                insertWins = "UPDATE alliances SET wins = '" & amount1 & "' Where rank = '" & alliance1 & "')"
-                ExecuteQuery(insertQuery)
-                insertWins = "UPDATE alliances SET wins = '" & amount2 & "' Where rank = '" & alliance2 & "')"
-                ExecuteQuery(insertQuery)
+                insertWins = "UPDATE alliances SET wins = '" & amount1 & "' Where rank = '" & alliance1 & "'"
+                ExecuteQuery(insertWins)
+                insertWins = "UPDATE alliances SET wins = '" & amount2 & "' Where rank = '" & alliance2 & "'"
+                ExecuteQuery(insertWins)
             End If
 
-            If MatchNum.Text = 8 And type = "QF-8" Then
-                updateQuarterFinalMatches(9)
-            End If
 
-            If MatchNum.Text = 4 And type = "SF-4" Then
-                updateSemifinalMatches(5)
-            End If
+            updateQuarterFinalMatches(9)
 
-            If MatchNum.Text = 2 And type = "F-2" Then
-                updateFinalMatches(3)
-            End If
+
+
+            updateSemifinalMatches(5)
+
+
+
+            updateFinalMatches(3)
+
 
         End If
+
+        resetScore()
+        resetUI()
+        Field_Estop = False
     End Sub
     Function calculateWinner()
         Dim winner = ""
@@ -237,28 +239,27 @@ Public Class Main_Panel
 
         'Handles the match pulling during the elimanation matches'
         If ElimMode = True Then
-            Dim selectQuery As New SqlCommand("Select red1, red2, red3, blue1, blue2, blue3, round, type, alliance1, alliance2 From elimanation Where round = @MatchNum", connection)
+            Dim selectQuery As New SqlCommand("Select type, round, red1, red2, red3, blue1, blue2, blue3, alliance1, alliance2 From elimination Where round = @MatchNum", connection)
             selectQuery.Parameters.Add("@Matchnum", SqlDbType.Int).Value = MatchNum.Text
             Dim adapter As New SqlDataAdapter(selectQuery)
             Dim table As New DataTable()
             adapter.Fill(table)
 
             If table.Rows.Count() > 0 Then
-                RedTeam1.Text = table.Rows(0)(0)
-                RedTeam2.Text = table.Rows(0)(1)
-                RedTeam3.Text = table.Rows(0)(2)
-                BlueTeam1.Text = table.Rows(0)(3)
-                BlueTeam2.Text = table.Rows(0)(4)
-                BlueTeam3.Text = table.Rows(0)(5)
-                AudianceDisplay.Label1.Text = table.Rows(0)(7)
+                RedTeam1.Text = table.Rows(0)(2)
+                RedTeam2.Text = table.Rows(0)(3)
+                RedTeam3.Text = table.Rows(0)(4)
+                BlueTeam1.Text = table.Rows(0)(5)
+                BlueTeam2.Text = table.Rows(0)(6)
+                BlueTeam3.Text = table.Rows(0)(7)
 
                 'updates the audience display with team numbers'
-                AudianceDisplay.RedTeam1.Text = table.Rows(0)(0).ToString
-                AudianceDisplay.RedTeam2lbl.Text = table.Rows(0)(1).ToString
-                AudianceDisplay.RedTeam3.Text = table.Rows(0)(2).ToString
-                AudianceDisplay.BlueTeam1lbl.Text = table.Rows(0)(3).ToString
-                AudianceDisplay.BlueTeam2.Text = table.Rows(0)(4).ToString
-                AudianceDisplay.BlueTeam3.Text = table.Rows(0)(5).ToString
+                AudianceDisplay.RedTeam1.Text = table.Rows(0)(2).ToString
+                AudianceDisplay.RedTeam2lbl.Text = table.Rows(0)(3).ToString
+                AudianceDisplay.RedTeam3.Text = table.Rows(0)(4).ToString
+                AudianceDisplay.BlueTeam1lbl.Text = table.Rows(0)(5).ToString
+                AudianceDisplay.BlueTeam2.Text = table.Rows(0)(6).ToString
+                AudianceDisplay.BlueTeam3.Text = table.Rows(0)(7).ToString
                 AudianceDisplay.Label14.Show()
                 AudianceDisplay.Label15.Show()
                 AudianceDisplay.Label14.Text = table.Rows(0)(8).ToString
@@ -288,6 +289,10 @@ Public Class Main_Panel
                 AudianceDisplay.Label11.Text = AudianceDisplay.Label7.Text
                 AudianceDisplay.Label12.Text = AudianceDisplay.Label6.Text
                 AudianceDisplay.Label13.Text = AudianceDisplay.Label5.Text
+
+                alliance1 = table.Rows(0)(8)
+                alliance2 = table.Rows(0)(9)
+                type = table.Rows(0)(0)
 
                 handleTeamWifiConfiguration()
                 MessageBox.Show("Data Loaded")

@@ -23,14 +23,14 @@ Public Class Elimination_Matches
     Shared QF2_Winner
     Shared QF3_Winner
     Shared QF4_Winner
-    Shared SF_1
-    Shared SF_2
-    Shared SF_3
-    Shared SF_4
-    Shared F_1
-    Shared F_2
-    Shared Winner
-    Shared Finalist
+    Shared SF_1 As String
+    Shared SF_2 As String
+    Shared SF_3 As String
+    Shared SF_4 As String
+    Shared F_1 As String
+    Shared F_2 As String
+    Shared Winner As String
+    Shared Finalist As String
 
     'This gets the teams from each alliances from the database'
     Shared Function getAllianceTeam(alliance_num As Integer, team_placement As Integer)
@@ -111,9 +111,9 @@ Public Class Elimination_Matches
             SF_4 = 5
         ElseIf alliance4Wins = alliance5Wins And round > 8 Then
             buildQuarterFinalMatch(12, "QF-12", 4, 5)
-        Else
-            buildFirstSemifinalMatches()
         End If
+
+        buildFirstSemifinalMatches()
     End Sub
 
     Shared Sub updateSemifinalMatches(round As Integer)
@@ -152,11 +152,11 @@ Public Class Elimination_Matches
         If F_1Wins > F_2Wins And round > 2 Then
             Winner = F_1
             Finalist = F_2
-            AudianceDisplay.WinningAlliance = F_1
+            AudianceDisplay.WinningAlliance.Text = F_1
         ElseIf F_1Wins < F_2Wins And round > 2 Then
             Winner = F_2
             Finalist = F_2
-            AudianceDisplay.WinningAlliance = F_2
+            AudianceDisplay.WinningAlliance.Text = F_2
         ElseIf F_1Wins = F_2Wins And round > 2 Then
             buildFinalMatch(3, "F-3", F_1, F_2)
         End If
@@ -164,7 +164,7 @@ Public Class Elimination_Matches
 
     Public Shared Function getWins(alliance1 As Integer)
         Dim wins As Integer = 0
-        Dim getQuery As String = String.Format("SELECT ([Wins]) FROM alliances Where alliance = {0}", alliance1)
+        Dim getQuery As String = String.Format("SELECT ([Wins]) FROM alliances Where rank = {0}", alliance1)
         Dim selectQuery As New SqlCommand(getQuery, connection)
         Dim adpater As New SqlDataAdapter(selectQuery)
         Dim table As New DataTable()
@@ -179,12 +179,12 @@ Public Class Elimination_Matches
 
 
     Public Shared Sub buildFinalMatch(round As Integer, type As String, alliance1 As Integer, alliance2 As Integer)
-        team1 = getAllianceTeam(alliance1, 1)
-        team2 = getAllianceTeam(alliance1, 2)
-        team3 = getAllianceTeam(alliance1, 3)
-        team4 = getAllianceTeam(alliance2, 1)
-        team5 = getAllianceTeam(alliance2, 2)
-        team6 = getAllianceTeam(alliance2, 3)
+        team1 = getAllianceTeam(alliance1, 0)
+        team2 = getAllianceTeam(alliance1, 1)
+        team3 = getAllianceTeam(alliance1, 2)
+        team4 = getAllianceTeam(alliance2, 0)
+        team5 = getAllianceTeam(alliance2, 1)
+        team6 = getAllianceTeam(alliance2, 2)
 
         Dim insertQuery As String = ""
         insertQuery = "INSERT INTO elimination ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3], [alliance1], [alliance2]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "', '" & alliance1 & "', '" & alliance2 & "')"
@@ -193,12 +193,12 @@ Public Class Elimination_Matches
     End Sub
 
     Public Shared Sub buildSemifinalMatch(round As Integer, type As String, alliance1 As Integer, alliance2 As Integer)
-        team1 = getAllianceTeam(alliance1, 1)
-        team2 = getAllianceTeam(alliance1, 2)
-        team3 = getAllianceTeam(alliance1, 3)
-        team4 = getAllianceTeam(alliance2, 1)
-        team5 = getAllianceTeam(alliance2, 2)
-        team6 = getAllianceTeam(alliance2, 3)
+        team1 = getAllianceTeam(alliance1, 0)
+        team2 = getAllianceTeam(alliance1, 1)
+        team3 = getAllianceTeam(alliance1, 2)
+        team4 = getAllianceTeam(alliance2, 0)
+        team5 = getAllianceTeam(alliance2, 1)
+        team6 = getAllianceTeam(alliance2, 2)
 
         Dim insertQuery As String = ""
         insertQuery = "INSERT INTO elimination ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3], [alliance1], [alliance2]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "', '" & alliance1 & "', '" & alliance2 & "')"
@@ -207,12 +207,12 @@ Public Class Elimination_Matches
     End Sub
 
     Public Shared Sub buildQuarterFinalMatch(round As Integer, type As String, alliance1 As Integer, alliance2 As Integer)
-        team1 = getAllianceTeam(alliance1, 1)
-        team2 = getAllianceTeam(alliance1, 2)
-        team3 = getAllianceTeam(alliance1, 3)
-        team4 = getAllianceTeam(alliance2, 1)
-        team5 = getAllianceTeam(alliance2, 2)
-        team6 = getAllianceTeam(alliance2, 3)
+        team1 = getAllianceTeam(alliance1, 0)
+        team2 = getAllianceTeam(alliance1, 1)
+        team3 = getAllianceTeam(alliance1, 2)
+        team4 = getAllianceTeam(alliance2, 0)
+        team5 = getAllianceTeam(alliance2, 1)
+        team6 = getAllianceTeam(alliance2, 2)
 
         Dim insertQuery As String = ""
         insertQuery = "INSERT INTO elimination ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3], [alliance1], [alliance2]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "', '" & alliance1 & "', '" & alliance2 & "')"
