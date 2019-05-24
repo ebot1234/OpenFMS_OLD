@@ -170,7 +170,7 @@
     <Compile Include="PLC_Tester.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Schedules\Elimanation_Matches.vb" />
+    <Compile Include="Schedules\Elimination_Matches.vb" />
     <Compile Include="Schedules\Schedule_Generator.vb" />
     <Compile Include="Startup_Screen.Designer.vb">
       <DependentUpon>Startup_Screen.vb</DependentUpon>

@@ -12,5 +12,7 @@ Public Class AudianceDisplay
         PreStartPanel.Hide()
         Winner.Hide()
         WinningAlliance.Hide()
+        Label14.Hide()
+        Label15.Hide()
     End Sub
 End Class

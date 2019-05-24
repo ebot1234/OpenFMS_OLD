@@ -138,15 +138,18 @@ Public Class Main_Panel
         'If the blue wins
         If RedScore < BlueScore Then
             winner = "Blue"
+            AudianceDisplay.WinningAlliance.Text = "Blue"
         End If
 
         'if red wins
         If RedScore > BlueScore Then
             winner = "Red"
+            AudianceDisplay.WinningAlliance.Text = "Red"
         End If
         'if there is a tie
         If RedScore = BlueScore Then
             winner = "Tie"
+            AudianceDisplay.WinningAlliance.Text = "Tie"
         End If
 
         Return winner
@@ -234,7 +237,7 @@ Public Class Main_Panel
 
         'Handles the match pulling during the elimanation matches'
         If ElimMode = True Then
-            Dim selectQuery As New SqlCommand("Select red1, red2, red3, blue1, blue2, blue3, match, type From elimanation Where match = @MatchNum", connection)
+            Dim selectQuery As New SqlCommand("Select red1, red2, red3, blue1, blue2, blue3, round, type, alliance1, alliance2 From elimanation Where round = @MatchNum", connection)
             selectQuery.Parameters.Add("@Matchnum", SqlDbType.Int).Value = MatchNum.Text
             Dim adapter As New SqlDataAdapter(selectQuery)
             Dim table As New DataTable()
@@ -256,6 +259,10 @@ Public Class Main_Panel
                 AudianceDisplay.BlueTeam1lbl.Text = table.Rows(0)(3).ToString
                 AudianceDisplay.BlueTeam2.Text = table.Rows(0)(4).ToString
                 AudianceDisplay.BlueTeam3.Text = table.Rows(0)(5).ToString
+                AudianceDisplay.Label14.Show()
+                AudianceDisplay.Label15.Show()
+                AudianceDisplay.Label14.Text = table.Rows(0)(8).ToString
+                AudianceDisplay.Label15.Text = table.Rows(0)(9).ToString
 
                 'Updates the team numbers for the pre-match screen'
                 AudianceDisplay.RedTeam1lbl.Text = RedTeam1.Text

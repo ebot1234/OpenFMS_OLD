@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Imports O_FMS_V0.Match
+Imports O_FMS_V0.AudianceDisplay
 
 
 Public Class Elimination_Matches
@@ -45,21 +45,6 @@ Public Class Elimination_Matches
         End If
 
         Return team
-    End Function
-
-    Shared Function getUnplayedMatches()
-        Dim match = ""
-        Dim query As String = "SELECT * FROM ElimanationResults Where Status = Complete"
-        Dim selectData As New SqlCommand(query, connection)
-        Dim adapter As New SqlDataAdapter(selectData)
-        Dim table As New DataTable()
-        adapter.Fill(table)
-
-        If table.Rows.Count > 0 Then
-            match = table.Rows(0)(11)
-        End If
-
-        Return match
     End Function
 
     'This creates all the first elimanation matches to start the elimanation matches'
@@ -167,9 +152,11 @@ Public Class Elimination_Matches
         If F_1Wins > F_2Wins And round > 2 Then
             Winner = F_1
             Finalist = F_2
+            AudianceDisplay.WinningAlliance = F_1
         ElseIf F_1Wins < F_2Wins And round > 2 Then
             Winner = F_2
             Finalist = F_2
+            AudianceDisplay.WinningAlliance = F_2
         ElseIf F_1Wins = F_2Wins And round > 2 Then
             buildFinalMatch(3, "F-3", F_1, F_2)
         End If
@@ -200,7 +187,7 @@ Public Class Elimination_Matches
         team6 = getAllianceTeam(alliance2, 3)
 
         Dim insertQuery As String = ""
-        insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
+        insertQuery = "INSERT INTO elimination ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3], [alliance1], [alliance2]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "', '" & alliance1 & "', '" & alliance2 & "')"
 
         executeQuery(insertQuery)
     End Sub
@@ -214,7 +201,7 @@ Public Class Elimination_Matches
         team6 = getAllianceTeam(alliance2, 3)
 
         Dim insertQuery As String = ""
-        insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
+        insertQuery = "INSERT INTO elimination ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3], [alliance1], [alliance2]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "', '" & alliance1 & "', '" & alliance2 & "')"
 
         executeQuery(insertQuery)
     End Sub
@@ -228,7 +215,7 @@ Public Class Elimination_Matches
         team6 = getAllianceTeam(alliance2, 3)
 
         Dim insertQuery As String = ""
-        insertQuery = "INSERT INTO elimanation ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "')"
+        insertQuery = "INSERT INTO elimination ([type], [round], [red1], [red2], [red3], [blue1], [blue2], [blue3], [alliance1], [alliance2]) VALUES ('" & type & "', '" & round & "', '" & team1 & "', '" & team2 & "', '" & team3 & "', '" & team4 & "', '" & team5 & "', '" & team6 & "', '" & alliance1 & "', '" & alliance2 & "')"
 
         executeQuery(insertQuery)
     End Sub

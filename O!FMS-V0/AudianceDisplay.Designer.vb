@@ -31,8 +31,12 @@ Partial Class AudianceDisplay
         Me.BlueTeam1lbl = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PreStartPanel = New System.Windows.Forms.Panel()
+        Me.PrestartCover = New System.Windows.Forms.Panel()
+        Me.WinningAlliance = New System.Windows.Forms.Label()
+        Me.Winner = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.FinalScoreBox = New System.Windows.Forms.PictureBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -54,24 +58,22 @@ Partial Class AudianceDisplay
         Me.RedScorePanel = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.PrestartCover = New System.Windows.Forms.Panel()
-        Me.WinningAlliance = New System.Windows.Forms.Label()
-        Me.Winner = New System.Windows.Forms.Label()
-        Me.FinalScoreBox = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.PreStartPanel.SuspendLayout()
+        Me.PrestartCover.SuspendLayout()
+        CType(Me.FinalScoreBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FirstLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RedScorePanel.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.PrestartCover.SuspendLayout()
-        CType(Me.FinalScoreBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MatchNumb
@@ -164,10 +166,10 @@ Partial Class AudianceDisplay
         Me.PreStartPanel.BackColor = System.Drawing.Color.White
         Me.PreStartPanel.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.Pre_Match_Image
         Me.PreStartPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PreStartPanel.Controls.Add(Me.PrestartCover)
+        Me.PreStartPanel.Controls.Add(Me.Label15)
+        Me.PreStartPanel.Controls.Add(Me.Label14)
         Me.PreStartPanel.Controls.Add(Me.Label13)
         Me.PreStartPanel.Controls.Add(Me.Label12)
-        Me.PreStartPanel.Controls.Add(Me.FinalScoreBox)
         Me.PreStartPanel.Controls.Add(Me.Label11)
         Me.PreStartPanel.Controls.Add(Me.Label10)
         Me.PreStartPanel.Controls.Add(Me.Label9)
@@ -185,6 +187,38 @@ Partial Class AudianceDisplay
         Me.PreStartPanel.Name = "PreStartPanel"
         Me.PreStartPanel.Size = New System.Drawing.Size(1369, 515)
         Me.PreStartPanel.TabIndex = 0
+        '
+        'PrestartCover
+        '
+        Me.PrestartCover.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.PrestartCover.Controls.Add(Me.WinningAlliance)
+        Me.PrestartCover.Controls.Add(Me.Winner)
+        Me.PrestartCover.Controls.Add(Me.FinalScoreBox)
+        Me.PrestartCover.Location = New System.Drawing.Point(1, 518)
+        Me.PrestartCover.Name = "PrestartCover"
+        Me.PrestartCover.Size = New System.Drawing.Size(1368, 185)
+        Me.PrestartCover.TabIndex = 14
+        '
+        'WinningAlliance
+        '
+        Me.WinningAlliance.AutoSize = True
+        Me.WinningAlliance.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WinningAlliance.Location = New System.Drawing.Point(699, 77)
+        Me.WinningAlliance.Name = "WinningAlliance"
+        Me.WinningAlliance.Size = New System.Drawing.Size(139, 39)
+        Me.WinningAlliance.TabIndex = 2
+        Me.WinningAlliance.Text = "Alliance"
+        '
+        'Winner
+        '
+        Me.Winner.AutoSize = True
+        Me.Winner.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Winner.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Winner.Location = New System.Drawing.Point(547, 73)
+        Me.Winner.Name = "Winner"
+        Me.Winner.Size = New System.Drawing.Size(146, 42)
+        Me.Winner.TabIndex = 1
+        Me.Winner.Text = "Winner:"
         '
         'Label13
         '
@@ -207,6 +241,16 @@ Partial Class AudianceDisplay
         Me.Label12.Size = New System.Drawing.Size(110, 31)
         Me.Label12.TabIndex = 14
         Me.Label12.Text = "Label12"
+        '
+        'FinalScoreBox
+        '
+        Me.FinalScoreBox.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.FinalScore
+        Me.FinalScoreBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.FinalScoreBox.Location = New System.Drawing.Point(-1, 0)
+        Me.FinalScoreBox.Name = "FinalScoreBox"
+        Me.FinalScoreBox.Size = New System.Drawing.Size(1368, 185)
+        Me.FinalScoreBox.TabIndex = 0
+        Me.FinalScoreBox.TabStop = False
         '
         'Label11
         '
@@ -444,47 +488,6 @@ Partial Class AudianceDisplay
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Match Type"
         '
-        'PrestartCover
-        '
-        Me.PrestartCover.BackColor = System.Drawing.Color.PaleGoldenrod
-        Me.PrestartCover.Controls.Add(Me.WinningAlliance)
-        Me.PrestartCover.Controls.Add(Me.Winner)
-        Me.PrestartCover.Location = New System.Drawing.Point(39, 253)
-        Me.PrestartCover.Name = "PrestartCover"
-        Me.PrestartCover.Size = New System.Drawing.Size(1368, 185)
-        Me.PrestartCover.TabIndex = 14
-        '
-        'WinningAlliance
-        '
-        Me.WinningAlliance.AutoSize = True
-        Me.WinningAlliance.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.WinningAlliance.Location = New System.Drawing.Point(699, 77)
-        Me.WinningAlliance.Name = "WinningAlliance"
-        Me.WinningAlliance.Size = New System.Drawing.Size(139, 39)
-        Me.WinningAlliance.TabIndex = 2
-        Me.WinningAlliance.Text = "Alliance"
-        '
-        'Winner
-        '
-        Me.Winner.AutoSize = True
-        Me.Winner.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Winner.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Winner.Location = New System.Drawing.Point(547, 73)
-        Me.Winner.Name = "Winner"
-        Me.Winner.Size = New System.Drawing.Size(146, 42)
-        Me.Winner.TabIndex = 1
-        Me.Winner.Text = "Winner:"
-        '
-        'FinalScoreBox
-        '
-        Me.FinalScoreBox.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.FinalScore
-        Me.FinalScoreBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.FinalScoreBox.Location = New System.Drawing.Point(12, 204)
-        Me.FinalScoreBox.Name = "FinalScoreBox"
-        Me.FinalScoreBox.Size = New System.Drawing.Size(1368, 185)
-        Me.FinalScoreBox.TabIndex = 0
-        Me.FinalScoreBox.TabStop = False
-        '
         'Label2
         '
         Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -563,6 +566,28 @@ Partial Class AudianceDisplay
         Me.Label7.Text = "Team Name"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(234, 106)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(34, 31)
+        Me.Label14.TabIndex = 16
+        Me.Label14.Text = "N"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.Color.PaleGoldenrod
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(584, 106)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(34, 31)
+        Me.Label15.TabIndex = 17
+        Me.Label15.Text = "N"
+        '
         'AudianceDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -571,6 +596,7 @@ Partial Class AudianceDisplay
         Me.BackgroundImage = Global.O_FMS_V0.My.Resources.Resources.ScoreBoard
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1370, 705)
+        Me.Controls.Add(Me.PrestartCover)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
@@ -590,20 +616,21 @@ Partial Class AudianceDisplay
         Me.Controls.Add(Me.RedTeam2lbl)
         Me.Controls.Add(Me.RedTeam1)
         Me.Controls.Add(Me.MatchNumb)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "AudianceDisplay"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "AudianceDisplay"
+        Me.Text = "Audiance Display"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.PreStartPanel.ResumeLayout(False)
         Me.PreStartPanel.PerformLayout()
+        Me.PrestartCover.ResumeLayout(False)
+        Me.PrestartCover.PerformLayout()
+        CType(Me.FinalScoreBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FirstLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RedScorePanel.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
-        Me.PrestartCover.ResumeLayout(False)
-        Me.PrestartCover.PerformLayout()
-        CType(Me.FinalScoreBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -649,4 +676,6 @@ Partial Class AudianceDisplay
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
 End Class
