@@ -23,14 +23,15 @@ Public Class Elimination_Matches
     Shared QF2_Winner
     Shared QF3_Winner
     Shared QF4_Winner
-    Shared SF_1 As String
-    Shared SF_2 As String
-    Shared SF_3 As String
-    Shared SF_4 As String
-    Shared F_1 As String
-    Shared F_2 As String
-    Shared Winner As String
-    Shared Finalist As String
+    Shared SF_1 As Integer
+    Shared SF_2 As Integer
+    Shared SF_3 As Integer
+    Shared SF_4 As Integer
+    Shared F_1 As Integer
+    Shared F_2 As Integer
+    Shared Winner
+    Shared Finalist
+    Shared lastMatch
 
     'This gets the teams from each alliances from the database'
     Shared Function getAllianceTeam(alliance_num As Integer, team_placement As Integer)
@@ -60,15 +61,15 @@ Public Class Elimination_Matches
     End Sub
 
     Public Shared Sub buildFirstSemifinalMatches()
-        buildSemifinalMatch(1, "SF-1", SF_1, SF_4)
-        buildSemifinalMatch(2, "SF-2", SF_2, SF_3)
-        buildSemifinalMatch(3, "SF-3", SF_1, SF_4)
-        buildSemifinalMatch(4, "SF-4", SF_2, SF_3)
+        buildSemifinalMatch(lastMatch, "SF-1", SF_1, SF_4)
+        buildSemifinalMatch(lastMatch + 1, "SF-2", SF_2, SF_3)
+        buildSemifinalMatch(lastMatch + 2, "SF-3", SF_1, SF_4)
+        buildSemifinalMatch(lastMatch + 3, "SF-4", SF_2, SF_3)
     End Sub
 
     Public Shared Sub buildFirstFinalMatches()
-        buildFinalMatch(1, "F-1", F_1, F_2)
-        buildFinalMatch(2, "F-2", F_1, F_2)
+        buildFinalMatch(lastMatch, "F-1", F_1, F_2)
+        buildFinalMatch(lastMatch + 1, "F-2", F_1, F_2)
     End Sub
 
     Public Shared Sub updateQuarterFinalMatches(round As Integer)
@@ -80,40 +81,53 @@ Public Class Elimination_Matches
         Dim alliance6Wins = getWins(6)
         Dim alliance7Wins = getWins(7)
         Dim alliance8Wins = getWins(8)
+        Dim Index As Integer = round
+        Dim roundIndex As Integer = round + 1
 
-        If alliance1Wins > alliance8Wins And round > 8 Then
+        If alliance1Wins > alliance8Wins Then
             SF_1 = 1
-        ElseIf alliance1Wins < alliance8Wins And round > 8 Then
+        ElseIf alliance1Wins < alliance8Wins Then
             SF_1 = 8
-        ElseIf alliance1Wins = alliance8Wins And round > 8 Then
-            buildQuarterFinalMatch(9, "QF-9", 1, 8)
+        ElseIf alliance1Wins = alliance8Wins Then
+            lastMatch = roundIndex
+            buildQuarterFinalMatch(roundIndex, String.Format("QF-{0}", roundIndex), 1, 8)
+            roundIndex = roundIndex + 1
         End If
 
-        If alliance2Wins > alliance7Wins And round > 8 Then
+        If alliance2Wins > alliance7Wins Then
             SF_2 = 2
-        ElseIf alliance2Wins < alliance7Wins And round > 8 Then
+        ElseIf alliance2Wins < alliance7Wins Then
             SF_2 = 7
-        ElseIf alliance2Wins = alliance7Wins And round > 8 Then
-            buildQuarterFinalMatch(10, "QF-10", 2, 7)
+        ElseIf alliance2Wins = alliance7Wins Then
+            lastMatch = roundIndex
+            buildQuarterFinalMatch(roundIndex, String.Format("QF-{0}", roundIndex), 2, 7)
+            roundIndex = roundIndex + 1
         End If
 
-        If alliance3Wins > alliance6Wins And round > 8 Then
+        If alliance3Wins > alliance6Wins Then
             SF_3 = 3
-        ElseIf alliance3Wins < alliance6Wins And round > 8 Then
+        ElseIf alliance3Wins < alliance6Wins Then
             SF_3 = 6
-        ElseIf alliance3Wins = alliance6Wins And round > 8 Then
-            buildQuarterFinalMatch(11, "QF-11", 3, 6)
+        ElseIf alliance3Wins = alliance6Wins Then
+            lastMatch = roundIndex
+            buildQuarterFinalMatch(roundIndex, String.Format("QF-{0}", roundIndex), 3, 6)
+            roundIndex = roundIndex + 1
         End If
 
-        If alliance4Wins > alliance5Wins And round > 8 Then
+        If alliance4Wins > alliance5Wins Then
             SF_4 = 4
-        ElseIf alliance4Wins < alliance5Wins And round > 8 Then
+            lastMatch = roundIndex
+            buildFirstSemifinalMatches()
+        ElseIf alliance4Wins < alliance5Wins Then
             SF_4 = 5
-        ElseIf alliance4Wins = alliance5Wins And round > 8 Then
-            buildQuarterFinalMatch(12, "QF-12", 4, 5)
+            lastMatch = roundIndex
+            buildFirstSemifinalMatches()
+        ElseIf alliance4Wins = alliance5Wins Then
+            lastMatch = roundIndex
+            buildQuarterFinalMatch(roundIndex, String.Format("QF-{0}", roundIndex), 4, 5)
+            roundIndex = roundIndex + 1
         End If
 
-        buildFirstSemifinalMatches()
     End Sub
 
     Shared Sub updateSemifinalMatches(round As Integer)
@@ -121,50 +135,57 @@ Public Class Elimination_Matches
         Dim SF_2Wins = getWins(SF_2)
         Dim SF_3Wins = getWins(SF_3)
         Dim SF_4Wins = getWins(SF_4)
+        Dim roundIndex As Integer = round + 10
 
-        If SF_1Wins > SF_4Wins And round > 4 Then
+        If SF_1Wins > SF_4Wins Then
             F_1 = SF_1
-        ElseIf SF_1Wins < SF_4Wins And round > 4 Then
+        ElseIf SF_1Wins < SF_4Wins Then
             F_1 = SF_4
-        ElseIf SF_1Wins = SF_4Wins And round > 4 Then
-            buildSemifinalMatch(round, String.Format("SF-{0}", round), 1, 8)
+        ElseIf SF_1Wins = SF_4Wins Then
+            lastMatch = roundIndex
+            buildSemifinalMatch(roundIndex, String.Format("SF-{0}", roundIndex), SF_1, SF_4)
+            roundIndex = roundIndex + 1
         End If
 
-        If SF_2Wins > SF_3Wins And round > 4 Then
+        If SF_2Wins > SF_3Wins Then
             F_2 = SF_2
-        ElseIf SF_2Wins < SF_3Wins And round > 4 Then
-            F_2 = SF_3
-        ElseIf SF_2Wins = SF_3Wins And round > 4 Then
-            If round = 5 And SF_1Wins <> SF_4Wins Then
-                buildSemifinalMatch(round, String.Format("SF-{0}", round), SF_2, SF_3)
-            Else
-                buildSemifinalMatch(round + 1, String.Format("SF-{0}", round + 1), SF_2, SF_3)
-            End If
-        Else
+            lastMatch = roundIndex
             buildFirstFinalMatches()
+        ElseIf SF_2Wins < SF_3Wins Then
+            F_2 = SF_3
+            lastMatch = roundIndex
+            buildFirstFinalMatches()
+        ElseIf SF_2Wins = SF_3Wins Then
+            lastMatch = roundIndex
+            buildSemifinalMatch(roundIndex, String.Format("SF-{0}", roundIndex), SF_2, SF_3)
+            roundIndex = round + 1
         End If
+
     End Sub
 
     Public Shared Sub updateFinalMatches(round As Integer)
         Dim F_1Wins = getWins(F_1)
         Dim F_2Wins = getWins(F_2)
+        Dim roundIndex As Integer = round + 20
 
-        If F_1Wins > F_2Wins And round > 2 Then
+        If F_1Wins > F_2Wins Then
             Winner = F_1
             Finalist = F_2
             AudianceDisplay.WinningAlliance.Text = F_1
-        ElseIf F_1Wins < F_2Wins And round > 2 Then
+        ElseIf F_1Wins < F_2Wins Then
             Winner = F_2
             Finalist = F_2
             AudianceDisplay.WinningAlliance.Text = F_2
-        ElseIf F_1Wins = F_2Wins And round > 2 Then
-            buildFinalMatch(3, "F-3", F_1, F_2)
+        ElseIf F_1Wins = F_2Wins Then
+            lastMatch = roundIndex
+            buildFinalMatch(roundIndex, String.Format("F-{0}", roundIndex), F_1, F_2)
+            roundIndex = roundIndex + 1
         End If
     End Sub
 
-    Public Shared Function getWins(alliance1 As Integer)
+    Public Shared Function getWins(alliance As Integer)
         Dim wins As Integer = 0
-        Dim getQuery As String = String.Format("SELECT ([Wins]) FROM alliances Where rank = {0}", alliance1)
+        Dim getQuery As String = String.Format("SELECT ([Wins]) FROM alliances Where rank = {0}", alliance)
         Dim selectQuery As New SqlCommand(getQuery, connection)
         Dim adpater As New SqlDataAdapter(selectQuery)
         Dim table As New DataTable()

@@ -117,18 +117,16 @@ Public Class Main_Panel
                 ExecuteQuery(insertWins)
             End If
 
-
-            updateQuarterFinalMatches(9)
-
-
-
-            updateSemifinalMatches(5)
-
-
-
-            updateFinalMatches(3)
-
-
+            If type.Substring(0, 2) = "QF" And MatchNum.Text >= 8 Then
+                updateQuarterFinalMatches(round:=MatchNum.Text)
+                MessageBox.Show("Updated the schedule")
+            ElseIf type.Substring(0, 2) = "SF" And MatchNum.Text >= 4 Then
+                updateSemifinalMatches(round:=MatchNum.Text)
+                MessageBox.Show("Updated the schedule")
+            ElseIf type.Substring(0, 1) = "F" And MatchNum.Text >= 2 Then
+                updateFinalMatches(round:=MatchNum.Text)
+                MessageBox.Show("Updated the schedule")
+            End If
         End If
 
         resetScore()
