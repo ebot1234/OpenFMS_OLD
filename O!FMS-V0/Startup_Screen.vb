@@ -3,6 +3,7 @@
 Public Class Startup_Screen
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        SQLChooser.show()
         TeamAdder.Show()
     End Sub
 
