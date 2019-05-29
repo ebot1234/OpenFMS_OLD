@@ -185,6 +185,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TBA\Tba.vb" />
+    <Compile Include="TBA\TbaBreakdowns.vb" />
     <Compile Include="TeamAdder.Designer.vb">
       <DependentUpon>TeamAdder.vb</DependentUpon>
     </Compile>
