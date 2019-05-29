@@ -1,5 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports O_FMS_V0.AudianceDisplay
 
 
 Public Class Elimination_Matches
@@ -50,26 +49,26 @@ Public Class Elimination_Matches
 
     'This creates all the first elimanation matches to start the elimanation matches'
     Public Shared Sub buildFirstQuarterFinalMatches()
-        buildQuarterFinalMatch(1, "QF-1", 1, 8)
-        buildQuarterFinalMatch(2, "QF-2", 2, 7)
-        buildQuarterFinalMatch(3, "QF-3", 3, 6)
-        buildQuarterFinalMatch(4, "QF-4", 4, 5)
-        buildQuarterFinalMatch(5, "QF-5", 1, 8)
-        buildQuarterFinalMatch(6, "QF-6", 2, 7)
-        buildQuarterFinalMatch(7, "QF-7", 3, 6)
-        buildQuarterFinalMatch(8, "QF-8", 4, 5)
+        buildQuarterFinalMatch(1, "QF1-1", 1, 8)
+        buildQuarterFinalMatch(2, "QF1-2", 2, 7)
+        buildQuarterFinalMatch(3, "QF1-3", 3, 6)
+        buildQuarterFinalMatch(4, "QF1-4", 4, 5)
+        buildQuarterFinalMatch(5, "QF2-1", 1, 8)
+        buildQuarterFinalMatch(6, "QF2-2", 2, 7)
+        buildQuarterFinalMatch(7, "QF2-3", 3, 6)
+        buildQuarterFinalMatch(8, "QF2-4", 4, 5)
     End Sub
 
     Public Shared Sub buildFirstSemifinalMatches()
-        buildSemifinalMatch(lastMatch, "SF-1", SF_1, SF_4)
-        buildSemifinalMatch(lastMatch + 1, "SF-2", SF_2, SF_3)
-        buildSemifinalMatch(lastMatch + 2, "SF-3", SF_1, SF_4)
-        buildSemifinalMatch(lastMatch + 3, "SF-4", SF_2, SF_3)
+        buildSemifinalMatch(lastMatch, "SF1-1", SF_1, SF_4)
+        buildSemifinalMatch(lastMatch + 1, "SF1-2", SF_2, SF_3)
+        buildSemifinalMatch(lastMatch + 2, "SF2-1", SF_1, SF_4)
+        buildSemifinalMatch(lastMatch + 3, "SF2-2", SF_2, SF_3)
     End Sub
 
     Public Shared Sub buildFirstFinalMatches()
-        buildFinalMatch(lastMatch, "F-1", F_1, F_2)
-        buildFinalMatch(lastMatch + 1, "F-2", F_1, F_2)
+        buildFinalMatch(lastMatch, "F1-1", F_1, F_2)
+        buildFinalMatch(lastMatch + 1, "F1-2", F_1, F_2)
     End Sub
 
     Public Shared Sub updateQuarterFinalMatches(round As Integer)
@@ -81,7 +80,6 @@ Public Class Elimination_Matches
         Dim alliance6Wins = getWins(6)
         Dim alliance7Wins = getWins(7)
         Dim alliance8Wins = getWins(8)
-        Dim Index As Integer = round
         Dim roundIndex As Integer = round + 1
 
         If alliance1Wins > alliance8Wins Then
@@ -90,7 +88,7 @@ Public Class Elimination_Matches
             SF_1 = 8
         ElseIf alliance1Wins = alliance8Wins Then
             lastMatch = roundIndex
-            buildQuarterFinalMatch(roundIndex, String.Format("QF-{0}", roundIndex), 1, 8)
+            buildQuarterFinalMatch(roundIndex, String.Format("QF3-{0}", roundIndex), 1, 8)
             roundIndex = roundIndex + 1
         End If
 
@@ -100,7 +98,7 @@ Public Class Elimination_Matches
             SF_2 = 7
         ElseIf alliance2Wins = alliance7Wins Then
             lastMatch = roundIndex
-            buildQuarterFinalMatch(roundIndex, String.Format("QF-{0}", roundIndex), 2, 7)
+            buildQuarterFinalMatch(roundIndex, String.Format("QF3-{0}", roundIndex), 2, 7)
             roundIndex = roundIndex + 1
         End If
 
@@ -110,7 +108,7 @@ Public Class Elimination_Matches
             SF_3 = 6
         ElseIf alliance3Wins = alliance6Wins Then
             lastMatch = roundIndex
-            buildQuarterFinalMatch(roundIndex, String.Format("QF-{0}", roundIndex), 3, 6)
+            buildQuarterFinalMatch(roundIndex, String.Format("QF3-{0}", roundIndex), 3, 6)
             roundIndex = roundIndex + 1
         End If
 
@@ -124,7 +122,7 @@ Public Class Elimination_Matches
             buildFirstSemifinalMatches()
         ElseIf alliance4Wins = alliance5Wins Then
             lastMatch = roundIndex
-            buildQuarterFinalMatch(roundIndex, String.Format("QF-{0}", roundIndex), 4, 5)
+            buildQuarterFinalMatch(roundIndex, String.Format("QF3-{0}", roundIndex), 4, 5)
             roundIndex = roundIndex + 1
         End If
 
@@ -143,7 +141,7 @@ Public Class Elimination_Matches
             F_1 = SF_4
         ElseIf SF_1Wins = SF_4Wins Then
             lastMatch = roundIndex
-            buildSemifinalMatch(roundIndex, String.Format("SF-{0}", roundIndex), SF_1, SF_4)
+            buildSemifinalMatch(roundIndex, String.Format("SF3-{0}", roundIndex), SF_1, SF_4)
             roundIndex = roundIndex + 1
         End If
 
@@ -157,7 +155,7 @@ Public Class Elimination_Matches
             buildFirstFinalMatches()
         ElseIf SF_2Wins = SF_3Wins Then
             lastMatch = roundIndex
-            buildSemifinalMatch(roundIndex, String.Format("SF-{0}", roundIndex), SF_2, SF_3)
+            buildSemifinalMatch(roundIndex, String.Format("SF3-{0}", roundIndex), SF_2, SF_3)
             roundIndex = round + 1
         End If
 
@@ -178,7 +176,7 @@ Public Class Elimination_Matches
             AudianceDisplay.WinningAlliance.Text = F_2
         ElseIf F_1Wins = F_2Wins Then
             lastMatch = roundIndex
-            buildFinalMatch(roundIndex, String.Format("F-{0}", roundIndex), F_1, F_2)
+            buildFinalMatch(roundIndex, String.Format("F2-{0}", roundIndex), F_1, F_2)
             roundIndex = roundIndex + 1
         End If
     End Sub

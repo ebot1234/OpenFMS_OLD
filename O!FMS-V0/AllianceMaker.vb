@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Imports O_FMS_V0.Elimination_Matches
-Imports O_FMS_V0.Main_Panel
 
 Public Class AllianceMaker
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
@@ -51,5 +50,6 @@ Public Class AllianceMaker
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         buildFirstQuarterFinalMatches()
+        Me.Hide()
     End Sub
 End Class
