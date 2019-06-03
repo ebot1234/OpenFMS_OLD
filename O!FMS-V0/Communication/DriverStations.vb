@@ -1,6 +1,6 @@
 ﻿Imports System.Net.Sockets
 Imports System.Net
-Imports System.Text
+Imports System.Text.RegularExpressions
 Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.RandomString
 Imports System.Threading
@@ -191,7 +191,7 @@ Public Class DriverStations
             Dim buffer(5) As Byte
             tcpClient.GetStream.Read(buffer, 0, buffer.Length)
 
-            If buffer(0) = 0 & buffer(1) = 3 & buffer(2) = 24 Then
+            If buffer(0) <> 0 & buffer(1) <> 3 & buffer(2) <> 24 Then
                 tcpClient.Close()
 
             End If
@@ -201,7 +201,7 @@ Public Class DriverStations
             Dim teamId As Integer = teamid_1 And teamid_2
 
             Dim allianceStation As Integer = -1
-            Dim ip As String = tcpClient.Client.RemoteEndPoint.ToString().Split()(0)
+            Dim ip As String = tcpClient.Client.RemoteEndPoint.ToString().Split(":")(0)
             Dim dsIp As IPAddress = IPAddress.Parse(ip)
 
             If TeamNum = teamId Then
@@ -209,17 +209,21 @@ Public Class DriverStations
             End If
 
 
+
+
             Dim assignmentPacket(5) As Byte
-            assignmentPacket(0) = 0
-            assignmentPacket(1) = 3
-            assignmentPacket(2) = 25
+            assignmentPacket(0) = 0 'packet size'
+            assignmentPacket(1) = 3 'packet size'
+            assignmentPacket(2) = 25 'packet type'
             assignmentPacket(3) = allianceStation
-            assignmentPacket(4) = 0
+            assignmentPacket(4) = 0 'station status, need to add station checking'
 
             tcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
         End While
 
     End Sub
+
+
 
     Public Sub Dispose()
         If udpClient IsNot Nothing Then
