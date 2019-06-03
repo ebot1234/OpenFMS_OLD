@@ -1,10 +1,12 @@
 ﻿Imports O_FMS_V0.Main_Panel
+Imports O_FMS_V0.Tba
 
 Public Class Startup_Screen
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        SQLChooser.show()
-        TeamAdder.Show()
+        'SQLChooser.show()
+        'TeamAdder.Show()
+        populateMatchBreakdown()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

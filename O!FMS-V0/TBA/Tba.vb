@@ -89,20 +89,39 @@ Public Class Tba
 
         End Function
 
-        Shared Function GetHash(strToHash As String) As String
+    Shared Function GetHash(strToHash As String) As String
 
-            Dim md5Obj As New System.Security.Cryptography.MD5CryptoServiceProvider
-            Dim bytesToHash() As Byte = System.Text.Encoding.ASCII.GetBytes(strToHash)
+        Dim md5Obj As New System.Security.Cryptography.MD5CryptoServiceProvider
+        Dim bytesToHash() As Byte = System.Text.Encoding.ASCII.GetBytes(strToHash)
 
-            bytesToHash = md5Obj.ComputeHash(bytesToHash)
-            Dim strResult As New StringBuilder
+        bytesToHash = md5Obj.ComputeHash(bytesToHash)
+        Dim strResult As New StringBuilder
 
-            For Each b As Byte In bytesToHash
-                strResult.Append(b.ToString("x2"))
-            Next
+        For Each b As Byte In bytesToHash
+            strResult.Append(b.ToString("x2"))
+        Next
 
-            Return strResult.ToString
+        Return strResult.ToString
 
-        End Function
+    End Function
 
-    End Class
+    Shared Sub populateMatchBreakdown()
+        Dim matchBreakdown As New Match
+        Dim redAlliance As New TbaAlliance
+        matchBreakdown.comp_level = "qm"
+        matchBreakdown.set_number = 1
+        matchBreakdown.match_number = 1
+        matchBreakdown.alliances = createRedAlliance()
+        'matchBreakdown.alliances
+
+        MessageBox.Show(matchBreakdown.alliances)
+    End Sub
+
+    Shared Function createRedAlliance()
+        Dim alliance As New TbaAlliance
+
+        alliance.color = "Red"
+
+        Return alliance.ToString()
+    End Function
+End Class

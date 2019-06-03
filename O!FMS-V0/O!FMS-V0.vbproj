@@ -134,7 +134,6 @@
     </Compile>
     <Compile Include="Network\AccessPoint.vb" />
     <Compile Include="Field\Field.vb" />
-    <Compile Include="Field\Match.vb" />
     <Compile Include="Network\Switch.vb" />
     <Compile Include="Field\Team.vb" />
     <Compile Include="Field\ViewMarqUpdater.vb" />
