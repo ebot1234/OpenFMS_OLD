@@ -6,8 +6,6 @@ Imports System.Threading
 Public Class FieldMonitor
     Public Shared FieldMonitorSocket As Socket
 
-
-
     'This sends the data to the Field Monitor program'
     Public Shared Sub sendData(IP As String, Port As Integer, sendData() As Byte)
         FieldMonitorSocket = New Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp)
@@ -17,8 +15,8 @@ Public Class FieldMonitor
     End Sub
 
     'This builds the packet being sent to the Field Monitor'
-    Public Shared Function getFieldData()
-        Dim data(8) As Byte
+    Public Shared Function encodeFieldData() As Byte()
+        Dim data(30) As Byte
         'Sends the team numbers
         data(0) = Main_Panel.BlueTeam1.Text
         data(1) = Main_Panel.BlueTeam2.Text
@@ -31,10 +29,15 @@ Public Class FieldMonitor
         'Sends the field status'
         data(7) = Field.fieldStatus.ToString()
 
+
         Return data
     End Function
 
     Public Shared Sub handleFieldMonitor()
-        sendData("10.0.100.99", 8888, getFieldData())
+        While (True)
+            sendData("10.0.100.99", 8888, encodeFieldData)
+            Thread.Sleep(1000)
+        End While
+
     End Sub
 End Class

@@ -20,79 +20,61 @@ Public Class DriverStations
     Public FMS_IP As String = "10.0.100.5"
     Public tcpClient As TcpClient
     Public udpClient As UdpClient
-    Public TeamNum As Integer
-    Dim IpEnd As IPEndPoint = New IPEndPoint(IPAddress.Parse("10.0.100.5"), 1750)
-    Dim dsListener As TcpListener
+    Public TeamNum As String
+    Public IpEnd As IPEndPoint = New IPEndPoint(IPAddress.Parse("10.0.100.5"), 1750)
+    Public dsListener As TcpListener
+    Public DsLinked As Boolean
+    Public RadioLinked As Boolean
+    Public RioLinked As Boolean
+    Public robotLinkedTime
+    Public rioLinkedTime
+    Public dsLinkedTime
+    Public batteryVoltage
+    Public float() As Single = {1.0F, 1.0F, 1.0F}
+    Public allianceStation As Integer
+    Public driverStationUdpLinkTimeoutSec
+    Public lastRobotLinkTime
+    Public DsRobotTripTime
+    Public MissedPacketCount
+    Public MissPacketOffset
+    Public maxTcpPacketBytes = 4096
 
-    Public Sub newDriverStationConnection(teamNumber As String, allianceStationNumber As Integer)
-        TeamNum = Convert.ToInt32(teamNumber)
-        If TeamNum <> 0 Then
-            Select Case teamNumber.Length
-                Case 1
-                Case 2
-                    robotIp = IPAddress.Parse("10.00." + teamNumber + ".2")
-                Case 3
-                    robotIp = IPAddress.Parse("10.0" + teamNumber(0) + "." + teamNumber(1) + teamNumber(2) + ".2")
-                Case 4
-                    robotIp = IPAddress.Parse("10." + teamNumber.Substring(0, 2) + "." + teamNumber.Substring(2) + ".2")
-                Case Else
-                    robotIp = IPAddress.Parse("10.0.0.2")
-            End Select
-        Else
-            teamNumber = 0
-            robotIp = IPAddress.Parse("10.0.0.2")
-        End If
-        radioIp = IPAddress.Parse(robotIp.ToString().Substring(0, robotIp.ToString().Length - 1) + "1")
+    Public Function newDriverStationConnection(teamId As String, allianceStat As String, tcpConn As TcpClient)
+        Dim ipAddress = tcpClient.Client.RemoteEndPoint.ToString().Split(":")(0)
 
-        Dim robotPingThread As New Thread(AddressOf robotPing)
-        robotPingThread.Start()
+        udpClient.Connect(ipAddress, DSUpdSendPort)
 
-        Dim sendDataThread As New Thread(AddressOf sendPacketDS)
-        sendDataThread.Start()
+        TeamNum = teamId
+        allianceStat = allianceStation
 
-    End Sub
+        Return allianceStat & TeamNum
+    End Function
 
-    Public Sub robotPing(stationNumber As Integer)
-        Dim timeOut As Integer = 5
+    'loops forever reading the udp packets from the driver stations
+    Public Sub listenForDsUdpPackets(ipAddr As IPAddress)
+        Dim udp_rec As New IPEndPoint(ipAddr, DSUdpReceivePort)
 
-        While (True)
-            'Pings the robots radio to see if its connected'
-            If My.Computer.Network.Ping(radioIp.ToString, timeOut) Then
-                If stationNumber = 0 Then
-                    Robot_Linked_Red1 = True
-                ElseIf stationNumber = 1 Then
-                    Robot_Linked_Red2 = True
-                ElseIf stationNumber = 2 Then
-                    Robot_Linked_Red3 = True
-                ElseIf stationNumber = 3 Then
-                    Robot_Linked_Blue1 = True
-                ElseIf stationNumber = 4 Then
-                    Robot_Linked_Blue2 = True
-                ElseIf stationNumber = 5 Then
-                    Robot_Linked_Blue3 = True
+        Do While (True)
+            'Listens to the DS via a udp client'
+            Dim rec_bytes As Byte() = udpClient.Receive(udp_rec)
+
+            Dim teamId As Integer = rec_bytes(4) << 8 + rec_bytes(5)
+
+            If teamId <> 0 Then
+                DsLinked = True
+                dsLinkedTime = DateTime.Now.Second()
+
+                RadioLinked = rec_bytes(3) & &H10 <> 0
+                RioLinked = rec_bytes(3) & &H20 <> 0
+
+                If RioLinked = True Then
+                    robotLinkedTime = DateTime.Now.Second()
+                    batteryVoltage = float(rec_bytes(6)) + float(rec_bytes(7)) / 256
                 End If
             End If
-            'Pings the driver station to check if its connected'
-            If DriverStationIP IsNot Nothing Then
-                If My.Computer.Network.Ping(DriverStationIP.ToString, timeOut) Then
-                    If stationNumber = 0 Then
-                        DS_Linked_Red1 = True
-                    ElseIf stationNumber = 1 Then
-                        DS_Linked_Red2 = True
-                    ElseIf stationNumber = 2 Then
-                        DS_Linked_Red3 = True
-                    ElseIf stationNumber = 3 Then
-                        DS_Linked_Blue1 = True
-                    ElseIf stationNumber = 4 Then
-                        DS_Linked_Blue2 = True
-                    ElseIf stationNumber = 5 Then
-                        DS_Linked_Blue3 = True
-                    End If
-                End If
-            End If
-            'sleeps for 100ms to see if another connection has appeared'
-            Thread.Sleep(100)
-        End While
+
+        Loop
+
     End Sub
 
     Public Sub setConnections(dsIp As IPAddress, tcpConnection As TcpClient)
@@ -171,7 +153,25 @@ Public Class DriverStations
         Return data
     End Function
 
-    Public Sub ListenToDS()
+    Public Sub update()
+        sendPacketDS(allianceStation)
+
+        If dsLinkedTime > driverStationUdpLinkTimeoutSec Then
+            DsLinked = False
+            RadioLinked = False
+            RioLinked = False
+            batteryVoltage = 0
+        End If
+
+        lastRobotLinkTime = DateTime.Now.Second()
+    End Sub
+
+    Public Sub close()
+        tcpClient.Close()
+        udpClient.Close()
+    End Sub
+
+    Public Sub ListenToDsTcp()
         Dim listen As Boolean
 
         Try
@@ -200,16 +200,16 @@ Public Class DriverStations
             Dim teamid_2 As Integer = buffer(4)
             Dim teamId As Integer = teamid_1 And teamid_2
 
-            Dim allianceStation As Integer = -1
+            Dim stationStatus As Integer = -1
             Dim ip As String = tcpClient.Client.RemoteEndPoint.ToString().Split(":")(0)
             Dim dsIp As IPAddress = IPAddress.Parse(ip)
 
+            'Sets the status if the team is okay or wrong'
             If TeamNum = teamId Then
-                setConnections(dsIp, tcpClient)
+                stationStatus = 0
+            Else
+                stationStatus = -1
             End If
-
-
-
 
             Dim assignmentPacket(5) As Byte
             assignmentPacket(0) = 0 'packet size'
@@ -219,11 +219,44 @@ Public Class DriverStations
             assignmentPacket(4) = 0 'station status, need to add station checking'
 
             tcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
+
+            If TeamNum = teamId Then
+                setConnections(dsIp, tcpClient)
+            End If
+
+            Dim newDs = newDriverStationConnection(teamId, allianceStation, tcpClient)
+
+            If newDs Is Nothing Then
+                tcpClient.Close()
+                MessageBox.Show("Error creating new Driver Station")
+            End If
+
+            Dim handleTCP As Thread = New Thread(AddressOf handleDSTcp)
+
+            If handleTCP Is Nothing Then
+                handleTCP.Start()
+            End If
         End While
 
     End Sub
 
+    Public Sub handleDSTcp()
+        Dim buffer(maxTcpPacketBytes) As Byte
 
+        Do While (True)
+            tcpClient.Client.ReceiveTimeout = TimeOfDay.Second * driverStationUdpLinkTimeoutSec
+            tcpClient.GetStream.Read(buffer, 0, buffer.Length)
+
+            Dim packetType = buffer(2)
+
+            Select Case packetType
+                Case 28
+                    'DS Keep Alive'
+                Case 22
+                    'Do Nothing since I dont decompile the status packet
+            End Select
+        Loop
+    End Sub
 
     Public Sub Dispose()
         If udpClient IsNot Nothing Then
