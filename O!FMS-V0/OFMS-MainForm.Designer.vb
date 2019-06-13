@@ -1665,24 +1665,12 @@ Partial Class Main_Panel
     Friend WithEvents RedTeam1 As System.Windows.Forms.Label
     Private WithEvents ShapeContainer1 As PowerPacks.ShapeContainer
     Private WithEvents R1Estop As PowerPacks.RectangleShape
-    Private WithEvents R1Robot As PowerPacks.RectangleShape
-    Private WithEvents R1DS As PowerPacks.RectangleShape
     Private WithEvents R3Estop As PowerPacks.RectangleShape
-    Private WithEvents R3Robot As PowerPacks.RectangleShape
-    Private WithEvents R3DS As PowerPacks.RectangleShape
     Private WithEvents R2Estop As PowerPacks.RectangleShape
-    Private WithEvents R2Robot As PowerPacks.RectangleShape
-    Private WithEvents R2DS As PowerPacks.RectangleShape
     Private WithEvents ShapeContainer2 As PowerPacks.ShapeContainer
     Private WithEvents B3Estop As PowerPacks.RectangleShape
-    Private WithEvents B3Robot As PowerPacks.RectangleShape
-    Private WithEvents B3DS As PowerPacks.RectangleShape
     Private WithEvents B2Estop As PowerPacks.RectangleShape
-    Private WithEvents B2Robot As PowerPacks.RectangleShape
-    Private WithEvents B2DS As PowerPacks.RectangleShape
     Private WithEvents B1Estop As PowerPacks.RectangleShape
-    Private WithEvents B1Robot As PowerPacks.RectangleShape
-    Private WithEvents B1DS As PowerPacks.RectangleShape
     Friend WithEvents Pre_Start_btn As Button
     Friend WithEvents matchTimerLbl As Label
     Friend WithEvents MatchMessages As Label
@@ -1758,4 +1746,16 @@ Partial Class Main_Panel
     Friend WithEvents Button30 As Button
     Friend WithEvents Button29 As Button
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Public WithEvents R1DS As PowerPacks.RectangleShape
+    Public WithEvents R1Robot As PowerPacks.RectangleShape
+    Public WithEvents R3Robot As PowerPacks.RectangleShape
+    Public WithEvents R3DS As PowerPacks.RectangleShape
+    Public WithEvents R2Robot As PowerPacks.RectangleShape
+    Public WithEvents R2DS As PowerPacks.RectangleShape
+    Public WithEvents B3Robot As PowerPacks.RectangleShape
+    Public WithEvents B3DS As PowerPacks.RectangleShape
+    Public WithEvents B2Robot As PowerPacks.RectangleShape
+    Public WithEvents B2DS As PowerPacks.RectangleShape
+    Public WithEvents B1Robot As PowerPacks.RectangleShape
+    Public WithEvents B1DS As PowerPacks.RectangleShape
 End Class

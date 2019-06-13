@@ -7,89 +7,210 @@ Imports System.Threading
 
 
 Public Class DriverStations
-    Public packetCount As Integer = 0
-    Public DSUpdSendPort As Int32 = 1121
-    Public DSUdpReceivePort As Int32 = 1160
-    Public Bypassed As Boolean = False
-    Public Auto As Boolean = False
-    Public Enabled As Boolean = False
-    Public Estop As Boolean = False
-    Public robotIp As IPAddress
-    Public radioIp As IPAddress
-    Public DriverStationIP As IPAddress
-    Public FMS_IP As String = "10.0.100.5"
-    Public tcpClient As TcpClient
-    Public udpClient As UdpClient
-    Public TeamNum As String
-    Public IpEnd As IPEndPoint = New IPEndPoint(IPAddress.Parse("10.0.100.5"), 1750)
-    Public dsListener As TcpListener
-    Public DsLinked As Boolean
-    Public RadioLinked As Boolean
-    Public RioLinked As Boolean
-    Public robotLinkedTime
-    Public rioLinkedTime
-    Public dsLinkedTime
-    Public batteryVoltage
+    'DS Varibles'
+    Public Shared allianceStation
+    Public Shared TeamNum As String
+    Public Shared teamId
+    Public Shared DsLinked As Boolean
+    Public Shared RadioLinked As Boolean
+    Public Shared RobotLinked As Boolean
+    Public Shared BatteryVoltage
+    Public Shared packetCount
+    Public Shared Auto As Boolean
+    Public Shared Enabled As Boolean
+    Public Shared Estop As Boolean
     Public float() As Single = {1.0F, 1.0F, 1.0F}
-    Public allianceStation As Integer
-    Public driverStationUdpLinkTimeoutSec
-    Public lastRobotLinkTime
-    Public DsRobotTripTime
-    Public MissedPacketCount
-    Public MissPacketOffset
-    Public maxTcpPacketBytes = 4096
+    'TCP Listener/Server Varibles'
+    Public Shared Listener As TcpListener
+    Public Shared TCPListenPort As Integer = 1750
+    Public Shared TcpClient As TcpClient
+    Public Shared TCP_DS_IP As IPAddress
+    'UDP Listener Varibles'
+    Public Shared UdpListener As UdpClient
+    Public Shared UdpReceivePort As Integer = 1160
+    'UDP Server Varibles'
+    Public Shared UdpSender As UdpClient
+    Public Shared UdpSendPort As Integer = 1121
+    Public Shared UdpIPEndPoint As IPEndPoint
 
-    Public Function newDriverStationConnection(teamId As String, allianceStat As String, tcpConn As TcpClient)
-        Dim ipAddress = tcpClient.Client.RemoteEndPoint.ToString().Split(":")(0)
+    Public Sub startDSListener()
+        Dim dsListenThread As Thread = New Thread(AddressOf ListenToDsTcp)
 
-        udpClient.Connect(ipAddress, DSUpdSendPort)
-
-        TeamNum = teamId
-        allianceStat = allianceStation
-
-        Return allianceStat & TeamNum
-    End Function
-
-    'loops forever reading the udp packets from the driver stations
-    Public Sub listenForDsUdpPackets(ipAddr As IPAddress)
-        Dim udp_rec As New IPEndPoint(ipAddr, DSUdpReceivePort)
-
-        Do While (True)
-            'Listens to the DS via a udp client'
-            Dim rec_bytes As Byte() = udpClient.Receive(udp_rec)
-
-            Dim teamId As Integer = rec_bytes(4) << 8 + rec_bytes(5)
-
-            If teamId <> 0 Then
-                DsLinked = True
-                dsLinkedTime = DateTime.Now.Second()
-
-                RadioLinked = rec_bytes(3) & &H10 <> 0
-                RioLinked = rec_bytes(3) & &H20 <> 0
-
-                If RioLinked = True Then
-                    robotLinkedTime = DateTime.Now.Second()
-                    batteryVoltage = float(rec_bytes(6)) + float(rec_bytes(7)) / 256
-                End If
-            End If
-
-        Loop
+        If dsListenThread.IsAlive Then
+        Else
+            dsListenThread.Start()
+        End If
 
     End Sub
 
-    Public Sub setConnections(dsIp As IPAddress, tcpConnection As TcpClient)
-        DriverStationIP = dsIp
-        tcpClient = tcpConnection
-        udpClient = New UdpClient(dsIp.ToString(), 1121)
+    Public Sub newDriverStationConnection(teamId As String, allianceStat As String)
+        TeamNum = teamId
+        allianceStation = allianceStat
+    End Sub
+
+    'loops forever reading the udp packets from the driver stations
+    Public Sub listenForDsUdpPackets()
+        While True
+            Dim data As [Byte]() = UdpListener.Receive(UdpIPEndPoint)
+
+            Dim teamid_1 = data(4) << 8
+            Dim teamid_2 = data(5)
+            teamId = teamid_1 & teamid_2
+
+            Dim sendPacket As Thread = New Thread(AddressOf sendPacketDS)
+
+            Select Case (teamId)
+                Case Main_Panel.RedTeam1.Text
+                    Main_Panel.R1DS.BackColor = Color.LimeGreen
+                    DS_Linked_Red1 = True
+                    If sendPacket.IsAlive Then
+                    Else
+                        sendPacket.Start()
+                    End If
+
+                    RadioLinked = data(3) & &H10 <> 0
+                    If RadioLinked = True Then
+
+                    End If
+
+                    RobotLinked = data(3) & &H20 <> 0
+                    If RobotLinked = True Then
+                        Robot_Linked_Red1 = True
+                        Main_Panel.R1Robot.BackColor = Color.LimeGreen
+                        BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                        Main_Panel.RedVolt1 = BatteryVoltage
+                    End If
+                Case Main_Panel.RedTeam2.Text
+                    Main_Panel.R2DS.BackColor = Color.LimeGreen
+                    DS_Linked_Red2 = True
+                    If sendPacket.IsAlive Then
+                    Else
+                        sendPacket.Start()
+                    End If
+
+                    RadioLinked = data(3) & &H10 <> 0
+                    If RadioLinked = True Then
+
+                    End If
+
+                    RobotLinked = data(3) & &H20 <> 0
+                    If RobotLinked = True Then
+                        Robot_Linked_Red2 = True
+                        Main_Panel.R2Robot.BackColor = Color.LimeGreen
+                        BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                        Main_Panel.RedVolt2 = BatteryVoltage
+                    End If
+                Case Main_Panel.RedTeam3.Text
+                    Main_Panel.R3DS.BackColor = Color.LimeGreen
+                    DS_Linked_Red3 = True
+                    If sendPacket.IsAlive Then
+                    Else
+                        sendPacket.Start()
+                    End If
+
+                    RadioLinked = data(3) & &H10 <> 0
+                    If RadioLinked = True Then
+
+                    End If
+
+                    RobotLinked = data(3) & &H20 <> 0
+                    If RobotLinked = True Then
+                        Robot_Linked_Red3 = True
+                        Main_Panel.R3Robot.BackColor = Color.LimeGreen
+                        BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                        Main_Panel.RedVolt3 = BatteryVoltage
+                    End If
+                Case Main_Panel.BlueTeam1.Text
+                    Main_Panel.B1DS.BackColor = Color.LimeGreen
+                    DS_Linked_Blue1 = True
+                    If sendPacket.IsAlive Then
+                    Else
+                        sendPacket.Start()
+                    End If
+
+                    RadioLinked = data(3) & &H10 <> 0
+                    If RadioLinked = True Then
+
+                    End If
+
+                    RobotLinked = data(3) & &H20 <> 0
+                    If RobotLinked = True Then
+                        Robot_Linked_Blue1 = True
+                        Main_Panel.B1Robot.BackColor = Color.LimeGreen
+                        BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                        Main_Panel.BlueVolt1 = BatteryVoltage
+                    End If
+                Case Main_Panel.BlueTeam2.Text
+                    Main_Panel.B2DS.BackColor = Color.LimeGreen
+                    DS_Linked_Blue2 = True
+                    If sendPacket.IsAlive Then
+                    Else
+                        sendPacket.Start()
+                    End If
+
+                    RadioLinked = data(3) & &H10 <> 0
+                    If RadioLinked = True Then
+
+                    End If
+
+                    RobotLinked = data(3) & &H20 <> 0
+                    If RobotLinked = True Then
+                        Robot_Linked_Blue2 = True
+                        Main_Panel.B2Robot.BackColor = Color.LimeGreen
+                        BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                        Main_Panel.BlueVolt2 = BatteryVoltage
+                    End If
+                Case Main_Panel.BlueTeam3.Text
+                    Main_Panel.B3DS.BackColor = Color.LimeGreen
+                    DS_Linked_Blue3 = True
+                    If sendPacket.IsAlive Then
+                    Else
+                        sendPacket.Start()
+                    End If
+
+                    RadioLinked = data(3) & &H10 <> 0
+                    If RadioLinked = True Then
+
+                    End If
+
+                    RobotLinked = data(3) & &H20 <> 0
+                    If RobotLinked = True Then
+                        Robot_Linked_Blue3 = True
+                        Main_Panel.B3Robot.BackColor = Color.LimeGreen
+                        BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                        Main_Panel.BlueVolt3 = BatteryVoltage
+                    End If
+            End Select
+        End While
+    End Sub
+
+    Public Sub setDsConnection(dsIP As IPAddress, tcpConnection As TcpClient)
+        TcpClient = tcpConnection
+        UdpSender = New UdpClient(dsIP.ToString, UdpSendPort)
+        UdpIPEndPoint = New IPEndPoint(IPAddress.Parse(dsIP.ToString), 0)
+        UdpListener = New System.Net.Sockets.UdpClient(UdpReceivePort)
+        Dim ReadUDP As New Thread(AddressOf listenForDsUdpPackets)
+
+        If ReadUDP.IsAlive Then
+        Else
+            ReadUDP.Start()
+        End If
+
     End Sub
 
     Public Sub sendPacketDS(allianceStation As Integer)
-        Dim packet = encodeControlPacket(allianceStation)
-        udpClient.Send(packet, packet.Length)
+        If UdpSender.Client.Connected Then
+            Dim allianceStat = allianceStation
+            Dim packet As Byte() = encodeControlPacket(allianceStat)
+
+            If UdpSender.Client.Connected Then
+                UdpSender.Send(packet, packet.Length)
+            End If
+        End If
 
     End Sub
 
-    Public Function encodeControlPacket(allianceStation As Integer)
+    Public Function encodeControlPacket(allianceStation As Integer) As Byte()
         'Using the driver station packet structure from Cheesy Arena'
         Dim data(22) As Byte
 
@@ -150,65 +271,47 @@ Public Class DriverStations
 
         packetCount = packetCount + 1
 
-        Return data
     End Function
 
-    Public Sub update()
-        sendPacketDS(allianceStation)
-
-        If dsLinkedTime > driverStationUdpLinkTimeoutSec Then
-            DsLinked = False
-            RadioLinked = False
-            RioLinked = False
-            batteryVoltage = 0
-        End If
-
-        lastRobotLinkTime = DateTime.Now.Second()
-    End Sub
-
-    Public Sub close()
-        tcpClient.Close()
-        udpClient.Close()
-    End Sub
-
     Public Sub ListenToDsTcp()
-        Dim listen As Boolean
+        Dim IpEndPoint As IPEndPoint = New IPEndPoint(IPAddress.Parse("127.0.0.1"), TCPListenPort)
+        Listener = New TcpListener(IpEndPoint)
+        Dim Listen As Boolean = False
 
-        Try
-            Dim port As Int32 = 1750
-            Dim FMS_Address As IPAddress = IPAddress.Parse("10.0.100.5")
-            dsListener = New TcpListener(FMS_Address, port)
-            dsListener.Start()
-            listen = True
-        Catch ex As SocketException
-            MessageBox.Show(ex.ToString)
-            listen = False
-        End Try
+        Listener.Start()
+        MessageBox.Show("Listener Started")
+        Listen = True
 
+        While (True)
+            TcpClient = Listener.AcceptTcpClient
 
-        While (Field.fieldStatus = Field.MatchEnums.PreMatch And listen = True)
-            Dim tcpClient As TcpClient = dsListener.AcceptTcpClient
-            Dim buffer(5) As Byte
-            tcpClient.GetStream.Read(buffer, 0, buffer.Length)
+            Dim Buffer(6) As Byte
 
-            If buffer(0) <> 0 & buffer(1) <> 3 & buffer(2) <> 24 Then
-                tcpClient.Close()
+            TcpClient.GetStream().Read(Buffer, 0, Buffer.Length)
 
+            If Buffer(0) <> 0 And Buffer(1) <> 24 And Buffer(2) <> 3 Then
+                TcpClient.Close()
+                MessageBox.Show("Client was rejected since inital packet wasn't right")
             End If
 
-            Dim teamid_1 As Integer = buffer(3) << 8
-            Dim teamid_2 As Integer = buffer(4)
-            Dim teamId As Integer = teamid_1 And teamid_2
+            Dim teamid_1 = Buffer(3) << 8
+            Dim teamid_2 = Buffer(4)
+
+            teamId = teamid_1 & teamid_2
 
             Dim stationStatus As Integer = -1
-            Dim ip As String = tcpClient.Client.RemoteEndPoint.ToString().Split(":")(0)
-            Dim dsIp As IPAddress = IPAddress.Parse(ip)
+
+            TCP_DS_IP = CType(TcpClient.Client.RemoteEndPoint, IPEndPoint).Address
 
             'Sets the status if the team is okay or wrong'
+            'CHANGE THIS TO A TEAM SET CONNECTIONS FOR THE ALLIANCE STATIONS
             If TeamNum = teamId Then
                 stationStatus = 0
+                setDsConnection(TCP_DS_IP, TcpClient)
             Else
                 stationStatus = -1
+                TcpClient.Close()
+                Thread.Sleep(1000)
             End If
 
             Dim assignmentPacket(5) As Byte
@@ -216,67 +319,15 @@ Public Class DriverStations
             assignmentPacket(1) = 3 'packet size'
             assignmentPacket(2) = 25 'packet type'
             assignmentPacket(3) = allianceStation
-            assignmentPacket(4) = 0 'station status, need to add station checking'
+            assignmentPacket(4) = stationStatus 'station status, need to add station checking'
 
-            tcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
-
-            If TeamNum = teamId Then
-                setConnections(dsIp, tcpClient)
-            End If
-
-            Dim newDs = newDriverStationConnection(teamId, allianceStation, tcpClient)
-
-            If newDs Is Nothing Then
-                tcpClient.Close()
-                MessageBox.Show("Error creating new Driver Station")
-            End If
-
-            Dim handleTCP As Thread = New Thread(AddressOf handleDSTcp)
-
-            If handleTCP Is Nothing Then
-                handleTCP.Start()
-            End If
+            TcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
         End While
 
     End Sub
 
     Public Sub handleDSTcp()
-        Dim buffer(maxTcpPacketBytes) As Byte
-
-        Do While (True)
-            tcpClient.Client.ReceiveTimeout = TimeOfDay.Second * driverStationUdpLinkTimeoutSec
-            tcpClient.GetStream.Read(buffer, 0, buffer.Length)
-
-            Dim packetType = buffer(2)
-
-            Select Case packetType
-                Case 28
-                    'DS Keep Alive'
-                Case 22
-                    'Do Nothing since I dont decompile the status packet
-            End Select
-        Loop
-    End Sub
-
-    Public Sub Dispose()
-        If udpClient IsNot Nothing Then
-            udpClient.Close()
-        Else
-            'Do nothing since it is nothing'
-        End If
-
-        If tcpClient IsNot Nothing Then
-            tcpClient.Close()
-        Else
-            'Do nothing since it is nothing'
-        End If
-
-        If dsListener IsNot Nothing Then
-            dsListener.Stop()
-        Else
-            'Do nothing since it is nothing
-        End If
-
+        'FIX THIS'
     End Sub
 
 End Class
