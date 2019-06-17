@@ -442,9 +442,9 @@ Partial Class Main_Panel
         Me.RedTeam1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.RedTeam1.Location = New System.Drawing.Point(4, 18)
         Me.RedTeam1.Name = "RedTeam1"
-        Me.RedTeam1.Size = New System.Drawing.Size(77, 15)
+        Me.RedTeam1.Size = New System.Drawing.Size(39, 15)
         Me.RedTeam1.TabIndex = 0
-        Me.RedTeam1.Text = "RedTeam1"
+        Me.RedTeam1.Text = "1080"
         '
         'ShapeContainer1
         '

@@ -12,7 +12,7 @@ Public Class Field
     Public Shared FieldReset As Boolean
     Public Shared Volunteers As Boolean
     'Driver Station instances'
-    Public Shared Red1DS As New DriverStations
+    Public Shared Red1DS As DriverStations
     Public Shared Red2DS As New DriverStations
     Public Shared Red3DS As New DriverStations
     Public Shared Blue1DS As New DriverStations
@@ -45,8 +45,15 @@ Public Class Field
     End Enum
 
     Public Shared Sub HandleDSConnections()
+        Red1DS.newDriverStationConnection("1080", 0)
+        Red2DS.newDriverStationConnection("1885", 1)
+        Red3DS.newDriverStationConnection("384", 2)
+        Blue1DS.newDriverStationConnection("4444", 3)
+        Blue2DS.newDriverStationConnection("5555", 4)
+        Blue3DS.newDriverStationConnection("6666", 5)
+
         'Starts the TCP connection threads for finding driver stations'
-        Red1DS.ListenToDS()
+        'Red1DS.ListenToDS()
         'Red2DS.ListenToDS()
         'Red3DS.ListenToDS()
         'Blue1DS.ListenToDS()
@@ -65,7 +72,7 @@ Public Class Field
         Do While (True)
             checkAlliances()
             handleCoils()
-            handleEstops()
+            'handlePLCEstops()
             handleFieldOuputs()
             handleGameOutputs()
             handleRegisters()
@@ -75,83 +82,30 @@ Public Class Field
     End Sub
 
     Public Shared Sub DisposeDS()
-        Red1DS.Dispose()
-        Red2DS.Dispose()
-        Red3DS.Dispose()
-        Blue1DS.Dispose()
-        Blue2DS.Dispose()
-        Blue3DS.Dispose()
+
     End Sub
 
-    Public Shared Function SendDS(Auto As Boolean, Enabled As Boolean)
-        If Auto = True Then
+    Public Shared Sub SendDS(Auto As Boolean, Enabled As Boolean)
+        If Auto = True And Red1DS.Estop = False Then
             Red1DS.Auto = True
-            Red2DS.Auto = True
-            Red3DS.Auto = True
-            Blue1DS.Auto = True
-            Blue2DS.Auto = True
-            Blue3DS.Auto = True
-
-            ' Red1DS.sendPacketDS(0)
-            ' Red2DS.sendPacketDS(1)
-            ' Red3DS.sendPacketDS(2)
-            ' Blue1DS.sendPacketDS(3)
-            ' Blue2DS.sendPacketDS(4)
-            ' Blue3DS.sendPacketDS(5)
-
-        Else
-            Red1DS.Auto = False
-            Red2DS.Auto = False
-            Red3DS.Auto = False
-            Blue1DS.Auto = False
-            Blue2DS.Auto = False
-            Blue3DS.Auto = False
-
-            ' Red1DS.sendPacketDS(0)
-            ' Red2DS.sendPacketDS(1)
-            ' Red3DS.sendPacketDS(2)
-            ' Blue1DS.sendPacketDS(3)
-            ' Blue2DS.sendPacketDS(4)
-            ' Blue3DS.sendPacketDS(5)
-        End If
-
-        If Enabled = True Then
-            Red1DS.Enabled = True
-            Red2DS.Enabled = True
-            Red3DS.Enabled = True
-            Blue1DS.Enabled = True
-            Blue2DS.Enabled = True
-            Blue3DS.Enabled = True
-
-            ' Red1DS.sendPacketDS(0)
-            ' Red2DS.sendPacketDS(1)
-            ' Red3DS.sendPacketDS(2)
-            ' Blue1DS.sendPacketDS(3)
-            ' Blue2DS.sendPacketDS(4)
-            ' Blue3DS.sendPacketDS(5)
-        Else
             Red1DS.Enabled = False
-            Red2DS.Enabled = False
-            Red3DS.Enabled = False
-            Blue1DS.Enabled = False
-            Blue2DS.Enabled = False
-            Blue3DS.Enabled = False
-
-            ' Red1DS.sendPacketDS(0)
-            ' Red2DS.sendPacketDS(1)
-            ' Red3DS.sendPacketDS(2)
-            ' Blue1DS.sendPacketDS(3)
-            ' Blue2DS.sendPacketDS(4)
-            ' Blue3DS.sendPacketDS(5)
+        ElseIf Auto = True And Enabled = True And Red1DS.Estop = False Then
+            Red1DS.Auto = True
+            Red1DS.Enabled = True
+        ElseIf Enabled = True And Red1DS.Estop = False Then
+            Red1DS.Auto = False
+            Red1DS.Enabled = True
+        ElseIf Red1DS.Estop = True Then
+            Red1DS.Auto = False
+            Red1DS.Enabled = False
         End If
-        Return 0
-    End Function
+    End Sub
 
     Public Shared Sub updateField(MatchEnums As MatchEnums)
         Select Case (MatchEnums)
 
             Case MatchEnums.PreMatch
-                DisposeDS()
+                HandleDSConnections()
                 status = False
                 My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
                 PLC_Reset = True

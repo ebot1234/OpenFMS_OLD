@@ -3,13 +3,15 @@ Imports O_FMS_V0.PLC_Comms_Server
 Imports O_FMS_V0.Field
 Imports O_FMS_V0.AccessPoint
 Imports O_FMS_V0.Elimination_Matches
+Imports O_FMS_V0.DriverStations
 
 
 Public Class Main_Panel
 
-    Dim DriverStation As New Threading.Thread(AddressOf HandleDSConnections)
     Public Shared PLC_Thread As New Threading.Thread(AddressOf handlePLC)
     Dim scoreHandler As New Threading.Thread(AddressOf updateScores)
+    Public estopHandler As Threading.Thread = New Threading.Thread(AddressOf handleMainEstops)
+
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
     Dim i As Integer = 0
 
@@ -27,6 +29,12 @@ Public Class Main_Panel
     Public Shared Blue1_Estop
     Public Shared Blue2_Estop
     Public Shared Blue3_Estop
+    Public Shared R1_Estop_Count = 0
+    Public Shared R2_Estop_Count = 0
+    Public Shared R3_Estop_Count = 0
+    Public Shared B1_Estop_Count = 0
+    Public Shared B2_Estop_Count = 0
+    Public Shared B3_Estop_Count = 0
 
     Public Shared alliance_num1
     Public Shared alliance_num2
@@ -547,27 +555,36 @@ Public Class Main_Panel
     End Sub
 
     Private Sub Pre_Start_btn_Click(sender As Object, e As EventArgs) Handles Pre_Start_btn.Click
-        If DriverStation IsNot Nothing Then
-            DriverStation.Abort()
-        End If
-
         If Field.handleLighting IsNot Nothing Then
             Field.handleLighting.Abort()
         Else
             Field.handleLighting.Start()
         End If
 
+        startDSListener()
 
-        DriverStation = New Threading.Thread(AddressOf HandleDSConnections)
-        DriverStation.Start()
         updateField(MatchEnums.PreMatch)
         matchTimerLbl.Text = SandStormTime
         AutoTimer.Enabled = False
         MatchMessages.Text = "Field Pre-Started"
     End Sub
 
+    Public Sub handleMainEstops()
+        If Red_1_Estop = True Then
+            Red1DS.Estop = True
+        Else
+            Red1DS.Estop = False
+        End If
+    End Sub
+
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
         updateField(MatchEnums.SandStorm)
+
+        If estopHandler.IsAlive Then
+        Else
+            estopHandler.Start()
+        End If
+
         AutoTimer.Start()
     End Sub
 
@@ -613,6 +630,7 @@ Public Class Main_Panel
         End If
 
         If matchTimerLbl.Text = 0 Then
+            Listen = False
             updateField(MatchEnums.PostMatch)
             EndGameTimer.Stop()
             SandStormMessage.Text = ""
@@ -625,7 +643,6 @@ Public Class Main_Panel
         HandleAbortedMatch()
         Field.updateField(MatchEnums.AbortMatch)
         MatchMessages.Text = "Match Aborted"
-        DriverStation.Abort()
         AutoTimer.Stop()
         TeleTimer.Stop()
         EndGameTimer.Stop()
@@ -699,32 +716,32 @@ Public Class Main_Panel
     End Sub
 
     Private Sub RBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass1.CheckedChanged
-        Red1DS.Dispose()
+        ' Red1DS.Dispose()
         Red1Bypass = True
     End Sub
 
     Private Sub RBypass2_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass2.CheckedChanged
-        Red2DS.Dispose()
+        ' Red2DS.Dispose()
         Red2Bypass = True
     End Sub
 
     Private Sub RBypass3_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass3.CheckedChanged
-        Red3DS.Dispose()
+        ' Red3DS.Dispose()
         Red3Bypass = True
     End Sub
 
     Private Sub BBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass1.CheckedChanged
-        Blue1DS.Dispose()
+        ' Blue1DS.Dispose()
         Blue1Bypass = True
     End Sub
 
     Private Sub BBypass2_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass2.CheckedChanged
-        Blue2DS.Dispose()
+        ' Blue2DS.Dispose()
         Blue2Bypass = True
     End Sub
 
     Private Sub BBypass3_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass3.CheckedChanged
-        Blue3DS.Dispose()
+        'Blue3DS.Dispose()
         Blue3Bypass = True
     End Sub
 
@@ -900,6 +917,7 @@ Public Class Main_Panel
 
         RedScoreLbl.Text = RedScore
         BlueScoreLbl.Text = BlueScore
+        R1_Estop_Count = 0
     End Sub
 
     Public Sub updateScores()
@@ -912,7 +930,7 @@ Public Class Main_Panel
     End Sub
 
     Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
-        Red1_Estop = True
+        Red1DS.Estop = True
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
