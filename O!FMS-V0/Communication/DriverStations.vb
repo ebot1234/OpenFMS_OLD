@@ -60,134 +60,122 @@ Public Class DriverStations
 
             Dim sendPacket As Thread = New Thread(AddressOf sendPacketDS)
 
-            If Field.fieldStatus <> Field.MatchEnums.PostMatch Then
-                Select Case (teamId)
-                    Case Main_Panel.RedTeam1.Text
-                        Main_Panel.R1DS.BackColor = Color.LimeGreen
-                        DS_Linked_Red1 = True
-                        If sendPacket.IsAlive Then
-                        Else
-                            sendPacket.Start()
-                        End If
+            'Red 1'
+            If teamId = Main_Panel.RedTeam1.Text Then
+                Main_Panel.R1DS.BackColor = Color.LimeGreen
+                DS_Linked_Red1 = True
 
-                        RadioLinked = data(3) & &H10 <> 0
-                        If RadioLinked = True Then
+                If sendPacket.IsAlive Then
+                Else
+                    sendPacket.Start()
+                End If
 
-                        End If
+                RadioLinked = data(3) & &H10 <> 0
 
-                        RobotLinked = data(3) & &H20 <> 0
-                        If RobotLinked = True Then
-                            Robot_Linked_Red1 = True
-                            Main_Panel.R1Robot.BackColor = Color.LimeGreen
-                            BatteryVoltage = float(data(6)) + float(data(7)) / 256
-                            Main_Panel.RedVolt1.Text = BatteryVoltage.ToString
-                        End If
-                    Case Main_Panel.RedTeam2.Text
-                        Main_Panel.R2DS.BackColor = Color.LimeGreen
-                        DS_Linked_Red2 = True
-                        If sendPacket.IsAlive Then
-                        Else
-                            sendPacket.Start()
-                        End If
+                RobotLinked = data(3) & &H20 <> 0
 
-                        RadioLinked = data(3) & &H10 <> 0
-                        If RadioLinked = True Then
+                If RobotLinked = True Then
+                    Robot_Linked_Red1 = True
+                    Main_Panel.R1Robot.BackColor = Color.LimeGreen
+                    BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                    Main_Panel.RedVolt1.Text = BatteryVoltage.ToString
+                End If
+                'Red 2'
+            ElseIf teamId = Main_Panel.RedTeam2.Text Then
+                Main_Panel.R2DS.BackColor = Color.LimeGreen
+                DS_Linked_Red2 = True
+                If sendPacket.IsAlive Then
+                Else
+                    sendPacket.Start()
+                End If
 
-                        End If
+                RadioLinked = data(3) & &H10 <> 0
 
-                        RobotLinked = data(3) & &H20 <> 0
-                        If RobotLinked = True Then
-                            Robot_Linked_Red2 = True
-                            Main_Panel.R2Robot.BackColor = Color.LimeGreen
-                            BatteryVoltage = float(data(6)) + float(data(7)) / 256
-                            Main_Panel.RedVolt2 = BatteryVoltage
-                        End If
-                    Case Main_Panel.RedTeam3.Text
-                        Main_Panel.R3DS.BackColor = Color.LimeGreen
-                        DS_Linked_Red3 = True
-                        If sendPacket.IsAlive Then
-                        Else
-                            sendPacket.Start()
-                        End If
+                RobotLinked = data(3) & &H20 <> 0
 
-                        RadioLinked = data(3) & &H10 <> 0
-                        If RadioLinked = True Then
+                If RobotLinked = True Then
+                    Robot_Linked_Red2 = True
+                    Main_Panel.R2Robot.BackColor = Color.LimeGreen
+                    BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                    Main_Panel.RedVolt2.Text = BatteryVoltage.ToString
+                End If
+                'Red Team 3'
+            ElseIf teamId = Main_Panel.RedTeam3.Text Then
+                Main_Panel.R3DS.BackColor = Color.LimeGreen
+                DS_Linked_Red3 = True
+                If sendPacket.IsAlive Then
+                Else
+                    sendPacket.Start()
+                End If
 
-                        End If
+                RadioLinked = data(3) & &H10 <> 0
 
-                        RobotLinked = data(3) & &H20 <> 0
-                        If RobotLinked = True Then
-                            Robot_Linked_Red3 = True
-                            Main_Panel.R3Robot.BackColor = Color.LimeGreen
-                            BatteryVoltage = float(data(6)) + float(data(7)) / 256
-                            Main_Panel.RedVolt3 = BatteryVoltage
-                        End If
-                    Case Main_Panel.BlueTeam1.Text
-                        Main_Panel.B1DS.BackColor = Color.LimeGreen
-                        DS_Linked_Blue1 = True
-                        If sendPacket.IsAlive Then
-                        Else
-                            sendPacket.Start()
-                        End If
+                RobotLinked = data(3) & &H20 <> 0
 
-                        RadioLinked = data(3) & &H10 <> 0
-                        If RadioLinked = True Then
+                If RobotLinked = True Then
+                    Robot_Linked_Red3 = True
+                    Main_Panel.R3Robot.BackColor = Color.LimeGreen
+                    BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                    Main_Panel.RedVolt3.Text = BatteryVoltage.ToString
+                End If
+                'Blue Team 1'
+            ElseIf teamId = Main_Panel.BlueTeam1.Text Then
+                Main_Panel.B1DS.BackColor = Color.LimeGreen
+                DS_Linked_Blue1 = True
+                If sendPacket.IsAlive Then
+                Else
+                    sendPacket.Start()
+                End If
 
-                        End If
+                RadioLinked = data(3) & &H10 <> 0
 
-                        RobotLinked = data(3) & &H20 <> 0
-                        If RobotLinked = True Then
-                            Robot_Linked_Blue1 = True
-                            Main_Panel.B1Robot.BackColor = Color.LimeGreen
-                            BatteryVoltage = float(data(6)) + float(data(7)) / 256
-                            Main_Panel.BlueVolt1 = BatteryVoltage
-                        End If
-                    Case Main_Panel.BlueTeam2.Text
-                        Main_Panel.B2DS.BackColor = Color.LimeGreen
-                        DS_Linked_Blue2 = True
-                        If sendPacket.IsAlive Then
-                        Else
-                            sendPacket.Start()
-                        End If
+                RobotLinked = data(3) & &H20 <> 0
 
-                        RadioLinked = data(3) & &H10 <> 0
-                        If RadioLinked = True Then
+                If RobotLinked = True Then
+                    Robot_Linked_Blue1 = True
+                    Main_Panel.B1Robot.BackColor = Color.LimeGreen
+                    BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                    Main_Panel.BlueVolt1.Text = BatteryVoltage.ToString
+                End If
+                'Blue Team 2'
+            ElseIf teamId = Main_Panel.BlueTeam2.Text Then
+                Main_Panel.B2DS.BackColor = Color.LimeGreen
+                DS_Linked_Blue2 = True
+                If sendPacket.IsAlive Then
+                Else
+                    sendPacket.Start()
+                End If
 
-                        End If
+                RadioLinked = data(3) & &H10 <> 0
 
-                        RobotLinked = data(3) & &H20 <> 0
-                        If RobotLinked = True Then
-                            Robot_Linked_Blue2 = True
-                            Main_Panel.B2Robot.BackColor = Color.LimeGreen
-                            BatteryVoltage = float(data(6)) + float(data(7)) / 256
-                            Main_Panel.BlueVolt2 = BatteryVoltage
-                        End If
-                    Case Main_Panel.BlueTeam3.Text
-                        Main_Panel.B3DS.BackColor = Color.LimeGreen
-                        DS_Linked_Blue3 = True
-                        If sendPacket.IsAlive Then
-                        Else
-                            sendPacket.Start()
-                        End If
+                RobotLinked = data(3) & &H20 <> 0
 
-                        RadioLinked = data(3) & &H10 <> 0
-                        If RadioLinked = True Then
+                If RobotLinked = True Then
+                    Robot_Linked_Blue2 = True
+                    Main_Panel.B2Robot.BackColor = Color.LimeGreen
+                    BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                    Main_Panel.BlueVolt2.Text = BatteryVoltage.ToString
+                End If
+                'Blue Team 3'
+            ElseIf teamId = Main_Panel.BlueTeam3.Text Then
+                Main_Panel.B3DS.BackColor = Color.LimeGreen
+                DS_Linked_Blue3 = True
+                If sendPacket.IsAlive Then
+                Else
+                    sendPacket.Start()
+                End If
 
-                        End If
+                RadioLinked = data(3) & &H10 <> 0
 
-                        RobotLinked = data(3) & &H20 <> 0
-                        If RobotLinked = True Then
-                            Robot_Linked_Blue3 = True
-                            Main_Panel.B3Robot.BackColor = Color.LimeGreen
-                            BatteryVoltage = float(data(6)) + float(data(7)) / 256
-                            Main_Panel.BlueVolt3 = BatteryVoltage
-                        End If
-                End Select
-            Else
-                UdpListener.Close()
-                TcpClient.Close()
+                RobotLinked = data(3) & &H20 <> 0
+
+                If RobotLinked = True Then
+                    Robot_Linked_Blue3 = True
+                    Main_Panel.B3Robot.BackColor = Color.LimeGreen
+                    BatteryVoltage = float(data(6)) + float(data(7)) / 256
+                    Main_Panel.BlueVolt3.Text = BatteryVoltage.ToString
+                End If
             End If
-
         End While
     End Sub
 
@@ -196,19 +184,18 @@ Public Class DriverStations
         UdpSender = New UdpClient(dsIP.ToString, UdpSendPort)
         UdpIPEndPoint = New IPEndPoint(IPAddress.Parse(dsIP.ToString), 0)
         UdpListener = New System.Net.Sockets.UdpClient(UdpReceivePort)
-        Dim ReadUDP As New Thread(AddressOf listenForDsUdpPackets)
+        Dim ListenUDP As New Thread(AddressOf listenForDsUdpPackets)
 
-        If ReadUDP.IsAlive Then
+        If ListenUDP.IsAlive Then
         Else
-            ReadUDP.Start()
+            ListenUDP.Start()
         End If
-
     End Sub
 
-    Public Shared Sub sendPacketDS(allianceStation As Integer)
+    Public Shared Sub sendPacketDS()
         While True
             If UdpSender IsNot Nothing Then
-                Dim packet As [Byte]() = encodeControlPacket(0)
+                Dim packet As [Byte]() = encodeControlPacket()
                 UdpSender.Send(packet, packet.Length)
             Else
                 MessageBox.Show("Udp Sender has Problems")
@@ -217,7 +204,7 @@ Public Class DriverStations
         End While
     End Sub
 
-    Public Shared Function encodeControlPacket(allianceStation As Integer) As Byte()
+    Public Shared Function encodeControlPacket() As Byte()
         'Using the driver station packet structure from Cheesy Arena'
         Dim data(22) As Byte
 
@@ -241,16 +228,30 @@ Public Class DriverStations
         If Estop = True Then
             data(3) = &H80
         End If
+
         'Unused byte or unknown'
         data(4) = 0
-        'Alliance Station byte, TODO add map of alliance stations'
-        '0 = r1, 1 = r2, 2 = r3, 3 = b1, 4 = b2, 5 = b3'
-        data(5) = allianceStation
 
-        'driver station match type is practice for right now'
+        'Alliance Station byte'
+        '0 = r1, 1 = r2, 2 = r3, 3 = b1, 4 = b2, 5 = b3'
+        If teamId = Main_Panel.RedTeam1.Text Then
+            data(5) = 0
+        ElseIf teamId = Main_Panel.RedTeam2.Text Then
+            data(5) = 1
+        ElseIf teamId = Main_Panel.RedTeam3.Text Then
+            data(5) = 2
+        ElseIf teamId = Main_Panel.BlueTeam1.Text Then
+            data(5) = 3
+        ElseIf teamId = Main_Panel.BlueTeam2.Text Then
+            data(5) = 4
+        ElseIf teamId = Main_Panel.BlueTeam3.Text Then
+            data(5) = 5
+        End If
+
+        'driver station match type is practice for right now, CHANGE THIS?'
         data(6) = 1
 
-        'Match Number'
+        'Match Number, ADD THE ACTUAL MATCH NUM'
         data(7) = 0
         data(8) = 1
 
@@ -284,22 +285,16 @@ Public Class DriverStations
         Dim IpEndPoint As IPEndPoint = New IPEndPoint(IPAddress.Parse("127.0.0.1"), TCPListenPort)
         Listener = New TcpListener(IpEndPoint)
 
-        If Listen = False Then
+        If Listen = True Then
             Listener.Start()
+            MessageBox.Show("Listener Started")
+        Else
+            MessageBox.Show("Listener Not Started")
         End If
 
-        MessageBox.Show("Listener Started")
-        Listen = True
+        While (Listen = True)
 
-        While (Field.fieldStatus <> Field.MatchEnums.PostMatch Or Field.fieldStatus <> Field.MatchEnums.AbortMatch And Listen = True)
-
-            If Listen = True Then
-                TcpClient = Listener.AcceptTcpClient
-            Else
-                TcpClient.Close()
-                Listener.Stop()
-            End If
-
+            TcpClient = Listener.AcceptTcpClient
 
             Dim Buffer(6) As Byte
 
@@ -340,8 +335,6 @@ Public Class DriverStations
                 setDsConnection(TCP_DS_IP, TcpClient)
             Else
                 stationStatus = -1
-                Thread.Sleep(1000)
-                TcpClient.Close()
             End If
 
 
@@ -354,10 +347,14 @@ Public Class DriverStations
             assignmentPacket(4) = stationStatus 'station status, need to add station checking'
 
             TcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
+
+            If stationStatus = -1 Then
+                TcpClient.Close()
+            End If
+
         End While
 
         If Listen = False Then
-            TcpClient.Close()
             Listener.Stop()
         End If
 
@@ -365,6 +362,21 @@ Public Class DriverStations
 
     Public Sub handleDSTcp()
         'FIX THIS'
+    End Sub
+
+    Public Sub disposeDS()
+        If UdpListener IsNot Nothing Then
+            UdpListener.Close()
+        End If
+
+        If UdpSender IsNot Nothing Then
+            UdpSender.Close()
+        End If
+
+        If TcpClient IsNot Nothing Then
+            TcpClient.Close()
+        End If
+
     End Sub
 
 End Class

@@ -561,6 +561,7 @@ Public Class Main_Panel
             Field.handleLighting.Start()
         End If
 
+        Listen = True
         startDSListener()
 
         updateField(MatchEnums.PreMatch)
@@ -569,22 +570,8 @@ Public Class Main_Panel
         MatchMessages.Text = "Field Pre-Started"
     End Sub
 
-    Public Sub handleMainEstops()
-        If Red_1_Estop = True Then
-            Red1DS.Estop = True
-        Else
-            Red1DS.Estop = False
-        End If
-    End Sub
-
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
         updateField(MatchEnums.SandStorm)
-
-        If estopHandler.IsAlive Then
-        Else
-            estopHandler.Start()
-        End If
-
         AutoTimer.Start()
     End Sub
 
@@ -639,7 +626,7 @@ Public Class Main_Panel
     End Sub
 
     Private Sub AbortMatch_btn_Click(sender As Object, e As EventArgs) Handles AbortMatch_btn.Click
-        'Match_Aborted = True
+        Listen = False
         HandleAbortedMatch()
         Field.updateField(MatchEnums.AbortMatch)
         MatchMessages.Text = "Match Aborted"
