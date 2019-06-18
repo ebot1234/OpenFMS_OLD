@@ -74,18 +74,18 @@ Public Class PLC_Handler
     Public Shared BlueRocket2
 
     'Data Sent from FMS Software to PLC
-    Public Shared Match_Start
-    Public Shared Match_Stop
+    Public Shared Match_Start 'MC13'
+    Public Shared Match_Stop 'MC14'
     Public Shared Field_Ready
     Public Shared PLC_Reset
 
     'Driver Station Statuses'
-    Public Shared Red1Ready
-    Public Shared Red2Ready
-    Public Shared Red3Ready
-    Public Shared Blue1Ready
-    Public Shared Blue2Ready
-    Public Shared Blue3Ready
+    Public Shared Red1Ready 'MC7'
+    Public Shared Red2Ready 'MC8'
+    Public Shared Red3Ready 'MC9'
+    Public Shared Blue1Ready 'MC10'
+    Public Shared Blue2Ready 'MC11'
+    Public Shared Blue3Ready 'MC12'
     Public Shared Custom_Message
 
 

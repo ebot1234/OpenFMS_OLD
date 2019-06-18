@@ -35,4 +35,8 @@ Public Class Lighting
         'Thread sleeps 100ms for a break'
         Threading.Thread.Sleep(100)
     End Sub
+
+    'NEW LIGHTING STUFF NOT USED YET!!!!!!!!!!!!!'
+    'ADD THAT STUFF'
+
 End Class
