@@ -138,7 +138,7 @@
     <Compile Include="Field\Team.vb" />
     <Compile Include="Field\ViewMarqUpdater.vb" />
     <Compile Include="Other\CRC.vb" />
-    <Compile Include="Communication\PLC_Comms_Server.vb" />
+    <Compile Include="Communication\PLC_Handler.vb" />
     <Compile Include="OFMS-MainForm.vb">
       <SubType>Form</SubType>
     </Compile>

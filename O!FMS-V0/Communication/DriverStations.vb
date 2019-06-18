@@ -1,7 +1,7 @@
 ﻿Imports System.Net.Sockets
 Imports System.Net
 Imports System.Text.RegularExpressions
-Imports O_FMS_V0.PLC_Comms_Server
+Imports O_FMS_V0.PLC_Handler
 Imports O_FMS_V0.RandomString
 Imports System.Threading
 
@@ -364,7 +364,7 @@ Public Class DriverStations
         'FIX THIS'
     End Sub
 
-    Public Sub disposeDS()
+    Public Sub Dispose()
         If UdpListener IsNot Nothing Then
             UdpListener.Close()
         End If
@@ -378,5 +378,4 @@ Public Class DriverStations
         End If
 
     End Sub
-
 End Class

@@ -1,4 +1,4 @@
-Imports O_FMS_V0.PLC_Comms_Server
+Imports O_FMS_V0.PLC_Handler
 Imports O_FMS_V0.RandomString
 Imports O_FMS_V0.Main_Panel
 Imports System.Threading
@@ -30,7 +30,7 @@ Public Class Field
 
     Public Shared fieldStatus
 
-    Public Shared handleLighting As New Thread(AddressOf PLC_Comms_Server.handleLighting)
+    Public Shared handleLighting As New Thread(AddressOf PLC_Handler.handleLighting)
 
     'Match Type enums'
     Public Enum MatchEnums
@@ -41,7 +41,6 @@ Public Class Field
         EndGame
         PostMatch
         AbortMatch
-        Complete
     End Enum
 
     Public Shared Sub HandleDSConnections()
@@ -51,21 +50,6 @@ Public Class Field
         Blue1DS.newDriverStationConnection("4444", 3)
         Blue2DS.newDriverStationConnection("5555", 4)
         Blue3DS.newDriverStationConnection("6666", 5)
-
-        'Starts the TCP connection threads for finding driver stations'
-        'Red1DS.ListenToDS()
-        'Red2DS.ListenToDS()
-        'Red3DS.ListenToDS()
-        'Blue1DS.ListenToDS()
-        'Blue2DS.ListenToDS()
-        'Blue3DS.ListenToDS()
-        'Pings and starts control for the driver station'
-        'Red1DS.newDriverStationConnection(Main_Panel.RedTeam1.Text, 0)
-        'Red2DS.newDriverStationConnection(Main_Panel.RedTeam2.Text, 1)
-        'Red3DS.newDriverStationConnection(Main_Panel.RedTeam3.Text, 2)
-        'Blue1DS.newDriverStationConnection(Main_Panel.BlueTeam1.Text, 3)
-        'Blue2DS.newDriverStationConnection(Main_Panel.BlueTeam2.Text, 4)
-        'Blue3DS.newDriverStationConnection(Main_Panel.BlueTeam3.Text, 5)
     End Sub
 
     Public Shared Sub handlePLC()
@@ -82,7 +66,12 @@ Public Class Field
     End Sub
 
     Public Shared Sub DisposeDS()
-
+        Red1DS.Dispose()
+        Red2DS.Dispose()
+        Red3DS.Dispose()
+        Blue1DS.Dispose()
+        Blue2DS.Dispose()
+        Blue3DS.Dispose()
     End Sub
 
     Public Shared Sub SendDS(Auto As Boolean, Enabled As Boolean)
@@ -108,7 +97,6 @@ Public Class Field
                 HandleDSConnections()
                 status = False
                 My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
-                PLC_Reset = True
                 ResetPLC()
                 fieldStatus = MatchEnums.PreMatch
                 CargoshipEnabled = True
@@ -137,14 +125,12 @@ Public Class Field
                 SendDS(Auto:=False, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
                 Match_Stop = True
-                DisposeDS()
                 status = False
             Case MatchEnums.AbortMatch
                 fieldStatus = MatchEnums.AbortMatch
                 My.Computer.Audio.Play(My.Resources.fog_blast, AudioPlayMode.Background)
                 SendDS(Auto:=False, Enabled:=False)
                 Match_Stop = True
-                DisposeDS()
                 status = False
 
             Case Else

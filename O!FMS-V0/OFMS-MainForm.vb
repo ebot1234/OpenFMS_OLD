@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Imports O_FMS_V0.PLC_Comms_Server
+Imports O_FMS_V0.PLC_Handler
 Imports O_FMS_V0.Field
 Imports O_FMS_V0.AccessPoint
 Imports O_FMS_V0.Elimination_Matches
@@ -10,7 +10,6 @@ Public Class Main_Panel
 
     Public Shared PLC_Thread As New Threading.Thread(AddressOf handlePLC)
     Dim scoreHandler As New Threading.Thread(AddressOf updateScores)
-    Public estopHandler As Threading.Thread = New Threading.Thread(AddressOf handleMainEstops)
 
     Dim connection As New SqlConnection("data source=MY-PC\OFMS; Initial Catalog=OpenFMS; Integrated Security = true")
     Dim i As Integer = 0
@@ -328,7 +327,7 @@ Public Class Main_Panel
 
     End Sub
 
-    Private Sub RDQ1_CheckedChanged(sender As Object, e As EventArgs) Handles RDQ1.CheckedChanged
+    Private Sub RDQ1_CheckedChanged(sender As Object, e As EventArgs)
         If PLC_Estop_Red1 = False Then
             PLC_Estop_Red1 = True
         Else : PLC_Estop_Red1 = True
@@ -343,26 +342,42 @@ Public Class Main_Panel
         'Estops
         If PLC_Estop_Red1 = True Then
             R1Estop.FillColor = System.Drawing.Color.Red
+        ElseIf Red_1_Estop = True Then
+            R1Estop.FillColor = System.Drawing.Color.Red
         Else : R1Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
+
         If PLC_Estop_Red2 = True Then
+            R2Estop.FillColor = System.Drawing.Color.Red
+        ElseIf Red_2_Estop = True Then
             R2Estop.FillColor = System.Drawing.Color.Red
         Else : R2Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
+
         If PLC_Estop_Red3 = True Then
+            R3Estop.FillColor = System.Drawing.Color.Red
+        ElseIf Red_3_Estop = True Then
             R3Estop.FillColor = System.Drawing.Color.Red
         Else : R3Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
 
         If PLC_Estop_Blue1 = True Then
             B1Estop.FillColor = System.Drawing.Color.Red
+        ElseIf Blue_1_Estop = True Then
+            B1Estop.FillColor = System.Drawing.Color.Red
         Else : B1Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
+
         If PLC_Estop_Blue2 = True Then
+            B2Estop.FillColor = System.Drawing.Color.Red
+        ElseIf Blue_2_Estop = True Then
             B2Estop.FillColor = System.Drawing.Color.Red
         Else : B2Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
+
         If PLC_Estop_Blue3 = True Then
+            B3Estop.FillColor = System.Drawing.Color.Red
+        ElseIf Blue_3_Estop = True Then
             B3Estop.FillColor = System.Drawing.Color.Red
         Else : B3Estop.FillColor = System.Drawing.Color.LimeGreen
         End If
@@ -476,84 +491,6 @@ Public Class Main_Panel
 
     End Sub
 
-
-    Private Sub R1Estop_Click(sender As Object, e As EventArgs)
-        If PLC_Estop_Red1 = False Then
-            PLC_Estop_Red1 = True
-        Else : PLC_Estop_Red1 = True
-        End If
-    End Sub
-
-    Private Sub R2Estop_Click(sender As Object, e As EventArgs)
-        If PLC_Estop_Red2 = False Then
-            PLC_Estop_Red2 = True
-        Else : PLC_Estop_Red2 = True
-        End If
-    End Sub
-
-    Private Sub R3Estop_Click(sender As Object, e As EventArgs)
-        If PLC_Estop_Red3 = False Then
-            PLC_Estop_Red3 = True
-        Else : PLC_Estop_Red3 = True
-        End If
-    End Sub
-
-    Private Sub RDQ2_CheckedChanged(sender As Object, e As EventArgs) Handles RDQ2.CheckedChanged
-        If PLC_Estop_Red2 = False Then
-            PLC_Estop_Red2 = True
-        Else : PLC_Estop_Red2 = True
-        End If
-    End Sub
-
-    Private Sub RDQ3_CheckedChanged(sender As Object, e As EventArgs) Handles RDQ3.CheckedChanged
-        If PLC_Estop_Red3 = False Then
-            PLC_Estop_Red3 = True
-        Else : PLC_Estop_Red3 = True
-        End If
-    End Sub
-
-    Private Sub B1Estop_Click(sender As Object, e As EventArgs)
-        If PLC_Estop_Blue1 = False Then
-            PLC_Estop_Blue1 = True
-        Else : PLC_Estop_Blue1 = True
-        End If
-    End Sub
-
-    Private Sub B2Estop_Click(sender As Object, e As EventArgs)
-        If PLC_Estop_Blue2 = False Then
-            PLC_Estop_Blue2 = True
-        Else : PLC_Estop_Blue2 = True
-        End If
-    End Sub
-
-    Private Sub B3Estop_Click(sender As Object, e As EventArgs)
-        If PLC_Estop_Blue3 = False Then
-            PLC_Estop_Blue3 = True
-        Else : PLC_Estop_Blue3 = True
-        End If
-    End Sub
-
-    Private Sub BDQ1_CheckedChanged(sender As Object, e As EventArgs) Handles BDQ1.CheckedChanged
-        If PLC_Estop_Blue1 = False Then
-            PLC_Estop_Blue1 = True
-        Else : PLC_Estop_Blue1 = True
-        End If
-    End Sub
-
-    Private Sub BDQ2_CheckedChanged(sender As Object, e As EventArgs) Handles BDQ2.CheckedChanged
-        If PLC_Estop_Blue2 = False Then
-            PLC_Estop_Blue2 = True
-        Else : PLC_Estop_Blue2 = True
-        End If
-    End Sub
-
-    Private Sub BDQ3_CheckedChanged(sender As Object, e As EventArgs) Handles BDQ3.CheckedChanged
-        If PLC_Estop_Blue3 = False Then
-            PLC_Estop_Blue3 = True
-        Else : PLC_Estop_Blue3 = True
-        End If
-    End Sub
-
     Private Sub Pre_Start_btn_Click(sender As Object, e As EventArgs) Handles Pre_Start_btn.Click
         If Field.handleLighting IsNot Nothing Then
             Field.handleLighting.Abort()
@@ -651,13 +588,19 @@ Public Class Main_Panel
 
     Public Shared Sub ResetPLC()
         PLC_Reset = True
-        PLC_Estop_Field = True
-        PLC_Estop_Red1 = True
-        PLC_Estop_Red2 = True
-        PLC_Estop_Red3 = True
-        PLC_Estop_Blue1 = True
-        PLC_Estop_Blue2 = True
-        PLC_Estop_Blue3 = True
+        PLC_Estop_Field = False
+        PLC_Estop_Red1 = False
+        PLC_Estop_Red2 = False
+        PLC_Estop_Red3 = False
+        PLC_Estop_Blue1 = False
+        PLC_Estop_Blue2 = False
+        PLC_Estop_Blue3 = False
+        Red_1_Estop = False
+        Red_2_Estop = False
+        Red_3_Estop = False
+        Blue_1_Estop = False
+        Blue_2_Estop = False
+        Blue_3_Estop = False
     End Sub
 
     'FTA Group Buttons'
@@ -703,32 +646,32 @@ Public Class Main_Panel
     End Sub
 
     Private Sub RBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass1.CheckedChanged
-        ' Red1DS.Dispose()
+        Red1DS.Dispose()
         Red1Bypass = True
     End Sub
 
     Private Sub RBypass2_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass2.CheckedChanged
-        ' Red2DS.Dispose()
+        Red2DS.Dispose()
         Red2Bypass = True
     End Sub
 
     Private Sub RBypass3_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass3.CheckedChanged
-        ' Red3DS.Dispose()
+        Red3DS.Dispose()
         Red3Bypass = True
     End Sub
 
     Private Sub BBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass1.CheckedChanged
-        ' Blue1DS.Dispose()
+        Blue1DS.Dispose()
         Blue1Bypass = True
     End Sub
 
     Private Sub BBypass2_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass2.CheckedChanged
-        ' Blue2DS.Dispose()
+        Blue2DS.Dispose()
         Blue2Bypass = True
     End Sub
 
     Private Sub BBypass3_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass3.CheckedChanged
-        'Blue3DS.Dispose()
+        Blue3DS.Dispose()
         Blue3Bypass = True
     End Sub
 
@@ -918,9 +861,37 @@ Public Class Main_Panel
 
     Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
         Red1DS.Estop = True
+        Red_1_Estop = True
+        R1Estop.BackColor = Color.Red
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
-        Red2_Estop = True
+        Red2DS.Estop = True
+        Red_2_Estop = True
+        R2Estop.BackColor = Color.Red
+    End Sub
+
+    Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
+        Red3DS.Estop = True
+        Red_3_Estop = True
+        R3Estop.BackColor = Color.Red
+    End Sub
+
+    Private Sub Button30_Click(sender As Object, e As EventArgs) Handles Button30.Click
+        Blue1DS.Estop = True
+        Blue_1_Estop = True
+        B1Estop.BackColor = Color.Red
+    End Sub
+
+    Private Sub Button31_Click(sender As Object, e As EventArgs) Handles Button31.Click
+        Blue2DS.Estop = True
+        Blue_2_Estop = True
+        B2Estop.BackColor = Color.Red
+    End Sub
+
+    Private Sub Button32_Click(sender As Object, e As EventArgs) Handles Button32.Click
+        Blue3DS.Estop = True
+        Blue_3_Estop = True
+        B3Estop.BackColor = Color.Red
     End Sub
 End Class

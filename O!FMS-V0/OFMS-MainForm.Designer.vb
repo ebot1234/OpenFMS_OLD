@@ -34,18 +34,14 @@ Partial Class Main_Panel
         Me.Red2Sur = New System.Windows.Forms.Label()
         Me.Red1Sur = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.RBypass3 = New System.Windows.Forms.CheckBox()
-        Me.RDQ3 = New System.Windows.Forms.CheckBox()
         Me.RBypass2 = New System.Windows.Forms.CheckBox()
-        Me.RDQ2 = New System.Windows.Forms.CheckBox()
         Me.RedVolt3 = New System.Windows.Forms.Label()
         Me.RedVolt2 = New System.Windows.Forms.Label()
         Me.RedVolt1 = New System.Windows.Forms.Label()
         Me.RBypass1 = New System.Windows.Forms.CheckBox()
-        Me.RDQ1 = New System.Windows.Forms.CheckBox()
         Me.RedTeam3 = New System.Windows.Forms.Label()
         Me.RedTeam2 = New System.Windows.Forms.Label()
         Me.RedTeam1 = New System.Windows.Forms.Label()
@@ -74,19 +70,15 @@ Partial Class Main_Panel
         Me.Blue2Sur = New System.Windows.Forms.Label()
         Me.Blue1Sur = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.BBypass3 = New System.Windows.Forms.CheckBox()
-        Me.BDQ3 = New System.Windows.Forms.CheckBox()
         Me.BBypass2 = New System.Windows.Forms.CheckBox()
-        Me.BDQ2 = New System.Windows.Forms.CheckBox()
         Me.BlueVolt3 = New System.Windows.Forms.Label()
         Me.BlueVolt2 = New System.Windows.Forms.Label()
         Me.BlueVolt1 = New System.Windows.Forms.Label()
         Me.BBypass1 = New System.Windows.Forms.CheckBox()
-        Me.BDQ1 = New System.Windows.Forms.CheckBox()
         Me.BlueTeam3 = New System.Windows.Forms.Label()
         Me.BlueTeam2 = New System.Windows.Forms.Label()
         Me.BlueTeam1 = New System.Windows.Forms.Label()
@@ -210,18 +202,14 @@ Partial Class Main_Panel
         Me.Panel1.Controls.Add(Me.Red2Sur)
         Me.Panel1.Controls.Add(Me.Red1Sur)
         Me.Panel1.Controls.Add(Me.Label16)
-        Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.RBypass3)
-        Me.Panel1.Controls.Add(Me.RDQ3)
         Me.Panel1.Controls.Add(Me.RBypass2)
-        Me.Panel1.Controls.Add(Me.RDQ2)
         Me.Panel1.Controls.Add(Me.RedVolt3)
         Me.Panel1.Controls.Add(Me.RedVolt2)
         Me.Panel1.Controls.Add(Me.RedVolt1)
         Me.Panel1.Controls.Add(Me.RBypass1)
-        Me.Panel1.Controls.Add(Me.RDQ1)
         Me.Panel1.Controls.Add(Me.RedTeam3)
         Me.Panel1.Controls.Add(Me.RedTeam2)
         Me.Panel1.Controls.Add(Me.RedTeam1)
@@ -262,7 +250,7 @@ Partial Class Main_Panel
         'Red3Sur
         '
         Me.Red3Sur.AutoSize = True
-        Me.Red3Sur.Location = New System.Drawing.Point(288, 72)
+        Me.Red3Sur.Location = New System.Drawing.Point(267, 72)
         Me.Red3Sur.Name = "Red3Sur"
         Me.Red3Sur.Size = New System.Drawing.Size(14, 13)
         Me.Red3Sur.TabIndex = 29
@@ -271,7 +259,7 @@ Partial Class Main_Panel
         'Red2Sur
         '
         Me.Red2Sur.AutoSize = True
-        Me.Red2Sur.Location = New System.Drawing.Point(288, 45)
+        Me.Red2Sur.Location = New System.Drawing.Point(267, 46)
         Me.Red2Sur.Name = "Red2Sur"
         Me.Red2Sur.Size = New System.Drawing.Size(14, 13)
         Me.Red2Sur.TabIndex = 28
@@ -280,7 +268,7 @@ Partial Class Main_Panel
         'Red1Sur
         '
         Me.Red1Sur.AutoSize = True
-        Me.Red1Sur.Location = New System.Drawing.Point(288, 20)
+        Me.Red1Sur.Location = New System.Drawing.Point(267, 20)
         Me.Red1Sur.Name = "Red1Sur"
         Me.Red1Sur.Size = New System.Drawing.Size(14, 13)
         Me.Red1Sur.TabIndex = 27
@@ -291,22 +279,11 @@ Partial Class Main_Panel
         Me.Label16.AutoSize = True
         Me.Label16.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label16.ForeColor = System.Drawing.Color.Transparent
-        Me.Label16.Location = New System.Drawing.Point(255, -1)
+        Me.Label16.Location = New System.Drawing.Point(226, -1)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(41, 13)
         Me.Label16.TabIndex = 25
         Me.Label16.Text = "Bypass"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label15.ForeColor = System.Drawing.Color.Transparent
-        Me.Label15.Location = New System.Drawing.Point(226, -1)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(23, 13)
-        Me.Label15.TabIndex = 24
-        Me.Label15.Text = "DQ"
         '
         'Label6
         '
@@ -335,38 +312,20 @@ Partial Class Main_Panel
         'RBypass3
         '
         Me.RBypass3.AutoSize = True
-        Me.RBypass3.Location = New System.Drawing.Point(267, 71)
+        Me.RBypass3.Location = New System.Drawing.Point(236, 72)
         Me.RBypass3.Name = "RBypass3"
         Me.RBypass3.Size = New System.Drawing.Size(15, 14)
         Me.RBypass3.TabIndex = 15
         Me.RBypass3.UseVisualStyleBackColor = True
         '
-        'RDQ3
-        '
-        Me.RDQ3.AutoSize = True
-        Me.RDQ3.Location = New System.Drawing.Point(234, 71)
-        Me.RDQ3.Name = "RDQ3"
-        Me.RDQ3.Size = New System.Drawing.Size(15, 14)
-        Me.RDQ3.TabIndex = 14
-        Me.RDQ3.UseVisualStyleBackColor = True
-        '
         'RBypass2
         '
         Me.RBypass2.AutoSize = True
-        Me.RBypass2.Location = New System.Drawing.Point(267, 45)
+        Me.RBypass2.Location = New System.Drawing.Point(236, 45)
         Me.RBypass2.Name = "RBypass2"
         Me.RBypass2.Size = New System.Drawing.Size(15, 14)
         Me.RBypass2.TabIndex = 13
         Me.RBypass2.UseVisualStyleBackColor = True
-        '
-        'RDQ2
-        '
-        Me.RDQ2.AutoSize = True
-        Me.RDQ2.Location = New System.Drawing.Point(234, 45)
-        Me.RDQ2.Name = "RDQ2"
-        Me.RDQ2.Size = New System.Drawing.Size(15, 14)
-        Me.RDQ2.TabIndex = 12
-        Me.RDQ2.UseVisualStyleBackColor = True
         '
         'RedVolt3
         '
@@ -398,20 +357,11 @@ Partial Class Main_Panel
         'RBypass1
         '
         Me.RBypass1.AutoSize = True
-        Me.RBypass1.Location = New System.Drawing.Point(267, 19)
+        Me.RBypass1.Location = New System.Drawing.Point(236, 18)
         Me.RBypass1.Name = "RBypass1"
         Me.RBypass1.Size = New System.Drawing.Size(15, 14)
         Me.RBypass1.TabIndex = 6
         Me.RBypass1.UseVisualStyleBackColor = True
-        '
-        'RDQ1
-        '
-        Me.RDQ1.AutoSize = True
-        Me.RDQ1.Location = New System.Drawing.Point(234, 19)
-        Me.RDQ1.Name = "RDQ1"
-        Me.RDQ1.Size = New System.Drawing.Size(15, 14)
-        Me.RDQ1.TabIndex = 4
-        Me.RDQ1.UseVisualStyleBackColor = True
         '
         'RedTeam3
         '
@@ -616,19 +566,15 @@ Partial Class Main_Panel
         Me.Panel2.Controls.Add(Me.Blue2Sur)
         Me.Panel2.Controls.Add(Me.Blue1Sur)
         Me.Panel2.Controls.Add(Me.Label17)
-        Me.Panel2.Controls.Add(Me.Label18)
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.Label13)
         Me.Panel2.Controls.Add(Me.Label14)
         Me.Panel2.Controls.Add(Me.BBypass3)
-        Me.Panel2.Controls.Add(Me.BDQ3)
         Me.Panel2.Controls.Add(Me.BBypass2)
-        Me.Panel2.Controls.Add(Me.BDQ2)
         Me.Panel2.Controls.Add(Me.BlueVolt3)
         Me.Panel2.Controls.Add(Me.BlueVolt2)
         Me.Panel2.Controls.Add(Me.BlueVolt1)
         Me.Panel2.Controls.Add(Me.BBypass1)
-        Me.Panel2.Controls.Add(Me.BDQ1)
         Me.Panel2.Controls.Add(Me.BlueTeam3)
         Me.Panel2.Controls.Add(Me.BlueTeam2)
         Me.Panel2.Controls.Add(Me.BlueTeam1)
@@ -668,7 +614,7 @@ Partial Class Main_Panel
         'Blue3Sur
         '
         Me.Blue3Sur.AutoSize = True
-        Me.Blue3Sur.Location = New System.Drawing.Point(290, 71)
+        Me.Blue3Sur.Location = New System.Drawing.Point(267, 72)
         Me.Blue3Sur.Name = "Blue3Sur"
         Me.Blue3Sur.Size = New System.Drawing.Size(14, 13)
         Me.Blue3Sur.TabIndex = 32
@@ -677,7 +623,7 @@ Partial Class Main_Panel
         'Blue2Sur
         '
         Me.Blue2Sur.AutoSize = True
-        Me.Blue2Sur.Location = New System.Drawing.Point(290, 45)
+        Me.Blue2Sur.Location = New System.Drawing.Point(267, 45)
         Me.Blue2Sur.Name = "Blue2Sur"
         Me.Blue2Sur.Size = New System.Drawing.Size(14, 13)
         Me.Blue2Sur.TabIndex = 31
@@ -686,7 +632,7 @@ Partial Class Main_Panel
         'Blue1Sur
         '
         Me.Blue1Sur.AutoSize = True
-        Me.Blue1Sur.Location = New System.Drawing.Point(290, 19)
+        Me.Blue1Sur.Location = New System.Drawing.Point(267, 19)
         Me.Blue1Sur.Name = "Blue1Sur"
         Me.Blue1Sur.Size = New System.Drawing.Size(14, 13)
         Me.Blue1Sur.TabIndex = 30
@@ -697,22 +643,11 @@ Partial Class Main_Panel
         Me.Label17.AutoSize = True
         Me.Label17.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label17.ForeColor = System.Drawing.Color.Transparent
-        Me.Label17.Location = New System.Drawing.Point(263, -1)
+        Me.Label17.Location = New System.Drawing.Point(225, 0)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(41, 13)
         Me.Label17.TabIndex = 27
         Me.Label17.Text = "Bypass"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label18.ForeColor = System.Drawing.Color.Transparent
-        Me.Label18.Location = New System.Drawing.Point(234, -1)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(23, 13)
-        Me.Label18.TabIndex = 26
-        Me.Label18.Text = "DQ"
         '
         'Label7
         '
@@ -753,38 +688,20 @@ Partial Class Main_Panel
         'BBypass3
         '
         Me.BBypass3.AutoSize = True
-        Me.BBypass3.Location = New System.Drawing.Point(267, 71)
+        Me.BBypass3.Location = New System.Drawing.Point(237, 75)
         Me.BBypass3.Name = "BBypass3"
         Me.BBypass3.Size = New System.Drawing.Size(15, 14)
         Me.BBypass3.TabIndex = 15
         Me.BBypass3.UseVisualStyleBackColor = True
         '
-        'BDQ3
-        '
-        Me.BDQ3.AutoSize = True
-        Me.BDQ3.Location = New System.Drawing.Point(234, 71)
-        Me.BDQ3.Name = "BDQ3"
-        Me.BDQ3.Size = New System.Drawing.Size(15, 14)
-        Me.BDQ3.TabIndex = 14
-        Me.BDQ3.UseVisualStyleBackColor = True
-        '
         'BBypass2
         '
         Me.BBypass2.AutoSize = True
-        Me.BBypass2.Location = New System.Drawing.Point(267, 45)
+        Me.BBypass2.Location = New System.Drawing.Point(237, 46)
         Me.BBypass2.Name = "BBypass2"
         Me.BBypass2.Size = New System.Drawing.Size(15, 14)
         Me.BBypass2.TabIndex = 13
         Me.BBypass2.UseVisualStyleBackColor = True
-        '
-        'BDQ2
-        '
-        Me.BDQ2.AutoSize = True
-        Me.BDQ2.Location = New System.Drawing.Point(234, 45)
-        Me.BDQ2.Name = "BDQ2"
-        Me.BDQ2.Size = New System.Drawing.Size(15, 14)
-        Me.BDQ2.TabIndex = 12
-        Me.BDQ2.UseVisualStyleBackColor = True
         '
         'BlueVolt3
         '
@@ -816,20 +733,11 @@ Partial Class Main_Panel
         'BBypass1
         '
         Me.BBypass1.AutoSize = True
-        Me.BBypass1.Location = New System.Drawing.Point(267, 19)
+        Me.BBypass1.Location = New System.Drawing.Point(237, 19)
         Me.BBypass1.Name = "BBypass1"
         Me.BBypass1.Size = New System.Drawing.Size(15, 14)
         Me.BBypass1.TabIndex = 6
         Me.BBypass1.UseVisualStyleBackColor = True
-        '
-        'BDQ1
-        '
-        Me.BDQ1.AutoSize = True
-        Me.BDQ1.Location = New System.Drawing.Point(234, 19)
-        Me.BDQ1.Name = "BDQ1"
-        Me.BDQ1.Size = New System.Drawing.Size(15, 14)
-        Me.BDQ1.TabIndex = 4
-        Me.BDQ1.UseVisualStyleBackColor = True
         '
         'BlueTeam3
         '
@@ -1624,37 +1532,29 @@ Partial Class Main_Panel
     Friend WithEvents MatchLoad_Btn As System.Windows.Forms.Button
     Friend WithEvents StartMatch_btn As System.Windows.Forms.Button
     Friend WithEvents RBypass1 As System.Windows.Forms.CheckBox
-    Friend WithEvents RDQ1 As System.Windows.Forms.CheckBox
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents _O_FMSDataSet As O_FMS_V0._O_FMSDataSet
     Friend WithEvents RedVolt3 As System.Windows.Forms.Label
     Friend WithEvents RedVolt2 As System.Windows.Forms.Label
     Friend WithEvents RedVolt1 As System.Windows.Forms.Label
     Friend WithEvents RBypass3 As System.Windows.Forms.CheckBox
-    Friend WithEvents RDQ3 As System.Windows.Forms.CheckBox
     Friend WithEvents RBypass2 As System.Windows.Forms.CheckBox
-    Friend WithEvents RDQ2 As System.Windows.Forms.CheckBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents BBypass3 As System.Windows.Forms.CheckBox
-    Friend WithEvents BDQ3 As System.Windows.Forms.CheckBox
     Friend WithEvents BBypass2 As System.Windows.Forms.CheckBox
-    Friend WithEvents BDQ2 As System.Windows.Forms.CheckBox
     Friend WithEvents BlueVolt3 As System.Windows.Forms.Label
     Friend WithEvents BlueVolt2 As System.Windows.Forms.Label
     Friend WithEvents BlueVolt1 As System.Windows.Forms.Label
     Friend WithEvents BBypass1 As System.Windows.Forms.CheckBox
-    Friend WithEvents BDQ1 As System.Windows.Forms.CheckBox
     Friend WithEvents BlueTeam3 As System.Windows.Forms.Label
     Friend WithEvents BlueTeam2 As System.Windows.Forms.Label
     Friend WithEvents BlueTeam1 As System.Windows.Forms.Label
     Friend WithEvents FMSMasterBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents FMSMasterTableAdapter As O_FMS_V0._O_FMSDataSetTableAdapters.FMSMasterTableAdapter
     Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
