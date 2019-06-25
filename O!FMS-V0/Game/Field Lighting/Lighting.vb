@@ -37,6 +37,6 @@ Public Class Lighting
     End Sub
 
     'NEW LIGHTING STUFF NOT USED YET!!!!!!!!!!!!!'
-    'ADD THAT STUFF'
+
 
 End Class

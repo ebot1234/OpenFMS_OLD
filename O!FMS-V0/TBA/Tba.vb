@@ -18,6 +18,32 @@ Public Class Tba
         Public Shared secret As String
     End Structure
 
+    Public Structure match
+        Public Shared CompLevel As String
+        Public Shared SetNumber As Integer
+        Public Shared MatchNumber As Integer
+        Public Shared Alliances As String
+        Public Shared ScoreBreakdown() As String
+        Public Shared TimeString As String
+        Public Shared TimeUtc As String
+    End Structure
+
+    Public Structure alliances
+        Public Shared Teams() As String
+        Public Shared Surrogates As String()
+        Public Shared Dqs As String()
+        Public Shared Score As Integer
+    End Structure
+
+    Public Structure scorebreakdown
+
+    End Structure
+
+    Shared Sub createBreakdown()
+
+
+
+    End Sub
     Shared Function formatTeam(number As String)
             teamNum = String.Format("frc{0}", number)
             Return teamNum
@@ -103,25 +129,5 @@ Public Class Tba
 
         Return strResult.ToString
 
-    End Function
-
-    Shared Sub populateMatchBreakdown()
-        Dim matchBreakdown As New Match
-        Dim redAlliance As New TbaAlliance
-        matchBreakdown.comp_level = "qm"
-        matchBreakdown.set_number = 1
-        matchBreakdown.match_number = 1
-        matchBreakdown.alliances = createRedAlliance()
-        'matchBreakdown.alliances
-
-        MessageBox.Show(matchBreakdown.alliances)
-    End Sub
-
-    Shared Function createRedAlliance()
-        Dim alliance As New TbaAlliance
-
-        alliance.color = "Red"
-
-        Return alliance.ToString()
     End Function
 End Class

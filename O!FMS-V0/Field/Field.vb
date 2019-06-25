@@ -18,9 +18,6 @@ Public Class Field
     Public Shared Blue1DS As New DriverStations
     Public Shared Blue2DS As New DriverStations
     Public Shared Blue3DS As New DriverStations
-    'Led Controllers'
-    'TODO Add new light controllers
-
     '2019 timing'
     Public Shared SandStormTime As Integer = 15
     Public Shared TeleTime As Integer = 135

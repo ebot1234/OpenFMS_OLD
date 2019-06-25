@@ -90,6 +90,7 @@
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -124,6 +125,10 @@
     </Compile>
     <Compile Include="Communication\DriverStations.vb" />
     <Compile Include="Field\Rankings.vb" />
+    <Compile Include="Game\Field Lighting\Led_Colors.vb" />
+    <Compile Include="Game\Field Lighting\Led_Controller.vb" />
+    <Compile Include="Game\Field Lighting\Led_Mode.vb" />
+    <Compile Include="Game\Field Lighting\Led_Strip.vb" />
     <Compile Include="Game\Field Lighting\Lighting.vb" />
     <Compile Include="Game\Timing.vb" />
     <Compile Include="Match_Generator.Designer.vb">

@@ -18,16 +18,15 @@ Public Class FieldMonitor
     Public Shared Function encodeFieldData() As Byte()
         Dim data(30) As Byte
         'Sends the team numbers
-        data(0) = Main_Panel.BlueTeam1.Text
-        data(1) = Main_Panel.BlueTeam2.Text
-        data(2) = Main_Panel.BlueTeam3.Text
-        data(3) = Main_Panel.RedTeam1.Text
-        data(4) = Main_Panel.RedTeam2.Text
-        data(5) = Main_Panel.RedTeam3.Text
+        data(0) = "1080"
+        data(1) = "384"
+        data(2) = "1885"
+        data(3) = "4444"
+        data(4) = "5555"
+        data(5) = "6666"
         'Sends the Match Number'
-        data(6) = Main_Panel.MatchNum.Text
-        'Sends the field status'
-        data(7) = Field.fieldStatus.ToString()
+        data(6) = "1"
+
 
 
         Return data
