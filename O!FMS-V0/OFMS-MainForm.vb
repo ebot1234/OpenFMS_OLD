@@ -15,6 +15,7 @@ Public Class Main_Panel
     Dim i As Integer = 0
 
     Public Shared ElimMode As Boolean = False
+    Public Shared Field_Estopped As Boolean = False
 
     Public Shared Red1Bypass
     Public Shared Red2Bypass
@@ -565,6 +566,7 @@ Public Class Main_Panel
     Private Sub AbortMatch_btn_Click(sender As Object, e As EventArgs) Handles AbortMatch_btn.Click
         Listen = False
         HandleAbortedMatch()
+        Field_Estopped = True
         Field.updateField(MatchEnums.AbortMatch)
         MatchMessages.Text = "Match Aborted"
         AutoTimer.Stop()

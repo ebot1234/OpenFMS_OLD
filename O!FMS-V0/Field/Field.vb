@@ -53,12 +53,11 @@ Public Class Field
         Do While (True)
             checkAlliances()
             handleCoils()
-            'handlePLCEstops()
             handleFieldOuputs()
             handleGameOutputs()
             handleRegisters()
             abortedMatch()
-            handleFieldEstop()
+            handleEstops()
         Loop
     End Sub
 

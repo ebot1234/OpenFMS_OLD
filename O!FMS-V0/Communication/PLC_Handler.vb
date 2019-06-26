@@ -10,7 +10,7 @@ Public Class PLC_Handler
     Public Shared isPlcConnected = False
     Public Shared Field_Estop As Boolean = False
 
-    'Estop Bits to tell FMS'
+    'Estop Bits to tell FMS -- MC'
     Public Shared PLC_Estop_Red1
     Public Shared PLC_Estop_Red2
     Public Shared PLC_Estop_Red3
@@ -19,7 +19,7 @@ Public Class PLC_Handler
     Public Shared PLC_Estop_Blue3
     Public Shared PLC_Estop_Field
 
-    'Light bits for the Estops'
+    'Light bits for the Estops -- MC'
     Public Shared Red_1_Estop
     Public Shared Red_2_Estop
     Public Shared Red_3_Estop
@@ -80,12 +80,12 @@ Public Class PLC_Handler
     Public Shared PLC_Reset
 
     'Driver Station Statuses'
-    Public Shared Red1Ready 'MC7'
-    Public Shared Red2Ready 'MC8'
-    Public Shared Red3Ready 'MC9'
-    Public Shared Blue1Ready 'MC10'
-    Public Shared Blue2Ready 'MC11'
-    Public Shared Blue3Ready 'MC12'
+    Public Shared Red1Ready
+    Public Shared Red2Ready
+    Public Shared Red3Ready
+    Public Shared Blue1Ready
+    Public Shared Blue2Ready
+    Public Shared Blue3Ready
     Public Shared Custom_Message
 
 
@@ -115,8 +115,7 @@ Public Class PLC_Handler
     'Teams number varibles
     Public Shared RedT1, RedT2, RedT3, BlueT1, BlueT2, BlueT3
 
-    Public Shared modbusClient As New EasyModbus.ModbusClient("192.168.1.4", 502)
-    'Public Shared modbusClient As New EasyModbus.ModbusClient("127.0.0.1, 502")
+    Public Shared modbusClient As New EasyModbus.ModbusClient("192.168.1.6", 502)
 
     Public Shared Sub ConnectPLC()
         modbusClient.Connect()
@@ -155,10 +154,10 @@ Public Class PLC_Handler
 
         'Checks if the alliances are ready'
         If Red1Ready = True And Red2Ready = True And Red3Ready = True And Blue1Ready = True And Blue2Ready = True And Blue3Ready = True Then
-            modbusClient.WriteSingleCoil(10, True)
+            'modbusClient.WriteSingleCoil(10, True)
             Field_Ready = True
         Else
-            modbusClient.WriteSingleCoil(10, False)
+            'modbusClient.WriteSingleCoil(10, False)
             Field_Ready = False
         End If
     End Sub
@@ -193,7 +192,7 @@ Public Class PLC_Handler
 
         'handles the scoring table light testing'
         If Scoring_Light_Test = True Then
-            modbusClient.WriteSingleCoil(11, True)
+
         End If
 
         'handles the alliance station light testing'
@@ -221,48 +220,78 @@ Public Class PLC_Handler
 
     Public Shared Sub handleGameOutputs()
 
-        'Releases the magnets on the Cargoship'
-        If CargoshipEnabled = False Then
-            modbusClient.WriteSingleCoil(8, False)
-        End If
-
-        'Enables the magnets on the Cargoships'
-        If CargoshipEnabled = True Then
-            modbusClient.WriteSingleCoil(8, True)
-        End If
-
-        If SandstormUp = True Then
-            'modbusClient.WriteSingleCoil(0, True)
-        End If
-
     End Sub
     Public Shared Sub handleCoils()
-        If Main_Panel.Red1_Estop = True Then
-            modbusClient.WriteSingleCoil(20, True)
+        'FMS to PLC Estops for the Lights'
+        If Red_1_Estop = True Then
+            modbusClient.WriteSingleCoil(0, True)
         End If
 
-        If Main_Panel.Red1_Estop = True Then
-            modbusClient.WriteSingleCoil(21, True)
+        If Red_2_Estop = True Then
+            modbusClient.WriteSingleCoil(1, True)
         End If
 
+        If Red_3_Estop = True Then
+            modbusClient.WriteSingleCoil(2, True)
+        End If
 
+        If Blue_1_Estop = True Then
+            modbusClient.WriteSingleCoil(3, True)
+        End If
+
+        If Blue_2_Estop = True Then
+            modbusClient.WriteSingleCoil(4, True)
+        End If
+
+        If Blue_3_Estop = True Then
+            modbusClient.WriteSingleCoil(5, True)
+        End If
+
+        If Main_Panel.Field_Estopped = True Then
+            modbusClient.WriteSingleCoil(6, True)
+        End If
+
+        'Red Team Statuses'
+        If Red1Ready = True Then
+            modbusClient.WriteSingleCoil(14, True)
+        End If
+
+        If Red2Ready = True Then
+            modbusClient.WriteSingleCoil(15, True)
+        End If
+
+        If Red3Ready = True Then
+            modbusClient.WriteSingleCoil(16, True)
+        End If
+
+        'Blue Team Statuses'
 
     End Sub
     Public Shared Sub handleEstops()
         'Reads the coils from PLC address 1 to 7'
-        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 7)
+        Dim readCoils() As Boolean = modbusClient.ReadCoils(6, 14)
+        'PLC to FMS for estoping the robots'
+        PLC_Estop_Red1 = readCoils(7)
+        PLC_Estop_Red2 = readCoils(8)
+        PLC_Estop_Red3 = readCoils(9)
+        PLC_Estop_Blue1 = readCoils(10)
+        PLC_Estop_Blue2 = readCoils(11)
+        PLC_Estop_Blue3 = readCoils(12)
+        PLC_Estop_Field = readCoils(13)
 
-        PLC_Estop_Red1 = readCoils(0) '1'
-        PLC_Estop_Red2 = readCoils(1) '2'
-        PLC_Estop_Red3 = readCoils(2) '3'
-        PLC_Estop_Blue1 = readCoils(3) '4'
-        PLC_Estop_Blue2 = readCoils(4) '5'
-        PLC_Estop_Blue3 = readCoils(5) '6'
+        'Field Estop'
+        If PLC_Estop_Field = True Then
+            Red1DS.Estop = True
+            Red2DS.Estop = True
+            Red3DS.Estop = True
+            Blue1DS.Estop = True
+            Blue2DS.Estop = True
+            Blue3DS.Estop = True
+        End If
 
         'Estops Red 1'
         If PLC_Estop_Red1 = True Then
             Red1DS.Estop = True
-            MessageBox.Show("Red 1 Estopped")
         End If
 
         'Estops Red 2'
@@ -295,15 +324,6 @@ Public Class PLC_Handler
 
     End Sub
 
-    Public Shared Sub handleFieldEstop()
-        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 7)
-
-        PLC_Estop_Field = readCoils(7)
-
-        If PLC_Estop_Field = True Then
-            Field_Estop = True
-        End If
-    End Sub
 
     Public Shared Sub handleLighting()
         'Handles the lighting to what the match state is in'
