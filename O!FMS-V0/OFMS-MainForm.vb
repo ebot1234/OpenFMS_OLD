@@ -70,7 +70,7 @@ Public Class Main_Panel
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
-        Timer1.Interval = 1000 '1 seconds
+        Timer1.Interval = 100 '100ms loop time'
         Timer1.Enabled = True
         'Timer1.AutoReset = True
         BackColor = System.Drawing.Color.Yellow
@@ -84,7 +84,8 @@ Public Class Main_Panel
         'Sets the settings for the AP and Switch'
         SetSettings("10.0.100.1", "OFMS", "OFMS", 12, 5, "ofmsrocks")
         Switch.Switch.address = "10.0.100.2"
-
+        Listen = True
+        startDSListener()
     End Sub
 
 
@@ -499,13 +500,12 @@ Public Class Main_Panel
             Field.handleLighting.Start()
         End If
 
-        Listen = True
-        startDSListener()
-
         updateField(MatchEnums.PreMatch)
         matchTimerLbl.Text = SandStormTime
         AutoTimer.Enabled = False
         MatchMessages.Text = "Field Pre-Started"
+        ResetPLC()
+        resetUI()
     End Sub
 
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click

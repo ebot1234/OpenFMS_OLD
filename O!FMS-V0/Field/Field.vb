@@ -56,7 +56,6 @@ Public Class Field
             handleFieldOuputs()
             handleGameOutputs()
             handleRegisters()
-            abortedMatch()
             handleEstops()
         Loop
     End Sub
@@ -98,6 +97,8 @@ Public Class Field
                 CargoshipEnabled = True
                 SendDS(Auto:=True, Enabled:=False)
             Case MatchEnums.SandStorm
+                Match_Start = True
+                Match_Stop = False
                 status = True
                 fieldStatus = MatchEnums.SandStorm
                 SendDS(Auto:=True, Enabled:=True)
@@ -120,12 +121,14 @@ Public Class Field
                 fieldStatus = MatchEnums.PostMatch
                 SendDS(Auto:=False, Enabled:=False)
                 My.Computer.Audio.Play(My.Resources.match_end, AudioPlayMode.Background)
+                Match_Start = False
                 Match_Stop = True
                 status = False
             Case MatchEnums.AbortMatch
                 fieldStatus = MatchEnums.AbortMatch
                 My.Computer.Audio.Play(My.Resources.fog_blast, AudioPlayMode.Background)
                 SendDS(Auto:=False, Enabled:=False)
+                Match_Start = False
                 Match_Stop = True
                 status = False
 
