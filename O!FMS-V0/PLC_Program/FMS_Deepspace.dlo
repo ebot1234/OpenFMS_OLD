@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DockingPaneLayouts CompactMode="1">
+	<DSP_PANE_SECTION>
+		<Summary Panes="2" TopContainer="1" Client="2"/>
+		<Pane-1 Type="2" Horiz="1" Panes="1" Pane-1="2"/>
+		<Pane-2 Type="4" DockingCX="730"/>
+	</DSP_PANE_SECTION>
+</DockingPaneLayouts>

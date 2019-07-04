@@ -1,6 +1,7 @@
 ﻿Imports O_FMS_V0.Lighting
 Imports O_FMS_V0.Field
 Imports O_FMS_V0.Main_Panel
+Imports System.Text
 
 
 
@@ -198,7 +199,6 @@ Public Class PLC_Handler
 
         'Sends the time and a custom message to the ViewMarq Displays via PLC
         modbusClient.WriteSingleRegister(0, PLC_Match_Timer)
-        modbusClient.WriteSingleRegister(1, Custom_Message)
 
     End Sub
 
@@ -243,7 +243,7 @@ Public Class PLC_Handler
             modbusClient.WriteSingleCoil(5, False)
         End If
 
-        If Main_Panel.Field_Estopped = True Then
+        If Field_Estop = True Then
             modbusClient.WriteSingleCoil(6, True)
         Else
             modbusClient.WriteSingleCoil(6, False)
@@ -327,6 +327,12 @@ Public Class PLC_Handler
             Blue1DS.Estop = True
             Blue2DS.Estop = True
             Blue3DS.Estop = True
+            Red_1_Estop = True
+            Red_2_Estop = True
+            Red_3_Estop = True
+            Blue_1_Estop = True
+            Blue_2_Estop = True
+            Blue_3_Estop = True
         End If
 
         'Estops Red 1'

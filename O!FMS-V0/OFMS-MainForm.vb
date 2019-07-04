@@ -468,20 +468,8 @@ Public Class Main_Panel
             B3Robot.FillColor = Color.Blue
         End If
 
-        'Match Mode
-        If PLC_Match_Timer = 0 Then
-            PLC_Match_Mode = 0
+        PLC_Match_Timer = matchTimerLbl.Text
 
-        ElseIf PLC_Match_Timer <= 15 Then
-            PLC_Match_Mode = 1
-
-        ElseIf PLC_Match_Timer >= 216 Then
-            PLC_Match_Mode = 100
-
-        ElseIf PLC_Match_Timer = 230 Then
-            PLC_Match_Mode = 120
-
-        End If
         'Updates the audience display with time and scores'
         AudianceDisplay.Timerlbl.Text = matchTimerLbl.Text
         AudianceDisplay.RedScoreLbl.Text = RedScore
@@ -494,6 +482,8 @@ Public Class Main_Panel
     End Sub
 
     Private Sub Pre_Start_btn_Click(sender As Object, e As EventArgs) Handles Pre_Start_btn.Click
+        Field_Estop = False
+
         If Field.handleLighting IsNot Nothing Then
             Field.handleLighting.Abort()
         Else
@@ -566,7 +556,7 @@ Public Class Main_Panel
     Private Sub AbortMatch_btn_Click(sender As Object, e As EventArgs) Handles AbortMatch_btn.Click
         Listen = False
         HandleAbortedMatch()
-        Field_Estopped = True
+        Field_Estop = True
         Field.updateField(MatchEnums.AbortMatch)
         MatchMessages.Text = "Match Aborted"
         AutoTimer.Stop()
