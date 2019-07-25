@@ -4,6 +4,7 @@ Imports O_FMS_V0.Field
 Imports O_FMS_V0.AccessPoint
 Imports O_FMS_V0.Elimination_Matches
 Imports O_FMS_V0.DriverStations
+Imports O_FMS_V0.ViewMarkUpdater
 
 
 Public Class Main_Panel
@@ -638,32 +639,26 @@ Public Class Main_Panel
     End Sub
 
     Private Sub RBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass1.CheckedChanged
-        Red1DS.Dispose()
         Red1Bypass = True
     End Sub
 
     Private Sub RBypass2_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass2.CheckedChanged
-        Red2DS.Dispose()
         Red2Bypass = True
     End Sub
 
     Private Sub RBypass3_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass3.CheckedChanged
-        Red3DS.Dispose()
         Red3Bypass = True
     End Sub
 
     Private Sub BBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass1.CheckedChanged
-        Blue1DS.Dispose()
         Blue1Bypass = True
     End Sub
 
     Private Sub BBypass2_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass2.CheckedChanged
-        Blue2DS.Dispose()
         Blue2Bypass = True
     End Sub
 
     Private Sub BBypass3_CheckedChanged(sender As Object, e As EventArgs) Handles BBypass3.CheckedChanged
-        Blue3DS.Dispose()
         Blue3Bypass = True
     End Sub
 
@@ -885,5 +880,13 @@ Public Class Main_Panel
         Blue3DS.Estop = True
         Blue_3_Estop = True
         B3Estop.BackColor = Color.Red
+    End Sub
+
+    Private Sub Button33_Click(sender As Object, e As EventArgs) Handles Button33.Click
+        ViewMarqUpdater.sendCustomMessage(TextBox1.Text)
+    End Sub
+
+    Private Sub Button34_Click(sender As Object, e As EventArgs) Handles Button34.Click
+        Tba.postMatch()
     End Sub
 End Class

@@ -157,6 +157,12 @@ Partial Class Main_Panel
         Me.Label2 = New System.Windows.Forms.Label()
         Me.MatchListTableAdapter1 = New O_FMS_V0._O_FMSDataSet1TableAdapters.MatchListTableAdapter()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.GroupBox14 = New System.Windows.Forms.GroupBox()
+        Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button33 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button34 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -174,6 +180,7 @@ Partial Class Main_Panel
         Me.GroupBox12.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
+        Me.GroupBox14.SuspendLayout()
         Me.SuspendLayout()
         '
         'MatchNum
@@ -1469,12 +1476,61 @@ Partial Class Main_Panel
         '
         Me.MatchListTableAdapter1.ClearBeforeFill = True
         '
+        'GroupBox14
+        '
+        Me.GroupBox14.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.GroupBox14.Controls.Add(Me.Label3)
+        Me.GroupBox14.Controls.Add(Me.Button33)
+        Me.GroupBox14.Controls.Add(Me.TextBox1)
+        Me.GroupBox14.Location = New System.Drawing.Point(920, 363)
+        Me.GroupBox14.Name = "GroupBox14"
+        Me.GroupBox14.Size = New System.Drawing.Size(281, 129)
+        Me.GroupBox14.TabIndex = 38
+        Me.GroupBox14.TabStop = False
+        Me.GroupBox14.Text = "ViewMarq Custom Messages"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(6, 42)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(269, 20)
+        Me.TextBox1.TabIndex = 0
+        '
+        'Button33
+        '
+        Me.Button33.Location = New System.Drawing.Point(88, 78)
+        Me.Button33.Name = "Button33"
+        Me.Button33.Size = New System.Drawing.Size(122, 29)
+        Me.Button33.TabIndex = 1
+        Me.Button33.Text = "Send Message"
+        Me.Button33.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(85, 26)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(109, 13)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Type Message Below"
+        '
+        'Button34
+        '
+        Me.Button34.Location = New System.Drawing.Point(1033, 499)
+        Me.Button34.Name = "Button34"
+        Me.Button34.Size = New System.Drawing.Size(75, 23)
+        Me.Button34.TabIndex = 39
+        Me.Button34.Text = "Button34"
+        Me.Button34.UseVisualStyleBackColor = True
+        '
         'Main_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1235, 565)
+        Me.Controls.Add(Me.Button34)
+        Me.Controls.Add(Me.GroupBox14)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -1519,6 +1575,8 @@ Partial Class Main_Panel
         Me.GroupBox12.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox14.ResumeLayout(False)
+        Me.GroupBox14.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1658,4 +1716,10 @@ Partial Class Main_Panel
     Public WithEvents B2DS As PowerPacks.RectangleShape
     Public WithEvents B1Robot As PowerPacks.RectangleShape
     Public WithEvents B1DS As PowerPacks.RectangleShape
+    Friend WithEvents GroupBox14 As GroupBox
+    Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Button33 As Button
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Button34 As Button
 End Class

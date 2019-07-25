@@ -117,7 +117,7 @@ Public Class PLC_Handler
     'Teams number varibles
     Public Shared RedT1, RedT2, RedT3, BlueT1, BlueT2, BlueT3
 
-    Public Shared modbusClient As New EasyModbus.ModbusClient("192.168.1.6", 502)
+    Public Shared modbusClient As New EasyModbus.ModbusClient("192.168.1.11", 502)
 
     Public Shared Sub ConnectPLC()
         modbusClient.Connect()
@@ -197,9 +197,8 @@ Public Class PLC_Handler
         modbusClient.WriteSingleRegister(71, BlueT2)
         modbusClient.WriteSingleRegister(72, BlueT3)
 
-        'Sends the time and a custom message to the ViewMarq Displays via PLC
+        'Sends the time to the ViewMarq Displays via PLC
         modbusClient.WriteSingleRegister(0, PLC_Match_Timer)
-
     End Sub
 
     Public Shared Sub handleGameOutputs()

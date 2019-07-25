@@ -82,6 +82,10 @@ Public Class Field
         ElseIf Red1DS.Estop = True Then
             Red1DS.Auto = False
             Red1DS.Enabled = False
+        ElseIf Red1Bypass = True Then
+            Red1DS.Auto = False
+            Red1DS.Enabled = False
+            Red1DS.Estop = False
         End If
     End Sub
 

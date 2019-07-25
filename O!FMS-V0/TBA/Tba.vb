@@ -130,4 +130,45 @@ Public Class Tba
         Return strResult.ToString
 
     End Function
+
+    Public Shared Sub createBaseMatchJSON()
+        'This writes the team and match data to a file for writing matches to The Blue Alliance API'
+        Dim file As String
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("mLevel", match.CompLevel)
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("mSetNumber", match.SetNumber)
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("mMatchNumber", match.MatchNumber)
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("r1", "red1")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("r2", "red2")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("r3", "red3")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("rScore", "redScore")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("b1", "blue1")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("b2", "blue2")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("b3", "blue3")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bScore", "blueScore")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("timeStr", DateTime.Now.ToShortTimeString)
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("utcTime", DateTime.UtcNow.ToString("s"))
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+
+        createScoringBreakdowns()
+    End Sub
+
+    Public Shared Sub createScoringBreakdowns()
+        'This fills the scoring info for the match breakdown'
+        Dim file As String
+        'Blue Score Stuff'
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bAdjustPoints", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+    End Sub
 End Class
