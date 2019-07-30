@@ -35,100 +35,82 @@ Public Class Tba
         Public Shared Score As Integer
     End Structure
 
-    Public Structure scorebreakdown
-
-    End Structure
-
-    Shared Sub createBreakdown()
-
-
-
-    End Sub
     Shared Function formatTeam(number As String)
             teamNum = String.Format("frc{0}", number)
             Return teamNum
         End Function
 
-        Shared Function getTeam(team As String)
+    Shared Function getTeam(team As String)
+        Dim request As HttpWebRequest
+        Dim response As HttpWebResponse = Nothing
+        Dim reader As StreamReader
+        Dim results As String = ""
 
-            Dim request As HttpWebRequest
-            Dim response As HttpWebResponse = Nothing
-            Dim reader As StreamReader
-            Dim results As String = ""
+        Dim requestAddress As String = String.Format("https://www.thebluealliance.com/api/v3/team/{0}", team)
 
-            Dim requestAddress As String = String.Format("https://www.thebluealliance.com/api/v3/team/{0}", team)
+        Try
 
-            Try
+            request = DirectCast(WebRequest.Create(requestAddress), HttpWebRequest)
+            request.Headers.Set("X-TBA-Auth-Key", TBA_Auth_Key)
 
-                request = DirectCast(WebRequest.Create(requestAddress), HttpWebRequest)
-                request.Headers.Set("X-TBA-Auth-Key", TBA_Auth_Key)
+            response = DirectCast(request.GetResponse(), HttpWebResponse)
+            reader = New StreamReader(response.GetResponseStream())
 
-                response = DirectCast(request.GetResponse(), HttpWebResponse)
-                reader = New StreamReader(response.GetResponseStream())
+            Dim rawresp As String
+            rawresp = reader.ReadToEnd()
 
-                Dim rawresp As String
-                rawresp = reader.ReadToEnd()
+            Dim data As Object = JObject.Parse(rawresp)
+            results = If(data("nickname") Is Nothing, "", data("nickname").ToString())
 
-                Dim data As Object = JObject.Parse(rawresp)
-                results = If(data("nickname") Is Nothing, "", data("nickname").ToString())
+        Catch ex As Exception
+            MessageBox.Show("Team doesn't exist in The Blue Alliance")
+            results = "NULL"
+        End Try
 
-            Catch ex As Exception
-                MessageBox.Show("Team doesn't exist in The Blue Alliance")
-                results = "NULL"
-            End Try
+        Return results
+    End Function
 
-            Return results
-        End Function
-
-        'This posts anything you need to the blue alliance api'
-        Shared Function postRequest(resource As String, action As String, body As Byte())
+    'This posts anything you need to the blue alliance api'
+    Shared Function postRequest(resource As String, action As String, body As Byte())
             Dim request As HttpWebRequest = Nothing
             Dim results As String = ""
 
             Dim path As String = String.Format("https://www.thebluealliance/api/trusted/v1/event/{0}/{1}/{2}", client.eventCode, resource, action)
 
-        Using hash As MD5 = MD5.Create()
-            Dim Md5String1 As String = Encoding.ASCII.GetString(body)
-            Dim Md5String2 As String = GetHash(client.secret + path)
-            Dim signature As String = String.Format("{0}", Md5String2 + Md5String1)
+        Dim signature = GetHash(client.secret & path)
 
+        request = DirectCast(WebRequest.Create(path), HttpWebRequest)
+        request.ContentType = "application/json"
+        request.ContentLength = body.Length
+        request.Method = "POST"
+        request.Headers.Add("X-TBA-Auth-Id", client.secretId)
+        request.Headers.Add("X-TBA-Auth-Sig", signature)
 
-            request = DirectCast(WebRequest.Create(path), HttpWebRequest)
-            request.ContentType = "application/json"
-            request.ContentLength = body.Length
-            request.Method = "POST"
-            request.Headers.Add("X-TBA-Auth-Id", client.secretId)
-            request.Headers.Add("X-TBA-Auth-Sig", signature)
+        Dim stream = request.GetRequestStream()
+        stream.Write(body, 0, body.Length())
 
-            Dim stream = request.GetRequestStream()
-            stream.Write(body, 0, body.Length())
+        Dim response = request.GetResponse().GetResponseStream()
 
-            Dim response = request.GetResponse().GetResponseStream()
-
-            Dim reader As New StreamReader(response)
+        Dim reader As New StreamReader(response)
             results = reader.ReadToEnd()
             reader.Close()
             response.Close()
-        End Using
 
         Return results
+    End Function
 
-        End Function
+    'Gets a MD5 Hash from a string'
+    Shared Function GetHash(input As String) As String
+        Using hasher As MD5 = MD5.Create()
+            Dim dBytes As Byte() = hasher.ComputeHash(Encoding.UTF8.GetBytes(input))
+            Dim sBuilder As New StringBuilder()
 
-    Shared Function GetHash(strToHash As String) As String
+            For n As Integer = 0 To dBytes.Length - 1
+                sBuilder.Append(dBytes(n).ToString("X2"))
+            Next n
 
-        Dim md5Obj As New System.Security.Cryptography.MD5CryptoServiceProvider
-        Dim bytesToHash() As Byte = System.Text.Encoding.ASCII.GetBytes(strToHash)
-
-        bytesToHash = md5Obj.ComputeHash(bytesToHash)
-        Dim strResult As New StringBuilder
-
-        For Each b As Byte In bytesToHash
-            strResult.Append(b.ToString("x2"))
-        Next
-
-        Return strResult.ToString
-
+            Return sBuilder.ToString()
+        End Using
     End Function
 
     Public Shared Sub createBaseMatchJSON()
@@ -170,5 +152,102 @@ Public Class Tba
         'Blue Score Stuff'
         file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bAdjustPoints", "0")
         My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bAutoPoints", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bBay1", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bBay2", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bBay3", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bBay4", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bBay5", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bBay6", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bBay7", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bBay8", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bCargoPoints", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bRocketRP", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bRocketFar", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bRocketNear", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bRobot1end", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bRobot2end", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bRobot3end", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bFoulCount", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bFoulPoints", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bClimbPoints", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bHabRP", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bLowLeftRocketFar", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bLowLeftRocketNear", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bLowRightRocketFar", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bLowRightRocketNear", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bMidLeftRocketFar", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bMidLeftRocketNear", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bMidRightRocketFar", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bMidRightRocketNear", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bPreBay1", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bPreBay2", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bPreBay3", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bPreBay4", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bPreBay5", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bPreBay6", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bPreBay7", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bPreBay8", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bHabLevel1", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bHabLevel2", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bHabLevel3", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bRP", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bSandStormBonus", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bTechCount", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bTelePoints", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bTopLeftRocketFar", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bTopLeftRocketNear", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bTopRightRocketFar", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bTopRightRocketNear", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        file = My.Computer.FileSystem.ReadAllText("C:\OFMS\UpdateMatch.txt").Replace("bTotalPoints", "0")
+        My.Computer.FileSystem.WriteAllText("C:\OFMS\UpdateMatch1.txt", file, False)
+        'TODO Add Red Points'
     End Sub
 End Class

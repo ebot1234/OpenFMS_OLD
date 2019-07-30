@@ -470,6 +470,12 @@ Public Class Main_Panel
         End If
 
         PLC_Match_Timer = matchTimerLbl.Text
+        RedT1 = RedTeam1.Text
+        RedT2 = RedTeam2.Text
+        RedT3 = RedTeam3.Text
+        BlueT1 = BlueTeam1.Text
+        BlueT2 = BlueTeam2.Text
+        BlueT3 = BlueTeam3.Text
 
         'Updates the audience display with time and scores'
         AudianceDisplay.Timerlbl.Text = matchTimerLbl.Text
@@ -887,6 +893,6 @@ Public Class Main_Panel
     End Sub
 
     Private Sub Button34_Click(sender As Object, e As EventArgs) Handles Button34.Click
-        Tba.postMatch()
+        Tba.createBaseMatchJSON()
     End Sub
 End Class

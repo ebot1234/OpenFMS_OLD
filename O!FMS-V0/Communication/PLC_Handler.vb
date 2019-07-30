@@ -1,7 +1,7 @@
 ﻿Imports O_FMS_V0.Lighting
 Imports O_FMS_V0.Field
 Imports O_FMS_V0.Main_Panel
-Imports System.Text
+Imports O_FMS_V0.ViewMarqUpdater
 
 
 
@@ -117,7 +117,7 @@ Public Class PLC_Handler
     'Teams number varibles
     Public Shared RedT1, RedT2, RedT3, BlueT1, BlueT2, BlueT3
 
-    Public Shared modbusClient As New EasyModbus.ModbusClient("192.168.1.11", 502)
+    Public Shared modbusClient As New EasyModbus.ModbusClient("192.168.1.9", 502)
 
     Public Shared Sub ConnectPLC()
         modbusClient.Connect()
@@ -189,16 +189,9 @@ Public Class PLC_Handler
 
         End If
 
-        'Sends the team numbers to the ViewMarq Displays via PLC
-        modbusClient.WriteSingleRegister(66, RedT1)
-        modbusClient.WriteSingleRegister(67, RedT2)
-        modbusClient.WriteSingleRegister(68, RedT3)
-        modbusClient.WriteSingleRegister(69, BlueT1)
-        modbusClient.WriteSingleRegister(71, BlueT2)
-        modbusClient.WriteSingleRegister(72, BlueT3)
-
-        'Sends the time to the ViewMarq Displays via PLC
         modbusClient.WriteSingleRegister(0, PLC_Match_Timer)
+        modbusClient.WriteSingleRegister(1, RedT1)
+
     End Sub
 
     Public Shared Sub handleGameOutputs()
