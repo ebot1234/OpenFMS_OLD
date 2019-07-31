@@ -9,7 +9,6 @@ Public Class Tba
 
     Public Shared TBA_Auth_Key As String = "Lat8J29zc3UrMOy8X4TSnreTqitAE9oMUvOqmpgXgPR0B6k4k96kh7UCiMjEy2Kg"
     Public Shared secret As String = ""
-
     Shared teamNum
 
     Public Structure client
@@ -22,17 +21,8 @@ Public Class Tba
         Public Shared CompLevel As String
         Public Shared SetNumber As Integer
         Public Shared MatchNumber As Integer
-        Public Shared Alliances As String
-        Public Shared ScoreBreakdown() As String
         Public Shared TimeString As String
         Public Shared TimeUtc As String
-    End Structure
-
-    Public Structure alliances
-        Public Shared Teams() As String
-        Public Shared Surrogates As String()
-        Public Shared Dqs As String()
-        Public Shared Score As Integer
     End Structure
 
     Shared Function formatTeam(number As String)

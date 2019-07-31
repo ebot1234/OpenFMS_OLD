@@ -48,6 +48,7 @@ Public Class Main_Panel
     Public Shared RedRocketCargoScore As Integer
     Public Shared RedRocketHatchScore As Integer
     Public Shared RedHABScore As Integer
+    Public Shared RedHabRP As Integer
     Public Shared RedClimbScore As Integer
     Public Shared RedRankingPoints As Integer
 
@@ -59,6 +60,7 @@ Public Class Main_Panel
     Public Shared BlueRocketCargoScore As Integer
     Public Shared BlueRocketHatchScore As Integer
     Public Shared BlueHABScore As Integer
+    Public Shared BkueHabRP As Integer
     Public Shared BlueClimbScore As Integer
     Public Shared BlueRankingPoints As Integer
 
@@ -503,6 +505,8 @@ Public Class Main_Panel
         MatchMessages.Text = "Field Pre-Started"
         ResetPLC()
         resetUI()
+
+        Pre_Match_Selector.Show()
     End Sub
 
     Private Sub StartMatch_btn_Click(sender As Object, e As EventArgs) Handles StartMatch_btn.Click
