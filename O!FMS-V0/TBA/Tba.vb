@@ -71,11 +71,11 @@ Public Class Tba
     End Function
 
     'This posts anything you need to the blue alliance api'
-    Shared Function postRequest(resource As String, action As String, body As Byte())
-            Dim request As HttpWebRequest = Nothing
-            Dim results As String = ""
+    Shared Function postRequest(resource As String, action As String, body As String)
+        Dim request As HttpWebRequest = Nothing
+        Dim results As String = ""
 
-            Dim path As String = String.Format("https://www.thebluealliance/api/trusted/v1/event/{0}/{1}/{2}", client.eventCode, resource, action)
+        Dim path As String = String.Format("https://www.thebluealliance/api/trusted/v1/event/{0}/{1}/{2}", client.eventCode, resource, action)
 
         Dim signature = GetHash(client.secret & path)
 
@@ -87,17 +87,24 @@ Public Class Tba
         request.Headers.Add("X-TBA-Auth-Sig", signature)
 
         Dim stream = request.GetRequestStream()
-        stream.Write(body, 0, body.Length())
+        Dim sendBytes = Encoding.UTF8.GetBytes(body)
+        stream.Write(sendBytes, 0, sendBytes.Length())
 
         Dim response = request.GetResponse().GetResponseStream()
 
         Dim reader As New StreamReader(response)
-            results = reader.ReadToEnd()
-            reader.Close()
-            response.Close()
+        results = reader.ReadToEnd()
+        reader.Close()
+        response.Close()
 
         Return results
     End Function
+
+    Shared Sub postMatch()
+        createBaseMatchJSON()
+        Dim jsonData As String = File.ReadAllText("C:\OFMS\UpdateMatch1.txt")
+        postRequest("matches", "update", jsonData)
+    End Sub
 
     'Gets a MD5 Hash from a string'
     Shared Function GetHash(input As String) As String
