@@ -42,34 +42,18 @@ Public Class Main_Panel
 
     'Red Scoring Varibles'
     Public Shared RedScore As Integer
-    Public Shared RedPenaltyScore As Integer
-    Public Shared RedCargoshipCargoScore As Integer
-    Public Shared RedCargoshipHatchScore As Integer
-    Public Shared RedRocketCargoScore As Integer
-    Public Shared RedRocketHatchScore As Integer
-    Public Shared RedHABScore As Integer
-    Public Shared RedHabRP As Integer
-    Public Shared RedClimbScore As Integer
-    Public Shared RedRankingPoints As Integer
+
 
     'Blue Scoring Varibles
     Public Shared BlueScore As Integer
-    Public Shared BluePenaltyScore As Integer
-    Public Shared BlueCargoshipCargoScore As Integer
-    Public Shared BlueCargoshipHatchScore As Integer
-    Public Shared BlueRocketCargoScore As Integer
-    Public Shared BlueRocketHatchScore As Integer
-    Public Shared BlueHABScore As Integer
-    Public Shared BkueHabRP As Integer
-    Public Shared BlueClimbScore As Integer
-    Public Shared BlueRankingPoints As Integer
+
 
     Public Shared redWin
     Public Shared blueWin
     Public Shared tie
     Public Shared alliance1 As String
     Public Shared alliance2 As String
-    Public Shared type As String
+    Public Shared type As String = "qm"
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
@@ -672,175 +656,7 @@ Public Class Main_Panel
         Blue3Bypass = True
     End Sub
 
-    'Manual Scoring Area'
-    'Red Cargoship Cargo'
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        RedCargoshipCargoScore = RedCargoshipCargoScore + 3
-        RedScore = RedScore + RedCargoshipCargoScore
-        RedScoreLbl.Text = RedScore
-    End Sub
-    'Red Cargoship Hatch'
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        RedCargoshipHatchScore = RedCargoshipHatchScore + 2
-        RedScore = RedScore + RedCargoshipHatchScore
-        RedScoreLbl.Text = RedScore
-    End Sub
-    'HAB 1 Sandstorm'
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        RedHABScore = RedHABScore + 3
-        RedScore = RedScore + RedHABScore
-        RedScoreLbl.Text = RedScore
-    End Sub
-    'HAB 2 Sandstorm
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        RedHABScore = RedHABScore + 6
-        RedScore = RedScore + RedHABScore
-        RedScoreLbl.Text = RedScore
-    End Sub
-    'HAB 1 Climb'
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        RedClimbScore = RedClimbScore + 3
-        RedScore = RedScore + RedClimbScore
-        RedScoreLbl.Text = RedScore
-    End Sub
-    'HAB 2 Climb'
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        RedClimbScore = RedClimbScore + 6
-        RedScore = RedScore + RedClimbScore
-        RedScoreLbl.Text = RedScore
-    End Sub
-    'HAB 3 Climb'
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        RedClimbScore = RedClimbScore + 12
-        RedScore = RedScore + RedClimbScore
-        RedScoreLbl.Text = RedScore
-    End Sub
-    'Red Complete Rocket'
-    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        'Add Ranking Points stuff'
-    End Sub
-    'Rocket Cargo'
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        RedRocketCargoScore = RedRocketCargoScore + 3
-        RedScore = RedScore + RedRocketCargoScore
-        RedScoreLbl.Text = RedScore
-    End Sub
-    'Rocket Hatch'
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        RedRocketHatchScore = RedRocketHatchScore + 2
-        RedScore = RedScore + RedRocketHatchScore
-        RedScoreLbl.Text = RedScore
-    End Sub
-    'All Climb'
-    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-        'Add Ranking Points stuff'
-    End Sub
-    'Red Tech Foul'
-    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
-        RedPenaltyScore = RedPenaltyScore + 10
-        BlueScore = BlueScore + 10
-        BlueScoreLbl.Text = BlueScore
-    End Sub
-    'Red Foul'
-    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
-        RedPenaltyScore = RedPenaltyScore + 3
-        BlueScore = BlueScore + 3
-        BlueScoreLbl.Text = BlueScore
-    End Sub
-    'Cargoship Cargo'
-    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
-        BlueCargoshipCargoScore = BlueCargoshipCargoScore + 3
-        BlueScore = BlueScore + BlueCargoshipCargoScore
-        BlueScoreLbl.Text = BlueScore
-    End Sub
-    'Cargoship Hatch'
-    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
-        BlueCargoshipHatchScore = BlueCargoshipHatchScore + 2
-        BlueScore = BlueScore + BlueCargoshipHatchScore
-        BlueScoreLbl.Text = BlueScore
-    End Sub
-    'HAB 1 Sandstorm'
-    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
-        BlueHABScore = BlueHABScore + 3
-        BlueScore = BlueScore + BlueHABScore
-        BlueScoreLbl.Text = BlueScore
-    End Sub
-    'HAB 2 Sandstorm'
-    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
-        BlueHABScore = BlueHABScore + 6
-        BlueScore = BlueScore + BlueHABScore
-        BlueScoreLbl.Text = BlueScore
-    End Sub
-    'All Climb'
-    Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
-        'Add Ranking points stuff'
-    End Sub
-    'HAB Climb 1'
-    Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
-        BlueClimbScore = BlueClimbScore + 3
-        BlueScore = BlueScore + BlueClimbScore
-        BlueScoreLbl.Text = BlueScore
-    End Sub
-    'HAB Climb 2'
-    Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
-        BlueClimbScore = BlueClimbScore + 6
-        BlueScore = BlueScore + BlueClimbScore
-        BlueScoreLbl.Text = BlueScore
-    End Sub
-    'HAB Climb 3'
-    Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
-        BlueClimbScore = BlueClimbScore + 12
-        BlueScore = BlueScore + BlueClimbScore
-        BlueScoreLbl.Text = BlueScore
-    End Sub
-    'Rocket Cargo'
-    Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
-        BlueRocketCargoScore = BlueRocketCargoScore + 3
-        BlueScore = BlueScore + BlueRocketCargoScore
-        BlueScoreLbl.Text = BlueScore
-    End Sub
-    'Rocket Hatch'
-    Private Sub Button23_Click(sender As Object, e As EventArgs) Handles Button23.Click
-        BlueRocketHatchScore = BlueRocketHatchScore + 2
-        BlueScore = BlueScore + BlueRocketHatchScore
-        BlueScoreLbl.Text = BlueScore
-    End Sub
-    'Completed Rocket'
-    Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
-        'Add Ranking Points stuff'
-    End Sub
-    'Blue Tech Foul'
-    Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
-        BluePenaltyScore = BluePenaltyScore + 10
-        RedScore = RedScore + 10
-        RedScoreLbl.Text = RedScore
-    End Sub
-    'Blue Foul'
-    Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
-        BluePenaltyScore = BluePenaltyScore + 3
-        RedScore = RedScore + 3
-        RedScoreLbl.Text = RedScore
-    End Sub
-
     Private Sub resetScore()
-        RedScore = 0
-        RedPenaltyScore = 0
-        RedCargoshipCargoScore = 0
-        RedCargoshipHatchScore = 0
-        RedRocketCargoScore = 0
-        RedRocketHatchScore = 0
-        RedHABScore = 0
-        RedClimbScore = 0
-        RedRankingPoints = 0
-        BlueScore = 0
-        BluePenaltyScore = 0
-        BlueCargoshipCargoScore = 0
-        BlueCargoshipHatchScore = 0
-        BlueRocketCargoScore = 0
-        BlueRocketHatchScore = 0
-        BlueHABScore = 0
-        BlueClimbScore = 0
-        BlueRankingPoints = 0
 
         RedScoreLbl.Text = RedScore
         BlueScoreLbl.Text = BlueScore
@@ -892,11 +708,129 @@ Public Class Main_Panel
         B3Estop.BackColor = Color.Red
     End Sub
 
-    Private Sub Button33_Click(sender As Object, e As EventArgs) Handles Button33.Click
-        ViewMarqUpdater.sendCustomMessage(TextBox1.Text)
-    End Sub
-
     Private Sub Button34_Click(sender As Object, e As EventArgs) Handles Button34.Click
         createBaseMatchJSON()
     End Sub
+
+    'Manual Scoring Area'
+    'Cargoship Bays'
+    Public Shared blueBay1 = ""
+    Public Shared blueBay2 = ""
+    Public Shared blueBay3 = ""
+    Public Shared blueBay4 = ""
+    Public Shared blueBay5 = ""
+    Public Shared blueBay6 = ""
+    Public Shared blueBay7 = ""
+    Public Shared blueBay8 = ""
+    'Rocket Bays'
+    Public Shared blueLowLeftRocketFar = ""
+    Public Shared blueLowLeftRocketNear = ""
+    Public Shared blueMidLeftRocketFar = ""
+    Public Shared blueMidLeftRocketNear = ""
+    Public Shared blueTopLeftRocketFar = ""
+    Public Shared blueTopLeftRocketNear = ""
+    Public Shared blueLowRightRocketFar = ""
+    Public Shared blueLowRightRocketNear = ""
+    Public Shared blueMidRightRocketFar = ""
+    Public Shared blueMidRightRocketNear = ""
+    Public Shared blueTopRightRocketFar = ""
+    Public Shared blueTopRightRocketNear = ""
+    'Completed Rockets'
+    Public Shared blueCompleteRocketFar As Boolean
+    Public Shared blueCompleteRocketNear As Boolean
+    'Robot HAB Line Status'
+    Public Shared blueHABLineRobot1 = ""
+    Public Shared blueHABLineRobot2 = ""
+    Public Shared blueHABLineRobot3 = ""
+    'Endgame Robot Status'
+    Public Shared blueEndgameRobot1 = ""
+    Public Shared blueEndgameRobot2 = ""
+    Public Shared blueEndgameRobot3 = ""
+    'Total Rocket Ranking Point'
+    Public Shared blueRocketRP As Integer
+    'HAB Ranking Point'
+    Public Shared blueHABRP As Integer
+    'Total Hatch Panel Points'
+    Public Shared blueHatchPanelPoints As Integer
+    'Total Cargo Points'
+    Public Shared blueCargoPoints As Integer
+    'HAB Climb Points'
+    Public Shared blueHABClimbPoints As Integer
+    'Total Auto Points'
+    Public Shared blueAutoPoints As Integer
+    'Total Teleop Points'
+    Public Shared blueTelePoints As Integer
+    'Total Fouls Count'
+    Public Shared blueFoulCount As Integer
+    'Total Foul Points'
+    Public Shared blueFoulPoints As Integer
+    'Total Tech Foul Count
+    Public Shared blueTechCount As Integer
+    'Total RP'
+    Public Shared blueRP As Integer
+    'Total Match Points'
+    Public Shared blueTotalPoints As Integer
+    'Total Sand Storm Bonus
+    Public Shared blueSandStormBonus As Integer
+
+
+    'Cargoship Bays'
+    Public Shared redBay1 = ""
+    Public Shared redBay2 = ""
+    Public Shared redBay3 = ""
+    Public Shared redBay4 = ""
+    Public Shared redBay5 = ""
+    Public Shared redBay6 = ""
+    Public Shared redBay7 = ""
+    Public Shared redBay8 = ""
+    'Rocket Bays'
+    Public Shared redLowLeftRocketFar = ""
+    Public Shared redLowLeftRocketNear = ""
+    Public Shared redMidLeftRocketFar = ""
+    Public Shared redMidLeftRocketNear = ""
+    Public Shared redTopLeftRocketFar = ""
+    Public Shared redTopLeftRocketNear = ""
+    Public Shared redLowRightRocketFar = ""
+    Public Shared redLowRightRocketNear = ""
+    Public Shared redMidRightRocketFar = ""
+    Public Shared redMidRightRocketNear = ""
+    Public Shared redTopRightRocketFar = ""
+    Public Shared redTopRightRocketNear = ""
+    'Completed Rockets'
+    Public Shared redCompleteRocketFar As Boolean
+    Public Shared redCompleteRocketNear As Boolean
+    'Robot HAB Line Status'
+    Public Shared redHABLineRobot1 = ""
+    Public Shared redHABLineRobot2 = ""
+    Public Shared redHABLineRobot3 = ""
+    'Endgame Robot Status'
+    Public Shared redEndgameRobot1 = ""
+    Public Shared redEndgameRobot2 = ""
+    Public Shared redEndgameRobot3 = ""
+    'Total Rocket Ranking Point'
+    Public Shared redRocketRP As Integer
+    'HAB Ranking Point'
+    Public Shared redHABRP As Integer
+    'Total Hatch Panel Points'
+    Public Shared redHatchPanelPoints As Integer
+    'Total Cargo Points'
+    Public Shared redCargoPoints As Integer
+    'HAB Climb Points'
+    Public Shared redHABClimbPoints As Integer
+    'Total Auto Points'
+    Public Shared redAutoPoints As Integer
+    'Total Teleop Points'
+    Public Shared redTelePoints As Integer
+    'Total Fouls Count'
+    Public Shared redFoulCount As Integer
+    'Total Foul Points'
+    Public Shared redFoulPoints As Integer
+    'Total Tech Foul Count
+    Public Shared redTechCount As Integer
+    'Total RP'
+    Public Shared redRP As Integer
+    'Total Match Points'
+    Public Shared redTotalPoints As Integer
+    'Total Sand Storm Bonus
+    Public Shared redSandStormBonus As Integer
 End Class

@@ -115,53 +115,15 @@ Partial Class Main_Panel
         Me.ScoringTableLightTestBtn = New System.Windows.Forms.Button()
         Me.ConnectPLCBtn = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.Button13 = New System.Windows.Forms.Button()
-        Me.Button12 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.RedScoreLbl = New System.Windows.Forms.Label()
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
-        Me.Button26 = New System.Windows.Forms.Button()
-        Me.Button25 = New System.Windows.Forms.Button()
-        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
-        Me.Button24 = New System.Windows.Forms.Button()
-        Me.Button23 = New System.Windows.Forms.Button()
-        Me.Button22 = New System.Windows.Forms.Button()
-        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.Button21 = New System.Windows.Forms.Button()
-        Me.Button20 = New System.Windows.Forms.Button()
-        Me.Button19 = New System.Windows.Forms.Button()
-        Me.Button18 = New System.Windows.Forms.Button()
-        Me.Button17 = New System.Windows.Forms.Button()
-        Me.Button16 = New System.Windows.Forms.Button()
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.Button15 = New System.Windows.Forms.Button()
-        Me.Button14 = New System.Windows.Forms.Button()
         Me.BlueScoreLbl = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.MatchListTableAdapter1 = New O_FMS_V0._O_FMSDataSet1TableAdapters.MatchListTableAdapter()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.GroupBox14 = New System.Windows.Forms.GroupBox()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button33 = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Button34 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,16 +133,7 @@ Partial Class Main_Panel
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
-        Me.GroupBox7.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
-        Me.GroupBox13.SuspendLayout()
-        Me.GroupBox12.SuspendLayout()
-        Me.GroupBox11.SuspendLayout()
-        Me.GroupBox10.SuspendLayout()
-        Me.GroupBox14.SuspendLayout()
         Me.SuspendLayout()
         '
         'MatchNum
@@ -1061,54 +1014,21 @@ Partial Class Main_Panel
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.Red
-        Me.GroupBox3.Controls.Add(Me.GroupBox9)
         Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Controls.Add(Me.RedScoreLbl)
-        Me.GroupBox3.Controls.Add(Me.GroupBox8)
-        Me.GroupBox3.Controls.Add(Me.GroupBox7)
-        Me.GroupBox3.Controls.Add(Me.GroupBox6)
         Me.GroupBox3.Controls.Add(Me.GroupBox4)
         Me.GroupBox3.Location = New System.Drawing.Point(24, 237)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(443, 316)
+        Me.GroupBox3.Size = New System.Drawing.Size(443, 456)
         Me.GroupBox3.TabIndex = 36
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Red Scoring"
-        '
-        'GroupBox9
-        '
-        Me.GroupBox9.Controls.Add(Me.Button13)
-        Me.GroupBox9.Controls.Add(Me.Button12)
-        Me.GroupBox9.Location = New System.Drawing.Point(229, 148)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(200, 149)
-        Me.GroupBox9.TabIndex = 43
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Penalties"
-        '
-        'Button13
-        '
-        Me.Button13.Location = New System.Drawing.Point(101, 19)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(75, 35)
-        Me.Button13.TabIndex = 1
-        Me.Button13.Text = "Foul"
-        Me.Button13.UseVisualStyleBackColor = True
-        '
-        'Button12
-        '
-        Me.Button12.Location = New System.Drawing.Point(7, 20)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(75, 34)
-        Me.Button12.TabIndex = 0
-        Me.Button12.Text = "Tech Foul"
-        Me.Button12.UseVisualStyleBackColor = True
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(26, 25)
+        Me.Label1.Location = New System.Drawing.Point(136, 25)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(94, 20)
         Me.Label1.TabIndex = 42
@@ -1118,148 +1038,11 @@ Partial Class Main_Panel
         '
         Me.RedScoreLbl.AutoSize = True
         Me.RedScoreLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RedScoreLbl.Location = New System.Drawing.Point(126, 25)
+        Me.RedScoreLbl.Location = New System.Drawing.Point(263, 25)
         Me.RedScoreLbl.Name = "RedScoreLbl"
         Me.RedScoreLbl.Size = New System.Drawing.Size(18, 20)
         Me.RedScoreLbl.TabIndex = 41
         Me.RedScoreLbl.Text = "0"
-        '
-        'GroupBox8
-        '
-        Me.GroupBox8.Controls.Add(Me.Button11)
-        Me.GroupBox8.Controls.Add(Me.Button7)
-        Me.GroupBox8.Controls.Add(Me.Button6)
-        Me.GroupBox8.Controls.Add(Me.Button5)
-        Me.GroupBox8.Controls.Add(Me.Button4)
-        Me.GroupBox8.Controls.Add(Me.Button3)
-        Me.GroupBox8.Location = New System.Drawing.Point(14, 145)
-        Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(200, 152)
-        Me.GroupBox8.TabIndex = 40
-        Me.GroupBox8.TabStop = False
-        Me.GroupBox8.Text = "Habitat"
-        '
-        'Button11
-        '
-        Me.Button11.Location = New System.Drawing.Point(7, 100)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(75, 33)
-        Me.Button11.TabIndex = 5
-        Me.Button11.Text = "All Climb"
-        Me.Button11.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(107, 100)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(75, 33)
-        Me.Button7.TabIndex = 4
-        Me.Button7.Text = "HAB 3 Climb"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(107, 59)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 35)
-        Me.Button6.TabIndex = 3
-        Me.Button6.Text = "HAB 2 Climb"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(107, 19)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 34)
-        Me.Button5.TabIndex = 2
-        Me.Button5.Text = "HAB 1 Climb"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(6, 59)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 34)
-        Me.Button4.TabIndex = 1
-        Me.Button4.Text = "HAB 2 Sandstorm"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(7, 15)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 42)
-        Me.Button3.TabIndex = 0
-        Me.Button3.Text = "HAB 1 Sandstorm"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'GroupBox7
-        '
-        Me.GroupBox7.Controls.Add(Me.Button10)
-        Me.GroupBox7.Controls.Add(Me.Button9)
-        Me.GroupBox7.Controls.Add(Me.Button8)
-        Me.GroupBox7.Location = New System.Drawing.Point(229, 47)
-        Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(200, 95)
-        Me.GroupBox7.TabIndex = 39
-        Me.GroupBox7.TabStop = False
-        Me.GroupBox7.Text = "Rocket"
-        '
-        'Button10
-        '
-        Me.Button10.Location = New System.Drawing.Point(62, 53)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(75, 36)
-        Me.Button10.TabIndex = 2
-        Me.Button10.Text = "Completed Rocket"
-        Me.Button10.UseVisualStyleBackColor = True
-        '
-        'Button9
-        '
-        Me.Button9.Location = New System.Drawing.Point(119, 13)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(75, 34)
-        Me.Button9.TabIndex = 1
-        Me.Button9.Text = "Hatch"
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.Location = New System.Drawing.Point(5, 13)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(75, 34)
-        Me.Button8.TabIndex = 0
-        Me.Button8.Text = "Cargo"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Me.Button2)
-        Me.GroupBox6.Controls.Add(Me.Button1)
-        Me.GroupBox6.Location = New System.Drawing.Point(14, 48)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(200, 94)
-        Me.GroupBox6.TabIndex = 38
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Cargoship"
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(107, 21)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 37)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Hatch"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(7, 20)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 38)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Cargo"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'GroupBox4
         '
@@ -1273,190 +1056,20 @@ Partial Class Main_Panel
         'GroupBox5
         '
         Me.GroupBox5.BackColor = System.Drawing.Color.Blue
-        Me.GroupBox5.Controls.Add(Me.GroupBox13)
-        Me.GroupBox5.Controls.Add(Me.GroupBox12)
-        Me.GroupBox5.Controls.Add(Me.GroupBox11)
-        Me.GroupBox5.Controls.Add(Me.GroupBox10)
         Me.GroupBox5.Controls.Add(Me.BlueScoreLbl)
         Me.GroupBox5.Controls.Add(Me.Label2)
         Me.GroupBox5.Location = New System.Drawing.Point(470, 237)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(426, 316)
+        Me.GroupBox5.Size = New System.Drawing.Size(426, 456)
         Me.GroupBox5.TabIndex = 37
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Blue Scoring"
-        '
-        'GroupBox13
-        '
-        Me.GroupBox13.Controls.Add(Me.Button26)
-        Me.GroupBox13.Controls.Add(Me.Button25)
-        Me.GroupBox13.Location = New System.Drawing.Point(212, 148)
-        Me.GroupBox13.Name = "GroupBox13"
-        Me.GroupBox13.Size = New System.Drawing.Size(200, 149)
-        Me.GroupBox13.TabIndex = 5
-        Me.GroupBox13.TabStop = False
-        Me.GroupBox13.Text = "Penalties"
-        '
-        'Button26
-        '
-        Me.Button26.Location = New System.Drawing.Point(105, 19)
-        Me.Button26.Name = "Button26"
-        Me.Button26.Size = New System.Drawing.Size(75, 35)
-        Me.Button26.TabIndex = 1
-        Me.Button26.Text = "Foul"
-        Me.Button26.UseVisualStyleBackColor = True
-        '
-        'Button25
-        '
-        Me.Button25.Location = New System.Drawing.Point(12, 19)
-        Me.Button25.Name = "Button25"
-        Me.Button25.Size = New System.Drawing.Size(75, 35)
-        Me.Button25.TabIndex = 0
-        Me.Button25.Text = "Tech Foul"
-        Me.Button25.UseVisualStyleBackColor = True
-        '
-        'GroupBox12
-        '
-        Me.GroupBox12.Controls.Add(Me.Button24)
-        Me.GroupBox12.Controls.Add(Me.Button23)
-        Me.GroupBox12.Controls.Add(Me.Button22)
-        Me.GroupBox12.Location = New System.Drawing.Point(212, 48)
-        Me.GroupBox12.Name = "GroupBox12"
-        Me.GroupBox12.Size = New System.Drawing.Size(200, 94)
-        Me.GroupBox12.TabIndex = 4
-        Me.GroupBox12.TabStop = False
-        Me.GroupBox12.Text = "Rocket"
-        '
-        'Button24
-        '
-        Me.Button24.Location = New System.Drawing.Point(59, 52)
-        Me.Button24.Name = "Button24"
-        Me.Button24.Size = New System.Drawing.Size(75, 35)
-        Me.Button24.TabIndex = 2
-        Me.Button24.Text = "Completed Rocket"
-        Me.Button24.UseVisualStyleBackColor = True
-        '
-        'Button23
-        '
-        Me.Button23.Location = New System.Drawing.Point(105, 12)
-        Me.Button23.Name = "Button23"
-        Me.Button23.Size = New System.Drawing.Size(75, 35)
-        Me.Button23.TabIndex = 1
-        Me.Button23.Text = "Hatch"
-        Me.Button23.UseVisualStyleBackColor = True
-        '
-        'Button22
-        '
-        Me.Button22.Location = New System.Drawing.Point(8, 12)
-        Me.Button22.Name = "Button22"
-        Me.Button22.Size = New System.Drawing.Size(75, 35)
-        Me.Button22.TabIndex = 0
-        Me.Button22.Text = "Cargo"
-        Me.Button22.UseVisualStyleBackColor = True
-        '
-        'GroupBox11
-        '
-        Me.GroupBox11.Controls.Add(Me.Button21)
-        Me.GroupBox11.Controls.Add(Me.Button20)
-        Me.GroupBox11.Controls.Add(Me.Button19)
-        Me.GroupBox11.Controls.Add(Me.Button18)
-        Me.GroupBox11.Controls.Add(Me.Button17)
-        Me.GroupBox11.Controls.Add(Me.Button16)
-        Me.GroupBox11.Location = New System.Drawing.Point(6, 148)
-        Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(200, 149)
-        Me.GroupBox11.TabIndex = 3
-        Me.GroupBox11.TabStop = False
-        Me.GroupBox11.Text = "Habitat"
-        '
-        'Button21
-        '
-        Me.Button21.Location = New System.Drawing.Point(120, 97)
-        Me.Button21.Name = "Button21"
-        Me.Button21.Size = New System.Drawing.Size(75, 33)
-        Me.Button21.TabIndex = 5
-        Me.Button21.Text = "HAB 3 Climb"
-        Me.Button21.UseVisualStyleBackColor = True
-        '
-        'Button20
-        '
-        Me.Button20.Location = New System.Drawing.Point(119, 56)
-        Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(75, 37)
-        Me.Button20.TabIndex = 4
-        Me.Button20.Text = "HAB 2 Climb"
-        Me.Button20.UseVisualStyleBackColor = True
-        '
-        'Button19
-        '
-        Me.Button19.Location = New System.Drawing.Point(119, 16)
-        Me.Button19.Name = "Button19"
-        Me.Button19.Size = New System.Drawing.Size(75, 38)
-        Me.Button19.TabIndex = 3
-        Me.Button19.Text = "HAB 1 Climb"
-        Me.Button19.UseVisualStyleBackColor = True
-        '
-        'Button18
-        '
-        Me.Button18.Location = New System.Drawing.Point(6, 97)
-        Me.Button18.Name = "Button18"
-        Me.Button18.Size = New System.Drawing.Size(75, 33)
-        Me.Button18.TabIndex = 2
-        Me.Button18.Text = "All Climb"
-        Me.Button18.UseVisualStyleBackColor = True
-        '
-        'Button17
-        '
-        Me.Button17.Location = New System.Drawing.Point(6, 56)
-        Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(75, 37)
-        Me.Button17.TabIndex = 1
-        Me.Button17.Text = "HAB 2 Sandstorm"
-        Me.Button17.UseVisualStyleBackColor = True
-        '
-        'Button16
-        '
-        Me.Button16.Location = New System.Drawing.Point(6, 16)
-        Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(75, 38)
-        Me.Button16.TabIndex = 0
-        Me.Button16.Text = "HAB 1 Sandstorm"
-        Me.Button16.UseVisualStyleBackColor = True
-        '
-        'GroupBox10
-        '
-        Me.GroupBox10.Controls.Add(Me.Button15)
-        Me.GroupBox10.Controls.Add(Me.Button14)
-        Me.GroupBox10.Location = New System.Drawing.Point(6, 48)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(200, 94)
-        Me.GroupBox10.TabIndex = 2
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "Cargoship"
-        '
-        'Button15
-        '
-        Me.Button15.Location = New System.Drawing.Point(120, 20)
-        Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(75, 36)
-        Me.Button15.TabIndex = 1
-        Me.Button15.Text = "Hatch"
-        Me.Button15.UseVisualStyleBackColor = True
-        '
-        'Button14
-        '
-        Me.Button14.Location = New System.Drawing.Point(6, 19)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(75, 36)
-        Me.Button14.TabIndex = 0
-        Me.Button14.Text = "Cargo"
-        Me.Button14.UseVisualStyleBackColor = True
         '
         'BlueScoreLbl
         '
         Me.BlueScoreLbl.AutoSize = True
         Me.BlueScoreLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BlueScoreLbl.Location = New System.Drawing.Point(122, 25)
+        Me.BlueScoreLbl.Location = New System.Drawing.Point(281, 25)
         Me.BlueScoreLbl.Name = "BlueScoreLbl"
         Me.BlueScoreLbl.Size = New System.Drawing.Size(18, 20)
         Me.BlueScoreLbl.TabIndex = 1
@@ -1466,7 +1079,7 @@ Partial Class Main_Panel
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(22, 25)
+        Me.Label2.Location = New System.Drawing.Point(145, 25)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(94, 20)
         Me.Label2.TabIndex = 0
@@ -1475,44 +1088,6 @@ Partial Class Main_Panel
         'MatchListTableAdapter1
         '
         Me.MatchListTableAdapter1.ClearBeforeFill = True
-        '
-        'GroupBox14
-        '
-        Me.GroupBox14.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.GroupBox14.Controls.Add(Me.Label3)
-        Me.GroupBox14.Controls.Add(Me.Button33)
-        Me.GroupBox14.Controls.Add(Me.TextBox1)
-        Me.GroupBox14.Location = New System.Drawing.Point(920, 363)
-        Me.GroupBox14.Name = "GroupBox14"
-        Me.GroupBox14.Size = New System.Drawing.Size(281, 129)
-        Me.GroupBox14.TabIndex = 38
-        Me.GroupBox14.TabStop = False
-        Me.GroupBox14.Text = "ViewMarq Custom Messages"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(6, 42)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(269, 20)
-        Me.TextBox1.TabIndex = 0
-        '
-        'Button33
-        '
-        Me.Button33.Location = New System.Drawing.Point(88, 78)
-        Me.Button33.Name = "Button33"
-        Me.Button33.Size = New System.Drawing.Size(122, 29)
-        Me.Button33.TabIndex = 1
-        Me.Button33.Text = "Send Message"
-        Me.Button33.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(85, 26)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(109, 13)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Type Message Below"
         '
         'Button34
         '
@@ -1528,9 +1103,8 @@ Partial Class Main_Panel
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ClientSize = New System.Drawing.Size(1235, 565)
+        Me.ClientSize = New System.Drawing.Size(1235, 695)
         Me.Controls.Add(Me.Button34)
-        Me.Controls.Add(Me.GroupBox14)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -1565,18 +1139,8 @@ Partial Class Main_Panel
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox7.ResumeLayout(False)
-        Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        Me.GroupBox13.ResumeLayout(False)
-        Me.GroupBox12.ResumeLayout(False)
-        Me.GroupBox11.ResumeLayout(False)
-        Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox14.ResumeLayout(False)
-        Me.GroupBox14.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1653,45 +1217,11 @@ Partial Class Main_Panel
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents GroupBox8 As GroupBox
-    Friend WithEvents Button7 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents GroupBox7 As GroupBox
-    Friend WithEvents GroupBox6 As GroupBox
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
     Friend WithEvents MatchListTableAdapter1 As _O_FMSDataSet1TableAdapters.MatchListTableAdapter
     Friend WithEvents Label1 As Label
     Friend WithEvents RedScoreLbl As Label
-    Friend WithEvents GroupBox9 As GroupBox
-    Friend WithEvents Button13 As Button
-    Friend WithEvents Button12 As Button
-    Friend WithEvents Button11 As Button
-    Friend WithEvents Button10 As Button
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Button8 As Button
     Friend WithEvents BlueScoreLbl As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents GroupBox13 As GroupBox
-    Friend WithEvents GroupBox12 As GroupBox
-    Friend WithEvents GroupBox11 As GroupBox
-    Friend WithEvents GroupBox10 As GroupBox
-    Friend WithEvents Button26 As Button
-    Friend WithEvents Button25 As Button
-    Friend WithEvents Button24 As Button
-    Friend WithEvents Button23 As Button
-    Friend WithEvents Button22 As Button
-    Friend WithEvents Button21 As Button
-    Friend WithEvents Button20 As Button
-    Friend WithEvents Button19 As Button
-    Friend WithEvents Button18 As Button
-    Friend WithEvents Button17 As Button
-    Friend WithEvents Button16 As Button
-    Friend WithEvents Button15 As Button
-    Friend WithEvents Button14 As Button
     Public WithEvents AbortMatch_btn As Button
     Public WithEvents AutoTimer As Timer
     Public WithEvents PauseTimer As Timer
@@ -1716,10 +1246,6 @@ Partial Class Main_Panel
     Public WithEvents B2DS As PowerPacks.RectangleShape
     Public WithEvents B1Robot As PowerPacks.RectangleShape
     Public WithEvents B1DS As PowerPacks.RectangleShape
-    Friend WithEvents GroupBox14 As GroupBox
     Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Button33 As Button
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button34 As Button
 End Class

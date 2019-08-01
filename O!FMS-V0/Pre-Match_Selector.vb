@@ -17,6 +17,14 @@
     Public Shared bluePBay6
     Public Shared bluePBay7
     Public Shared bluePBay8
+    'Red Pre-Match Robots'
+    Public Shared redPRobot1
+    Public Shared redPRobot2
+    Public Shared redPRobot3
+    'Blue Pre-Match Robots
+    Public Shared bluePRobot1
+    Public Shared bluePRobot2
+    Public Shared bluePRobot3
 
     'Red Bay 1'
     Private Sub RadioButton3_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton3.CheckedChanged
@@ -211,6 +219,78 @@
 
     Private Sub RadioButton47_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton47.CheckedChanged
         bluePBay8 = "Cargo"
+    End Sub
+    'Red Robots'
+    Private Sub RadioButton49_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton49.CheckedChanged
+        redPRobot1 = "None"
+    End Sub
+
+    Private Sub RadioButton50_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton50.CheckedChanged
+        redPRobot1 = "HABLevel1"
+    End Sub
+
+    Private Sub RadioButton51_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton51.CheckedChanged
+        redPRobot1 = "HABLevel2"
+    End Sub
+
+    Private Sub RadioButton54_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton54.CheckedChanged
+        redPRobot2 = "None"
+    End Sub
+
+    Private Sub RadioButton53_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton53.CheckedChanged
+        redPRobot2 = "HABLevel1"
+    End Sub
+
+    Private Sub RadioButton52_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton52.CheckedChanged
+        redPRobot2 = "HABLevel2"
+    End Sub
+
+    Private Sub RadioButton55_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton55.CheckedChanged
+        redPRobot3 = "None"
+    End Sub
+
+    Private Sub RadioButton56_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton56.CheckedChanged
+        redPRobot3 = "HABLevel1"
+    End Sub
+
+    Private Sub RadioButton57_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton57.CheckedChanged
+        redPRobot3 = "HABLevel2"
+    End Sub
+    'Blue Robots
+    Private Sub RadioButton66_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton66.CheckedChanged
+        bluePRobot1 = "None"
+    End Sub
+
+    Private Sub RadioButton65_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton65.CheckedChanged
+        bluePRobot1 = "HABLevel1"
+    End Sub
+
+    Private Sub RadioButton64_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton64.CheckedChanged
+        bluePRobot1 = "HABLevel2"
+    End Sub
+
+    Private Sub RadioButton63_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton63.CheckedChanged
+        bluePRobot2 = "None"
+    End Sub
+
+    Private Sub RadioButton62_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton62.CheckedChanged
+        bluePRobot2 = "HABLevel1"
+    End Sub
+
+    Private Sub RadioButton61_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton61.CheckedChanged
+        bluePRobot2 = "HABLevel2"
+    End Sub
+
+    Private Sub RadioButton60_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton60.CheckedChanged
+        bluePRobot3 = "None"
+    End Sub
+
+    Private Sub RadioButton59_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton59.CheckedChanged
+        bluePRobot3 = "HABLevel1"
+    End Sub
+
+    Private Sub RadioButton58_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton58.CheckedChanged
+        bluePRobot3 = "HABLevel2"
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
