@@ -182,6 +182,12 @@
     </Compile>
     <Compile Include="Schedules\Elimination_Matches.vb" />
     <Compile Include="Schedules\Schedule_Generator.vb" />
+    <Compile Include="Scoring Panel.Designer.vb">
+      <DependentUpon>Scoring Panel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Scoring Panel.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SQLChooser.Designer.vb">
       <DependentUpon>SQLChooser.vb</DependentUpon>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pre-Match_Selector.resx">
       <DependentUpon>Pre-Match_Selector.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scoring Panel.resx">
+      <DependentUpon>Scoring Panel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SQLChooser.resx">
       <DependentUpon>SQLChooser.vb</DependentUpon>

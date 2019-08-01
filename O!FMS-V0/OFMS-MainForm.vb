@@ -88,8 +88,9 @@ Public Class Main_Panel
         'MessageBox.Show("Data Saved")
 
         If ElimMode = True Then
-            Dim insertQuery As String = "INSERT INTO ElimanationResults([alliance1], [alliance2], [round], [type], [red1], [red2], [red3], [blue1], [blue2], [blue3], [redscore], [bluescore]) VALUES('" & alliance1 & "', '" & alliance2 & "', '" & MatchNum.Text & "', '" & type & "', '" & RedTeam1.Text & "', '" & RedTeam2.Text & "', '" & RedTeam3.Text & "', '" & BlueTeam1.Text & "', '" & BlueTeam2.Text & "', '" & BlueTeam3.Text & "', '" & RedScoreLbl.Text & "', '" & BlueScoreLbl.Text & "')"
-            ExecuteQuery(insertQuery)
+            'Add scores back
+            'Dim insertQuery As String = "INSERT INTO ElimanationResults([alliance1], [alliance2], [round], [type], [red1], [red2], [red3], [blue1], [blue2], [blue3], [redscore], [bluescore]) VALUES('" & alliance1 & "', '" & alliance2 & "', '" & MatchNum.Text & "', '" & type & "', '" & RedTeam1.Text & "', '" & RedTeam2.Text & "', '" & RedTeam3.Text & "', '" & BlueTeam1.Text & "', '" & BlueTeam2.Text & "', '" & BlueTeam3.Text & "', '" & RedScoreLbl.Text & "', '" & BlueScoreLbl.Text & "')"
+            'ExecuteQuery(insertQuery)
 
             Dim winner = calculateWinner()
             'This updates the wins in the alliances columns'
@@ -658,8 +659,6 @@ Public Class Main_Panel
 
     Private Sub resetScore()
 
-        RedScoreLbl.Text = RedScore
-        BlueScoreLbl.Text = BlueScore
         R1_Estop_Count = 0
     End Sub
 

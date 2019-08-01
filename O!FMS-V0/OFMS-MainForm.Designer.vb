@@ -114,17 +114,12 @@ Partial Class Main_Panel
         Me.DSLightTestBtn = New System.Windows.Forms.Button()
         Me.ScoringTableLightTestBtn = New System.Windows.Forms.Button()
         Me.ConnectPLCBtn = New System.Windows.Forms.Button()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.RedScoreLbl = New System.Windows.Forms.Label()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.BlueScoreLbl = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.MatchListTableAdapter1 = New O_FMS_V0._O_FMSDataSet1TableAdapters.MatchListTableAdapter()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
         Me.Button34 = New System.Windows.Forms.Button()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -133,7 +128,6 @@ Partial Class Main_Panel
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
         'MatchNum
@@ -923,7 +917,7 @@ Partial Class Main_Panel
         '
         'MatchPlay
         '
-        Me.MatchPlay.Location = New System.Drawing.Point(91, 24)
+        Me.MatchPlay.Location = New System.Drawing.Point(125, 23)
         Me.MatchPlay.Name = "MatchPlay"
         Me.MatchPlay.Size = New System.Drawing.Size(75, 34)
         Me.MatchPlay.TabIndex = 31
@@ -932,7 +926,7 @@ Partial Class Main_Panel
         '
         'FinalScoreBtn
         '
-        Me.FinalScoreBtn.Location = New System.Drawing.Point(182, 24)
+        Me.FinalScoreBtn.Location = New System.Drawing.Point(232, 24)
         Me.FinalScoreBtn.Name = "FinalScoreBtn"
         Me.FinalScoreBtn.Size = New System.Drawing.Size(85, 36)
         Me.FinalScoreBtn.TabIndex = 32
@@ -941,7 +935,7 @@ Partial Class Main_Panel
         '
         'PreMatchBtn
         '
-        Me.PreMatchBtn.Location = New System.Drawing.Point(6, 23)
+        Me.PreMatchBtn.Location = New System.Drawing.Point(11, 24)
         Me.PreMatchBtn.Name = "PreMatchBtn"
         Me.PreMatchBtn.Size = New System.Drawing.Size(75, 36)
         Me.PreMatchBtn.TabIndex = 33
@@ -951,12 +945,13 @@ Partial Class Main_Panel
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.PreMatchBtn)
         Me.GroupBox1.Controls.Add(Me.FinalScoreBtn)
         Me.GroupBox1.Controls.Add(Me.MatchPlay)
-        Me.GroupBox1.Location = New System.Drawing.Point(920, 56)
+        Me.GroupBox1.Location = New System.Drawing.Point(557, 253)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(281, 99)
+        Me.GroupBox1.Size = New System.Drawing.Size(339, 165)
         Me.GroupBox1.TabIndex = 34
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Video Switcher"
@@ -968,7 +963,7 @@ Partial Class Main_Panel
         Me.GroupBox2.Controls.Add(Me.DSLightTestBtn)
         Me.GroupBox2.Controls.Add(Me.ScoringTableLightTestBtn)
         Me.GroupBox2.Controls.Add(Me.ConnectPLCBtn)
-        Me.GroupBox2.Location = New System.Drawing.Point(920, 172)
+        Me.GroupBox2.Location = New System.Drawing.Point(38, 249)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(281, 169)
         Me.GroupBox2.TabIndex = 35
@@ -1011,102 +1006,45 @@ Partial Class Main_Panel
         Me.ConnectPLCBtn.Text = "Connect PLC"
         Me.ConnectPLCBtn.UseVisualStyleBackColor = True
         '
-        'GroupBox3
-        '
-        Me.GroupBox3.BackColor = System.Drawing.Color.Red
-        Me.GroupBox3.Controls.Add(Me.Label1)
-        Me.GroupBox3.Controls.Add(Me.RedScoreLbl)
-        Me.GroupBox3.Controls.Add(Me.GroupBox4)
-        Me.GroupBox3.Location = New System.Drawing.Point(24, 237)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(443, 456)
-        Me.GroupBox3.TabIndex = 36
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Red Scoring"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(136, 25)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(94, 20)
-        Me.Label1.TabIndex = 42
-        Me.Label1.Text = "Total Score:"
-        '
-        'RedScoreLbl
-        '
-        Me.RedScoreLbl.AutoSize = True
-        Me.RedScoreLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RedScoreLbl.Location = New System.Drawing.Point(263, 25)
-        Me.RedScoreLbl.Name = "RedScoreLbl"
-        Me.RedScoreLbl.Size = New System.Drawing.Size(18, 20)
-        Me.RedScoreLbl.TabIndex = 41
-        Me.RedScoreLbl.Text = "0"
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Location = New System.Drawing.Point(446, 0)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(200, 100)
-        Me.GroupBox4.TabIndex = 37
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "GroupBox4"
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.BackColor = System.Drawing.Color.Blue
-        Me.GroupBox5.Controls.Add(Me.BlueScoreLbl)
-        Me.GroupBox5.Controls.Add(Me.Label2)
-        Me.GroupBox5.Location = New System.Drawing.Point(470, 237)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(426, 456)
-        Me.GroupBox5.TabIndex = 37
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Blue Scoring"
-        '
-        'BlueScoreLbl
-        '
-        Me.BlueScoreLbl.AutoSize = True
-        Me.BlueScoreLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BlueScoreLbl.Location = New System.Drawing.Point(281, 25)
-        Me.BlueScoreLbl.Name = "BlueScoreLbl"
-        Me.BlueScoreLbl.Size = New System.Drawing.Size(18, 20)
-        Me.BlueScoreLbl.TabIndex = 1
-        Me.BlueScoreLbl.Text = "0"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(145, 25)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(94, 20)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Total Score:"
-        '
         'MatchListTableAdapter1
         '
         Me.MatchListTableAdapter1.ClearBeforeFill = True
         '
         'Button34
         '
-        Me.Button34.Location = New System.Drawing.Point(1033, 499)
+        Me.Button34.Location = New System.Drawing.Point(407, 370)
         Me.Button34.Name = "Button34"
         Me.Button34.Size = New System.Drawing.Size(75, 23)
         Me.Button34.TabIndex = 39
         Me.Button34.Text = "Button34"
         Me.Button34.UseVisualStyleBackColor = True
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Button1)
+        Me.GroupBox3.Location = New System.Drawing.Point(11, 67)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(322, 92)
+        Me.GroupBox3.TabIndex = 34
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Manual Scoring"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(82, 24)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(166, 49)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Launch Scoring Panel"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Main_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.ClientSize = New System.Drawing.Size(1235, 695)
+        Me.ClientSize = New System.Drawing.Size(1235, 444)
         Me.Controls.Add(Me.Button34)
-        Me.Controls.Add(Me.GroupBox5)
-        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label19)
@@ -1138,9 +1076,6 @@ Partial Class Main_Panel
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1214,14 +1149,7 @@ Partial Class Main_Panel
     Friend WithEvents LedPatternTestBtn As Button
     Friend WithEvents DSLightTestBtn As Button
     Friend WithEvents ScoringTableLightTestBtn As Button
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents MatchListTableAdapter1 As _O_FMSDataSet1TableAdapters.MatchListTableAdapter
-    Friend WithEvents Label1 As Label
-    Friend WithEvents RedScoreLbl As Label
-    Friend WithEvents BlueScoreLbl As Label
-    Friend WithEvents Label2 As Label
     Public WithEvents AbortMatch_btn As Button
     Public WithEvents AutoTimer As Timer
     Public WithEvents PauseTimer As Timer
@@ -1248,4 +1176,6 @@ Partial Class Main_Panel
     Public WithEvents B1DS As PowerPacks.RectangleShape
     Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
     Friend WithEvents Button34 As Button
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Button1 As Button
 End Class
