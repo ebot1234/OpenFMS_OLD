@@ -174,6 +174,12 @@
     <Compile Include="PLC_Tester.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Pre-Match_Selector.Designer.vb">
+      <DependentUpon>Pre-Match_Selector.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pre-Match_Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Schedules\Elimination_Matches.vb" />
     <Compile Include="Schedules\Schedule_Generator.vb" />
     <Compile Include="SQLChooser.Designer.vb">
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PLC_Tester.resx">
       <DependentUpon>PLC_Tester.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pre-Match_Selector.resx">
+      <DependentUpon>Pre-Match_Selector.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SQLChooser.resx">
       <DependentUpon>SQLChooser.vb</DependentUpon>
