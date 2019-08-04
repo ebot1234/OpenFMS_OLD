@@ -109,6 +109,8 @@ Partial Class Main_Panel
         Me.FinalScoreBtn = New System.Windows.Forms.Button()
         Me.PreMatchBtn = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LedPatternTestBtn = New System.Windows.Forms.Button()
         Me.DSLightTestBtn = New System.Windows.Forms.Button()
@@ -118,16 +120,14 @@ Partial Class Main_Panel
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
         Me.Button34 = New System.Windows.Forms.Button()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.FMSMasterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._O_FMSDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'MatchNum
@@ -956,6 +956,25 @@ Partial Class Main_Panel
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Video Switcher"
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Button1)
+        Me.GroupBox3.Location = New System.Drawing.Point(11, 67)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(322, 92)
+        Me.GroupBox3.TabIndex = 34
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Manual Scoring"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(82, 24)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(166, 49)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Launch Scoring Panel"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption
@@ -1019,25 +1038,6 @@ Partial Class Main_Panel
         Me.Button34.Text = "Button34"
         Me.Button34.UseVisualStyleBackColor = True
         '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.Button1)
-        Me.GroupBox3.Location = New System.Drawing.Point(11, 67)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(322, 92)
-        Me.GroupBox3.TabIndex = 34
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Manual Scoring"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(82, 24)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(166, 49)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Launch Scoring Panel"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Main_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1074,8 +1074,8 @@ Partial Class Main_Panel
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

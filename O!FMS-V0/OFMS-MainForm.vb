@@ -54,6 +54,7 @@ Public Class Main_Panel
     Public Shared alliance1 As String
     Public Shared alliance2 As String
     Public Shared type As String = "qm"
+    Public Shared auto_score As Boolean = False
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
@@ -504,6 +505,7 @@ Public Class Main_Panel
         AutoTimer.Interval = 1000
         matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
         MatchMessages.Text = "Sand Storm"
+        auto_score = True
 
         If matchTimerLbl.Text = 0 Then
             updateField(MatchEnums.TeleOp)
@@ -519,6 +521,10 @@ Public Class Main_Panel
         TeleTimer.Interval = 1000
         matchTimerLbl.Text = Val(matchTimerLbl.Text) - 1
         MatchMessages.Text = "Tele-Operated"
+
+        If matchTimerLbl.Text = 130 Then
+            auto_score = False
+        End If
 
         If matchTimerLbl.Text = 30 Then
             updateField(MatchEnums.EndGameWarning)
@@ -712,6 +718,7 @@ Public Class Main_Panel
     End Sub
 
     'Manual Scoring Area'
+    'Blue Varibles
     'Cargoship Bays'
     Public Shared blueBay1 = ""
     Public Shared blueBay2 = ""
@@ -772,6 +779,7 @@ Public Class Main_Panel
     'Total Sand Storm Bonus
     Public Shared blueSandStormBonus As Integer
 
+    'Red Varibles'
 
     'Cargoship Bays'
     Public Shared redBay1 = ""
@@ -832,4 +840,8 @@ Public Class Main_Panel
     Public Shared redTotalPoints As Integer
     'Total Sand Storm Bonus
     Public Shared redSandStormBonus As Integer
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Scoring_Panel.Show()
+    End Sub
 End Class

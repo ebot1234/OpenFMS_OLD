@@ -192,7 +192,7 @@ Public Class Tba
         text = text.Replace("rBay6", redBay6)
         text = text.Replace("rBay7", redBay7)
         text = text.Replace("rBay8", redBay8)
-        text = text.Replace("rCargoPoints", redCargoPoints)
+        text = text.Replace("rPoints", redCargoPoints)
         text = text.Replace("rRocketRP", redRocketRP)
         text = text.Replace("rCompletedRocketFar", redCompleteRocketFar)
         text = text.Replace("rCompletedRocketNear", redCompleteRocketNear)
