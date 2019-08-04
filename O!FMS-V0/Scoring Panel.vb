@@ -1,4 +1,5 @@
 ﻿Imports O_FMS_V0.Main_Panel
+Imports O_FMS_V0.Pre_Match_Selector
 
 Public Class Scoring_Panel
     'Red Top Left Rocket Bay'
@@ -491,6 +492,322 @@ Public Class Scoring_Panel
     End Sub
     'Red Cargoship'
     Private Sub RadioButton73_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton73.CheckedChanged
+        redBay1 = "None"
 
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        Else
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton74_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton74.CheckedChanged
+        redBay1 = "Panel"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        Else
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton75_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton75.CheckedChanged
+        redBay1 = "PanelAndCargo"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        Else
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        End If
+    End Sub
+
+    Private Sub RadioButton78_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton78.CheckedChanged
+        redBay2 = "None"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        Else
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton77_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton77.CheckedChanged
+        redBay2 = "Panel"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        Else
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton76_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton76.CheckedChanged
+        redBay2 = "PanelAndCargo"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        Else
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        End If
+    End Sub
+
+    Private Sub RadioButton81_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton81.CheckedChanged
+        redBay3 = "None"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        Else
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton80_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton80.CheckedChanged
+        redBay3 = "Panel"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        Else
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton79_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton79.CheckedChanged
+        redBay3 = "PanelAndCargo"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        Else
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        End If
+    End Sub
+
+    Private Sub RadioButton84_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton84.CheckedChanged
+        redBay4 = "None"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        Else
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton83_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton83.CheckedChanged
+        redBay4 = "Panel"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        Else
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton82_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton82.CheckedChanged
+        redBay4 = "PanelAndCargo"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        Else
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        End If
+    End Sub
+
+    Private Sub RadioButton87_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton87.CheckedChanged
+        redBay5 = "None"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        Else
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton86_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton86.CheckedChanged
+        redBay5 = "Panel"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        Else
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton85_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton85.CheckedChanged
+        redBay5 = "PanelAndCargo"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        Else
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        End If
+    End Sub
+
+    Private Sub RadioButton90_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton90.CheckedChanged
+        redBay6 = "None"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        Else
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton89_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton89.CheckedChanged
+        redBay6 = "Panel"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        Else
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton88_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton88.CheckedChanged
+        redBay6 = "PanelAndHatch"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        Else
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        End If
+    End Sub
+
+    Private Sub RadioButton93_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton93.CheckedChanged
+        redBay7 = "None"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        Else
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton92_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton92.CheckedChanged
+        redBay7 = "Panel"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        Else
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton91_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton91.CheckedChanged
+        redBay7 = "PanelAndCargo"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        Else
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        End If
+    End Sub
+
+    Private Sub RadioButton96_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton96.CheckedChanged
+        redBay8 = "None"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        Else
+            redAutoPoints = redAutoPoints + 0
+            redHatchPanelPoints = redHatchPanelPoints + 0
+            redCargoPoints = redCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton95_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton95.CheckedChanged
+        redBay8 = "Panel"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        Else
+            redAutoPoints = redAutoPoints + 2
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton94_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton94.CheckedChanged
+        redBay8 = "PanelAndCargo"
+
+        If auto_score = True Then
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        Else
+            redAutoPoints = redAutoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 6
+            redCargoPoints = redCargoPoints + 6
+        End If
     End Sub
 End Class
