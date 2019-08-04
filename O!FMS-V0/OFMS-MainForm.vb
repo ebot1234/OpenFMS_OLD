@@ -621,6 +621,7 @@ Public Class Main_Panel
         AudianceDisplay.FinalScoreBox.Hide()
         AudianceDisplay.Winner.Hide()
         AudianceDisplay.WinningAlliance.Hide()
+        AudianceDisplay.Label16.Hide()
     End Sub
 
     Private Sub MatchPlay_Click(sender As Object, e As EventArgs) Handles MatchPlay.Click
@@ -629,6 +630,7 @@ Public Class Main_Panel
         AudianceDisplay.FinalScoreBox.Hide()
         AudianceDisplay.Winner.Hide()
         AudianceDisplay.WinningAlliance.Hide()
+        AudianceDisplay.Label16.Hide()
     End Sub
 
     Private Sub FinalScoreBtn_Click(sender As Object, e As EventArgs) Handles FinalScoreBtn.Click
@@ -637,6 +639,7 @@ Public Class Main_Panel
         AudianceDisplay.FinalScoreBox.Show()
         AudianceDisplay.Winner.Show()
         AudianceDisplay.WinningAlliance.Show()
+        AudianceDisplay.Label16.Show()
     End Sub
 
     Private Sub RBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass1.CheckedChanged
