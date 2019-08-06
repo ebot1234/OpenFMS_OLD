@@ -5,7 +5,7 @@ OFMS is a re-implentation of FIRST's FMS for controlling robots in an event. Thi
 
 ## PLC Integration:
 
-We use Automation Direct's FMS Hardware, which consits of a DoMore BRX PLC and many remote network cards to control inputs and outputs of the field.
+We use Automation Direct's FMS Hardware, which consits of a DoMore BRX PLC and many remote network cards to control inputs and outputs of the field. PLC programs are at:https://github.com/ebot1234/OFMS_PLC
 
 
 
@@ -33,7 +33,7 @@ We will be releasing a version of this software every year to fit the new FRC ga
 
 
 
-*The Hardware list will be avalible on request and the same with the PLC program. 
+*The Hardware list will be avalible on request. 
 For additonal Info and setup please visit the WIKI page.
 
 -OFMS Dev Team
