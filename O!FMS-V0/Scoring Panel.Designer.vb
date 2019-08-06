@@ -23,6 +23,39 @@ Partial Class Scoring_Panel
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox31 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox39 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton94 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton95 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton96 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox38 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton91 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton92 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton93 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox37 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton88 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton89 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton90 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox36 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton85 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton86 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton87 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox35 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton82 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton83 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton84 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox34 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton79 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton80 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton81 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox33 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton76 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton77 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton78 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox32 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton75 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton74 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton73 = New System.Windows.Forms.RadioButton()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.RadioButton19 = New System.Windows.Forms.RadioButton()
@@ -76,6 +109,39 @@ Partial Class Scoring_Panel
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox40 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox41 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton97 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton98 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton99 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox42 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton100 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton101 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton102 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox43 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton103 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton104 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton105 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox44 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton106 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton107 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton108 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox45 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton109 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton110 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton111 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox46 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton112 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton113 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton114 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox47 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton115 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton116 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton117 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox48 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton118 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton119 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton120 = New System.Windows.Forms.RadioButton()
         Me.GroupBox17 = New System.Windows.Forms.GroupBox()
         Me.GroupBox18 = New System.Windows.Forms.GroupBox()
         Me.RadioButton37 = New System.Windows.Forms.RadioButton()
@@ -128,73 +194,16 @@ Partial Class Scoring_Panel
         Me.RadioButton70 = New System.Windows.Forms.RadioButton()
         Me.RadioButton71 = New System.Windows.Forms.RadioButton()
         Me.RadioButton72 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox31 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox32 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton73 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton74 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton75 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox33 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton76 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton77 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton78 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox34 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton79 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton80 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton81 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox35 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton82 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton83 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton84 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox36 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton85 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton86 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton87 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox37 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton88 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton89 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton90 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox38 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton91 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton92 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton93 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox39 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton94 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton95 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton96 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox40 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox41 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton97 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton98 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton99 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox42 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton100 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton101 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton102 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox43 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton103 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton104 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton105 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox44 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton106 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton107 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton108 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox45 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton109 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton110 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton111 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox46 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton112 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton113 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton114 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox47 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton115 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton116 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton117 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox48 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton118 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton119 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton120 = New System.Windows.Forms.RadioButton()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox31.SuspendLayout()
+        Me.GroupBox39.SuspendLayout()
+        Me.GroupBox38.SuspendLayout()
+        Me.GroupBox37.SuspendLayout()
+        Me.GroupBox36.SuspendLayout()
+        Me.GroupBox35.SuspendLayout()
+        Me.GroupBox34.SuspendLayout()
+        Me.GroupBox33.SuspendLayout()
+        Me.GroupBox32.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
         Me.GroupBox12.SuspendLayout()
@@ -210,6 +219,15 @@ Partial Class Scoring_Panel
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
+        Me.GroupBox40.SuspendLayout()
+        Me.GroupBox41.SuspendLayout()
+        Me.GroupBox42.SuspendLayout()
+        Me.GroupBox43.SuspendLayout()
+        Me.GroupBox44.SuspendLayout()
+        Me.GroupBox45.SuspendLayout()
+        Me.GroupBox46.SuspendLayout()
+        Me.GroupBox47.SuspendLayout()
+        Me.GroupBox48.SuspendLayout()
         Me.GroupBox17.SuspendLayout()
         Me.GroupBox18.SuspendLayout()
         Me.GroupBox19.SuspendLayout()
@@ -224,24 +242,6 @@ Partial Class Scoring_Panel
         Me.GroupBox28.SuspendLayout()
         Me.GroupBox29.SuspendLayout()
         Me.GroupBox30.SuspendLayout()
-        Me.GroupBox31.SuspendLayout()
-        Me.GroupBox32.SuspendLayout()
-        Me.GroupBox33.SuspendLayout()
-        Me.GroupBox34.SuspendLayout()
-        Me.GroupBox35.SuspendLayout()
-        Me.GroupBox36.SuspendLayout()
-        Me.GroupBox37.SuspendLayout()
-        Me.GroupBox38.SuspendLayout()
-        Me.GroupBox39.SuspendLayout()
-        Me.GroupBox40.SuspendLayout()
-        Me.GroupBox41.SuspendLayout()
-        Me.GroupBox42.SuspendLayout()
-        Me.GroupBox43.SuspendLayout()
-        Me.GroupBox44.SuspendLayout()
-        Me.GroupBox45.SuspendLayout()
-        Me.GroupBox46.SuspendLayout()
-        Me.GroupBox47.SuspendLayout()
-        Me.GroupBox48.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -257,6 +257,383 @@ Partial Class Scoring_Panel
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Red"
+        '
+        'GroupBox31
+        '
+        Me.GroupBox31.Controls.Add(Me.GroupBox39)
+        Me.GroupBox31.Controls.Add(Me.GroupBox38)
+        Me.GroupBox31.Controls.Add(Me.GroupBox37)
+        Me.GroupBox31.Controls.Add(Me.GroupBox36)
+        Me.GroupBox31.Controls.Add(Me.GroupBox35)
+        Me.GroupBox31.Controls.Add(Me.GroupBox34)
+        Me.GroupBox31.Controls.Add(Me.GroupBox33)
+        Me.GroupBox31.Controls.Add(Me.GroupBox32)
+        Me.GroupBox31.Location = New System.Drawing.Point(816, 19)
+        Me.GroupBox31.Name = "GroupBox31"
+        Me.GroupBox31.Size = New System.Drawing.Size(532, 524)
+        Me.GroupBox31.TabIndex = 2
+        Me.GroupBox31.TabStop = False
+        Me.GroupBox31.Text = "Cargoship"
+        '
+        'GroupBox39
+        '
+        Me.GroupBox39.Controls.Add(Me.RadioButton94)
+        Me.GroupBox39.Controls.Add(Me.RadioButton95)
+        Me.GroupBox39.Controls.Add(Me.RadioButton96)
+        Me.GroupBox39.Location = New System.Drawing.Point(284, 290)
+        Me.GroupBox39.Name = "GroupBox39"
+        Me.GroupBox39.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox39.TabIndex = 3
+        Me.GroupBox39.TabStop = False
+        Me.GroupBox39.Text = "Bay 8"
+        '
+        'RadioButton94
+        '
+        Me.RadioButton94.AutoSize = True
+        Me.RadioButton94.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton94.Name = "RadioButton94"
+        Me.RadioButton94.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton94.TabIndex = 2
+        Me.RadioButton94.TabStop = True
+        Me.RadioButton94.Text = "Hatch And Cargo"
+        Me.RadioButton94.UseVisualStyleBackColor = True
+        '
+        'RadioButton95
+        '
+        Me.RadioButton95.AutoSize = True
+        Me.RadioButton95.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton95.Name = "RadioButton95"
+        Me.RadioButton95.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton95.TabIndex = 1
+        Me.RadioButton95.TabStop = True
+        Me.RadioButton95.Text = "Hatch"
+        Me.RadioButton95.UseVisualStyleBackColor = True
+        '
+        'RadioButton96
+        '
+        Me.RadioButton96.AutoSize = True
+        Me.RadioButton96.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton96.Name = "RadioButton96"
+        Me.RadioButton96.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton96.TabIndex = 0
+        Me.RadioButton96.TabStop = True
+        Me.RadioButton96.Text = "Empty"
+        Me.RadioButton96.UseVisualStyleBackColor = True
+        '
+        'GroupBox38
+        '
+        Me.GroupBox38.Controls.Add(Me.RadioButton91)
+        Me.GroupBox38.Controls.Add(Me.RadioButton92)
+        Me.GroupBox38.Controls.Add(Me.RadioButton93)
+        Me.GroupBox38.Location = New System.Drawing.Point(106, 290)
+        Me.GroupBox38.Name = "GroupBox38"
+        Me.GroupBox38.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox38.TabIndex = 7
+        Me.GroupBox38.TabStop = False
+        Me.GroupBox38.Text = "Bay 7"
+        '
+        'RadioButton91
+        '
+        Me.RadioButton91.AutoSize = True
+        Me.RadioButton91.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton91.Name = "RadioButton91"
+        Me.RadioButton91.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton91.TabIndex = 2
+        Me.RadioButton91.TabStop = True
+        Me.RadioButton91.Text = "Hatch And Cargo"
+        Me.RadioButton91.UseVisualStyleBackColor = True
+        '
+        'RadioButton92
+        '
+        Me.RadioButton92.AutoSize = True
+        Me.RadioButton92.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton92.Name = "RadioButton92"
+        Me.RadioButton92.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton92.TabIndex = 1
+        Me.RadioButton92.TabStop = True
+        Me.RadioButton92.Text = "Hatch"
+        Me.RadioButton92.UseVisualStyleBackColor = True
+        '
+        'RadioButton93
+        '
+        Me.RadioButton93.AutoSize = True
+        Me.RadioButton93.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton93.Name = "RadioButton93"
+        Me.RadioButton93.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton93.TabIndex = 0
+        Me.RadioButton93.TabStop = True
+        Me.RadioButton93.Text = "Empty"
+        Me.RadioButton93.UseVisualStyleBackColor = True
+        '
+        'GroupBox37
+        '
+        Me.GroupBox37.Controls.Add(Me.RadioButton88)
+        Me.GroupBox37.Controls.Add(Me.RadioButton89)
+        Me.GroupBox37.Controls.Add(Me.RadioButton90)
+        Me.GroupBox37.Location = New System.Drawing.Point(378, 158)
+        Me.GroupBox37.Name = "GroupBox37"
+        Me.GroupBox37.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox37.TabIndex = 6
+        Me.GroupBox37.TabStop = False
+        Me.GroupBox37.Text = "Bay 6"
+        '
+        'RadioButton88
+        '
+        Me.RadioButton88.AutoSize = True
+        Me.RadioButton88.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton88.Name = "RadioButton88"
+        Me.RadioButton88.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton88.TabIndex = 2
+        Me.RadioButton88.TabStop = True
+        Me.RadioButton88.Text = "Hatch And Cargo"
+        Me.RadioButton88.UseVisualStyleBackColor = True
+        '
+        'RadioButton89
+        '
+        Me.RadioButton89.AutoSize = True
+        Me.RadioButton89.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton89.Name = "RadioButton89"
+        Me.RadioButton89.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton89.TabIndex = 1
+        Me.RadioButton89.TabStop = True
+        Me.RadioButton89.Text = "Hatch"
+        Me.RadioButton89.UseVisualStyleBackColor = True
+        '
+        'RadioButton90
+        '
+        Me.RadioButton90.AutoSize = True
+        Me.RadioButton90.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton90.Name = "RadioButton90"
+        Me.RadioButton90.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton90.TabIndex = 0
+        Me.RadioButton90.TabStop = True
+        Me.RadioButton90.Text = "Empty"
+        Me.RadioButton90.UseVisualStyleBackColor = True
+        '
+        'GroupBox36
+        '
+        Me.GroupBox36.Controls.Add(Me.RadioButton85)
+        Me.GroupBox36.Controls.Add(Me.RadioButton86)
+        Me.GroupBox36.Controls.Add(Me.RadioButton87)
+        Me.GroupBox36.Location = New System.Drawing.Point(200, 158)
+        Me.GroupBox36.Name = "GroupBox36"
+        Me.GroupBox36.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox36.TabIndex = 5
+        Me.GroupBox36.TabStop = False
+        Me.GroupBox36.Text = "Bay 5"
+        '
+        'RadioButton85
+        '
+        Me.RadioButton85.AutoSize = True
+        Me.RadioButton85.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton85.Name = "RadioButton85"
+        Me.RadioButton85.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton85.TabIndex = 2
+        Me.RadioButton85.TabStop = True
+        Me.RadioButton85.Text = "Hatch And Cargo"
+        Me.RadioButton85.UseVisualStyleBackColor = True
+        '
+        'RadioButton86
+        '
+        Me.RadioButton86.AutoSize = True
+        Me.RadioButton86.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton86.Name = "RadioButton86"
+        Me.RadioButton86.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton86.TabIndex = 1
+        Me.RadioButton86.TabStop = True
+        Me.RadioButton86.Text = "Hatch"
+        Me.RadioButton86.UseVisualStyleBackColor = True
+        '
+        'RadioButton87
+        '
+        Me.RadioButton87.AutoSize = True
+        Me.RadioButton87.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton87.Name = "RadioButton87"
+        Me.RadioButton87.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton87.TabIndex = 0
+        Me.RadioButton87.TabStop = True
+        Me.RadioButton87.Text = "Empty"
+        Me.RadioButton87.UseVisualStyleBackColor = True
+        '
+        'GroupBox35
+        '
+        Me.GroupBox35.Controls.Add(Me.RadioButton82)
+        Me.GroupBox35.Controls.Add(Me.RadioButton83)
+        Me.GroupBox35.Controls.Add(Me.RadioButton84)
+        Me.GroupBox35.Location = New System.Drawing.Point(22, 158)
+        Me.GroupBox35.Name = "GroupBox35"
+        Me.GroupBox35.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox35.TabIndex = 4
+        Me.GroupBox35.TabStop = False
+        Me.GroupBox35.Text = "Bay 4"
+        '
+        'RadioButton82
+        '
+        Me.RadioButton82.AutoSize = True
+        Me.RadioButton82.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton82.Name = "RadioButton82"
+        Me.RadioButton82.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton82.TabIndex = 2
+        Me.RadioButton82.TabStop = True
+        Me.RadioButton82.Text = "Hatch And Cargo"
+        Me.RadioButton82.UseVisualStyleBackColor = True
+        '
+        'RadioButton83
+        '
+        Me.RadioButton83.AutoSize = True
+        Me.RadioButton83.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton83.Name = "RadioButton83"
+        Me.RadioButton83.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton83.TabIndex = 1
+        Me.RadioButton83.TabStop = True
+        Me.RadioButton83.Text = "Hatch"
+        Me.RadioButton83.UseVisualStyleBackColor = True
+        '
+        'RadioButton84
+        '
+        Me.RadioButton84.AutoSize = True
+        Me.RadioButton84.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton84.Name = "RadioButton84"
+        Me.RadioButton84.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton84.TabIndex = 0
+        Me.RadioButton84.TabStop = True
+        Me.RadioButton84.Text = "Empty"
+        Me.RadioButton84.UseVisualStyleBackColor = True
+        '
+        'GroupBox34
+        '
+        Me.GroupBox34.Controls.Add(Me.RadioButton79)
+        Me.GroupBox34.Controls.Add(Me.RadioButton80)
+        Me.GroupBox34.Controls.Add(Me.RadioButton81)
+        Me.GroupBox34.Location = New System.Drawing.Point(378, 26)
+        Me.GroupBox34.Name = "GroupBox34"
+        Me.GroupBox34.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox34.TabIndex = 3
+        Me.GroupBox34.TabStop = False
+        Me.GroupBox34.Text = "Bay 3"
+        '
+        'RadioButton79
+        '
+        Me.RadioButton79.AutoSize = True
+        Me.RadioButton79.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton79.Name = "RadioButton79"
+        Me.RadioButton79.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton79.TabIndex = 2
+        Me.RadioButton79.TabStop = True
+        Me.RadioButton79.Text = "Hatch And Cargo"
+        Me.RadioButton79.UseVisualStyleBackColor = True
+        '
+        'RadioButton80
+        '
+        Me.RadioButton80.AutoSize = True
+        Me.RadioButton80.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton80.Name = "RadioButton80"
+        Me.RadioButton80.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton80.TabIndex = 1
+        Me.RadioButton80.TabStop = True
+        Me.RadioButton80.Text = "Hatch"
+        Me.RadioButton80.UseVisualStyleBackColor = True
+        '
+        'RadioButton81
+        '
+        Me.RadioButton81.AutoSize = True
+        Me.RadioButton81.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton81.Name = "RadioButton81"
+        Me.RadioButton81.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton81.TabIndex = 0
+        Me.RadioButton81.TabStop = True
+        Me.RadioButton81.Text = "Empty"
+        Me.RadioButton81.UseVisualStyleBackColor = True
+        '
+        'GroupBox33
+        '
+        Me.GroupBox33.Controls.Add(Me.RadioButton76)
+        Me.GroupBox33.Controls.Add(Me.RadioButton77)
+        Me.GroupBox33.Controls.Add(Me.RadioButton78)
+        Me.GroupBox33.Location = New System.Drawing.Point(200, 26)
+        Me.GroupBox33.Name = "GroupBox33"
+        Me.GroupBox33.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox33.TabIndex = 1
+        Me.GroupBox33.TabStop = False
+        Me.GroupBox33.Text = "Bay 2"
+        '
+        'RadioButton76
+        '
+        Me.RadioButton76.AutoSize = True
+        Me.RadioButton76.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton76.Name = "RadioButton76"
+        Me.RadioButton76.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton76.TabIndex = 2
+        Me.RadioButton76.TabStop = True
+        Me.RadioButton76.Text = "Hatch And Cargo"
+        Me.RadioButton76.UseVisualStyleBackColor = True
+        '
+        'RadioButton77
+        '
+        Me.RadioButton77.AutoSize = True
+        Me.RadioButton77.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton77.Name = "RadioButton77"
+        Me.RadioButton77.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton77.TabIndex = 1
+        Me.RadioButton77.TabStop = True
+        Me.RadioButton77.Text = "Hatch"
+        Me.RadioButton77.UseVisualStyleBackColor = True
+        '
+        'RadioButton78
+        '
+        Me.RadioButton78.AutoSize = True
+        Me.RadioButton78.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton78.Name = "RadioButton78"
+        Me.RadioButton78.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton78.TabIndex = 0
+        Me.RadioButton78.TabStop = True
+        Me.RadioButton78.Text = "Empty"
+        Me.RadioButton78.UseVisualStyleBackColor = True
+        '
+        'GroupBox32
+        '
+        Me.GroupBox32.Controls.Add(Me.RadioButton75)
+        Me.GroupBox32.Controls.Add(Me.RadioButton74)
+        Me.GroupBox32.Controls.Add(Me.RadioButton73)
+        Me.GroupBox32.Location = New System.Drawing.Point(22, 26)
+        Me.GroupBox32.Name = "GroupBox32"
+        Me.GroupBox32.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox32.TabIndex = 0
+        Me.GroupBox32.TabStop = False
+        Me.GroupBox32.Text = "Bay 1"
+        '
+        'RadioButton75
+        '
+        Me.RadioButton75.AutoSize = True
+        Me.RadioButton75.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton75.Name = "RadioButton75"
+        Me.RadioButton75.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton75.TabIndex = 2
+        Me.RadioButton75.TabStop = True
+        Me.RadioButton75.Text = "Hatch And Cargo"
+        Me.RadioButton75.UseVisualStyleBackColor = True
+        '
+        'RadioButton74
+        '
+        Me.RadioButton74.AutoSize = True
+        Me.RadioButton74.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton74.Name = "RadioButton74"
+        Me.RadioButton74.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton74.TabIndex = 1
+        Me.RadioButton74.TabStop = True
+        Me.RadioButton74.Text = "Hatch"
+        Me.RadioButton74.UseVisualStyleBackColor = True
+        '
+        'RadioButton73
+        '
+        Me.RadioButton73.AutoSize = True
+        Me.RadioButton73.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton73.Name = "RadioButton73"
+        Me.RadioButton73.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton73.TabIndex = 0
+        Me.RadioButton73.TabStop = True
+        Me.RadioButton73.Text = "Empty"
+        Me.RadioButton73.UseVisualStyleBackColor = True
         '
         'GroupBox10
         '
@@ -862,6 +1239,383 @@ Partial Class Scoring_Panel
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Blue"
         '
+        'GroupBox40
+        '
+        Me.GroupBox40.Controls.Add(Me.GroupBox41)
+        Me.GroupBox40.Controls.Add(Me.GroupBox42)
+        Me.GroupBox40.Controls.Add(Me.GroupBox43)
+        Me.GroupBox40.Controls.Add(Me.GroupBox44)
+        Me.GroupBox40.Controls.Add(Me.GroupBox45)
+        Me.GroupBox40.Controls.Add(Me.GroupBox46)
+        Me.GroupBox40.Controls.Add(Me.GroupBox47)
+        Me.GroupBox40.Controls.Add(Me.GroupBox48)
+        Me.GroupBox40.Location = New System.Drawing.Point(816, 25)
+        Me.GroupBox40.Name = "GroupBox40"
+        Me.GroupBox40.Size = New System.Drawing.Size(532, 524)
+        Me.GroupBox40.TabIndex = 3
+        Me.GroupBox40.TabStop = False
+        Me.GroupBox40.Text = "Cargoship"
+        '
+        'GroupBox41
+        '
+        Me.GroupBox41.Controls.Add(Me.RadioButton97)
+        Me.GroupBox41.Controls.Add(Me.RadioButton98)
+        Me.GroupBox41.Controls.Add(Me.RadioButton99)
+        Me.GroupBox41.Location = New System.Drawing.Point(284, 290)
+        Me.GroupBox41.Name = "GroupBox41"
+        Me.GroupBox41.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox41.TabIndex = 3
+        Me.GroupBox41.TabStop = False
+        Me.GroupBox41.Text = "Bay 8"
+        '
+        'RadioButton97
+        '
+        Me.RadioButton97.AutoSize = True
+        Me.RadioButton97.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton97.Name = "RadioButton97"
+        Me.RadioButton97.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton97.TabIndex = 2
+        Me.RadioButton97.TabStop = True
+        Me.RadioButton97.Text = "Hatch And Cargo"
+        Me.RadioButton97.UseVisualStyleBackColor = True
+        '
+        'RadioButton98
+        '
+        Me.RadioButton98.AutoSize = True
+        Me.RadioButton98.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton98.Name = "RadioButton98"
+        Me.RadioButton98.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton98.TabIndex = 1
+        Me.RadioButton98.TabStop = True
+        Me.RadioButton98.Text = "Hatch"
+        Me.RadioButton98.UseVisualStyleBackColor = True
+        '
+        'RadioButton99
+        '
+        Me.RadioButton99.AutoSize = True
+        Me.RadioButton99.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton99.Name = "RadioButton99"
+        Me.RadioButton99.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton99.TabIndex = 0
+        Me.RadioButton99.TabStop = True
+        Me.RadioButton99.Text = "Empty"
+        Me.RadioButton99.UseVisualStyleBackColor = True
+        '
+        'GroupBox42
+        '
+        Me.GroupBox42.Controls.Add(Me.RadioButton100)
+        Me.GroupBox42.Controls.Add(Me.RadioButton101)
+        Me.GroupBox42.Controls.Add(Me.RadioButton102)
+        Me.GroupBox42.Location = New System.Drawing.Point(106, 290)
+        Me.GroupBox42.Name = "GroupBox42"
+        Me.GroupBox42.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox42.TabIndex = 7
+        Me.GroupBox42.TabStop = False
+        Me.GroupBox42.Text = "Bay 7"
+        '
+        'RadioButton100
+        '
+        Me.RadioButton100.AutoSize = True
+        Me.RadioButton100.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton100.Name = "RadioButton100"
+        Me.RadioButton100.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton100.TabIndex = 2
+        Me.RadioButton100.TabStop = True
+        Me.RadioButton100.Text = "Hatch And Cargo"
+        Me.RadioButton100.UseVisualStyleBackColor = True
+        '
+        'RadioButton101
+        '
+        Me.RadioButton101.AutoSize = True
+        Me.RadioButton101.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton101.Name = "RadioButton101"
+        Me.RadioButton101.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton101.TabIndex = 1
+        Me.RadioButton101.TabStop = True
+        Me.RadioButton101.Text = "Hatch"
+        Me.RadioButton101.UseVisualStyleBackColor = True
+        '
+        'RadioButton102
+        '
+        Me.RadioButton102.AutoSize = True
+        Me.RadioButton102.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton102.Name = "RadioButton102"
+        Me.RadioButton102.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton102.TabIndex = 0
+        Me.RadioButton102.TabStop = True
+        Me.RadioButton102.Text = "Empty"
+        Me.RadioButton102.UseVisualStyleBackColor = True
+        '
+        'GroupBox43
+        '
+        Me.GroupBox43.Controls.Add(Me.RadioButton103)
+        Me.GroupBox43.Controls.Add(Me.RadioButton104)
+        Me.GroupBox43.Controls.Add(Me.RadioButton105)
+        Me.GroupBox43.Location = New System.Drawing.Point(378, 158)
+        Me.GroupBox43.Name = "GroupBox43"
+        Me.GroupBox43.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox43.TabIndex = 6
+        Me.GroupBox43.TabStop = False
+        Me.GroupBox43.Text = "Bay 6"
+        '
+        'RadioButton103
+        '
+        Me.RadioButton103.AutoSize = True
+        Me.RadioButton103.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton103.Name = "RadioButton103"
+        Me.RadioButton103.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton103.TabIndex = 2
+        Me.RadioButton103.TabStop = True
+        Me.RadioButton103.Text = "Hatch And Cargo"
+        Me.RadioButton103.UseVisualStyleBackColor = True
+        '
+        'RadioButton104
+        '
+        Me.RadioButton104.AutoSize = True
+        Me.RadioButton104.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton104.Name = "RadioButton104"
+        Me.RadioButton104.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton104.TabIndex = 1
+        Me.RadioButton104.TabStop = True
+        Me.RadioButton104.Text = "Hatch"
+        Me.RadioButton104.UseVisualStyleBackColor = True
+        '
+        'RadioButton105
+        '
+        Me.RadioButton105.AutoSize = True
+        Me.RadioButton105.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton105.Name = "RadioButton105"
+        Me.RadioButton105.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton105.TabIndex = 0
+        Me.RadioButton105.TabStop = True
+        Me.RadioButton105.Text = "Empty"
+        Me.RadioButton105.UseVisualStyleBackColor = True
+        '
+        'GroupBox44
+        '
+        Me.GroupBox44.Controls.Add(Me.RadioButton106)
+        Me.GroupBox44.Controls.Add(Me.RadioButton107)
+        Me.GroupBox44.Controls.Add(Me.RadioButton108)
+        Me.GroupBox44.Location = New System.Drawing.Point(200, 158)
+        Me.GroupBox44.Name = "GroupBox44"
+        Me.GroupBox44.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox44.TabIndex = 5
+        Me.GroupBox44.TabStop = False
+        Me.GroupBox44.Text = "Bay 5"
+        '
+        'RadioButton106
+        '
+        Me.RadioButton106.AutoSize = True
+        Me.RadioButton106.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton106.Name = "RadioButton106"
+        Me.RadioButton106.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton106.TabIndex = 2
+        Me.RadioButton106.TabStop = True
+        Me.RadioButton106.Text = "Hatch And Cargo"
+        Me.RadioButton106.UseVisualStyleBackColor = True
+        '
+        'RadioButton107
+        '
+        Me.RadioButton107.AutoSize = True
+        Me.RadioButton107.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton107.Name = "RadioButton107"
+        Me.RadioButton107.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton107.TabIndex = 1
+        Me.RadioButton107.TabStop = True
+        Me.RadioButton107.Text = "Hatch"
+        Me.RadioButton107.UseVisualStyleBackColor = True
+        '
+        'RadioButton108
+        '
+        Me.RadioButton108.AutoSize = True
+        Me.RadioButton108.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton108.Name = "RadioButton108"
+        Me.RadioButton108.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton108.TabIndex = 0
+        Me.RadioButton108.TabStop = True
+        Me.RadioButton108.Text = "Empty"
+        Me.RadioButton108.UseVisualStyleBackColor = True
+        '
+        'GroupBox45
+        '
+        Me.GroupBox45.Controls.Add(Me.RadioButton109)
+        Me.GroupBox45.Controls.Add(Me.RadioButton110)
+        Me.GroupBox45.Controls.Add(Me.RadioButton111)
+        Me.GroupBox45.Location = New System.Drawing.Point(22, 158)
+        Me.GroupBox45.Name = "GroupBox45"
+        Me.GroupBox45.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox45.TabIndex = 4
+        Me.GroupBox45.TabStop = False
+        Me.GroupBox45.Text = "Bay 4"
+        '
+        'RadioButton109
+        '
+        Me.RadioButton109.AutoSize = True
+        Me.RadioButton109.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton109.Name = "RadioButton109"
+        Me.RadioButton109.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton109.TabIndex = 2
+        Me.RadioButton109.TabStop = True
+        Me.RadioButton109.Text = "Hatch And Cargo"
+        Me.RadioButton109.UseVisualStyleBackColor = True
+        '
+        'RadioButton110
+        '
+        Me.RadioButton110.AutoSize = True
+        Me.RadioButton110.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton110.Name = "RadioButton110"
+        Me.RadioButton110.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton110.TabIndex = 1
+        Me.RadioButton110.TabStop = True
+        Me.RadioButton110.Text = "Hatch"
+        Me.RadioButton110.UseVisualStyleBackColor = True
+        '
+        'RadioButton111
+        '
+        Me.RadioButton111.AutoSize = True
+        Me.RadioButton111.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton111.Name = "RadioButton111"
+        Me.RadioButton111.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton111.TabIndex = 0
+        Me.RadioButton111.TabStop = True
+        Me.RadioButton111.Text = "Empty"
+        Me.RadioButton111.UseVisualStyleBackColor = True
+        '
+        'GroupBox46
+        '
+        Me.GroupBox46.Controls.Add(Me.RadioButton112)
+        Me.GroupBox46.Controls.Add(Me.RadioButton113)
+        Me.GroupBox46.Controls.Add(Me.RadioButton114)
+        Me.GroupBox46.Location = New System.Drawing.Point(378, 26)
+        Me.GroupBox46.Name = "GroupBox46"
+        Me.GroupBox46.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox46.TabIndex = 3
+        Me.GroupBox46.TabStop = False
+        Me.GroupBox46.Text = "Bay 3"
+        '
+        'RadioButton112
+        '
+        Me.RadioButton112.AutoSize = True
+        Me.RadioButton112.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton112.Name = "RadioButton112"
+        Me.RadioButton112.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton112.TabIndex = 2
+        Me.RadioButton112.TabStop = True
+        Me.RadioButton112.Text = "Hatch And Cargo"
+        Me.RadioButton112.UseVisualStyleBackColor = True
+        '
+        'RadioButton113
+        '
+        Me.RadioButton113.AutoSize = True
+        Me.RadioButton113.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton113.Name = "RadioButton113"
+        Me.RadioButton113.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton113.TabIndex = 1
+        Me.RadioButton113.TabStop = True
+        Me.RadioButton113.Text = "Hatch"
+        Me.RadioButton113.UseVisualStyleBackColor = True
+        '
+        'RadioButton114
+        '
+        Me.RadioButton114.AutoSize = True
+        Me.RadioButton114.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton114.Name = "RadioButton114"
+        Me.RadioButton114.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton114.TabIndex = 0
+        Me.RadioButton114.TabStop = True
+        Me.RadioButton114.Text = "Empty"
+        Me.RadioButton114.UseVisualStyleBackColor = True
+        '
+        'GroupBox47
+        '
+        Me.GroupBox47.Controls.Add(Me.RadioButton115)
+        Me.GroupBox47.Controls.Add(Me.RadioButton116)
+        Me.GroupBox47.Controls.Add(Me.RadioButton117)
+        Me.GroupBox47.Location = New System.Drawing.Point(200, 26)
+        Me.GroupBox47.Name = "GroupBox47"
+        Me.GroupBox47.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox47.TabIndex = 1
+        Me.GroupBox47.TabStop = False
+        Me.GroupBox47.Text = "Bay 2"
+        '
+        'RadioButton115
+        '
+        Me.RadioButton115.AutoSize = True
+        Me.RadioButton115.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton115.Name = "RadioButton115"
+        Me.RadioButton115.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton115.TabIndex = 2
+        Me.RadioButton115.TabStop = True
+        Me.RadioButton115.Text = "Hatch And Cargo"
+        Me.RadioButton115.UseVisualStyleBackColor = True
+        '
+        'RadioButton116
+        '
+        Me.RadioButton116.AutoSize = True
+        Me.RadioButton116.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton116.Name = "RadioButton116"
+        Me.RadioButton116.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton116.TabIndex = 1
+        Me.RadioButton116.TabStop = True
+        Me.RadioButton116.Text = "Hatch"
+        Me.RadioButton116.UseVisualStyleBackColor = True
+        '
+        'RadioButton117
+        '
+        Me.RadioButton117.AutoSize = True
+        Me.RadioButton117.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton117.Name = "RadioButton117"
+        Me.RadioButton117.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton117.TabIndex = 0
+        Me.RadioButton117.TabStop = True
+        Me.RadioButton117.Text = "Empty"
+        Me.RadioButton117.UseVisualStyleBackColor = True
+        '
+        'GroupBox48
+        '
+        Me.GroupBox48.Controls.Add(Me.RadioButton118)
+        Me.GroupBox48.Controls.Add(Me.RadioButton119)
+        Me.GroupBox48.Controls.Add(Me.RadioButton120)
+        Me.GroupBox48.Location = New System.Drawing.Point(22, 26)
+        Me.GroupBox48.Name = "GroupBox48"
+        Me.GroupBox48.Size = New System.Drawing.Size(172, 126)
+        Me.GroupBox48.TabIndex = 0
+        Me.GroupBox48.TabStop = False
+        Me.GroupBox48.Text = "Bay 1"
+        '
+        'RadioButton118
+        '
+        Me.RadioButton118.AutoSize = True
+        Me.RadioButton118.Location = New System.Drawing.Point(8, 88)
+        Me.RadioButton118.Name = "RadioButton118"
+        Me.RadioButton118.Size = New System.Drawing.Size(150, 24)
+        Me.RadioButton118.TabIndex = 2
+        Me.RadioButton118.TabStop = True
+        Me.RadioButton118.Text = "Hatch And Cargo"
+        Me.RadioButton118.UseVisualStyleBackColor = True
+        '
+        'RadioButton119
+        '
+        Me.RadioButton119.AutoSize = True
+        Me.RadioButton119.Location = New System.Drawing.Point(8, 57)
+        Me.RadioButton119.Name = "RadioButton119"
+        Me.RadioButton119.Size = New System.Drawing.Size(70, 24)
+        Me.RadioButton119.TabIndex = 1
+        Me.RadioButton119.TabStop = True
+        Me.RadioButton119.Text = "Hatch"
+        Me.RadioButton119.UseVisualStyleBackColor = True
+        '
+        'RadioButton120
+        '
+        Me.RadioButton120.AutoSize = True
+        Me.RadioButton120.Location = New System.Drawing.Point(6, 25)
+        Me.RadioButton120.Name = "RadioButton120"
+        Me.RadioButton120.Size = New System.Drawing.Size(72, 24)
+        Me.RadioButton120.TabIndex = 0
+        Me.RadioButton120.TabStop = True
+        Me.RadioButton120.Text = "Empty"
+        Me.RadioButton120.UseVisualStyleBackColor = True
+        '
         'GroupBox17
         '
         Me.GroupBox17.Controls.Add(Me.GroupBox18)
@@ -1452,760 +2206,6 @@ Partial Class Scoring_Panel
         Me.RadioButton72.Text = "Empty"
         Me.RadioButton72.UseVisualStyleBackColor = True
         '
-        'GroupBox31
-        '
-        Me.GroupBox31.Controls.Add(Me.GroupBox39)
-        Me.GroupBox31.Controls.Add(Me.GroupBox38)
-        Me.GroupBox31.Controls.Add(Me.GroupBox37)
-        Me.GroupBox31.Controls.Add(Me.GroupBox36)
-        Me.GroupBox31.Controls.Add(Me.GroupBox35)
-        Me.GroupBox31.Controls.Add(Me.GroupBox34)
-        Me.GroupBox31.Controls.Add(Me.GroupBox33)
-        Me.GroupBox31.Controls.Add(Me.GroupBox32)
-        Me.GroupBox31.Location = New System.Drawing.Point(816, 19)
-        Me.GroupBox31.Name = "GroupBox31"
-        Me.GroupBox31.Size = New System.Drawing.Size(532, 524)
-        Me.GroupBox31.TabIndex = 2
-        Me.GroupBox31.TabStop = False
-        Me.GroupBox31.Text = "Cargoship"
-        '
-        'GroupBox32
-        '
-        Me.GroupBox32.Controls.Add(Me.RadioButton75)
-        Me.GroupBox32.Controls.Add(Me.RadioButton74)
-        Me.GroupBox32.Controls.Add(Me.RadioButton73)
-        Me.GroupBox32.Location = New System.Drawing.Point(22, 26)
-        Me.GroupBox32.Name = "GroupBox32"
-        Me.GroupBox32.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox32.TabIndex = 0
-        Me.GroupBox32.TabStop = False
-        Me.GroupBox32.Text = "Bay 1"
-        '
-        'RadioButton73
-        '
-        Me.RadioButton73.AutoSize = True
-        Me.RadioButton73.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton73.Name = "RadioButton73"
-        Me.RadioButton73.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton73.TabIndex = 0
-        Me.RadioButton73.TabStop = True
-        Me.RadioButton73.Text = "Empty"
-        Me.RadioButton73.UseVisualStyleBackColor = True
-        '
-        'RadioButton74
-        '
-        Me.RadioButton74.AutoSize = True
-        Me.RadioButton74.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton74.Name = "RadioButton74"
-        Me.RadioButton74.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton74.TabIndex = 1
-        Me.RadioButton74.TabStop = True
-        Me.RadioButton74.Text = "Hatch"
-        Me.RadioButton74.UseVisualStyleBackColor = True
-        '
-        'RadioButton75
-        '
-        Me.RadioButton75.AutoSize = True
-        Me.RadioButton75.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton75.Name = "RadioButton75"
-        Me.RadioButton75.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton75.TabIndex = 2
-        Me.RadioButton75.TabStop = True
-        Me.RadioButton75.Text = "Hatch And Cargo"
-        Me.RadioButton75.UseVisualStyleBackColor = True
-        '
-        'GroupBox33
-        '
-        Me.GroupBox33.Controls.Add(Me.RadioButton76)
-        Me.GroupBox33.Controls.Add(Me.RadioButton77)
-        Me.GroupBox33.Controls.Add(Me.RadioButton78)
-        Me.GroupBox33.Location = New System.Drawing.Point(200, 26)
-        Me.GroupBox33.Name = "GroupBox33"
-        Me.GroupBox33.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox33.TabIndex = 1
-        Me.GroupBox33.TabStop = False
-        Me.GroupBox33.Text = "Bay 2"
-        '
-        'RadioButton76
-        '
-        Me.RadioButton76.AutoSize = True
-        Me.RadioButton76.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton76.Name = "RadioButton76"
-        Me.RadioButton76.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton76.TabIndex = 2
-        Me.RadioButton76.TabStop = True
-        Me.RadioButton76.Text = "Hatch And Cargo"
-        Me.RadioButton76.UseVisualStyleBackColor = True
-        '
-        'RadioButton77
-        '
-        Me.RadioButton77.AutoSize = True
-        Me.RadioButton77.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton77.Name = "RadioButton77"
-        Me.RadioButton77.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton77.TabIndex = 1
-        Me.RadioButton77.TabStop = True
-        Me.RadioButton77.Text = "Hatch"
-        Me.RadioButton77.UseVisualStyleBackColor = True
-        '
-        'RadioButton78
-        '
-        Me.RadioButton78.AutoSize = True
-        Me.RadioButton78.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton78.Name = "RadioButton78"
-        Me.RadioButton78.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton78.TabIndex = 0
-        Me.RadioButton78.TabStop = True
-        Me.RadioButton78.Text = "Empty"
-        Me.RadioButton78.UseVisualStyleBackColor = True
-        '
-        'GroupBox34
-        '
-        Me.GroupBox34.Controls.Add(Me.RadioButton79)
-        Me.GroupBox34.Controls.Add(Me.RadioButton80)
-        Me.GroupBox34.Controls.Add(Me.RadioButton81)
-        Me.GroupBox34.Location = New System.Drawing.Point(378, 26)
-        Me.GroupBox34.Name = "GroupBox34"
-        Me.GroupBox34.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox34.TabIndex = 3
-        Me.GroupBox34.TabStop = False
-        Me.GroupBox34.Text = "Bay 3"
-        '
-        'RadioButton79
-        '
-        Me.RadioButton79.AutoSize = True
-        Me.RadioButton79.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton79.Name = "RadioButton79"
-        Me.RadioButton79.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton79.TabIndex = 2
-        Me.RadioButton79.TabStop = True
-        Me.RadioButton79.Text = "Hatch And Cargo"
-        Me.RadioButton79.UseVisualStyleBackColor = True
-        '
-        'RadioButton80
-        '
-        Me.RadioButton80.AutoSize = True
-        Me.RadioButton80.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton80.Name = "RadioButton80"
-        Me.RadioButton80.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton80.TabIndex = 1
-        Me.RadioButton80.TabStop = True
-        Me.RadioButton80.Text = "Hatch"
-        Me.RadioButton80.UseVisualStyleBackColor = True
-        '
-        'RadioButton81
-        '
-        Me.RadioButton81.AutoSize = True
-        Me.RadioButton81.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton81.Name = "RadioButton81"
-        Me.RadioButton81.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton81.TabIndex = 0
-        Me.RadioButton81.TabStop = True
-        Me.RadioButton81.Text = "Empty"
-        Me.RadioButton81.UseVisualStyleBackColor = True
-        '
-        'GroupBox35
-        '
-        Me.GroupBox35.Controls.Add(Me.RadioButton82)
-        Me.GroupBox35.Controls.Add(Me.RadioButton83)
-        Me.GroupBox35.Controls.Add(Me.RadioButton84)
-        Me.GroupBox35.Location = New System.Drawing.Point(22, 158)
-        Me.GroupBox35.Name = "GroupBox35"
-        Me.GroupBox35.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox35.TabIndex = 4
-        Me.GroupBox35.TabStop = False
-        Me.GroupBox35.Text = "Bay 4"
-        '
-        'RadioButton82
-        '
-        Me.RadioButton82.AutoSize = True
-        Me.RadioButton82.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton82.Name = "RadioButton82"
-        Me.RadioButton82.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton82.TabIndex = 2
-        Me.RadioButton82.TabStop = True
-        Me.RadioButton82.Text = "Hatch And Cargo"
-        Me.RadioButton82.UseVisualStyleBackColor = True
-        '
-        'RadioButton83
-        '
-        Me.RadioButton83.AutoSize = True
-        Me.RadioButton83.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton83.Name = "RadioButton83"
-        Me.RadioButton83.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton83.TabIndex = 1
-        Me.RadioButton83.TabStop = True
-        Me.RadioButton83.Text = "Hatch"
-        Me.RadioButton83.UseVisualStyleBackColor = True
-        '
-        'RadioButton84
-        '
-        Me.RadioButton84.AutoSize = True
-        Me.RadioButton84.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton84.Name = "RadioButton84"
-        Me.RadioButton84.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton84.TabIndex = 0
-        Me.RadioButton84.TabStop = True
-        Me.RadioButton84.Text = "Empty"
-        Me.RadioButton84.UseVisualStyleBackColor = True
-        '
-        'GroupBox36
-        '
-        Me.GroupBox36.Controls.Add(Me.RadioButton85)
-        Me.GroupBox36.Controls.Add(Me.RadioButton86)
-        Me.GroupBox36.Controls.Add(Me.RadioButton87)
-        Me.GroupBox36.Location = New System.Drawing.Point(200, 158)
-        Me.GroupBox36.Name = "GroupBox36"
-        Me.GroupBox36.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox36.TabIndex = 5
-        Me.GroupBox36.TabStop = False
-        Me.GroupBox36.Text = "Bay 5"
-        '
-        'RadioButton85
-        '
-        Me.RadioButton85.AutoSize = True
-        Me.RadioButton85.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton85.Name = "RadioButton85"
-        Me.RadioButton85.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton85.TabIndex = 2
-        Me.RadioButton85.TabStop = True
-        Me.RadioButton85.Text = "Hatch And Cargo"
-        Me.RadioButton85.UseVisualStyleBackColor = True
-        '
-        'RadioButton86
-        '
-        Me.RadioButton86.AutoSize = True
-        Me.RadioButton86.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton86.Name = "RadioButton86"
-        Me.RadioButton86.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton86.TabIndex = 1
-        Me.RadioButton86.TabStop = True
-        Me.RadioButton86.Text = "Hatch"
-        Me.RadioButton86.UseVisualStyleBackColor = True
-        '
-        'RadioButton87
-        '
-        Me.RadioButton87.AutoSize = True
-        Me.RadioButton87.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton87.Name = "RadioButton87"
-        Me.RadioButton87.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton87.TabIndex = 0
-        Me.RadioButton87.TabStop = True
-        Me.RadioButton87.Text = "Empty"
-        Me.RadioButton87.UseVisualStyleBackColor = True
-        '
-        'GroupBox37
-        '
-        Me.GroupBox37.Controls.Add(Me.RadioButton88)
-        Me.GroupBox37.Controls.Add(Me.RadioButton89)
-        Me.GroupBox37.Controls.Add(Me.RadioButton90)
-        Me.GroupBox37.Location = New System.Drawing.Point(378, 158)
-        Me.GroupBox37.Name = "GroupBox37"
-        Me.GroupBox37.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox37.TabIndex = 6
-        Me.GroupBox37.TabStop = False
-        Me.GroupBox37.Text = "Bay 6"
-        '
-        'RadioButton88
-        '
-        Me.RadioButton88.AutoSize = True
-        Me.RadioButton88.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton88.Name = "RadioButton88"
-        Me.RadioButton88.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton88.TabIndex = 2
-        Me.RadioButton88.TabStop = True
-        Me.RadioButton88.Text = "Hatch And Cargo"
-        Me.RadioButton88.UseVisualStyleBackColor = True
-        '
-        'RadioButton89
-        '
-        Me.RadioButton89.AutoSize = True
-        Me.RadioButton89.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton89.Name = "RadioButton89"
-        Me.RadioButton89.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton89.TabIndex = 1
-        Me.RadioButton89.TabStop = True
-        Me.RadioButton89.Text = "Hatch"
-        Me.RadioButton89.UseVisualStyleBackColor = True
-        '
-        'RadioButton90
-        '
-        Me.RadioButton90.AutoSize = True
-        Me.RadioButton90.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton90.Name = "RadioButton90"
-        Me.RadioButton90.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton90.TabIndex = 0
-        Me.RadioButton90.TabStop = True
-        Me.RadioButton90.Text = "Empty"
-        Me.RadioButton90.UseVisualStyleBackColor = True
-        '
-        'GroupBox38
-        '
-        Me.GroupBox38.Controls.Add(Me.RadioButton91)
-        Me.GroupBox38.Controls.Add(Me.RadioButton92)
-        Me.GroupBox38.Controls.Add(Me.RadioButton93)
-        Me.GroupBox38.Location = New System.Drawing.Point(106, 290)
-        Me.GroupBox38.Name = "GroupBox38"
-        Me.GroupBox38.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox38.TabIndex = 7
-        Me.GroupBox38.TabStop = False
-        Me.GroupBox38.Text = "Bay 7"
-        '
-        'RadioButton91
-        '
-        Me.RadioButton91.AutoSize = True
-        Me.RadioButton91.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton91.Name = "RadioButton91"
-        Me.RadioButton91.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton91.TabIndex = 2
-        Me.RadioButton91.TabStop = True
-        Me.RadioButton91.Text = "Hatch And Cargo"
-        Me.RadioButton91.UseVisualStyleBackColor = True
-        '
-        'RadioButton92
-        '
-        Me.RadioButton92.AutoSize = True
-        Me.RadioButton92.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton92.Name = "RadioButton92"
-        Me.RadioButton92.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton92.TabIndex = 1
-        Me.RadioButton92.TabStop = True
-        Me.RadioButton92.Text = "Hatch"
-        Me.RadioButton92.UseVisualStyleBackColor = True
-        '
-        'RadioButton93
-        '
-        Me.RadioButton93.AutoSize = True
-        Me.RadioButton93.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton93.Name = "RadioButton93"
-        Me.RadioButton93.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton93.TabIndex = 0
-        Me.RadioButton93.TabStop = True
-        Me.RadioButton93.Text = "Empty"
-        Me.RadioButton93.UseVisualStyleBackColor = True
-        '
-        'GroupBox39
-        '
-        Me.GroupBox39.Controls.Add(Me.RadioButton94)
-        Me.GroupBox39.Controls.Add(Me.RadioButton95)
-        Me.GroupBox39.Controls.Add(Me.RadioButton96)
-        Me.GroupBox39.Location = New System.Drawing.Point(284, 290)
-        Me.GroupBox39.Name = "GroupBox39"
-        Me.GroupBox39.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox39.TabIndex = 3
-        Me.GroupBox39.TabStop = False
-        Me.GroupBox39.Text = "Bay 8"
-        '
-        'RadioButton94
-        '
-        Me.RadioButton94.AutoSize = True
-        Me.RadioButton94.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton94.Name = "RadioButton94"
-        Me.RadioButton94.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton94.TabIndex = 2
-        Me.RadioButton94.TabStop = True
-        Me.RadioButton94.Text = "Hatch And Cargo"
-        Me.RadioButton94.UseVisualStyleBackColor = True
-        '
-        'RadioButton95
-        '
-        Me.RadioButton95.AutoSize = True
-        Me.RadioButton95.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton95.Name = "RadioButton95"
-        Me.RadioButton95.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton95.TabIndex = 1
-        Me.RadioButton95.TabStop = True
-        Me.RadioButton95.Text = "Hatch"
-        Me.RadioButton95.UseVisualStyleBackColor = True
-        '
-        'RadioButton96
-        '
-        Me.RadioButton96.AutoSize = True
-        Me.RadioButton96.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton96.Name = "RadioButton96"
-        Me.RadioButton96.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton96.TabIndex = 0
-        Me.RadioButton96.TabStop = True
-        Me.RadioButton96.Text = "Empty"
-        Me.RadioButton96.UseVisualStyleBackColor = True
-        '
-        'GroupBox40
-        '
-        Me.GroupBox40.Controls.Add(Me.GroupBox41)
-        Me.GroupBox40.Controls.Add(Me.GroupBox42)
-        Me.GroupBox40.Controls.Add(Me.GroupBox43)
-        Me.GroupBox40.Controls.Add(Me.GroupBox44)
-        Me.GroupBox40.Controls.Add(Me.GroupBox45)
-        Me.GroupBox40.Controls.Add(Me.GroupBox46)
-        Me.GroupBox40.Controls.Add(Me.GroupBox47)
-        Me.GroupBox40.Controls.Add(Me.GroupBox48)
-        Me.GroupBox40.Location = New System.Drawing.Point(816, 25)
-        Me.GroupBox40.Name = "GroupBox40"
-        Me.GroupBox40.Size = New System.Drawing.Size(532, 524)
-        Me.GroupBox40.TabIndex = 3
-        Me.GroupBox40.TabStop = False
-        Me.GroupBox40.Text = "Cargoship"
-        '
-        'GroupBox41
-        '
-        Me.GroupBox41.Controls.Add(Me.RadioButton97)
-        Me.GroupBox41.Controls.Add(Me.RadioButton98)
-        Me.GroupBox41.Controls.Add(Me.RadioButton99)
-        Me.GroupBox41.Location = New System.Drawing.Point(284, 290)
-        Me.GroupBox41.Name = "GroupBox41"
-        Me.GroupBox41.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox41.TabIndex = 3
-        Me.GroupBox41.TabStop = False
-        Me.GroupBox41.Text = "Bay 8"
-        '
-        'RadioButton97
-        '
-        Me.RadioButton97.AutoSize = True
-        Me.RadioButton97.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton97.Name = "RadioButton97"
-        Me.RadioButton97.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton97.TabIndex = 2
-        Me.RadioButton97.TabStop = True
-        Me.RadioButton97.Text = "Hatch And Cargo"
-        Me.RadioButton97.UseVisualStyleBackColor = True
-        '
-        'RadioButton98
-        '
-        Me.RadioButton98.AutoSize = True
-        Me.RadioButton98.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton98.Name = "RadioButton98"
-        Me.RadioButton98.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton98.TabIndex = 1
-        Me.RadioButton98.TabStop = True
-        Me.RadioButton98.Text = "Hatch"
-        Me.RadioButton98.UseVisualStyleBackColor = True
-        '
-        'RadioButton99
-        '
-        Me.RadioButton99.AutoSize = True
-        Me.RadioButton99.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton99.Name = "RadioButton99"
-        Me.RadioButton99.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton99.TabIndex = 0
-        Me.RadioButton99.TabStop = True
-        Me.RadioButton99.Text = "Empty"
-        Me.RadioButton99.UseVisualStyleBackColor = True
-        '
-        'GroupBox42
-        '
-        Me.GroupBox42.Controls.Add(Me.RadioButton100)
-        Me.GroupBox42.Controls.Add(Me.RadioButton101)
-        Me.GroupBox42.Controls.Add(Me.RadioButton102)
-        Me.GroupBox42.Location = New System.Drawing.Point(106, 290)
-        Me.GroupBox42.Name = "GroupBox42"
-        Me.GroupBox42.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox42.TabIndex = 7
-        Me.GroupBox42.TabStop = False
-        Me.GroupBox42.Text = "Bay 7"
-        '
-        'RadioButton100
-        '
-        Me.RadioButton100.AutoSize = True
-        Me.RadioButton100.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton100.Name = "RadioButton100"
-        Me.RadioButton100.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton100.TabIndex = 2
-        Me.RadioButton100.TabStop = True
-        Me.RadioButton100.Text = "Hatch And Cargo"
-        Me.RadioButton100.UseVisualStyleBackColor = True
-        '
-        'RadioButton101
-        '
-        Me.RadioButton101.AutoSize = True
-        Me.RadioButton101.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton101.Name = "RadioButton101"
-        Me.RadioButton101.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton101.TabIndex = 1
-        Me.RadioButton101.TabStop = True
-        Me.RadioButton101.Text = "Hatch"
-        Me.RadioButton101.UseVisualStyleBackColor = True
-        '
-        'RadioButton102
-        '
-        Me.RadioButton102.AutoSize = True
-        Me.RadioButton102.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton102.Name = "RadioButton102"
-        Me.RadioButton102.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton102.TabIndex = 0
-        Me.RadioButton102.TabStop = True
-        Me.RadioButton102.Text = "Empty"
-        Me.RadioButton102.UseVisualStyleBackColor = True
-        '
-        'GroupBox43
-        '
-        Me.GroupBox43.Controls.Add(Me.RadioButton103)
-        Me.GroupBox43.Controls.Add(Me.RadioButton104)
-        Me.GroupBox43.Controls.Add(Me.RadioButton105)
-        Me.GroupBox43.Location = New System.Drawing.Point(378, 158)
-        Me.GroupBox43.Name = "GroupBox43"
-        Me.GroupBox43.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox43.TabIndex = 6
-        Me.GroupBox43.TabStop = False
-        Me.GroupBox43.Text = "Bay 6"
-        '
-        'RadioButton103
-        '
-        Me.RadioButton103.AutoSize = True
-        Me.RadioButton103.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton103.Name = "RadioButton103"
-        Me.RadioButton103.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton103.TabIndex = 2
-        Me.RadioButton103.TabStop = True
-        Me.RadioButton103.Text = "Hatch And Cargo"
-        Me.RadioButton103.UseVisualStyleBackColor = True
-        '
-        'RadioButton104
-        '
-        Me.RadioButton104.AutoSize = True
-        Me.RadioButton104.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton104.Name = "RadioButton104"
-        Me.RadioButton104.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton104.TabIndex = 1
-        Me.RadioButton104.TabStop = True
-        Me.RadioButton104.Text = "Hatch"
-        Me.RadioButton104.UseVisualStyleBackColor = True
-        '
-        'RadioButton105
-        '
-        Me.RadioButton105.AutoSize = True
-        Me.RadioButton105.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton105.Name = "RadioButton105"
-        Me.RadioButton105.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton105.TabIndex = 0
-        Me.RadioButton105.TabStop = True
-        Me.RadioButton105.Text = "Empty"
-        Me.RadioButton105.UseVisualStyleBackColor = True
-        '
-        'GroupBox44
-        '
-        Me.GroupBox44.Controls.Add(Me.RadioButton106)
-        Me.GroupBox44.Controls.Add(Me.RadioButton107)
-        Me.GroupBox44.Controls.Add(Me.RadioButton108)
-        Me.GroupBox44.Location = New System.Drawing.Point(200, 158)
-        Me.GroupBox44.Name = "GroupBox44"
-        Me.GroupBox44.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox44.TabIndex = 5
-        Me.GroupBox44.TabStop = False
-        Me.GroupBox44.Text = "Bay 5"
-        '
-        'RadioButton106
-        '
-        Me.RadioButton106.AutoSize = True
-        Me.RadioButton106.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton106.Name = "RadioButton106"
-        Me.RadioButton106.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton106.TabIndex = 2
-        Me.RadioButton106.TabStop = True
-        Me.RadioButton106.Text = "Hatch And Cargo"
-        Me.RadioButton106.UseVisualStyleBackColor = True
-        '
-        'RadioButton107
-        '
-        Me.RadioButton107.AutoSize = True
-        Me.RadioButton107.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton107.Name = "RadioButton107"
-        Me.RadioButton107.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton107.TabIndex = 1
-        Me.RadioButton107.TabStop = True
-        Me.RadioButton107.Text = "Hatch"
-        Me.RadioButton107.UseVisualStyleBackColor = True
-        '
-        'RadioButton108
-        '
-        Me.RadioButton108.AutoSize = True
-        Me.RadioButton108.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton108.Name = "RadioButton108"
-        Me.RadioButton108.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton108.TabIndex = 0
-        Me.RadioButton108.TabStop = True
-        Me.RadioButton108.Text = "Empty"
-        Me.RadioButton108.UseVisualStyleBackColor = True
-        '
-        'GroupBox45
-        '
-        Me.GroupBox45.Controls.Add(Me.RadioButton109)
-        Me.GroupBox45.Controls.Add(Me.RadioButton110)
-        Me.GroupBox45.Controls.Add(Me.RadioButton111)
-        Me.GroupBox45.Location = New System.Drawing.Point(22, 158)
-        Me.GroupBox45.Name = "GroupBox45"
-        Me.GroupBox45.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox45.TabIndex = 4
-        Me.GroupBox45.TabStop = False
-        Me.GroupBox45.Text = "Bay 4"
-        '
-        'RadioButton109
-        '
-        Me.RadioButton109.AutoSize = True
-        Me.RadioButton109.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton109.Name = "RadioButton109"
-        Me.RadioButton109.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton109.TabIndex = 2
-        Me.RadioButton109.TabStop = True
-        Me.RadioButton109.Text = "Hatch And Cargo"
-        Me.RadioButton109.UseVisualStyleBackColor = True
-        '
-        'RadioButton110
-        '
-        Me.RadioButton110.AutoSize = True
-        Me.RadioButton110.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton110.Name = "RadioButton110"
-        Me.RadioButton110.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton110.TabIndex = 1
-        Me.RadioButton110.TabStop = True
-        Me.RadioButton110.Text = "Hatch"
-        Me.RadioButton110.UseVisualStyleBackColor = True
-        '
-        'RadioButton111
-        '
-        Me.RadioButton111.AutoSize = True
-        Me.RadioButton111.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton111.Name = "RadioButton111"
-        Me.RadioButton111.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton111.TabIndex = 0
-        Me.RadioButton111.TabStop = True
-        Me.RadioButton111.Text = "Empty"
-        Me.RadioButton111.UseVisualStyleBackColor = True
-        '
-        'GroupBox46
-        '
-        Me.GroupBox46.Controls.Add(Me.RadioButton112)
-        Me.GroupBox46.Controls.Add(Me.RadioButton113)
-        Me.GroupBox46.Controls.Add(Me.RadioButton114)
-        Me.GroupBox46.Location = New System.Drawing.Point(378, 26)
-        Me.GroupBox46.Name = "GroupBox46"
-        Me.GroupBox46.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox46.TabIndex = 3
-        Me.GroupBox46.TabStop = False
-        Me.GroupBox46.Text = "Bay 3"
-        '
-        'RadioButton112
-        '
-        Me.RadioButton112.AutoSize = True
-        Me.RadioButton112.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton112.Name = "RadioButton112"
-        Me.RadioButton112.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton112.TabIndex = 2
-        Me.RadioButton112.TabStop = True
-        Me.RadioButton112.Text = "Hatch And Cargo"
-        Me.RadioButton112.UseVisualStyleBackColor = True
-        '
-        'RadioButton113
-        '
-        Me.RadioButton113.AutoSize = True
-        Me.RadioButton113.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton113.Name = "RadioButton113"
-        Me.RadioButton113.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton113.TabIndex = 1
-        Me.RadioButton113.TabStop = True
-        Me.RadioButton113.Text = "Hatch"
-        Me.RadioButton113.UseVisualStyleBackColor = True
-        '
-        'RadioButton114
-        '
-        Me.RadioButton114.AutoSize = True
-        Me.RadioButton114.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton114.Name = "RadioButton114"
-        Me.RadioButton114.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton114.TabIndex = 0
-        Me.RadioButton114.TabStop = True
-        Me.RadioButton114.Text = "Empty"
-        Me.RadioButton114.UseVisualStyleBackColor = True
-        '
-        'GroupBox47
-        '
-        Me.GroupBox47.Controls.Add(Me.RadioButton115)
-        Me.GroupBox47.Controls.Add(Me.RadioButton116)
-        Me.GroupBox47.Controls.Add(Me.RadioButton117)
-        Me.GroupBox47.Location = New System.Drawing.Point(200, 26)
-        Me.GroupBox47.Name = "GroupBox47"
-        Me.GroupBox47.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox47.TabIndex = 1
-        Me.GroupBox47.TabStop = False
-        Me.GroupBox47.Text = "Bay 2"
-        '
-        'RadioButton115
-        '
-        Me.RadioButton115.AutoSize = True
-        Me.RadioButton115.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton115.Name = "RadioButton115"
-        Me.RadioButton115.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton115.TabIndex = 2
-        Me.RadioButton115.TabStop = True
-        Me.RadioButton115.Text = "Hatch And Cargo"
-        Me.RadioButton115.UseVisualStyleBackColor = True
-        '
-        'RadioButton116
-        '
-        Me.RadioButton116.AutoSize = True
-        Me.RadioButton116.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton116.Name = "RadioButton116"
-        Me.RadioButton116.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton116.TabIndex = 1
-        Me.RadioButton116.TabStop = True
-        Me.RadioButton116.Text = "Hatch"
-        Me.RadioButton116.UseVisualStyleBackColor = True
-        '
-        'RadioButton117
-        '
-        Me.RadioButton117.AutoSize = True
-        Me.RadioButton117.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton117.Name = "RadioButton117"
-        Me.RadioButton117.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton117.TabIndex = 0
-        Me.RadioButton117.TabStop = True
-        Me.RadioButton117.Text = "Empty"
-        Me.RadioButton117.UseVisualStyleBackColor = True
-        '
-        'GroupBox48
-        '
-        Me.GroupBox48.Controls.Add(Me.RadioButton118)
-        Me.GroupBox48.Controls.Add(Me.RadioButton119)
-        Me.GroupBox48.Controls.Add(Me.RadioButton120)
-        Me.GroupBox48.Location = New System.Drawing.Point(22, 26)
-        Me.GroupBox48.Name = "GroupBox48"
-        Me.GroupBox48.Size = New System.Drawing.Size(172, 126)
-        Me.GroupBox48.TabIndex = 0
-        Me.GroupBox48.TabStop = False
-        Me.GroupBox48.Text = "Bay 1"
-        '
-        'RadioButton118
-        '
-        Me.RadioButton118.AutoSize = True
-        Me.RadioButton118.Location = New System.Drawing.Point(8, 88)
-        Me.RadioButton118.Name = "RadioButton118"
-        Me.RadioButton118.Size = New System.Drawing.Size(150, 24)
-        Me.RadioButton118.TabIndex = 2
-        Me.RadioButton118.TabStop = True
-        Me.RadioButton118.Text = "Hatch And Cargo"
-        Me.RadioButton118.UseVisualStyleBackColor = True
-        '
-        'RadioButton119
-        '
-        Me.RadioButton119.AutoSize = True
-        Me.RadioButton119.Location = New System.Drawing.Point(8, 57)
-        Me.RadioButton119.Name = "RadioButton119"
-        Me.RadioButton119.Size = New System.Drawing.Size(70, 24)
-        Me.RadioButton119.TabIndex = 1
-        Me.RadioButton119.TabStop = True
-        Me.RadioButton119.Text = "Hatch"
-        Me.RadioButton119.UseVisualStyleBackColor = True
-        '
-        'RadioButton120
-        '
-        Me.RadioButton120.AutoSize = True
-        Me.RadioButton120.Location = New System.Drawing.Point(6, 25)
-        Me.RadioButton120.Name = "RadioButton120"
-        Me.RadioButton120.Size = New System.Drawing.Size(72, 24)
-        Me.RadioButton120.TabIndex = 0
-        Me.RadioButton120.TabStop = True
-        Me.RadioButton120.Text = "Empty"
-        Me.RadioButton120.UseVisualStyleBackColor = True
-        '
         'Scoring_Panel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2217,6 +2217,23 @@ Partial Class Scoring_Panel
         Me.Name = "Scoring_Panel"
         Me.Text = "Scoring Panel"
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox31.ResumeLayout(False)
+        Me.GroupBox39.ResumeLayout(False)
+        Me.GroupBox39.PerformLayout()
+        Me.GroupBox38.ResumeLayout(False)
+        Me.GroupBox38.PerformLayout()
+        Me.GroupBox37.ResumeLayout(False)
+        Me.GroupBox37.PerformLayout()
+        Me.GroupBox36.ResumeLayout(False)
+        Me.GroupBox36.PerformLayout()
+        Me.GroupBox35.ResumeLayout(False)
+        Me.GroupBox35.PerformLayout()
+        Me.GroupBox34.ResumeLayout(False)
+        Me.GroupBox34.PerformLayout()
+        Me.GroupBox33.ResumeLayout(False)
+        Me.GroupBox33.PerformLayout()
+        Me.GroupBox32.ResumeLayout(False)
+        Me.GroupBox32.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBox11.PerformLayout()
@@ -2244,6 +2261,23 @@ Partial Class Scoring_Panel
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox40.ResumeLayout(False)
+        Me.GroupBox41.ResumeLayout(False)
+        Me.GroupBox41.PerformLayout()
+        Me.GroupBox42.ResumeLayout(False)
+        Me.GroupBox42.PerformLayout()
+        Me.GroupBox43.ResumeLayout(False)
+        Me.GroupBox43.PerformLayout()
+        Me.GroupBox44.ResumeLayout(False)
+        Me.GroupBox44.PerformLayout()
+        Me.GroupBox45.ResumeLayout(False)
+        Me.GroupBox45.PerformLayout()
+        Me.GroupBox46.ResumeLayout(False)
+        Me.GroupBox46.PerformLayout()
+        Me.GroupBox47.ResumeLayout(False)
+        Me.GroupBox47.PerformLayout()
+        Me.GroupBox48.ResumeLayout(False)
+        Me.GroupBox48.PerformLayout()
         Me.GroupBox17.ResumeLayout(False)
         Me.GroupBox18.ResumeLayout(False)
         Me.GroupBox18.PerformLayout()
@@ -2270,40 +2304,6 @@ Partial Class Scoring_Panel
         Me.GroupBox29.PerformLayout()
         Me.GroupBox30.ResumeLayout(False)
         Me.GroupBox30.PerformLayout()
-        Me.GroupBox31.ResumeLayout(False)
-        Me.GroupBox32.ResumeLayout(False)
-        Me.GroupBox32.PerformLayout()
-        Me.GroupBox33.ResumeLayout(False)
-        Me.GroupBox33.PerformLayout()
-        Me.GroupBox34.ResumeLayout(False)
-        Me.GroupBox34.PerformLayout()
-        Me.GroupBox35.ResumeLayout(False)
-        Me.GroupBox35.PerformLayout()
-        Me.GroupBox36.ResumeLayout(False)
-        Me.GroupBox36.PerformLayout()
-        Me.GroupBox37.ResumeLayout(False)
-        Me.GroupBox37.PerformLayout()
-        Me.GroupBox38.ResumeLayout(False)
-        Me.GroupBox38.PerformLayout()
-        Me.GroupBox39.ResumeLayout(False)
-        Me.GroupBox39.PerformLayout()
-        Me.GroupBox40.ResumeLayout(False)
-        Me.GroupBox41.ResumeLayout(False)
-        Me.GroupBox41.PerformLayout()
-        Me.GroupBox42.ResumeLayout(False)
-        Me.GroupBox42.PerformLayout()
-        Me.GroupBox43.ResumeLayout(False)
-        Me.GroupBox43.PerformLayout()
-        Me.GroupBox44.ResumeLayout(False)
-        Me.GroupBox44.PerformLayout()
-        Me.GroupBox45.ResumeLayout(False)
-        Me.GroupBox45.PerformLayout()
-        Me.GroupBox46.ResumeLayout(False)
-        Me.GroupBox46.PerformLayout()
-        Me.GroupBox47.ResumeLayout(False)
-        Me.GroupBox47.PerformLayout()
-        Me.GroupBox48.ResumeLayout(False)
-        Me.GroupBox48.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

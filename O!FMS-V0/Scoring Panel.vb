@@ -34,12 +34,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
     'Red Mid Left Rocket Bay'
@@ -74,12 +74,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
     'Red Low Left Rocket Bay'
@@ -114,12 +114,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
     'Red Top Right Bay'
@@ -154,12 +154,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
     'Red Mid Right Bay
@@ -194,12 +194,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
     'Red Low Right Bay'
@@ -234,12 +234,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -279,12 +279,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -319,12 +319,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -359,12 +359,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -399,12 +399,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -439,12 +439,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -477,12 +477,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
             redTelePoints = redTelePoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -499,7 +499,7 @@ Public Class Scoring_Panel
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         Else
-            redAutoPoints = redAutoPoints + 0
+            redTelePoints = redTelePoints + 0
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         End If
@@ -512,7 +512,7 @@ Public Class Scoring_Panel
             redAutoPoints = redAutoPoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         Else
-            redAutoPoints = redAutoPoints + 2
+            redTelePoints = redTelePoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         End If
     End Sub
@@ -522,12 +522,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
-            redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redTelePoints = redTelePoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -539,7 +539,7 @@ Public Class Scoring_Panel
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         Else
-            redAutoPoints = redAutoPoints + 0
+            redTelePoints = redTelePoints + 0
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         End If
@@ -552,7 +552,7 @@ Public Class Scoring_Panel
             redAutoPoints = redAutoPoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         Else
-            redAutoPoints = redAutoPoints + 2
+            redTelePoints = redTelePoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         End If
     End Sub
@@ -562,12 +562,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
-            redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redTelePoints = redTelePoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -579,7 +579,7 @@ Public Class Scoring_Panel
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         Else
-            redAutoPoints = redAutoPoints + 0
+            redTelePoints = redTelePoints + 0
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         End If
@@ -592,7 +592,7 @@ Public Class Scoring_Panel
             redAutoPoints = redAutoPoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         Else
-            redAutoPoints = redAutoPoints + 2
+            redTelePoints = redTelePoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         End If
     End Sub
@@ -602,12 +602,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
-            redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redTelePoints = redTelePoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -619,7 +619,7 @@ Public Class Scoring_Panel
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         Else
-            redAutoPoints = redAutoPoints + 0
+            redTelePoints = redTelePoints + 0
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         End If
@@ -632,7 +632,7 @@ Public Class Scoring_Panel
             redAutoPoints = redAutoPoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         Else
-            redAutoPoints = redAutoPoints + 2
+            redTelePoints = redTelePoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         End If
     End Sub
@@ -642,12 +642,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
-            redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redTelePoints = redTelePoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -659,7 +659,7 @@ Public Class Scoring_Panel
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         Else
-            redAutoPoints = redAutoPoints + 0
+            redTelePoints = redTelePoints + 0
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         End If
@@ -672,7 +672,7 @@ Public Class Scoring_Panel
             redAutoPoints = redAutoPoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         Else
-            redAutoPoints = redAutoPoints + 2
+            redTelePoints = redTelePoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         End If
     End Sub
@@ -682,12 +682,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
-            redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redTelePoints = redTelePoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -699,7 +699,7 @@ Public Class Scoring_Panel
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         Else
-            redAutoPoints = redAutoPoints + 0
+            redTelePoints = redTelePoints + 0
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         End If
@@ -712,7 +712,7 @@ Public Class Scoring_Panel
             redAutoPoints = redAutoPoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         Else
-            redAutoPoints = redAutoPoints + 2
+            redTelePoints = redTelePoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         End If
     End Sub
@@ -722,12 +722,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
-            redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redTelePoints = redTelePoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -739,7 +739,7 @@ Public Class Scoring_Panel
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         Else
-            redAutoPoints = redAutoPoints + 0
+            redTelePoints = redTelePoints + 0
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         End If
@@ -752,7 +752,7 @@ Public Class Scoring_Panel
             redAutoPoints = redAutoPoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         Else
-            redAutoPoints = redAutoPoints + 2
+            redTelePoints = redTelePoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         End If
     End Sub
@@ -762,12 +762,12 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
-            redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redTelePoints = redTelePoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         End If
     End Sub
 
@@ -779,7 +779,7 @@ Public Class Scoring_Panel
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         Else
-            redAutoPoints = redAutoPoints + 0
+            redTelePoints = redTelePoints + 0
             redHatchPanelPoints = redHatchPanelPoints + 0
             redCargoPoints = redCargoPoints + 0
         End If
@@ -792,7 +792,7 @@ Public Class Scoring_Panel
             redAutoPoints = redAutoPoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         Else
-            redAutoPoints = redAutoPoints + 2
+            redTelePoints = redTelePoints + 2
             redHatchPanelPoints = redHatchPanelPoints + 2
         End If
     End Sub
@@ -802,12 +802,825 @@ Public Class Scoring_Panel
 
         If auto_score = True Then
             redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
         Else
-            redAutoPoints = redAutoPoints + 6
-            redHatchPanelPoints = redHatchPanelPoints + 6
-            redCargoPoints = redCargoPoints + 6
+            redTelePoints = redTelePoints + 6
+            redHatchPanelPoints = redHatchPanelPoints + 2
+            redCargoPoints = redCargoPoints + 3
+        End If
+    End Sub
+    'Blue Top Near Rocket'
+    Private Sub RadioButton72_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton72.CheckedChanged
+        blueTopLeftRocketNear = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton71_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton71.CheckedChanged
+        blueTopLeftRocketNear = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton70_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton70.CheckedChanged
+        blueTopLeftRocketNear = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton63_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton63.CheckedChanged
+        blueTopRightRocketNear = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton62_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton62.CheckedChanged
+        blueTopRightRocketNear = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton61_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton61.CheckedChanged
+        blueTopRightRocketNear = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+    'Blue Middle Rocket Near'
+    Private Sub RadioButton69_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton69.CheckedChanged
+        blueMidLeftRocketNear = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton68_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton68.CheckedChanged
+        blueMidLeftRocketNear = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton67_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton67.CheckedChanged
+        blueMidLeftRocketNear = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton60_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton60.CheckedChanged
+        blueMidRightRocketNear = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton59_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton59.CheckedChanged
+        blueMidRightRocketNear = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton58_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton58.CheckedChanged
+        blueMidRightRocketNear = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+    'Blue Low Rocket Near'
+    Private Sub RadioButton66_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton66.CheckedChanged
+        blueLowLeftRocketNear = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton65_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton65.CheckedChanged
+        blueLowLeftRocketNear = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton64_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton64.CheckedChanged
+        blueLowLeftRocketNear = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton57_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton57.CheckedChanged
+        blueLowRightRocketNear = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton56_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton56.CheckedChanged
+        blueLowRightRocketNear = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton55_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton55.CheckedChanged
+        blueLowRightRocketNear = "PanelAndCargo"
+
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton54_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton54.CheckedChanged
+        blueTopLeftRocketFar = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton53_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton53.CheckedChanged
+        blueTopLeftRocketFar = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton52_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton52.CheckedChanged
+        blueTopLeftRocketFar = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton45_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton45.CheckedChanged
+        blueTopRightRocketFar = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton44_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton44.CheckedChanged
+        blueTopRightRocketFar = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton43_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton43.CheckedChanged
+        blueTopRightRocketFar = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton51_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton51.CheckedChanged
+        blueMidLeftRocketFar = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton50_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton50.CheckedChanged
+        blueMidLeftRocketFar = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton49_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton49.CheckedChanged
+        blueMidLeftRocketFar = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton42_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton42.CheckedChanged
+        blueMidRightRocketFar = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton41_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton41.CheckedChanged
+        blueMidRightRocketFar = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton40_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton40.CheckedChanged
+        blueMidRightRocketFar = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton48_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton48.CheckedChanged
+        blueLowLeftRocketFar = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton47_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton47.CheckedChanged
+        blueLowLeftRocketFar = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton46_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton46.CheckedChanged
+        blueLowLeftRocketFar = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton39_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton39.CheckedChanged
+        blueLowRightRocketFar = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton38_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton38.CheckedChanged
+        blueLowRightRocketFar = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton37_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton37.CheckedChanged
+        blueLowRightRocketFar = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        blueRocketRP = blueRocketRP + 1
+        blueCompleteRocketNear = True
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        blueRocketRP = blueRocketRP + 1
+        blueCompleteRocketFar = True
+    End Sub
+
+    Private Sub RadioButton120_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton120.CheckedChanged
+        blueBay1 = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton119_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton119.CheckedChanged
+        blueBay1 = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton118_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton118.CheckedChanged
+        blueBay1 = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton117_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton117.CheckedChanged
+        blueBay2 = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton116_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton116.CheckedChanged
+        blueBay2 = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton115_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton115.CheckedChanged
+        blueBay2 = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton114_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton114.CheckedChanged
+        blueBay3 = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton113_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton113.CheckedChanged
+        blueBay3 = "Panel"
+
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton112_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton112.CheckedChanged
+        blueBay3 = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton111_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton111.CheckedChanged
+        blueBay4 = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton110_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton110.CheckedChanged
+        blueBay4 = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton109_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton109.CheckedChanged
+        blueBay4 = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton108_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton108.CheckedChanged
+        blueBay5 = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton107_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton107.CheckedChanged
+        blueBay5 = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton106_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton106.CheckedChanged
+        blueBay5 = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton105_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton105.CheckedChanged
+        blueBay6 = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton104_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton104.CheckedChanged
+        blueBay6 = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton103_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton103.CheckedChanged
+        blueBay6 = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton102_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton102.CheckedChanged
+        blueBay7 = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton101_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton101.CheckedChanged
+        blueBay7 = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton100_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton100.CheckedChanged
+        blueBay7 = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        End If
+    End Sub
+
+    Private Sub RadioButton99_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton99.CheckedChanged
+        blueBay8 = "None"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        Else
+            blueTelePoints = blueTelePoints + 0
+            blueHatchPanelPoints = blueHatchPanelPoints + 0
+            blueCargoPoints = blueCargoPoints + 0
+        End If
+    End Sub
+
+    Private Sub RadioButton98_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton98.CheckedChanged
+        blueBay8 = "Panel"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        Else
+            blueTelePoints = blueTelePoints + 2
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+        End If
+    End Sub
+
+    Private Sub RadioButton97_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton97.CheckedChanged
+        blueBay8 = "PanelAndCargo"
+
+        If auto_score = True Then
+            blueAutoPoints = blueAutoPoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
+        Else
+            blueTelePoints = blueTelePoints + 6
+            blueHatchPanelPoints = blueHatchPanelPoints + 2
+            blueCargoPoints = blueCargoPoints + 3
         End If
     End Sub
 End Class
