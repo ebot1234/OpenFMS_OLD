@@ -1,9 +1,7 @@
 ﻿Imports O_FMS_V0.Lighting
 Imports O_FMS_V0.Field
 Imports O_FMS_V0.Main_Panel
-Imports O_FMS_V0.ViewMarqUpdater
-
-
+Imports O_FMS_V0.Tba
 
 
 Public Class PLC_Handler
@@ -66,13 +64,17 @@ Public Class PLC_Handler
     Public Shared PLC_Field_Volunteers
 
     'Game Varibles'
-    Public Shared CargoshipEnabled
-    Public Shared CargoshipReleased
-    Public Shared SandstormUp
-    Public Shared RedRocket1
-    Public Shared RedRocket2
-    Public Shared BlueRocket1
-    Public Shared BlueRocket2
+    Public Shared redCargoshipMagnet
+    Public Shared blueCargoshipMagnet
+    Public Shared redCargoshipLight
+    Public Shared blueCargoshipLight
+    Public Shared redSandstormUp
+    Public Shared blueSandstormUp
+    Public Shared RedRocket1Light
+    Public Shared RedRocket2Light
+    Public Shared BlueRocket1Light
+    Public Shared BlueRocket2Light
+
 
     'Data Sent from FMS Software to PLC
     Public Shared Match_Start 'MC13'
@@ -164,153 +166,47 @@ Public Class PLC_Handler
         End If
     End Sub
 
-    Public Shared Sub handleRegisters()
-        'Reads the scores and other registers from the PLC'
-        Dim readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 74)
+    Public Shared Sub handleAutomatedScoring()
+        'TODO add scoring'
+        Dim red_hatch_count
+        Dim red_cargo_count
 
-        PLC_RedScore = readHoldingRegisters(60)
-        PLC_Red_Foul = readHoldingRegisters(63)
-        PLC_Red_Tech = readHoldingRegisters(62)
-        PLC_BlueScore = readHoldingRegisters(61)
-        PLC_Blue_Foul = readHoldingRegisters(65)
-        PLC_Blue_Tech = readHoldingRegisters(64)
+        For i As Integer = 0 To red_hatch_count
+            redHatchPanelPoints = redHatchPanelPoints + 2
+        Next
+
+        For i As Integer = 0 To red_cargo_count
+            redCargoPoints = redCargoPoints + 3
+        Next
 
     End Sub
 
     Public Shared Sub handleFieldOuputs()
-        'handles the scoring table light testing'
-        If Scoring_Light_Test = True Then
-
-        End If
-
-        'handles the alliance station light testing'
-        If DS_Light_Test = True Then
-
-
-        End If
-
-        modbusClient.WriteSingleRegister(0, PLC_Match_Timer)
-        modbusClient.WriteSingleRegister(1, RedT1)
-
+        'TODO Add Scoring table lights and alliance lights'
     End Sub
 
     Public Shared Sub handleGameOutputs()
-
-    End Sub
-    Public Shared Sub handleCoils()
-        'FMS to PLC Estops for the Lights'
-        If Red_1_Estop = True Then
-            modbusClient.WriteSingleCoil(0, True)
+        'Sets the magnets to on during the match setup and sandstorm'
+        If Field.fieldStatus = MatchEnums.PreMatch Then
+            redCargoshipMagnet = True
+            redCargoshipLight = True
+            blueCargoshipMagnet = True
+            blueCargoshipLight = True
+        ElseIf Field.fieldStatus = MatchEnums.SandStorm Then
+            redCargoshipMagnet = True
+            redCargoshipLight = True
+            blueCargoshipMagnet = True
+            blueCargoshipLight = True
         Else
-            modbusClient.WriteSingleCoil(0, False)
-        End If
-
-        If Red_2_Estop = True Then
-            modbusClient.WriteSingleCoil(1, True)
-        Else
-            modbusClient.WriteSingleCoil(1, False)
-        End If
-
-        If Red_3_Estop = True Then
-            modbusClient.WriteSingleCoil(2, True)
-        Else
-            modbusClient.WriteSingleCoil(2, False)
-        End If
-
-        If Blue_1_Estop = True Then
-            modbusClient.WriteSingleCoil(3, True)
-        Else
-            modbusClient.WriteSingleCoil(3, False)
-        End If
-
-        If Blue_2_Estop = True Then
-            modbusClient.WriteSingleCoil(4, True)
-        Else
-            modbusClient.WriteSingleCoil(4, False)
-        End If
-
-        If Blue_3_Estop = True Then
-            modbusClient.WriteSingleCoil(5, True)
-        Else
-            modbusClient.WriteSingleCoil(5, False)
-        End If
-
-        If Field_Estop = True Then
-            modbusClient.WriteSingleCoil(6, True)
-        Else
-            modbusClient.WriteSingleCoil(6, False)
-        End If
-
-        'Red Team Statuses'
-        If Red1Ready = True Then
-            modbusClient.WriteSingleCoil(14, True)
-        Else
-            modbusClient.WriteSingleCoil(14, False)
-        End If
-
-        If Red2Ready = True Then
-            modbusClient.WriteSingleCoil(15, True)
-        Else
-            modbusClient.WriteSingleCoil(15, False)
-        End If
-
-        If Red3Ready = True Then
-            modbusClient.WriteSingleCoil(16, True)
-        Else
-            modbusClient.WriteSingleCoil(16, False)
-        End If
-
-        'Blue Team Statuses'
-        If Blue1Ready = True Then
-            modbusClient.WriteSingleCoil(17, True)
-        Else
-            modbusClient.WriteSingleCoil(17, False)
-        End If
-
-        If Pre_Start_Match = True Then
-            modbusClient.WriteSingleCoil(31, True)
-        Else
-            modbusClient.WriteSingleCoil(31, False)
-        End If
-
-        If Match_Start = True Then
-            modbusClient.WriteSingleCoil(29, True)
-        Else
-            modbusClient.WriteSingleCoil(29, False)
+            redCargoshipMagnet = False
+            redCargoshipLight = False
+            blueCargoshipMagnet = False
+            blueCargoshipLight = False
         End If
     End Sub
 
-    Public Shared Sub resetCoils()
-        modbusClient.WriteSingleCoil(0, False)
-        modbusClient.WriteSingleCoil(1, False)
-        modbusClient.WriteSingleCoil(2, False)
-        modbusClient.WriteSingleCoil(3, False)
-        modbusClient.WriteSingleCoil(4, False)
-        modbusClient.WriteSingleCoil(5, False)
-        modbusClient.WriteSingleCoil(6, False)
-        modbusClient.WriteSingleCoil(7, False)
-        modbusClient.WriteSingleCoil(8, False)
-        modbusClient.WriteSingleCoil(9, False)
-        modbusClient.WriteSingleCoil(10, False)
-        modbusClient.WriteSingleCoil(11, False)
-        modbusClient.WriteSingleCoil(12, False)
-        modbusClient.WriteSingleCoil(13, False)
-        modbusClient.WriteSingleCoil(14, False)
-        modbusClient.WriteSingleCoil(15, False)
-        modbusClient.WriteSingleCoil(16, False)
-    End Sub
+
     Public Shared Sub handleEstops()
-        'Reads the coils from PLC address 1 to 7'
-        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 50)
-        'PLC to FMS for estoping the robots'
-        PLC_Estop_Red1 = readCoils(7)
-        PLC_Estop_Red2 = readCoils(8)
-        PLC_Estop_Red3 = readCoils(9)
-        PLC_Estop_Blue1 = readCoils(10)
-        PLC_Estop_Blue2 = readCoils(11)
-        PLC_Estop_Blue3 = readCoils(12)
-        PLC_Estop_Field = readCoils(13)
-
         'Field Estop'
         If PLC_Estop_Field = True Then
             Red1DS.Estop = True
@@ -359,32 +255,35 @@ Public Class PLC_Handler
     End Sub
 
     Public Shared Sub handleLighting()
-        'Handles the lighting to what the match state is in'
-        If fieldStatus = MatchEnums.PreMatch Then
-            setModeRocketNear("G")
-            setModeRocketFar("G")
-        ElseIf fieldStatus = MatchEnums.PostMatch Then
-            setModeRocketFar("O")
-            setModeRocketNear("O")
-        End If
-        'Changes the lighting to what the PLC returns'
-        If RedRocket1 = True Then
-            setModeRocketFar("R")
-        ElseIf RedRocket2 = True Then
-            setModeRocketNear("R")
-        ElseIf BlueRocket1 = True Then
-            setModeRocketFar("B")
-        ElseIf BlueRocket2 Then
-            setModeRocketNear("B")
-        End If
-        'Turns the field to purple if volunteers can enter or green for teams'
-        If PLC_Field_Volunteers = True Then
-            setModeRocketNear("P")
-            setModeRocketFar("P")
-        ElseIf PLC_Field_Reset = True Then
-            setModeRocketNear("G")
-            setModeRocketFar("G")
-        End If
+        'FIX THIS @ETHEN'
     End Sub
 
+    Public Shared Sub writeCoils()
+        'This writes the values to the plc'
+        'I.E. modbusClient.WriteSingleCoil(0, redCargoshipMagnet)'
+        'TODO Add real values'
+    End Sub
+
+    Public Shared Sub readCoils()
+        'This reads coils from the plc'
+        Dim readCoils() As Boolean = modbusClient.ReadCoils(0, 200)
+        'PLC to FMS for estoping the robots'
+        PLC_Estop_Red1 = readCoils(7)
+        PLC_Estop_Red2 = readCoils(8)
+        PLC_Estop_Red3 = readCoils(9)
+        PLC_Estop_Blue1 = readCoils(10)
+        PLC_Estop_Blue2 = readCoils(11)
+        PLC_Estop_Blue3 = readCoils(12)
+        PLC_Estop_Field = readCoils(13)
+    End Sub
+
+    Public Shared Sub writeRegisters()
+        'This writes registers to the plc'
+        'I.E. modbusClient.WriteSingleRegister(0, PLC_Match_Timer)
+        modbusClient.WriteSingleRegister(0, PLC_Match_Timer)
+    End Sub
+
+    Public Shared Sub readRegisters()
+        'This reads registers from the plc'
+    End Sub
 End Class

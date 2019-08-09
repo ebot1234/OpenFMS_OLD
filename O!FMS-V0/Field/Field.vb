@@ -51,12 +51,14 @@ Public Class Field
 
     Public Shared Sub handlePLC()
         Do While (True)
+            writeCoils()
+            readCoils()
+            writeRegisters()
+            readRegisters()
             checkAlliances()
-            handleCoils()
-            handleFieldOuputs()
-            handleGameOutputs()
-            handleRegisters()
+            handleAutomatedScoring()
             handleEstops()
+            PLC_Handler.handleLighting()
         Loop
     End Sub
 
@@ -98,7 +100,6 @@ Public Class Field
                 My.Computer.Audio.Play(My.Resources.match_force, AudioPlayMode.Background)
                 ResetPLC()
                 fieldStatus = MatchEnums.PreMatch
-                CargoshipEnabled = True
                 SendDS(Auto:=True, Enabled:=False)
             Case MatchEnums.SandStorm
                 Match_Start = True
@@ -109,7 +110,6 @@ Public Class Field
                 My.Computer.Audio.Play(My.Resources.match_start, AudioPlayMode.Background)
             Case MatchEnums.TeleOp
                 fieldStatus = MatchEnums.TeleOp
-                CargoshipEnabled = False
                 SendDS(Auto:=False, Enabled:=True)
                 My.Computer.Audio.Play(My.Resources.match_resume, AudioPlayMode.Background)
             Case MatchEnums.EndGameWarning
