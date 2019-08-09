@@ -74,6 +74,8 @@ Public Class PLC_Handler
     Public Shared RedRocket2Light
     Public Shared BlueRocket1Light
     Public Shared BlueRocket2Light
+    Public Shared red_hatch_count
+    Public Shared red_cargo_count
 
 
     'Data Sent from FMS Software to PLC
@@ -168,8 +170,6 @@ Public Class PLC_Handler
 
     Public Shared Sub handleAutomatedScoring()
         'TODO add scoring'
-        Dim red_hatch_count
-        Dim red_cargo_count
 
         For i As Integer = 0 To red_hatch_count
             redHatchPanelPoints = redHatchPanelPoints + 2
@@ -262,6 +262,10 @@ Public Class PLC_Handler
         'This writes the values to the plc'
         'I.E. modbusClient.WriteSingleCoil(0, redCargoshipMagnet)'
         'TODO Add real values'
+        modbusClient.WriteSingleCoil(0, redCargoshipMagnet)
+        modbusClient.WriteSingleCoil(1, redCargoshipLight)
+        modbusClient.WriteSingleCoil(2, blueCargoshipMagnet)
+        modbusClient.WriteSingleCoil(3, blueCargoshipLight)
     End Sub
 
     Public Shared Sub readCoils()
@@ -285,5 +289,9 @@ Public Class PLC_Handler
 
     Public Shared Sub readRegisters()
         'This reads registers from the plc'
+        Dim readRegisters() As Integer = modbusClient.ReadHoldingRegisters(0, 200)
+        red_hatch_count = readRegisters(0)
+        red_cargo_count = readRegisters(1)
+
     End Sub
 End Class
