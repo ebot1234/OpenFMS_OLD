@@ -312,15 +312,74 @@ Public Class PLC_Handler
         End If
 
         If red_rocket_far_bay6 = 0 Then
-            redMidRightRocketFar = "None"
+            redTopRightRocketFar = "None"
         ElseIf red_rocket_far_bay6 = 1 Then
-            redMidRightRocketFar = "Panel"
+            redTopRightRocketFar = "Panel"
         ElseIf red_rocket_far_bay6 = 2 Then
-            redMidRightRocketFar = "PanelAndCargo"
+            redTopRightRocketFar = "PanelAndCargo"
         Else
-            redMidRightRocketFar = "None"
+            redTopRightRocketFar = "None"
         End If
 
+        If red_rocket_near_bay1 = 0 Then
+            redLowRightRocketNear = "None"
+        ElseIf red_rocket_near_bay1 = 1 Then
+            redLowRightRocketNear = "Panel"
+        ElseIf red_rocket_near_bay1 = 2 Then
+            redLowRightRocketNear = "PanelAndCargo"
+        Else
+            redLowRightRocketNear = "None"
+        End If
+
+        If red_rocket_near_bay2 = 0 Then
+            redLowLeftRocketNear = "None"
+        ElseIf red_rocket_near_bay2 = 1 Then
+            redLowLeftRocketNear = "Panel"
+        ElseIf red_rocket_near_bay2 = 2 Then
+            redLowLeftRocketNear = "PanelAndCargo"
+        Else
+            redLowLeftRocketNear = "None"
+        End If
+
+        If red_rocket_near_bay3 = 0 Then
+            redMidLeftRocketNear = "None"
+        ElseIf red_rocket_near_bay3 = 1 Then
+            redMidLeftRocketNear = "Panel"
+        ElseIf red_rocket_near_bay3 = 2 Then
+            redMidLeftRocketNear = "PanelAndCargo"
+        Else
+            redMidLeftRocketNear = "None"
+        End If
+
+        If red_rocket_near_bay4 = 0 Then
+            redMidRightRocketNear = "None"
+        ElseIf red_rocket_near_bay4 = 1 Then
+            redMidRightRocketNear = "Panel"
+        ElseIf red_rocket_near_bay4 = 2 Then
+            redMidRightRocketNear = "PanelAndCargo"
+        Else
+            redMidRightRocketNear = "None"
+        End If
+
+        If red_rocket_near_bay5 = 0 Then
+            redTopLeftRocketNear = "None"
+        ElseIf red_rocket_near_bay5 = 1 Then
+            redTopLeftRocketNear = "Panel"
+        ElseIf red_rocket_near_bay5 = 2 Then
+            redTopLeftRocketNear = "PanelAndCargo"
+        Else
+            redTopLeftRocketNear = "None"
+        End If
+
+        If red_rocket_near_bay6 = 0 Then
+            redTopRightRocketNear = "None"
+        ElseIf red_rocket_near_bay6 = 1 Then
+            redTopRightRocketNear = "Panel"
+        ElseIf red_rocket_near_bay6 = 2 Then
+            redTopRightRocketNear = "PanelAndCargo"
+        Else
+            redTopRightRocketNear = "None"
+        End If
     End Sub
 
     Public Shared Sub handleFieldOuputs()
@@ -397,7 +456,21 @@ Public Class PLC_Handler
     End Sub
 
     Public Shared Sub handleLighting()
-        'FIX THIS @ETHEN'
+        If redCompleteRocketFar = True Then
+            'ADD in the functions'
+        End If
+
+        If redCompleteRocketNear = True Then
+
+        End If
+
+        If blueCompleteRocketFar = True Then
+
+        End If
+
+        If blueCompleteRocketNear = True Then
+
+        End If
     End Sub
 
     Public Shared Sub writeCoils()
