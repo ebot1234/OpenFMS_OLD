@@ -380,10 +380,135 @@ Public Class PLC_Handler
         Else
             redTopRightRocketNear = "None"
         End If
+
+
+        'Blue Rocket Placement Scoring'
+        If blue_rocket_far_bay1 = 0 Then
+            blueLowLeftRocketFar = "None"
+        ElseIf blue_rocket_far_bay1 = 1 Then
+            blueLowLeftRocketFar = "Panel"
+        ElseIf blue_rocket_far_bay1 = 2 Then
+            blueLowLeftRocketFar = "PanelAndCargo"
+        Else
+            blueLowLeftRocketFar = "None"
+        End If
+
+        If blue_rocket_far_bay2 = 0 Then
+            blueLowRightRocketFar = "None"
+        ElseIf blue_rocket_far_bay2 = 1 Then
+            blueLowRightRocketFar = "Panel"
+        ElseIf blue_rocket_far_bay2 = 2 Then
+            blueLowRightRocketFar = "PanelAndCargo"
+        Else
+            blueLowRightRocketFar = "None"
+        End If
+
+        If blue_rocket_far_bay3 = 0 Then
+            blueMidLeftRocketFar = "None"
+        ElseIf blue_rocket_far_bay3 = 1 Then
+            blueMidLeftRocketFar = "Panel"
+        ElseIf blue_rocket_far_bay3 = 2 Then
+            blueMidLeftRocketFar = "PanelAndCargo"
+        Else
+            blueMidLeftRocketFar = "None"
+        End If
+
+        If blue_rocket_far_bay4 = 0 Then
+            blueMidRightRocketFar = "None"
+        ElseIf blue_rocket_far_bay4 = 1 Then
+            blueMidRightRocketFar = "Panel"
+        ElseIf blue_rocket_far_bay4 = 2 Then
+            blueMidRightRocketFar = "PanelAndCargo"
+        Else
+            blueMidRightRocketFar = "None"
+        End If
+
+        If blue_rocket_far_bay5 = 0 Then
+            blueTopLeftRocketFar = "None"
+        ElseIf blue_rocket_far_bay5 = 1 Then
+            blueTopLeftRocketFar = "Panel"
+        ElseIf blue_rocket_far_bay5 = 2 Then
+            blueTopLeftRocketFar = "PanelAndCargo"
+        Else
+            blueTopLeftRocketFar = "None"
+        End If
+
+        If blue_rocket_far_bay6 = 0 Then
+            blueTopRightRocketFar = "None"
+        ElseIf blue_rocket_far_bay6 = 1 Then
+            blueTopRightRocketFar = "Panel"
+        ElseIf blue_rocket_far_bay6 = 2 Then
+            blueTopRightRocketFar = "PanelAndCargo"
+        Else
+            blueTopRightRocketFar = "None"
+        End If
+
+        If blue_rocket_near_bay1 = 0 Then
+            blueLowRightRocketNear = "None"
+        ElseIf blue_rocket_near_bay1 = 1 Then
+            blueLowRightRocketNear = "Panel"
+        ElseIf blue_rocket_near_bay1 = 2 Then
+            blueLowRightRocketNear = "PanelAndCargo"
+        Else
+            blueLowRightRocketNear = "None"
+        End If
+
+        If blue_rocket_near_bay2 = 0 Then
+            blueLowLeftRocketNear = "None"
+        ElseIf blue_rocket_near_bay2 = 1 Then
+            blueLowLeftRocketNear = "Panel"
+        ElseIf blue_rocket_near_bay2 = 2 Then
+            blueLowLeftRocketNear = "PanelAndCargo"
+        Else
+            blueLowLeftRocketNear = "None"
+        End If
+
+        If blue_rocket_near_bay3 = 0 Then
+            blueMidLeftRocketNear = "None"
+        ElseIf blue_rocket_near_bay3 = 1 Then
+            blueMidLeftRocketNear = "Panel"
+        ElseIf blue_rocket_near_bay3 = 2 Then
+            blueMidLeftRocketNear = "PanelAndCargo"
+        Else
+            blueMidLeftRocketNear = "None"
+        End If
+
+        If blue_rocket_near_bay4 = 0 Then
+            blueMidRightRocketNear = "None"
+        ElseIf blue_rocket_near_bay4 = 1 Then
+            blueMidRightRocketNear = "Panel"
+        ElseIf blue_rocket_near_bay4 = 2 Then
+            blueMidRightRocketNear = "PanelAndCargo"
+        Else
+            blueMidRightRocketNear = "None"
+        End If
+
+        If blue_rocket_near_bay5 = 0 Then
+            blueTopLeftRocketNear = "None"
+        ElseIf blue_rocket_near_bay5 = 1 Then
+            blueTopLeftRocketNear = "Panel"
+        ElseIf blue_rocket_near_bay5 = 2 Then
+            blueTopLeftRocketNear = "PanelAndCargo"
+        Else
+            blueTopLeftRocketNear = "None"
+        End If
+
+        If blue_rocket_near_bay6 = 0 Then
+            blueTopRightRocketNear = "None"
+        ElseIf blue_rocket_near_bay6 = 1 Then
+            blueTopRightRocketNear = "Panel"
+        ElseIf blue_rocket_near_bay6 = 2 Then
+            blueTopRightRocketNear = "PanelAndCargo"
+        Else
+            blueTopRightRocketNear = "None"
+        End If
+
     End Sub
 
     Public Shared Sub handleFieldOuputs()
-        'TODO Add Scoring table lights and alliance lights'
+        If fieldStatus = MatchEnums.PreMatch Then
+
+        End If
     End Sub
 
     Public Shared Sub handleGameOutputs()
