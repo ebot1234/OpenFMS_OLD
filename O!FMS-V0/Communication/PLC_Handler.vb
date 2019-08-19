@@ -183,36 +183,46 @@ Public Class PLC_Handler
     End Sub
 
     Public Shared Sub checkAlliances()
-        If DS_Linked_Red1 = True And Robot_Linked_Red1 = True Then
+        If DS_Linked_Red1 = True And Robot_Linked_Red1 = True Or Red1Bypass = True Then
             Red1Ready = True
+        Else
+            Red1Ready = False
         End If
 
-        If DS_Linked_Red2 = True And Robot_Linked_Red2 = True Then
+        If DS_Linked_Red2 = True And Robot_Linked_Red2 = True Or Red2Bypass = True Then
             Red2Ready = True
+        Else
+            Red2Ready = False
         End If
 
-        If DS_Linked_Red3 = True And Robot_Linked_Red3 = True Then
+        If DS_Linked_Red3 = True And Robot_Linked_Red3 = True Or Red3Bypass = True Then
             Red3Ready = True
+        Else
+            Red3Ready = False
         End If
 
-        If DS_Linked_Blue1 = True And Robot_Linked_Blue1 = True Then
+        If DS_Linked_Blue1 = True And Robot_Linked_Blue1 = True Or Blue1Bypass = True Then
             Blue1Ready = True
+        Else
+            Blue1Ready = False
         End If
 
-        If DS_Linked_Blue2 = True And Robot_Linked_Blue2 = True Then
+        If DS_Linked_Blue2 = True And Robot_Linked_Blue2 = True Or Blue2Bypass = True Then
             Blue2Ready = True
+        Else
+            Blue2Ready = False
         End If
 
-        If DS_Linked_Blue3 = True And Robot_Linked_Blue3 = True Then
+        If DS_Linked_Blue3 = True And Robot_Linked_Blue3 = True Or Blue3Bypass = True Then
             Blue3Ready = True
+        Else
+            Blue3Ready = False
         End If
 
         'Checks if the alliances are ready'
         If Red1Ready = True And Red2Ready = True And Red3Ready = True And Blue1Ready = True And Blue2Ready = True And Blue3Ready = True Then
-            'modbusClient.WriteSingleCoil(10, True)
             Field_Ready = True
         Else
-            'modbusClient.WriteSingleCoil(10, False)
             Field_Ready = False
         End If
     End Sub
@@ -506,7 +516,28 @@ Public Class PLC_Handler
     End Sub
 
     Public Shared Sub handleFieldOuputs()
-        If fieldStatus = MatchEnums.PreMatch Then
+        'If match is ready to start'
+        If Field_Ready = True Then
+
+        Else
+
+        End If
+        'If match is running'
+        If fieldStatus = MatchEnums.SandStorm Or fieldStatus = MatchEnums.TeleOp Or fieldStatus = MatchEnums.EndGameWarning Or fieldStatus = MatchEnums.EndGame Then
+
+        Else
+
+        End If
+        'If match is over'
+        If fieldStatus = MatchEnums.PostMatch Then
+
+        Else
+
+        End If
+        'if match is estopped'
+        If fieldStatus = MatchEnums.AbortMatch Then
+
+        Else
 
         End If
     End Sub
@@ -528,6 +559,17 @@ Public Class PLC_Handler
             redCargoshipLight = False
             blueCargoshipMagnet = False
             blueCargoshipLight = False
+        End If
+
+        If fieldStatus = MatchEnums.TeleOp Then
+            redSandstormUp = True
+            blueSandstormUp = True
+            Threading.Thread.Sleep(1000)
+            redSandstormUp = False
+            blueSandstormUp = False
+        Else
+            redSandstormUp = False
+            blueSandstormUp = False
         End If
     End Sub
 
