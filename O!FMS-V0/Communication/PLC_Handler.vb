@@ -169,6 +169,7 @@ Public Class PLC_Handler
 
     'Teams number varibles
     Public Shared RedT1, RedT2, RedT3, BlueT1, BlueT2, BlueT3
+    Public Shared PLC_LoopTime As Integer = 100
 
     Public Shared modbusClient As New EasyModbus.ModbusClient("192.168.1.9", 502)
 

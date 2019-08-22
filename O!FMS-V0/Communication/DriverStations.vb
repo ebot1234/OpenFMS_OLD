@@ -21,6 +21,7 @@ Public Class DriverStations
     Public Shared Estop As Boolean
     Public Shared float() As Single = {1.0F, 1.0F, 1.0F}
     Public Shared Listen As Boolean = False
+    Public Shared DsUdpLastLinkTime As DateTime = TimeOfDay.AddSeconds(1)
     'TCP Listener/Server Varibles'
     Public Shared Listener As TcpListener
     Public Shared TCPListenPort As Integer = 1750
@@ -33,6 +34,14 @@ Public Class DriverStations
     Public Shared UdpSender As UdpClient
     Public Shared UdpSendPort As Integer = 1121
     Public Shared UdpIPEndPoint As IPEndPoint
+    'Other Varibles'
+    Public Shared r1_time As DateTime
+    Public Shared r2_time As DateTime
+    Public Shared r3_time As DateTime
+    Public Shared b1_time As DateTime
+    Public Shared b2_time As DateTime
+    Public Shared b3_time As DateTime
+
 
     Public Shared Sub startDSListener()
         Dim dsListenThread As Thread = New Thread(AddressOf ListenToDsTcp)
@@ -64,6 +73,7 @@ Public Class DriverStations
             If teamId = Main_Panel.RedTeam1.Text Then
                 Main_Panel.R1DS.BackColor = Color.LimeGreen
                 DS_Linked_Red1 = True
+                r1_time = DateTime.Now()
 
                 If sendPacket.IsAlive Then
                 Else
@@ -84,6 +94,8 @@ Public Class DriverStations
             ElseIf teamId = Main_Panel.RedTeam2.Text Then
                 Main_Panel.R2DS.BackColor = Color.LimeGreen
                 DS_Linked_Red2 = True
+                r2_time = DateTime.Now()
+
                 If sendPacket.IsAlive Then
                 Else
                     sendPacket.Start()
@@ -103,6 +115,8 @@ Public Class DriverStations
             ElseIf teamId = Main_Panel.RedTeam3.Text Then
                 Main_Panel.R3DS.BackColor = Color.LimeGreen
                 DS_Linked_Red3 = True
+                r3_time = DateTime.Now()
+
                 If sendPacket.IsAlive Then
                 Else
                     sendPacket.Start()
@@ -122,6 +136,8 @@ Public Class DriverStations
             ElseIf teamId = Main_Panel.BlueTeam1.Text Then
                 Main_Panel.B1DS.BackColor = Color.LimeGreen
                 DS_Linked_Blue1 = True
+                b1_time = DateTime.Now()
+
                 If sendPacket.IsAlive Then
                 Else
                     sendPacket.Start()
@@ -141,6 +157,8 @@ Public Class DriverStations
             ElseIf teamId = Main_Panel.BlueTeam2.Text Then
                 Main_Panel.B2DS.BackColor = Color.LimeGreen
                 DS_Linked_Blue2 = True
+                b2_time = DateTime.Now()
+
                 If sendPacket.IsAlive Then
                 Else
                     sendPacket.Start()
@@ -160,6 +178,8 @@ Public Class DriverStations
             ElseIf teamId = Main_Panel.BlueTeam3.Text Then
                 Main_Panel.B3DS.BackColor = Color.LimeGreen
                 DS_Linked_Blue3 = True
+                b3_time = DateTime.Now()
+
                 If sendPacket.IsAlive Then
                 Else
                     sendPacket.Start()
@@ -178,6 +198,7 @@ Public Class DriverStations
             End If
         End While
     End Sub
+
 
     Public Shared Sub setDsConnection(dsIP As IPAddress, tcpConnection As TcpClient)
         TcpClient = tcpConnection
@@ -199,6 +220,12 @@ Public Class DriverStations
                 UdpSender.Send(packet, packet.Length)
             Else
                 MessageBox.Show("Udp Sender has Problems")
+            End If
+
+            'Check if the ds are still connected'
+            If r1_time > DsUdpLastLinkTime Then
+                DS_Linked_Red1 = False
+                Robot_Linked_Red1 = False
             End If
 
         End While
