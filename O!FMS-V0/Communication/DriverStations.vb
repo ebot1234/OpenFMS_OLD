@@ -9,7 +9,7 @@ Imports System.Threading
 Public Class DriverStations
     'DS Varibles'
     Public Shared allianceStation
-    Public Shared TeamNum As String
+    Public TeamNum As String
     Public Shared teamId
     Public Shared DsLinked As Boolean
     Public Shared RadioLinked As Boolean
@@ -42,21 +42,38 @@ Public Class DriverStations
     Public Shared b2_time As DateTime
     Public Shared b3_time As DateTime
 
+    Public Shared teamNumber
+    Public Shared robotIp
 
-    Public Shared Sub startDSListener()
-        Dim dsListenThread As Thread = New Thread(AddressOf ListenToDsTcp)
+    Public Sub setDsConnections(dsIp As IPAddress, TcpClient As TcpClient)
 
-        If dsListenThread.IsAlive Then
-        Else
-            dsListenThread.Start()
+    End Sub
+
+    Public Sub newDriverStation(teamId As String, allianceStation As Integer)
+        If Integer.TryParse(teamId, teamNumber) Then
+            Select Case teamNumber.Length
+                Case 1
+                Case 2
+                    robotIp = IPAddress.Parse("10.00." + teamNumber + ".2")
+            End Select
+
         End If
-
     End Sub
 
-    Public Shared Sub newDriverStationConnection(teamId As String, allianceStat As String)
-        TeamNum = teamId
-        allianceStation = allianceStat
-    End Sub
+    'Public Shared Sub startDSListener()
+    '    Dim dsListenThread As Thread = New Thread(AddressOf ListenToDsTcp)
+
+    '    If dsListenThread.IsAlive Then
+    '    Else
+    '        dsListenThread.Start()
+    '    End If
+
+    'End Sub
+
+    'Public Shared Sub newDriverStationConnection(teamId As String, allianceStat As String)
+    '    TeamNum = teamId
+    '    allianceStation = allianceStat
+    'End Sub
 
     'loops forever reading the udp packets from the driver stations
     Public Shared Sub listenForDsUdpPackets()
@@ -308,101 +325,86 @@ Public Class DriverStations
         Return data
     End Function
 
-    Public Shared Sub ListenToDsTcp()
-        Dim IpEndPoint As IPEndPoint = New IPEndPoint(IPAddress.Parse("127.0.0.1"), TCPListenPort)
-        Listener = New TcpListener(IpEndPoint)
+    'Public Shared Sub ListenToDsTcp()
+    '    Dim IpEndPoint As IPEndPoint = New IPEndPoint(IPAddress.Parse("127.0.0.1"), TCPListenPort)
+    '    Listener = New TcpListener(IpEndPoint)
 
-        If Listen = True Then
-            Listener.Start()
-            MessageBox.Show("Listener Started")
-        Else
-            MessageBox.Show("Listener Not Started")
-        End If
+    '    If Listen = True Then
+    '        Listener.Start()
+    '        MessageBox.Show("Listener Started")
+    '    Else
+    '        MessageBox.Show("Listener Not Started")
+    '    End If
 
-        While (Listen = True)
+    '    While (Listen = True)
 
-            TcpClient = Listener.AcceptTcpClient
+    '        TcpClient = Listener.AcceptTcpClient
 
-            Dim Buffer(6) As Byte
+    '        Dim Buffer(6) As Byte
 
-            TcpClient.GetStream().Read(Buffer, 0, Buffer.Length)
+    '        TcpClient.GetStream().Read(Buffer, 0, Buffer.Length)
 
-            If Buffer(0) <> 0 And Buffer(1) <> 24 And Buffer(2) <> 3 Then
-                TcpClient.Close()
-                MessageBox.Show("Client was rejected since inital packet wasn't right")
-            End If
+    '        If Buffer(0) <> 0 And Buffer(1) <> 24 And Buffer(2) <> 3 Then
+    '            TcpClient.Close()
+    '            MessageBox.Show("Client was rejected since inital packet wasn't right")
+    '        End If
 
-            Dim teamid_1 = Buffer(3) << 8
-            Dim teamid_2 = Buffer(4)
+    '        Dim teamid_1 = Buffer(3) << 8
+    '        Dim teamid_2 = Buffer(4)
 
-            teamId = teamid_1 & teamid_2
+    '        teamId = teamid_1 & teamid_2
 
-            Dim stationStatus As Integer = -1
+    '        Dim stationStatus As Integer = -1
 
-            TCP_DS_IP = CType(TcpClient.Client.RemoteEndPoint, IPEndPoint).Address
+    '        TCP_DS_IP = CType(TcpClient.Client.RemoteEndPoint, IPEndPoint).Address
 
-            'Checks the team info to see if they are in the match'
-            If teamId = Main_Panel.RedTeam1.Text Then
-                stationStatus = 0
-                setDsConnection(TCP_DS_IP, TcpClient)
-            ElseIf teamId = Main_Panel.RedTeam2.Text Then
-                stationStatus = 0
-                setDsConnection(TCP_DS_IP, TcpClient)
-            ElseIf teamId = Main_Panel.RedTeam3.Text Then
-                stationStatus = 0
-                setDsConnection(TCP_DS_IP, TcpClient)
-            ElseIf teamId = Main_Panel.BlueTeam1.Text Then
-                stationStatus = 0
-                setDsConnection(TCP_DS_IP, TcpClient)
-            ElseIf teamId = Main_Panel.BlueTeam2.Text Then
-                stationStatus = 0
-                setDsConnection(TCP_DS_IP, TcpClient)
-            ElseIf teamId = Main_Panel.BlueTeam3.Text Then
-                stationStatus = 0
-                setDsConnection(TCP_DS_IP, TcpClient)
-            Else
-                stationStatus = -1
-            End If
+    '        'Checks the team info to see if they are in the match'
+    '        If teamId = Main_Panel.RedTeam1.Text Then
+    '            stationStatus = 0
+    '            setDsConnection(TCP_DS_IP, TcpClient)
+    '        ElseIf teamId = Main_Panel.RedTeam2.Text Then
+    '            stationStatus = 0
+    '            setDsConnection(TCP_DS_IP, TcpClient)
+    '        ElseIf teamId = Main_Panel.RedTeam3.Text Then
+    '            stationStatus = 0
+    '            setDsConnection(TCP_DS_IP, TcpClient)
+    '        ElseIf teamId = Main_Panel.BlueTeam1.Text Then
+    '            stationStatus = 0
+    '            setDsConnection(TCP_DS_IP, TcpClient)
+    '        ElseIf teamId = Main_Panel.BlueTeam2.Text Then
+    '            stationStatus = 0
+    '            setDsConnection(TCP_DS_IP, TcpClient)
+    '        ElseIf teamId = Main_Panel.BlueTeam3.Text Then
+    '            stationStatus = 0
+    '            setDsConnection(TCP_DS_IP, TcpClient)
+    '        Else
+    '            stationStatus = -1
+    '        End If
 
 
 
-            Dim assignmentPacket(5) As Byte
-            assignmentPacket(0) = 0 'packet size'
-            assignmentPacket(1) = 3 'packet size'
-            assignmentPacket(2) = 25 'packet type'
-            assignmentPacket(3) = allianceStation
-            assignmentPacket(4) = stationStatus 'station status, need to add station checking'
+    '        Dim assignmentPacket(5) As Byte
+    '        assignmentPacket(0) = 0 'packet size'
+    '        assignmentPacket(1) = 3 'packet size'
+    '        assignmentPacket(2) = 25 'packet type'
+    '        assignmentPacket(3) = allianceStation
+    '        assignmentPacket(4) = stationStatus 'station status, need to add station checking'
 
-            TcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
+    '        TcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
 
-            If stationStatus = -1 Then
-                TcpClient.Close()
-            End If
+    '        If stationStatus = -1 Then
+    '            TcpClient.Close()
+    '        End If
 
-        End While
+    '    End While
 
-        If Listen = False Then
-            Listener.Stop()
-        End If
+    '    If Listen = False Then
+    '        Listener.Stop()
+    '    End If
 
-    End Sub
+    'End Sub
 
-    Public Sub handleDSTcp()
-        'FIX THIS'
-    End Sub
-
-    Public Sub Dispose()
-        If UdpListener IsNot Nothing Then
-            UdpListener.Close()
-        End If
-
-        If UdpSender IsNot Nothing Then
-            UdpSender.Close()
-        End If
-
-        If TcpClient IsNot Nothing Then
-            TcpClient.Close()
-        End If
-
-    End Sub
+    'Public Sub handleDSTcp()
+    '    'FIX THIS'
+    'End Sub
 End Class

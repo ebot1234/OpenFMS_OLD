@@ -124,6 +124,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Communication\DriverStations.vb" />
+    <Compile Include="Communication\Field_Comms.vb" />
     <Compile Include="Field\Rankings.vb" />
     <Compile Include="Game\Field Lighting\Led_Colors.vb" />
     <Compile Include="Game\Field Lighting\Led_Controller.vb" />
