@@ -2,6 +2,7 @@ Imports O_FMS_V0.PLC_Handler
 Imports O_FMS_V0.RandomString
 Imports O_FMS_V0.Main_Panel
 Imports System.Threading
+Imports O_FMS_V0.DriverStation
 
 
 
@@ -12,12 +13,12 @@ Public Class Field
     Public Shared FieldReset As Boolean
     Public Shared Volunteers As Boolean
     'Driver Station instances'
-    Public Shared Red1DS As DriverStations
-    Public Shared Red2DS As New DriverStations
-    Public Shared Red3DS As New DriverStations
-    Public Shared Blue1DS As New DriverStations
-    Public Shared Blue2DS As New DriverStations
-    Public Shared Blue3DS As New DriverStations
+    Public Shared Red1DS As New DriverStation
+    Public Shared Red2DS As New DriverStation
+    Public Shared Red3DS As New DriverStation
+    Public Shared Blue1DS As New DriverStation
+    Public Shared Blue2DS As New DriverStation
+    Public Shared Blue3DS As New DriverStation
     '2019 timing'
     Public Shared SandStormTime As Integer = 15
     Public Shared TeleTime As Integer = 135
@@ -41,12 +42,12 @@ Public Class Field
     End Enum
 
     Public Shared Sub HandleDSConnections()
-        Red1DS.newDriverStationConnection("1080", 0)
-        Red2DS.newDriverStationConnection("1885", 1)
-        Red3DS.newDriverStationConnection("384", 2)
-        Blue1DS.newDriverStationConnection("4444", 3)
-        Blue2DS.newDriverStationConnection("5555", 4)
-        Blue3DS.newDriverStationConnection("6666", 5)
+        Red1DS.newDriverStation(Main_Panel.RedTeam1.Text, 0)
+        'Red2DS.newDriverStation(Main_Panel.RedTeam2.Text, 1)
+        'Red3DS.newDriverStation(Main_Panel.RedTeam3.Text, 2)
+        'Blue1DS.newDriverStation(Main_Panel.BlueTeam1.Text, 3)
+        'Blue2DS.newDriverStation(Main_Panel.BlueTeam2.Text, 4)
+        'Blue3DS.newDriverStation(Main_Panel.BlueTeam3.Text, 5)
     End Sub
 
     Public Shared Sub handlePLC()
@@ -59,17 +60,13 @@ Public Class Field
             handleAutomatedScoring()
             handleEstops()
             PLC_Handler.handleLighting()
+            updateStatus()
             Thread.Sleep(PLC_LoopTime)
         Loop
     End Sub
 
     Public Shared Sub DisposeDS()
-        Red1DS.Dispose()
-        Red2DS.Dispose()
-        Red3DS.Dispose()
-        Blue1DS.Dispose()
-        Blue2DS.Dispose()
-        Blue3DS.Dispose()
+
     End Sub
 
     Public Shared Sub SendDS(Auto As Boolean, Enabled As Boolean)
@@ -89,6 +86,96 @@ Public Class Field
             Red1DS.Auto = False
             Red1DS.Enabled = False
             Red1DS.Estop = False
+        End If
+
+        If Auto = True And Red2DS.estop = False Then
+            Red2DS.auto = True
+            Red2DS.enabled = False
+        ElseIf Auto = True And Enabled = True And Red2DS.estop = False Then
+            Red2DS.auto = True
+            Red2DS.enabled = True
+        ElseIf Enabled = True And Red2DS.estop = False Then
+            Red2DS.auto = False
+            Red2DS.enabled = True
+        ElseIf Red2DS.estop = True Then
+            Red2DS.auto = False
+            Red2DS.enabled = False
+        ElseIf Red2Bypass = True Then
+            Red2DS.auto = False
+            Red2DS.enabled = False
+            Red2DS.estop = False
+        End If
+
+        If Auto = True And Red3DS.estop = False Then
+            Red3DS.auto = True
+            Red3DS.enabled = False
+        ElseIf Auto = True And Enabled = True And Red3DS.estop = False Then
+            Red3DS.auto = True
+            Red3DS.enabled = True
+        ElseIf Enabled = True And Red3DS.estop = False Then
+            Red3DS.auto = False
+            Red3DS.enabled = True
+        ElseIf Red3DS.estop = True Then
+            Red3DS.auto = False
+            Red3DS.enabled = False
+        ElseIf Red3Bypass = True Then
+            Red3DS.auto = False
+            Red3DS.enabled = False
+            Red3DS.estop = False
+        End If
+
+        If Auto = True And Blue1DS.estop = False Then
+            Blue1DS.auto = True
+            Blue1DS.enabled = False
+        ElseIf Auto = True And Enabled = True And Blue1DS.estop = False Then
+            Blue1DS.auto = True
+            Blue1DS.enabled = True
+        ElseIf Enabled = True And Blue1DS.estop = False Then
+            Blue1DS.auto = False
+            Blue1DS.enabled = True
+        ElseIf Blue1DS.estop = True Then
+            Blue1DS.auto = False
+            Blue1DS.enabled = False
+        ElseIf Blue1Bypass = True Then
+            Blue1DS.auto = False
+            Blue1DS.enabled = False
+            Blue1DS.estop = False
+        End If
+
+        If Auto = True And Blue2DS.estop = False Then
+            Blue2DS.auto = True
+            Blue2DS.enabled = False
+        ElseIf Auto = True And Enabled = True And Blue2DS.estop = False Then
+            Blue2DS.auto = True
+            Blue2DS.enabled = True
+        ElseIf Enabled = True And Blue2DS.estop = False Then
+            Blue2DS.auto = False
+            Blue2DS.enabled = True
+        ElseIf Blue2DS.estop = True Then
+            Blue2DS.auto = False
+            Blue2DS.enabled = False
+        ElseIf Blue2Bypass = True Then
+            Blue2DS.auto = False
+            Blue2DS.enabled = False
+            Blue2DS.estop = False
+        End If
+
+        If Auto = True And Blue3DS.estop = False Then
+            Blue3DS.auto = True
+            Blue3DS.enabled = False
+        ElseIf Auto = True And Enabled = True And Blue3DS.estop = False Then
+            Blue3DS.auto = True
+            Blue3DS.enabled = True
+        ElseIf Enabled = True And Blue3DS.estop = False Then
+            Blue3DS.auto = False
+            Blue3DS.enabled = True
+        ElseIf Blue3DS.estop = True Then
+            Blue3DS.auto = False
+            Blue3DS.enabled = False
+        ElseIf Blue3Bypass = True Then
+            Blue3DS.auto = False
+            Blue3DS.enabled = False
+            Blue3DS.estop = False
         End If
     End Sub
 

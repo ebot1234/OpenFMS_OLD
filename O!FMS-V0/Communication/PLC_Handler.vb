@@ -182,6 +182,86 @@ Public Class PLC_Handler
         MessageBox.Show("PLC is disconnecting.")
         modbusClient.Disconnect()
     End Sub
+    Public Shared Sub updateStatus()
+
+        'Updates the status of the DS connections'
+        If Red1DS.isDSConnected = True Then
+            DS_Linked_Red1 = True
+        Else
+            DS_Linked_Red1 = False
+        End If
+
+        If Red2DS.isDSConnected = True Then
+            DS_Linked_Red2 = True
+        Else
+            DS_Linked_Red2 = False
+        End If
+
+        If Red3DS.isDSConnected = True Then
+            DS_Linked_Red3 = True
+        Else
+            DS_Linked_Red3 = False
+        End If
+
+        If Blue1DS.isDSConnected = True Then
+            DS_Linked_Blue1 = True
+        Else
+            DS_Linked_Blue1 = False
+        End If
+
+        If Blue2DS.isDSConnected = True Then
+            DS_Linked_Blue2 = True
+        Else
+            DS_Linked_Blue2 = False
+        End If
+
+        If Blue3DS.isDSConnected = True Then
+            DS_Linked_Blue3 = True
+        Else
+            DS_Linked_Blue3 = False
+        End If
+
+        'Updates the status of the Robot connections'
+        If Red1DS.isRioConnected = True Then
+            Robot_Linked_Red1 = True
+        Else
+            Robot_Linked_Red1 = False
+        End If
+
+        If Red2DS.isRioConnected = True Then
+            Robot_Linked_Red2 = True
+        Else
+            Robot_Linked_Red2 = False
+        End If
+
+        If Red3DS.isRioConnected = True Then
+            Robot_Linked_Red3 = True
+        Else
+            Robot_Linked_Red3 = False
+        End If
+
+        If Blue1DS.isRioConnected = True Then
+            Robot_Linked_Blue1 = True
+        Else
+            Robot_Linked_Blue1 = False
+        End If
+
+        If Blue2DS.isRioConnected = True Then
+            Robot_Linked_Blue2 = True
+        Else
+            Robot_Linked_Blue2 = False
+        End If
+
+        If Blue3DS.isRioConnected = True Then
+            Robot_Linked_Blue3 = True
+        Else
+            Robot_Linked_Blue3 = False
+        End If
+
+        'Add Radio Status'
+
+    End Sub
+
 
     Public Shared Sub checkAlliances()
         If DS_Linked_Red1 = True And Robot_Linked_Red1 = True Or Red1Bypass = True Then

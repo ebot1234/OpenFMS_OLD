@@ -72,8 +72,8 @@ Public Class Main_Panel
         'Sets the settings for the AP and Switch'
         SetSettings("10.0.100.1", "OFMS", "OFMS", 12, 5, "ofmsrocks")
         Switch.Switch.address = "10.0.100.2"
-        Listen = True
-        'startDSListener()
+        Field_Comms.dsThread = New Threading.Thread(AddressOf Field_Comms.dsConnectThread)
+        Field_Comms.dsThread.Start()
     End Sub
 
 
@@ -547,7 +547,7 @@ Public Class Main_Panel
         End If
 
         If matchTimerLbl.Text = 0 Then
-            Listen = False
+
             updateField(MatchEnums.PostMatch)
             EndGameTimer.Stop()
             SandStormMessage.Text = ""
@@ -556,7 +556,6 @@ Public Class Main_Panel
     End Sub
 
     Private Sub AbortMatch_btn_Click(sender As Object, e As EventArgs) Handles AbortMatch_btn.Click
-        Listen = False
         HandleAbortedMatch()
         Field_Estop = True
         Field.updateField(MatchEnums.AbortMatch)
@@ -596,6 +595,7 @@ Public Class Main_Panel
         Blue_2_Estop = False
         Blue_3_Estop = False
     End Sub
+
 
     'FTA Group Buttons'
     Private Sub ConnectPLCBtn_Click(sender As Object, e As EventArgs) Handles ConnectPLCBtn.Click

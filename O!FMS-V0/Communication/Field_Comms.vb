@@ -1,18 +1,16 @@
 ﻿Imports System.Net
 Imports System.Net.Sockets
+Imports O_FMS_V0.Field
 
 Public Class Field_Comms
     Public Shared teamID
-    Public Shared r As Integer
-    Public Shared b As Integer
-    Public Shared redAlliance As DriverStations()
-    Public Shared blueAlliance As DriverStations()
     Public Shared allianceStation As Integer
-    Public Shared stationStatus As Integer
+    Public Shared stationStatus As Integer = 0
+    Public Shared dsThread As Threading.Thread
 
     Public Shared Sub dsConnectThread()
         Dim IpEndPoint As IPEndPoint = New IPEndPoint(IPAddress.Parse("127.0.0.1"), 1750)
-        Dim dsListener As TcpListener = New TcpListener(IpEndPoint)
+        Dim dsListener As New TcpListener(IpEndPoint)
 
         dsListener.Start()
 
@@ -33,58 +31,56 @@ Public Class Field_Comms
 
             teamID = teamid_1 & teamid_2
 
-            Dim stationStatus As Integer = -1
-
             Dim TCP_DS_IP = CType(TcpClient.Client.RemoteEndPoint, IPEndPoint).Address
             'Sets the Red DriverStations'
-            For r = 0 To 3
-                If redAlliance(b).TeamNum = teamID Then
-                    redAlliance(b).setDsConnections(TCP_DS_IP, TcpClient)
-                End If
+            If Red1DS.Team_Number = teamID Then
+                Red1DS.setDsConnections(TCP_DS_IP, TcpClient)
+                stationStatus = 0
+                allianceStation = 0
+            ElseIf Red2DS.Team_Number = teamID Then
+                Red2DS.setDsConnections(TCP_DS_IP, TcpClient)
+                stationStatus = 0
+                allianceStation = 1
+            ElseIf Red3DS.Team_Number = teamID Then
+                Red3DS.setDsConnections(TCP_DS_IP, TcpClient)
+                stationStatus = 0
+                allianceStation = 2
+                'Sets the Blue DriverStations'
+            ElseIf Blue1DS.Team_Number = teamID Then
+                Blue1DS.setDsConnections(TCP_DS_IP, TcpClient)
+                stationStatus = 0
+                allianceStation = 3
+            ElseIf Blue2DS.Team_Number = teamID Then
+                Blue2DS.setDsConnections(TCP_DS_IP, TcpClient)
+                stationStatus = 0
+                allianceStation = 4
+            ElseIf Blue3DS.Team_Number = teamID Then
+                Blue3DS.setDsConnections(TCP_DS_IP, TcpClient)
+                stationStatus = 0
+                allianceStation = 5
+            Else
+                'DS Rejected since it is not in the match'
+                stationStatus = 1
+            End If
 
-            Next
-            'Sets the Blue DriverStations'
-            For b = 0 To 3
-                If blueAlliance(b).TeamNum = teamID Then
-                    blueAlliance(b).setDsConnections(TCP_DS_IP, TcpClient)
-                End If
-
-            Next
-
-            If Field.fieldStatus <> Field.MatchEnums.PreMatch Then
+            'If the match is running exit the while loop since ds discovery is over'
+            If Field.fieldStatus = Field.MatchEnums.SandStorm Or fieldStatus = MatchEnums.TeleOp Or fieldStatus = MatchEnums.EndGameWarning Or fieldStatus =
+                MatchEnums.EndGame Or fieldStatus = MatchEnums.AbortMatch Or fieldStatus = MatchEnums.PostMatch Then
                 Exit While
             End If
 
-            stationStatus = 0
+            Dim assignmentPacket(5) As Byte
+            assignmentPacket(0) = 0 'packet size'
+            assignmentPacket(1) = 3 'packet size'
+            assignmentPacket(2) = 25 'packet type'
+            assignmentPacket(3) = allianceStation
+            assignmentPacket(4) = stationStatus 'station status, need to add station checking'
 
-            For r = 0 To 3
-                allianceStation = r
-                Dim assignmentPacket(5) As Byte
-                assignmentPacket(0) = 0 'packet size'
-                assignmentPacket(1) = 3 'packet size'
-                assignmentPacket(2) = 25 'packet type'
-                assignmentPacket(3) = allianceStation
-                assignmentPacket(4) = stationStatus 'station status, need to add station checking'
+            TcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
 
-                TcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
-            Next
-
-            For b = 0 To 3
-                allianceStation = b
-                Dim assignmentPacket(5) As Byte
-                assignmentPacket(0) = 0 'packet size'
-                assignmentPacket(1) = 3 'packet size'
-                assignmentPacket(2) = 25 'packet type'
-                assignmentPacket(3) = allianceStation
-                assignmentPacket(4) = stationStatus 'station status, need to add station checking'
-
-                TcpClient.GetStream.Write(assignmentPacket, 0, assignmentPacket.Length)
-            Next
-
-
-            If stationStatus = -1 Then
-                TcpClient.Close()
-            End If
+            'If stationStatus = -1 Then
+            'TcpClient.Close()
+            'End If
 
         End While
 
