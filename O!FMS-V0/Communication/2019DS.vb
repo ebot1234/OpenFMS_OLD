@@ -172,10 +172,19 @@ Public Class DriverStation
             data(5) = 5
         End If
 
-        'driver station match type is practice for right now, CHANGE THIS?'
+        'If Match is not Elims'
+        If Main_Panel.ElimMode = False Then
+            data(6) = 2
+            'If Match is Elims
+        ElseIf Main_Panel.ElimMode = True Then
+            data(6) = 3
+            'Else practice mode'
+        Else
+            data(6) = 1
+        End If
         data(6) = 1
 
-        'Match Number, ADD THE ACTUAL MATCH NUM'
+        'Match Number'
         data(7) = 1
         data(8) = 1
 
