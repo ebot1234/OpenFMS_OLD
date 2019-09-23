@@ -111,6 +111,8 @@ Public Class DriverStation
                 If isRadioConnected = True Then
                     batteryVoltage = data(6) & "." & data(7)
                 End If
+            Else
+                Exit While
             End If
         End While
     End Sub
