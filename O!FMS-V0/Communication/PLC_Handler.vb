@@ -258,7 +258,7 @@ Public Class PLC_Handler
             Robot_Linked_Blue3 = False
         End If
 
-        'Add Radio Status'
+        Main_Panel.RedVolt1.Text = Red1DS.batteryVoltage.ToString
 
     End Sub
 

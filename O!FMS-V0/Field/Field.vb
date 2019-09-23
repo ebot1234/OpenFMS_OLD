@@ -60,7 +60,6 @@ Public Class Field
             handleAutomatedScoring()
             handleEstops()
             PLC_Handler.handleLighting()
-            updateStatus()
             Thread.Sleep(PLC_LoopTime)
         Loop
     End Sub

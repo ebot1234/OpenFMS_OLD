@@ -22,6 +22,11 @@ Public Class DriverStation
     Public estop = False
     Public auto = False
     Public enabled = False
+    Dim float() As Single = {1.0F, 1.0F, 1.0F}
+
+    Public batteryVoltage As Double
+
+
 
     Dim pingThreadRef As ThreadStart
     Dim pingThread As Thread
@@ -29,7 +34,10 @@ Public Class DriverStation
     Dim sendDataThread As Thread
 
     Dim udpClient As UdpClient
+    Dim udpListener As UdpClient
     Public tcpClient As TcpClient
+    Dim endPoint As IPEndPoint
+
 
     Public Sub newDriverStation(teamNumber As String, allianceStationNumber As Integer)
 
@@ -57,10 +65,6 @@ Public Class DriverStation
 
         radioIp = IPAddress.Parse(robotIp.ToString().Substring(0, robotIp.ToString().Length - 1) + "1")
 
-        pingThreadRef = New ThreadStart(AddressOf robotPingThread)
-        pingThread = New Thread(pingThreadRef)
-        pingThread.Start()
-
         Team_Number = teamNumber 'This may not be needed'
         stationId = allianceStationNumber
 
@@ -84,24 +88,29 @@ Public Class DriverStation
         driverStationIp = dsIp
         tcpClient = tcpConnection
         udpClient = New UdpClient(dsIp.ToString(), 1121)
+        endPoint = New IPEndPoint(IPAddress.Parse(driverStationIp.ToString), 0)
+        udpListener = New UdpClient(1160)
+
+        pingThreadRef = New ThreadStart(AddressOf driverstationStatusThread)
+        pingThread = New Thread(pingThreadRef)
+        pingThread.Start()
     End Sub
 
-    Public Sub robotPingThread()
-        Dim ping As New Ping()
-        Dim timeout As Integer = 5
-
+    Public Sub driverstationStatusThread()
         While closed = False
-            'Ping Robot Radio'
-            Dim results As PingReply = ping.Send(radioIp, timeout)
-            isRadioConnected = results.Status = IPStatus.Success
+            Dim data As [Byte]() = udpListener.Receive(EndPoint)
+            Dim teamid_1 = data(4) << 8
+            Dim teamid_2 = data(5)
+            Dim teamId = teamid_1 & teamid_2
 
-            'Ping RoboRio'
-            results = ping.Send(robotIp, timeout)
-            isRioConnected = results.Status = IPStatus.Success
+            If teamId = Team_Number Then
+                isDSConnected = True
+                isRadioConnected = data(3) & &H10 <> 0
+                isRioConnected = data(3) & &H20 <> 0
 
-            If driverStationIp IsNot Nothing Then
-                results = ping.Send(driverStationIp, timeout)
-                isDSConnected = results.Status = IPStatus.Success
+                If isRadioConnected = True Then
+                    batteryVoltage = data(6) & "." & data(7)
+                End If
             End If
         End While
     End Sub

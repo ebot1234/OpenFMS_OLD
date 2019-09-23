@@ -329,6 +329,8 @@ Public Class Main_Panel
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
         Ctime.Text = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        'Updates the DS Data on the UI'
+        updateStatus()
 
         'Estops
         If PLC_Estop_Red1 = True Then
