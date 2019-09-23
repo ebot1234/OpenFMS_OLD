@@ -182,7 +182,6 @@ Public Class DriverStation
         Else
             data(6) = 1
         End If
-        data(6) = 1
 
         'Match Number'
         data(7) = 1
