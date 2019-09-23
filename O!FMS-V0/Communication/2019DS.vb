@@ -1,12 +1,6 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Net
-Imports System.Net.NetworkInformation
+﻿Imports System.Net
 Imports System.Net.Sockets
-Imports System.Text
 Imports System.Threading
-Imports System.Threading.Tasks
 
 Public Class DriverStation
     Public Team_Number As Integer
@@ -23,16 +17,11 @@ Public Class DriverStation
     Public auto = False
     Public enabled = False
     Dim float() As Single = {1.0F, 1.0F, 1.0F}
-
     Public batteryVoltage As Double
-
-
-
     Dim pingThreadRef As ThreadStart
     Dim pingThread As Thread
     Dim sendDataThreadRef As ThreadStart
     Dim sendDataThread As Thread
-
     Dim udpClient As UdpClient
     Dim udpListener As UdpClient
     Public tcpClient As TcpClient
