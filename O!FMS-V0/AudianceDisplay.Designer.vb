@@ -66,7 +66,6 @@ Partial Class AudianceDisplay
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.PreStartPanel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -379,7 +378,6 @@ Partial Class AudianceDisplay
         'PrestartCover
         '
         Me.PrestartCover.BackColor = System.Drawing.Color.PaleGoldenrod
-        Me.PrestartCover.Controls.Add(Me.Label16)
         Me.PrestartCover.Controls.Add(Me.WinningAlliance)
         Me.PrestartCover.Controls.Add(Me.Winner)
         Me.PrestartCover.Controls.Add(Me.FinalScoreBox)
@@ -392,7 +390,7 @@ Partial Class AudianceDisplay
         '
         Me.WinningAlliance.AutoSize = True
         Me.WinningAlliance.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.WinningAlliance.Location = New System.Drawing.Point(699, 44)
+        Me.WinningAlliance.Location = New System.Drawing.Point(722, 72)
         Me.WinningAlliance.Name = "WinningAlliance"
         Me.WinningAlliance.Size = New System.Drawing.Size(139, 39)
         Me.WinningAlliance.TabIndex = 2
@@ -403,7 +401,7 @@ Partial Class AudianceDisplay
         Me.Winner.AutoSize = True
         Me.Winner.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Winner.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Winner.Location = New System.Drawing.Point(547, 38)
+        Me.Winner.Location = New System.Drawing.Point(570, 69)
         Me.Winner.Name = "Winner"
         Me.Winner.Size = New System.Drawing.Size(146, 42)
         Me.Winner.TabIndex = 1
@@ -590,15 +588,6 @@ Partial Class AudianceDisplay
         Me.Label7.Text = "Team Name"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(582, 128)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(220, 13)
-        Me.Label16.TabIndex = 3
-        Me.Label16.Text = "View full breakdown at: TheBlueAlliance.com"
-        '
         'AudianceDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -689,5 +678,4 @@ Partial Class AudianceDisplay
     Friend WithEvents Label3 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
 End Class

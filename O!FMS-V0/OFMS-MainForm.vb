@@ -3,7 +3,7 @@ Imports O_FMS_V0.PLC_Handler
 Imports O_FMS_V0.Field
 Imports O_FMS_V0.AccessPoint
 Imports O_FMS_V0.Elimination_Matches
-Imports O_FMS_V0.DriverStations
+Imports O_FMS_V0.DisplayServer
 Imports O_FMS_V0.Tba
 
 
@@ -55,6 +55,8 @@ Public Class Main_Panel
     Public Shared alliance2 As String
     Public Shared type As String = "qm"
     Public Shared auto_score As Boolean = False
+
+    Public Shared D_Server As DisplayServer
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the '_O_FMSDataSet.FMSMaster' table. You can move, or remove it, as needed.
@@ -623,7 +625,7 @@ Public Class Main_Panel
         AudianceDisplay.FinalScoreBox.Hide()
         AudianceDisplay.Winner.Hide()
         AudianceDisplay.WinningAlliance.Hide()
-        AudianceDisplay.Label16.Hide()
+        'AudianceDisplay.Label16.Hide()
     End Sub
 
     Private Sub MatchPlay_Click(sender As Object, e As EventArgs) Handles MatchPlay.Click
@@ -632,7 +634,7 @@ Public Class Main_Panel
         AudianceDisplay.FinalScoreBox.Hide()
         AudianceDisplay.Winner.Hide()
         AudianceDisplay.WinningAlliance.Hide()
-        AudianceDisplay.Label16.Hide()
+        'AudianceDisplay.Label16.Hide()
     End Sub
 
     Private Sub FinalScoreBtn_Click(sender As Object, e As EventArgs) Handles FinalScoreBtn.Click
@@ -641,7 +643,7 @@ Public Class Main_Panel
         AudianceDisplay.FinalScoreBox.Show()
         AudianceDisplay.Winner.Show()
         AudianceDisplay.WinningAlliance.Show()
-        AudianceDisplay.Label16.Show()
+        'AudianceDisplay.Label16.Show()
     End Sub
 
     Private Sub RBypass1_CheckedChanged(sender As Object, e As EventArgs) Handles RBypass1.CheckedChanged
@@ -848,5 +850,9 @@ Public Class Main_Panel
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Scoring_Panel.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Server()
     End Sub
 End Class

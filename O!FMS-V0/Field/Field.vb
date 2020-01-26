@@ -25,6 +25,7 @@ Public Class Field
     Public Shared EndgameWarningTime As Integer = 30
     Public Shared EndGameTime As Integer = 20
     Public Shared GameTime As Integer = 0
+    Public Shared AudienceDisplay As New Audience2019
 
     Public Shared fieldStatus
 

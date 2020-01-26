@@ -23,7 +23,6 @@ Public Class Field_Comms
 
             If Buffer(0) <> 0 And Buffer(1) <> 24 And Buffer(2) <> 3 Then
                 TcpClient.Close()
-                MessageBox.Show("Client was rejected since inital packet wasn't right")
             End If
 
             Dim teamid_1 = Buffer(3) << 8

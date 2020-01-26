@@ -53,6 +53,9 @@
       <HintPath>..\packages\EasyModbusTCP.5.0.0\lib\EasyModbus.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="LiteGuard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LiteGuard.1.1.0\lib\net35\LiteGuard.dll</HintPath>
     </Reference>
@@ -123,6 +126,7 @@
     <Compile Include="AudianceDisplay.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Communication\2019Displays.vb" />
     <Compile Include="Communication\2019DS.vb" />
     <Compile Include="Communication\Field_Comms.vb" />
     <Compile Include="Field\Rankings.vb" />
@@ -182,6 +186,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Schedules\Elimination_Matches.vb" />
+    <Compile Include="Schedules\SchedulePrinter.vb" />
     <Compile Include="Schedules\Schedule_Generator.vb" />
     <Compile Include="Scoring Panel.Designer.vb">
       <DependentUpon>Scoring Panel.vb</DependentUpon>

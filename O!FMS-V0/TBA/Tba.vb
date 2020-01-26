@@ -1,4 +1,5 @@
 ﻿Imports Newtonsoft.Json.Linq
+Imports Newtonsoft.Json
 Imports System.Net
 Imports System.IO
 Imports System.Security.Cryptography
@@ -61,40 +62,32 @@ Public Class Tba
         Return results
     End Function
 
-    'This posts anything you need to the blue alliance api'
-    Shared Function postRequest(resource As String, action As String, body As String)
-        Dim request As HttpWebRequest = Nothing
-        Dim results As String = ""
+    Shared Function postJson(resource As String, action As String, body As String) As Boolean
+        Dim webClient As New WebClient()
+        Dim resByte As Byte()
+        Dim reqString() As Byte
 
         Dim path As String = String.Format("https://www.thebluealliance/api/trusted/v1/event/{0}/{1}/{2}", client.eventCode, resource, action)
 
         Dim signature = GetHash(client.secret & path)
 
-        request = DirectCast(WebRequest.Create(path), HttpWebRequest)
-        request.ContentType = "application/json"
-        request.ContentLength = body.Length
-        request.Method = "POST"
-        request.Headers.Add("X-TBA-Auth-Id", client.secretId)
-        request.Headers.Add("X-TBA-Auth-Sig", signature)
-
-        Dim stream = request.GetRequestStream()
-        Dim sendBytes = Encoding.UTF8.GetBytes(body)
-        stream.Write(sendBytes, 0, sendBytes.Length())
-
-        Dim response = request.GetResponse().GetResponseStream()
-
-        Dim reader As New StreamReader(response)
-        results = reader.ReadToEnd()
-        reader.Close()
-        response.Close()
-
-        Return results
+        Try
+            webClient.Headers("content-type") = "application/json"
+            webClient.Headers.Add("X-TBA-Auth-Id", client.secretId)
+            webClient.Headers.Add("X-TBA-Auth-Sig", signature)
+            reqString = Encoding.Default.GetBytes(JsonConvert.SerializeObject(body, Formatting.Indented))
+            resByte = webClient.UploadData(path, "post", reqString)
+            webClient.Dispose()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
     End Function
 
     Shared Sub postMatch()
         createBaseMatchJSON()
         Dim jsonData As String = File.ReadAllText("C:\OFMS\UpdateMatch1.txt")
-        postRequest("matches", "update", jsonData)
+        postJson("matches", "update", jsonData)
     End Sub
 
     'Gets a MD5 Hash from a string'
