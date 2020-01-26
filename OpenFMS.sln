@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 15 for Windows Desktop
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OpenFMS", "OpenFMS\OpenFMS.vbproj", "{6CDFE7D0-2AF0-4DD9-91A7-D1DF37CA3502}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CDFE7D0-2AF0-4DD9-91A7-D1DF37CA3502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CDFE7D0-2AF0-4DD9-91A7-D1DF37CA3502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CDFE7D0-2AF0-4DD9-91A7-D1DF37CA3502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CDFE7D0-2AF0-4DD9-91A7-D1DF37CA3502}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59131ECF-100A-4EED-AEFB-0B5CD07EF2AB}
+	EndGlobalSection
+EndGlobal
