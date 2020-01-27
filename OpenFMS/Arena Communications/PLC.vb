@@ -45,30 +45,28 @@ Public Class PLC
     Public Blue_Lower_Port_Count As Integer
 
     'Year-Specific Coils'
-    Public R1_Initiation_Line_Crossed As Boolean
-    Public R2_Initiation_Line_Crossed As Boolean
-    Public R3_Initiation_Line_Crossed As Boolean
-    Public B1_Initiation_Line_Crossed As Boolean
-    Public B2_Initiation_Line_Crossed As Boolean
-    Public B3_Initiation_Line_Crossed As Boolean
-    Public Red_Generator_Balenced As Boolean
-    Public Blue_Generator_Balenced As Boolean
-    Public Red_Rotation_Completed As Boolean
-    Public Blue_Rotation_Completed As Boolean
-    Public Red_Position_Completed As Boolean
-    Public Blue_Position_Completed As Boolean
-    Public R1_Hanging As Boolean
-    Public R2_Hanging As Boolean
-    Public R3_Hanging As Boolean
-    Public B1_Hanging As Boolean
-    Public B2_Hanging As Boolean
-    Public B3_Hanging As Boolean
-    Public R1_Parked As Boolean
-    Public R2_Parked As Boolean
-    Public R3_Parked As Boolean
-    Public B1_Parked As Boolean
-    Public B2_Parked As Boolean
-    Public B3_Parked As Boolean
+    Public R1_Initiation_Line_Crossed As Boolean()
+    Public R2_Initiation_Line_Crossed As Boolean()
+    Public R3_Initiation_Line_Crossed As Boolean()
+    Public B1_Initiation_Line_Crossed As Boolean()
+    Public B2_Initiation_Line_Crossed As Boolean()
+    Public B3_Initiation_Line_Crossed As Boolean()
+    Public Red_Generator_Balenced As Boolean()
+    Public Blue_Generator_Balenced As Boolean()
+    Public Red_Rotation_Completed As Boolean()
+    Public Blue_Rotation_Completed As Boolean()
+    Public Red_Position_Completed As Boolean()
+    Public Blue_Position_Completed As Boolean()
+    Public R1_Hanging As Boolean()
+    Public R2_Hanging As Boolean()
+    Public R3_Hanging As Boolean()
+    Public B3_Hanging As Boolean()
+    Public R1_Parked As Boolean()
+    Public R2_Parked As Boolean()
+    Public R3_Parked As Boolean()
+    Public B1_Parked As Boolean()
+    Public B2_Parked As Boolean()
+    Public B3_Parked As Boolean()
 
 
 
@@ -109,6 +107,6 @@ Public Class PLC
         B3_Estop = PLC_Client.ReadCoils(MB_Estop_Addresses(5), 1)
 
         'Reads Generator Sensors'
-        Red_Rotation_Completed = PLC_Client.ReadCoils()
+        Red_Rotation_Completed = PLC_Client.ReadCoils(MB_Year_Specific_Coils(0), 1)
     End Sub
 End Class
