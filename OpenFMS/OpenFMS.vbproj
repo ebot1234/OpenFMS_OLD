@@ -91,6 +91,7 @@
     </Compile>
     <Compile Include="Field\Arena.vb" />
     <Compile Include="Field\Field Lighting.vb" />
+    <Compile Include="Field\GameSpecificData.vb" />
     <Compile Include="Match Play UI.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +118,7 @@
     <Compile Include="Network\Switch.vb" />
     <Compile Include="Scoring\Scoring.vb" />
     <Compile Include="SQL\SQL.vb" />
+    <Compile Include="TBA\The Blue Alliance.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Event Setup.resx">

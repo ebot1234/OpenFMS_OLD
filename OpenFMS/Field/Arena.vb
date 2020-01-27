@@ -12,8 +12,11 @@ Public Class Arena
     'Field Networking'
     Public Shared AP As New Access_Point
     Public Shared Switch As New Switch
-
+    'Field Logic Controller'
     Public Shared PLC As New PLC
+    'Game Data String'
+    Public Shared Red_GameData As String
+    Public Shared Blue_GameData As String
 
     Public Sub UpdateField(Mode As String)
         Select Case Mode
