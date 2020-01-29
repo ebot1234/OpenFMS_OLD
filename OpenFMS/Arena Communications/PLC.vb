@@ -80,6 +80,7 @@ Public Class PLC
             WriteCoils()
             WriteRegisters()
             ReadCoils()
+            ReadRegisters()
         End While
     End Sub
 
@@ -97,6 +98,10 @@ Public Class PLC
         PLC_Client.WriteSingleRegister(MB_Register_Addresses(6), Blue3_Number)
     End Sub
 
+    Public Sub ReadRegisters()
+
+    End Sub
+
     Public Sub ReadCoils()
         'Reads PLC Estop Buttons'
         R1_Estop = PLC_Client.ReadCoils(MB_Estop_Addresses(0), 1)
@@ -106,7 +111,10 @@ Public Class PLC
         B2_Estop = PLC_Client.ReadCoils(MB_Estop_Addresses(4), 1)
         B3_Estop = PLC_Client.ReadCoils(MB_Estop_Addresses(5), 1)
 
-        'Reads Generator Sensors'
+        'Reads Trench and Generator Sensors'
         Red_Rotation_Completed = PLC_Client.ReadCoils(MB_Year_Specific_Coils(0), 1)
+        Blue_Rotation_Completed = PLC_Client.ReadCoils(MB_Year_Specific_Coils(1), 1)
+        Red_Generator_Balenced = PLC_Client.ReadCoils(MB_Year_Specific_Coils(2), 1)
+        Blue_Generator_Balenced = PLC_Client.ReadCoils(MB_Year_Specific_Coils(3), 1)
     End Sub
 End Class
