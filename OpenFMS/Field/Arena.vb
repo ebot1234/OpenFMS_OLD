@@ -17,6 +17,12 @@ Public Class Arena
     'Game Data String'
     Public Shared Red_GameData As String
     Public Shared Blue_GameData As String
+    Public Shared Auto_Enabled As Boolean
+    Public Shared Tele_Enabled As Boolean
+    'Field LED Controllers'
+    Public Shared Red_LED_Controller As New Field_Lighting
+    Public Shared Blue_LED_Controller As New Field_Lighting
+    Public Shared Generator_LED_Controller As New Field_Lighting
 
     Public Sub UpdateField(Mode As String)
         Select Case Mode

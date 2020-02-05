@@ -8,6 +8,7 @@ Public Class PLC
     Public MB_Coil_Addresses As Integer() = {0, 1, 2, 3, 4, 5} 'Default Year to Year Addresses'
     Public MB_Register_Addresses As Integer() = {0, 1, 2, 3, 4, 5, 6} 'ViewMarq Addresses'
     Public MB_Year_Specific_Coils As Integer() = {40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54}
+    Public MB_Year_Specific_Registers As Integer() = {40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54}
     Public PLC_Address As String
     Public PLC_Client As ModbusClient
 
@@ -37,12 +38,12 @@ Public Class PLC
     Public Blue3_Number As Integer
 
     'Year-Specific Counters'
-    Public Red_Inner_Port_Count As Integer
-    Public Red_Outer_Port_Count As Integer
-    Public Red_Lower_Port_Count As Integer
-    Public Blue_Inner_Port_Count As Integer
-    Public Blue_Outer_Port_Count As Integer
-    Public Blue_Lower_Port_Count As Integer
+    Public Red_Inner_Port_Count As Integer()
+    Public Red_Outer_Port_Count As Integer()
+    Public Red_Lower_Port_Count As Integer()
+    Public Blue_Inner_Port_Count As Integer()
+    Public Blue_Outer_Port_Count As Integer()
+    Public Blue_Lower_Port_Count As Integer()
 
     'Year-Specific Coils'
     Public R1_Initiation_Line_Crossed As Boolean()
@@ -99,6 +100,13 @@ Public Class PLC
     End Sub
 
     Public Sub ReadRegisters()
+        'Reads the Powercell Counters'
+        Red_Inner_Port_Count = PLC_Client.ReadHoldingRegisters(MB_Year_Specific_Registers(0), 1)
+        Red_Outer_Port_Count = PLC_Client.ReadHoldingRegisters(MB_Year_Specific_Registers(1), 1)
+        Red_Lower_Port_Count = PLC_Client.ReadHoldingRegisters(MB_Year_Specific_Registers(2), 1)
+        Blue_Inner_Port_Count = PLC_Client.ReadHoldingRegisters(MB_Year_Specific_Registers(3), 1)
+        Blue_Outer_Port_Count = PLC_Client.ReadHoldingRegisters(MB_Year_Specific_Registers(4), 1)
+        Blue_Lower_Port_Count = PLC_Client.ReadHoldingRegisters(MB_Year_Specific_Registers(5), 1)
 
     End Sub
 
