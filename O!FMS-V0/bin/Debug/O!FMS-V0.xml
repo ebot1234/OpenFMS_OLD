@@ -102,66 +102,6 @@ O!FMS-V0
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:O_FMS_V0._O_FMSDataSet.FMSMasterDataTable">
-<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member>
-<member name="T:O_FMS_V0._O_FMSDataSet.FMSMasterRow">
-<summary>
-Represents strongly named DataRow class.
-</summary>
-</member>
-<member name="T:O_FMS_V0._O_FMSDataSet.FMSMasterRowChangeEvent">
-<summary>
-Row event argument class
-</summary>
-</member>
-<member name="T:O_FMS_V0._O_FMSDataSetTableAdapters.FMSMasterTableAdapter">
-<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member>
-<member name="T:O_FMS_V0._O_FMSDataSetTableAdapters.TableAdapterManager">
-<summary>
-TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
-</summary>
-</member>
-<member name="M:O_FMS_V0._O_FMSDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(O_FMS_V0._O_FMSDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
-<summary>
-Update rows in top-down order.
-</summary>
-</member>
-<member name="M:O_FMS_V0._O_FMSDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(O_FMS_V0._O_FMSDataSet,System.Collections.Generic.List{System.Data.DataRow})">
-<summary>
-Insert rows in top-down order.
-</summary>
-</member>
-<member name="M:O_FMS_V0._O_FMSDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(O_FMS_V0._O_FMSDataSet,System.Collections.Generic.List{System.Data.DataRow})">
-<summary>
-Delete rows in bottom-up order.
-</summary>
-</member>
-<member name="M:O_FMS_V0._O_FMSDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
-<summary>
-Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
-</summary>
-</member>
-<member name="M:O_FMS_V0._O_FMSDataSetTableAdapters.TableAdapterManager.UpdateAll(O_FMS_V0._O_FMSDataSet)">
-<summary>
-Update all changes to the dataset.
-</summary>
-</member>
-<member name="T:O_FMS_V0._O_FMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
-<summary>
-Update Order Option
-</summary>
-</member>
-<member name="T:O_FMS_V0._O_FMSDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
-<summary>
-Used to sort self-referenced table's rows
-</summary>
-</member>
 <member name="T:O_FMS_V0._O_FMSDataSet1">
 <summary>
 Represents a strongly typed in-memory cache of data.
